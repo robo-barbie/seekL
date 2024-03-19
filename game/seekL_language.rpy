@@ -44,9 +44,19 @@ init python:
         }
     }
 
+    required_runs = {
+        "select":"", 
+        "from":"table_name", 
+        "where_column":"", 
+        "where_symbol":"", 
+        "where_value":"", 
+        "join":""
+    }
+
     def process_seekL(t): 
         global tables 
         global seekL_output
+        global required_runs #use this to check to see if we can proceed (did they run the right thing)
 
         t = t.lower() 
         t = t.replace("\n", " ")

@@ -1,13 +1,13 @@
 
 init python: 
     seekL_button_color = "#48cb3a"
-    seekL_window_size = 700
+    seekL_window_size = 800
     seekL_sidebar_size = 200 
     seekL_height = 950
     seekL_height_half = 475
     seekL_button_height = 50 
 
-    seekL_chat_text_size = 30 
+    seekL_chat_text_size = 25 
     seekL_choice_window_height = 200
 
     seekL_text_entry = ""
@@ -30,11 +30,11 @@ screen seekL_ui:
                     button: 
                         xsize seekL_sidebar_size 
                         background seekL_button_color
-                        text "all" xalign 0.5 bold True
-                    button: 
-                        xsize seekL_sidebar_size
-                        background seekL_button_color 
-                        text "odxny" xalign 0.5 bold True
+                        text "chat" xalign 0.5 bold True
+                    # button: 
+                    #     xsize seekL_sidebar_size
+                    #     background seekL_button_color 
+                    #     text "odxny" xalign 0.5 bold True
             # actual chat 
             frame: 
                 xsize seekL_window_size + seekL_sidebar_size
@@ -49,7 +49,7 @@ screen seekL_ui:
 
                         vbox: 
                             box_wrap True
-                            spacing 30 
+                            spacing 50 
                             null height 10
                             for idx, t in enumerate(channels[current_window]): 
                                 window: 
@@ -62,30 +62,42 @@ screen seekL_ui:
                                         xpos 120
                                         xsize 80
                                         size seekL_chat_text_size 
-                                        color "#ffffff"
+                                        if channels_names[current_window][idx] in character_colors: 
+                                            color character_colors[channels_names[current_window][idx]] + "85"
+                                        else: 
+                                            color "#FFFFFF85"
                                     text t: 
                                         xpos 160 
                                         xanchor 0.0
                                         text_align 0.0
                                         size seekL_chat_text_size 
                                         xmaximum seekL_window_size
-                                        color "#bcfffe"
+                                        if channels_names[current_window][idx] in character_colors: 
+                                            color character_colors[channels_names[current_window][idx]]
+                                        else: 
+                                            color "#FFFFFF"
                                         # line_spacing 10
                             null height 10 
                     frame: 
-                        background "#323232"
+                        background "#ffffff15"
                         xfill True 
                         yfill True 
-                        text " > ": 
-                            size seekL_chat_text_size
+                        # text " > ": 
+                        #     size seekL_chat_text_size
                 frame: 
-                    xsize 1 
+                    xsize 2 
                     ysize seekL_height - seekL_choice_window_height
                     xpos 139
-                    background "#ffffff50"
+                    background "#ffffff23"
 
-                # if current_window == active_window: 
-                #     text who_is_typing color "#FFFFFF" size 20 yalign 1.0 
+                if current_window == active_window: 
+                    text who_is_typing:
+                        color "#FFFFFF85" 
+                        size 20 
+                        #yalign 1.0 
+                        ypos 720
+                        xalign 0.9
+
 
 
         # interactive other stuff 
@@ -102,13 +114,22 @@ screen seekL_ui:
                         caret_blink True 
                         multiline True 
                         copypaste True 
+                        #text_size seekL_chat_text_size
                         value VariableInputValue("seekL_text_send")
-                button: 
-                    xalign 0.5
-                    background seekL_button_color
-                    ysize seekL_button_height
-                    text "execute" bold True
-                    action Function(process_seekL, seekL_text_send) #SetVariable("seekL_text_entry", seekL_text_send)
+                hbox: 
+                    xalign 0.5 
+                    spacing 100 
+                    # button: 
+                    #     xalign 0.5
+                    #     background seekL_button_color
+                    #     ysize seekL_button_height
+                    #     text "commands" bold True
+                    button: 
+                        xalign 0.5
+                        background seekL_button_color
+                        ysize seekL_button_height
+                        text "execute" bold True
+                        action Function(process_seekL, seekL_text_send) #SetVariable("seekL_text_entry", seekL_text_send)
                 frame: 
                     xsize seekL_window_size 
                     ysize seekL_height_half
@@ -121,23 +142,23 @@ screen seekL_ui:
                         hbox: 
                             spacing 30
                             for o in seekL_output: 
-                                text o line_spacing 5 
+                                text o line_spacing 5 size 30
 
-            # sidebar 
-            frame: 
-                xsize seekL_sidebar_size
-                ysize seekL_height
-                vbox: 
-                    spacing 5 
-                    button: 
-                        xfill True 
-                        background seekL_button_color 
-                        text "seekL" bold True
-                    button: 
-                        xfill True 
-                        background seekL_button_color 
-                        text "phoneLog" bold True
-                    button: 
-                        xfill True 
-                        background seekL_button_color 
-                        text "emailFeed" bold True
+            # # sidebar 
+            # frame: 
+            #     xsize seekL_sidebar_size
+            #     ysize seekL_height
+            #     vbox: 
+            #         spacing 5 
+            #         button: 
+            #             xfill True 
+            #             background seekL_button_color 
+            #             text "seekL" bold True
+            #         button: 
+            #             xfill True 
+            #             background seekL_button_color 
+            #             text "phoneLog" bold True
+            #         button: 
+            #             xfill True 
+            #             background seekL_button_color 
+            #             text "emailFeed" bold True

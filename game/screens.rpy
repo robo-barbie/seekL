@@ -210,7 +210,7 @@ screen choice(items):
 
     vbox:
         for i in items:
-            textbutton i.caption action i.action
+            textbutton "> " + i.caption action i.action text_align 0.0 background None 
 
 
 style choice_vbox is vbox
@@ -218,11 +218,12 @@ style choice_button is button
 style choice_button_text is button_text
 
 style choice_vbox:
-    xalign 0.5
-    ypos 405
-    yanchor 0.5
+    xpos 50
+    xanchor 0.0
+    ypos 870
+    yanchor 0.0
 
-    spacing gui.choice_spacing
+    spacing 0 # gui.choice_spacing
 
 style choice_button is default:
     properties gui.button_properties("choice_button")

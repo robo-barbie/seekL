@@ -3,9 +3,29 @@
 
 init python: 
 
+    ### code to add choices to history window
+    def log_menu_choice(item_text):
+        if item_text != "Menu Prediction":
+            """Log a choice-menu choice, which is passed in as item_text.
+            Implementation based on add_history() in renpy/character.py."""
+            h = renpy.character.HistoryEntry()
+            h.who = ""
+            h.what = ">> " + item_text
+            h.what_args = []
+
+            if renpy.game.context().rollback:
+                h.rollback_identifier = renpy.game.log.current.identifier
+            else:
+                h.rollback_identifier = None
+
+            _history_list.append(h)
+
+            while len(_history_list) > renpy.config.history_length:
+                _history_list.pop(0)
+
     ## basic variables 
 
-    player_fname = ""
+    player_fname = "thrim"
     # player_lname = ""
 
     # autoscroll vars
@@ -13,13 +33,14 @@ init python:
     yadj = ui.adjustment()
 
     # chat speed - you can make this changeable as a setting 
-    chat_speed = 1 
+    chat_speed = 2 
 
     # this is for formatting the text 
     who_is_typing = ""
     who_was_typing_list = []
     last_sender = ""
     last_window = "X"
+    wait_time_prev = 0
 
     # this is also for formatting 
     current_window = "all"
@@ -32,6 +53,14 @@ init python:
     #     "Major" : "Alstone", 
     #     "Sungho" : "Go"
     # }
+
+    character_colors = {
+        "thrim": "#bcfffe", 
+        "odxny": "#eabcff", 
+        "wnpep": "#c9ffbc", 
+        "incri": "#fffbbc", 
+        "elimf": "#ffd7bc"
+    }
 
     # chat groups 
     channels = {
@@ -111,13 +140,16 @@ init python:
         global active_window
         global player_fname
 
+        renpy.pause(1)
+
         selected = renpy.display_menu(l)
         x = "_"
         for i in l: 
             if i[1] == selected: 
                 x = i[0]
         chat_message(player_fname + ": " + x, c = active_window, is_player = True)
-        renpy.jump(selected)
+        if len(l) > 1:
+            renpy.jump(selected)
 
     # new message
     def chat_message(s, c="all", ot="", is_player = False): # string, channel, others typing, is player
@@ -134,14 +166,18 @@ init python:
         # global character_names
         global yadj 
         global yadjValue
+        global wait_time_prev
 
         # split into name / content, get new active channel  
         n = s.split(': ', 1)[0]
         t = s.split(': ', 1)[1]
+        t0 = t
         
         t_out = ""
         quote_open = False
         code_block_open = False 
+        word_open = False 
+        l_insert = ""
         for idx, letter in enumerate([*t]):
             if letter == "`": 
                 if not code_block_open:
@@ -155,20 +191,146 @@ init python:
             elif letter == "\"": 
                 if not quote_open: 
                     l_insert = "{color=ff9a41}\""
-                    quote_open = True
+                    quote_open = True 
                 else: 
                     l_insert = "\"{/color}"
                     quote_open = False 
+            # numbers 
             elif letter.isnumeric() and not quote_open and not code_block_open: 
                 l_insert = "{color=ffe941}" + letter + "{/color}" # this will cause problems probably
+            # symbols 
+            elif letter in ["$"] and not quote_open and not code_block_open: 
+                l_insert = "{color=ff2b2b}" + letter + "{/color}" # this will cause problems probably
+            elif letter in ["[", "]"] and not quote_open and not code_block_open: 
+                l_insert = "{color=f13dca}" + letter + "{/color}" # this will cause problems probably
+            elif letter in ["(", ")"] and not quote_open and not code_block_open: 
+                l_insert = "{color=ffbe0c}" + letter + "{/color}"
+            elif letter in ["=", "-", "+", "/", "*", ".", ",", ";", ":", "!", "?", "'"] and not quote_open and not code_block_open: 
+                l_insert = "{color=FFFFFF}" + letter + "{/color}"
+            # # for 
+            # elif letter.lower() == "f" and (idx == 0 or t[idx-1] == " ") and not quote_open and not code_block_open and not word_open: 
+            #     if len(t) >= idx+4: 
+            #         if t[idx+1].lower() == "o" and t[idx+2].lower() == "r" and t[idx+3] == " ":
+            #             if not word_open: 
+            #                 l_insert = "{color=3945ee}f"
+            #                 word_open = True 
+            #             else:
+            #                 l_insert = letter
+            #         else:
+            #             l_insert = letter
+            #     elif len(t) >= idx+6: 
+            #         if t[idx+1].lower() == "a" and t[idx+2].lower() == "l" and t[idx+3].lower() == "s" and t[idx+4].lower() == "e" and t[idx+5] == " ":
+            #             if not word_open: 
+            #                 l_insert = "{color=3945ee}w"
+            #                 word_open = True 
+            #             else:
+            #                 l_insert = letter
+            #         else:
+            #             l_insert = letter
+            #     else:
+            #         l_insert = letter
+            # # if  
+            # elif letter.lower() == "i" and (idx == 0 or t[idx-1] == " ") and not quote_open and not code_block_open and not word_open: 
+            #     if len(t) >= idx+2: 
+            #         if t[idx+1].lower() == "f" and t[idx+2] == " ":
+            #             if not word_open: 
+            #                 l_insert = "{color=e839ee}i"
+            #                 word_open = True 
+            #             else:
+            #                 l_insert = letter
+            #         else:
+            #             l_insert = letter
+            #     else:
+            #         l_insert = letter
+            # # else 
+            # elif letter.lower() == "e" and (idx == 0 or t[idx-1] == " ") and not quote_open and not code_block_open and not word_open: 
+            #     if len(t) >= idx+5: 
+            #         if t[idx+1].lower() == "l" and t[idx+2].lower() == "s" and t[idx+3].lower() == "e" and t[idx+4] == " ":
+            #             if not word_open: 
+            #                 l_insert = "{color=e839ee}e"
+            #                 word_open = True 
+            #             else:
+            #                 l_insert = letter
+            #         else:
+            #             l_insert = letter
+            #     else:
+            #         l_insert = letter
+            # # true 
+            # elif letter.lower() == "t" and (idx == 0 or t[idx-1] == " ") and not quote_open and not code_block_open and not word_open: 
+            #     if len(t) >= idx+5: 
+            #         if t[idx+1].lower() == "r" and t[idx+2].lower() == "u" and t[idx+3].lower() == "e" and t[idx+4] == " ":
+            #             if not word_open: 
+            #                 l_insert = "{color=3945ee}t"
+            #                 word_open = True 
+            #             else:
+            #                 l_insert = letter
+            #         else:
+            #             l_insert = letter
+            #     else:
+            #         l_insert = letter
+            # # while 
+            # elif letter.lower() == "w" and (idx == 0 or t[idx-1] == " ") and not quote_open and not code_block_open and not word_open: 
+            #     if len(t) >= idx+6: 
+            #         if t[idx+1].lower() == "h" and t[idx+2].lower() == "i" and t[idx+3].lower() == "l" and t[idx+4].lower() == "e" and t[idx+5] == " ":
+            #             if not word_open: 
+            #                 l_insert = "{color=3945ee}w"
+            #                 word_open = True 
+            #             else:
+            #                 l_insert = letter
+            #         else:
+            #             l_insert = letter
+            #     else:
+            #         l_insert = letter
+            # # and 
+            # elif letter.lower() == "a" and (idx == 0 or t[idx-1] == " ") and not quote_open and not code_block_open and not word_open: 
+            #     if len(t) >= idx+4: 
+            #         if t[idx+1].lower() == "n" and t[idx+2].lower() == "d" and t[idx+3] == " ":
+            #             if not word_open: 
+            #                 l_insert = "{color=3945ee}a"
+            #                 word_open = True 
+            #             else:
+            #                 l_insert = letter
+            #         else:
+            #             l_insert = letter
+            #     else:
+            #         l_insert = letter
+            # # not 
+            # elif letter.lower() == "n" and not quote_open and not code_block_open and not word_open: 
+            #     if len(t) >= idx+4: 
+            #         if t[idx+1].lower() == "o" and t[idx+2].lower() == "t" and t[idx+3] == " ":
+            #             if not word_open: 
+            #                 l_insert = "{color=3945ee}n"
+            #                 word_open = True 
+            #             else:
+            #                 l_insert = letter
+            #         else:
+            #             l_insert = letter
+            #     else:
+            #         l_insert = letter
+            # # def 
+            # elif letter.lower() == "d" and not quote_open and not code_block_open and not word_open: 
+            #     if len(t) >= idx+4: 
+            #         if t[idx+1].lower() == "e" and t[idx+2].lower() == "f" and t[idx+3] == " ":
+            #             if not word_open: 
+            #                 l_insert = "{color=3945ee}d"
+            #                 word_open = True 
+            #             else:
+            #                 l_insert = letter
+            #         else:
+            #             l_insert = letter
+            #     else:
+            #         l_insert = letter
+            elif letter == " " and word_open: 
+                l_insert = "{/color} "
+                word_open = False 
             else:
                 l_insert = letter
             t_out = t_out + l_insert
             if idx == len([*t]) -1 and (quote_open or code_block_open): 
-                t_out = t_out + "{/color}"
-            #"#8c8c8c" 
+                t_out = t_out + "{/color}" 
+            #"#e839ee" 
         t = t_out 
-        t.replace("\"", "{color=ff9a41}\"{/color}")
+        #t.replace("\"", "{color=ff9a41}\"{/color}")
         active_window = c 
 
         # pause briefly if we are swapping windows 
@@ -177,11 +339,13 @@ init python:
 
         if not is_player:
             # pause before displaying the message + change who is typing 
-            wait_time = len(t)/10/chat_speed
+            wait_time = len(t0)/10/chat_speed + wait_time_prev
             if ot != "": 
                 set_is_typing(n + ", " + ot, wait_time)
             else: 
                 set_is_typing(n, wait_time)
+
+            wait_time_prev = wait_time/2
 
         # if we've never seen this channel before, add it 
         if c not in channels.keys(): 
@@ -209,6 +373,9 @@ init python:
 
         # update what the last window is 
         last_window = c 
+
+        if is_player: 
+            renpy.pause(2)
 
     # show who is typing + logic for timing 
     def set_is_typing(n, wt): # names 

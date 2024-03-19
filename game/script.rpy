@@ -18,14 +18,16 @@ label start:
 
     show screen seekL_ui 
 
+    jump day1_start
+
     #$ renpy.input("xx")
 
-    $ chat_message("odxny: testing testing")
-    $ chat_message("wnpep: 12 x 4 = 48")
-    $ chat_message("wnpep: quotes test ready \"hello i'm in a quote 1 2 3\"")
-    $ chat_message("odxny: inline code test")
-    $ chat_message("odxny: `select * from test`")
-    $ chat_message("odxny: `select * \nfrom test\nwhere x > 12 \n  and id = \'yes\'`")
+    # $ chat_message("odxny: testing testing")
+    # $ chat_message("wnpep: 12 x 4 = 48")
+    # $ chat_message("wnpep: quotes test ready \"hello i'm in a quote 1 2 3\"")
+    # $ chat_message("odxny: inline code test")
+    # $ chat_message("odxny: `select * from test`")
+    # $ chat_message("odxny: `select * \nfrom test\nwhere x > 12 \n  and id = \'yes\'`")
 
     #$ renpy.input("xx")
 
