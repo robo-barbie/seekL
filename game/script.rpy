@@ -16,6 +16,8 @@ label start:
 
     $ reset_chats()
 
+    play music "audio/music/Server_Room.mp3" loop fadein 2.0 fadeout 2.0 
+
     show screen seekL_ui 
 
     jump day1_start

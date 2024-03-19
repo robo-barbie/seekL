@@ -56,16 +56,40 @@ screen seekL_ui:
                                     ysize None 
                                     has fixed:
                                         yfit True
-                                    text channels_names[current_window][idx]: 
-                                        xanchor 1.0
-                                        text_align 1.0
-                                        xpos 120
-                                        xsize 80
-                                        size seekL_chat_text_size 
-                                        if channels_names[current_window][idx] in character_colors: 
-                                            color character_colors[channels_names[current_window][idx]] + "85"
+                                    if idx != 0: 
+                                        if channels_names[current_window][idx] == channels_names[current_window][idx-1]:
+                                            text "":
+                                                xanchor 1.0
+                                                text_align 1.0
+                                                xpos 120
+                                                xsize 80
+                                                size seekL_chat_text_size 
+                                                if channels_names[current_window][idx] in character_colors: 
+                                                    color character_colors[channels_names[current_window][idx]] + "85"
+                                                else: 
+                                                    color "#FFFFFF85"
                                         else: 
-                                            color "#FFFFFF85"
+                                            text channels_names[current_window][idx]: 
+                                                xanchor 1.0
+                                                text_align 1.0
+                                                xpos 120
+                                                xsize 80
+                                                size seekL_chat_text_size 
+                                                if channels_names[current_window][idx] in character_colors: 
+                                                    color character_colors[channels_names[current_window][idx]] + "85"
+                                                else: 
+                                                    color "#FFFFFF85"
+                                    else:   
+                                        text channels_names[current_window][idx]: 
+                                            xanchor 1.0
+                                            text_align 1.0
+                                            xpos 120
+                                            xsize 80
+                                            size seekL_chat_text_size 
+                                            if channels_names[current_window][idx] in character_colors: 
+                                                color character_colors[channels_names[current_window][idx]] + "85"
+                                            else: 
+                                                color "#FFFFFF85"
                                     text t: 
                                         xpos 160 
                                         xanchor 0.0

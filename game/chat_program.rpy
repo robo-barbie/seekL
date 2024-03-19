@@ -363,6 +363,7 @@ init python:
         #     channels[c].append("\n{b}" + n +  " " + character_names[n] +  "{/b}\n" + t)
         channels[c].append(t)
         channels_names[c].append(n)
+        renpy.play("audio/sfx/message_sent.mp3")
 
         if yadj.value == yadj.range:
             yadj.value = float('inf')
