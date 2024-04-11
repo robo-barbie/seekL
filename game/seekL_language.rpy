@@ -41,16 +41,66 @@ init python:
                 "B", 
                 "C"
                 ]
+        }, 
+        "glowparkzoo.risk.incidents_0v67":{
+            "incident_no_0v67": [
+                "15", 
+                "14",
+                "13",
+                "12",
+                "11"
+            ], 
+            "event_mst_0v67": [
+                "2021-01-02 12:30:00", 
+                "2020-04-12 13:35:05", 
+                "2018-11-19 09:06:47", 
+                "2018-08-01 01:23:54", 
+                "2017-10-31 18:59:58"
+            ], 
+            "impact_0v67": [
+                "10",
+                "7", 
+                "4",
+                "1", 
+                "2"
+            ], 
+            "cat_0v67": [
+                "fecal projectiles", 
+                "fecal projectiles", 
+                "fecal projectiles", 
+                "fecal projectiles", 
+                "fecal projectiles"
+            ], 
+            "notes_0v67": [
+                "immediate transfer recommended", 
+                "wary", 
+                "", 
+                "some improvement..", 
+                ""
+            ]
+        }, 
+        "glowparkzoo.risk.incidents_x77s":{
+            "incident_no_x77s": [
+                "2", 
+                "1"
+            ], 
+            "event_mst_x77s": [
+                "2020-01-02 12:34:00", 
+                "2016-11-11 08:21:05"
+            ], 
+            "impact_x77s": [
+                "3",
+                "1"
+            ], 
+            "cat_x77s": [
+                "illness", 
+                "aggression"
+            ], 
+            "notes_x77s": [
+                "let's see if they can work through it", 
+                "no resources needed"
+            ]
         }
-    }
-
-    required_runs = {
-        "select":"", 
-        "from":"table_name", 
-        "where_column":"", 
-        "where_symbol":"", 
-        "where_value":"", 
-        "join":""
     }
 
     def process_seekL(t): 
@@ -112,14 +162,35 @@ init python:
             for idx in range(loc_join + len("join") + 1, end_join):
                 join_name = join_name + t[idx]
             join_name = join_name.replace(" ", "")
-        
+
+        # check for errors + check selected columns 
+        tables = {k.lower():v for k,v in tables.items()}
+        if table_name in tables and error_msg == "": 
+            cols_final = []
+            if join_name not in tables and join_name != "": 
+                error_msg = "ERROR: JOIN TABLE NOT FOUND-\n" + join_name 
+            elif join_name != "": 
+                col_search = list(set(list(tables[join_name].keys()) + list(tables[table_name].keys())))
+            else: 
+                col_search = list(tables[table_name].keys())
+            if "*" in cols_list and error_msg == "": 
+                cols_final = col_search
+            elif error_msg == "": 
+                for c in cols_list: 
+                    if c in col_search: 
+                        cols_final.append(c)
+            if not cols_final and error_msg == "": 
+                error_msg = "ERROR: COLUMN NAMES NOT FOUND"
+        elif error_msg == "": 
+            error_msg = "ERROR: TABLE NAME NOT FOUND -\n" + table_name
+
         # how do they combine 
         join_columns = []
         if join_name != "" and table_name != "" and error_msg == "": 
             for f_k in list(tables[table_name].keys()): 
                 if f_k in list(tables[join_name].keys()): 
                     join_columns.append(f_k)
-        
+
         if not join_columns and join_name != "" and error_msg == "": 
             error_msg = "ERROR: NO COMMON COLUMN BETWEEN TABLES"
         elif join_columns and error_msg == "": 
@@ -128,24 +199,8 @@ init python:
                 l = list(set(tables[table_name][j] + tables[join_name][j]))
                 l.sort()
                 join_dict[j] = l
-
-        # check for errors + check selected columns 
-        if table_name in tables and error_msg == "": 
-            cols_final = []
-            if join_name != "": 
-                col_search = list(set(list(tables[join_name].keys()) + list(tables[table_name].keys())))
-            else: 
-                col_search = list(tables[table_name].keys())
-            if "*" in cols_list: 
-                cols_final = col_search
-            else: 
-                for c in cols_list: 
-                    if c in col_search: 
-                        cols_final.append(c)
-            if not cols_final: 
-                error_msg = "ERROR: COLUMN NAMES NOT FOUND"
-        elif error_msg == "": 
-            error_msg = "ERROR: TABLE NAME NOT FOUND"
+        elif join_name == "" and error_msg == "": 
+            l = next(iter(tables[table_name]))
 
         # parse out where clause 
         where_clause = ""
@@ -258,6 +313,7 @@ init python:
                         output_strings.append(output_string)
                         output_strings.append(alt_string)
             seekL_output = output_strings
+            player_input_confirm(tables=list([join_name, table_name]), cols = cols_final, idx = l)
 
 
 

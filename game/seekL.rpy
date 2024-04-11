@@ -49,70 +49,94 @@ screen seekL_ui:
 
                         vbox: 
                             box_wrap True
-                            spacing 50 
+                            spacing 20 
                             null height 10
                             for idx, t in enumerate(channels[current_window]): 
-                                window: 
+                                vbox: 
+                                    xpos 20
                                     ysize None 
-                                    has fixed:
-                                        yfit True
+                                    # has fixed:
+                                    #     yfit True # only for window 
                                     if idx != 0: 
                                         if channels_names[current_window][idx] == channels_names[current_window][idx-1]:
-                                            text "":
-                                                xanchor 1.0
-                                                text_align 1.0
-                                                xpos 120
-                                                xsize 80
-                                                size seekL_chat_text_size 
-                                                if channels_names[current_window][idx] in character_colors: 
-                                                    color character_colors[channels_names[current_window][idx]] + "85"
-                                                else: 
-                                                    color "#FFFFFF85"
+                                            null height 0
+                                            # text channels_names[current_window][idx] + ">":
+                                            #     xanchor 1.0
+                                            #     text_align 1.0
+                                            #     xpos 130
+                                            #     xsize 100
+                                            #     size seekL_chat_text_size 
+                                            #     if channels_names[current_window][idx] in character_colors: 
+                                            #         color character_colors[channels_names[current_window][idx]] + "85"
+                                            #     else: 
+                                            #         color "#FFFFFF85"
                                         else: 
-                                            text channels_names[current_window][idx]: 
-                                                xanchor 1.0
-                                                text_align 1.0
-                                                xpos 120
-                                                xsize 80
-                                                size seekL_chat_text_size 
-                                                if channels_names[current_window][idx] in character_colors: 
-                                                    color character_colors[channels_names[current_window][idx]] + "85"
-                                                else: 
-                                                    color "#FFFFFF85"
+                                            vbox:
+                                                null height 30 
+                                                # text channels_times[current_window][idx]:
+                                                #     size seekL_chat_text_size-10
+                                                #     xanchor 1.0
+                                                #     text_align 1.0
+                                                #     xpos 120
+                                                #     xsize 80
+                                                text channels_names[current_window][idx] + ">" + channels_times[current_window][idx]: 
+                                                    #xanchor 1.0
+                                                    #text_align 1.0
+                                                    #xpos 130
+                                                    xsize 100
+                                                    size seekL_chat_text_size 
+                                                    if channels_names[current_window][idx] in character_colors: 
+                                                        color character_colors[channels_names[current_window][idx]] + "85"
+                                                    else: 
+                                                        color "#FFFFFF85"
                                     else:   
-                                        text channels_names[current_window][idx]: 
-                                            xanchor 1.0
-                                            text_align 1.0
-                                            xpos 120
-                                            xsize 80
+                                        vbox:
+                                            #null height 30 
+                                            # text channels_times[current_window][idx]:
+                                            #     size seekL_chat_text_size-10
+                                            #     xanchor 1.0
+                                            #     text_align 1.0
+                                            #     xpos 120
+                                            #     xsize 80
+                                            text channels_names[current_window][idx] + ">" + channels_times[current_window][idx]: 
+                                                # xanchor 1.0
+                                                # text_align 1.0
+                                                # xpos 130
+                                                xsize 100
+                                                size seekL_chat_text_size 
+                                                if channels_names[current_window][idx] in character_colors: 
+                                                    color character_colors[channels_names[current_window][idx]] + "85"
+                                                else: 
+                                                    color "#FFFFFF85"
+                                    vbox:
+                                        #xpos 20 
+                                        #xanchor 0.0
+                                        # if idx != 0: 
+                                        #     if channels_names[current_window][idx] != channels_names[current_window][idx-1]:
+                                        #         null height 50 
+                                                # text " ":
+                                                #     size seekL_chat_text_size-10
+                                        text t: 
+                                            text_align 0.0
                                             size seekL_chat_text_size 
+                                            xmaximum seekL_window_size
                                             if channels_names[current_window][idx] in character_colors: 
-                                                color character_colors[channels_names[current_window][idx]] + "85"
+                                                color "#ffffffba"#character_colors[channels_names[current_window][idx]]
                                             else: 
-                                                color "#FFFFFF85"
-                                    text t: 
-                                        xpos 160 
-                                        xanchor 0.0
-                                        text_align 0.0
-                                        size seekL_chat_text_size 
-                                        xmaximum seekL_window_size
-                                        if channels_names[current_window][idx] in character_colors: 
-                                            color character_colors[channels_names[current_window][idx]]
-                                        else: 
-                                            color "#FFFFFF"
-                                        # line_spacing 10
-                            null height 10 
+                                                color "#FFFFFF"
+                                            # line_spacing 10
+                            null height 20 
                     frame: 
                         background "#ffffff15"
                         xfill True 
                         yfill True 
                         # text " > ": 
                         #     size seekL_chat_text_size
-                frame: 
-                    xsize 2 
-                    ysize seekL_height - seekL_choice_window_height
-                    xpos 139
-                    background "#ffffff23"
+                # frame: 
+                #     xsize 2 
+                #     ysize seekL_height - seekL_choice_window_height
+                #     xpos 139
+                #     background "#ffffff23"
 
                 if current_window == active_window: 
                     text who_is_typing:
@@ -153,7 +177,7 @@ screen seekL_ui:
                         background seekL_button_color
                         ysize seekL_button_height
                         text "execute" bold True
-                        action Function(process_seekL, seekL_text_send) #SetVariable("seekL_text_entry", seekL_text_send)
+                        action Play("sound", "audio/sfx/data_success.ogg"), Function(process_seekL, seekL_text_send) #SetVariable("seekL_text_entry", seekL_text_send)
                 frame: 
                     xsize seekL_window_size 
                     ysize seekL_height_half

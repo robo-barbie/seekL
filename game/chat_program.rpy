@@ -3,6 +3,9 @@
 
 init python: 
 
+    import time 
+    from datetime import datetime 
+
     ### code to add choices to history window
     def log_menu_choice(item_text):
         if item_text != "Menu Prediction":
@@ -33,7 +36,7 @@ init python:
     yadj = ui.adjustment()
 
     # chat speed - you can make this changeable as a setting 
-    chat_speed = 2 
+    chat_speed = 3 
 
     # this is for formatting the text 
     who_is_typing = ""
@@ -72,6 +75,11 @@ init python:
         "all" : []
     }
 
+    # chat times
+    channels_times = {
+        "all" : []
+    }
+
     # indicator for when a new message arrives 
     channels_new_message = {
         "all" : False
@@ -92,6 +100,7 @@ init python:
         # global character_names 
         global channels 
         global channels_names
+        global channels_times
         global channels_new_message 
         global who_is_typing
         global who_was_typing_list  
@@ -122,6 +131,11 @@ init python:
 
         # chat groups names 
         channels_names = {
+            "all" : []
+        }
+
+        # chat times
+        channels_times = {
             "all" : []
         }
 
@@ -156,6 +170,7 @@ init python:
         global chat_speed 
         global channels
         global channels_names
+        global channels_times
         global channels_new_message
         global channels_last_sender
         global current_window
@@ -188,25 +203,25 @@ init python:
                     l_insert = "{/color}\n{color=8c8c8c}------------------------------{/color}"
             elif code_block_open: 
                 l_insert = letter 
-            elif letter == "\"": 
-                if not quote_open: 
-                    l_insert = "{color=ff9a41}\""
-                    quote_open = True 
-                else: 
-                    l_insert = "\"{/color}"
-                    quote_open = False 
-            # numbers 
-            elif letter.isnumeric() and not quote_open and not code_block_open: 
-                l_insert = "{color=ffe941}" + letter + "{/color}" # this will cause problems probably
-            # symbols 
-            elif letter in ["$"] and not quote_open and not code_block_open: 
-                l_insert = "{color=ff2b2b}" + letter + "{/color}" # this will cause problems probably
-            elif letter in ["[", "]"] and not quote_open and not code_block_open: 
-                l_insert = "{color=f13dca}" + letter + "{/color}" # this will cause problems probably
-            elif letter in ["(", ")"] and not quote_open and not code_block_open: 
-                l_insert = "{color=ffbe0c}" + letter + "{/color}"
-            elif letter in ["=", "-", "+", "/", "*", ".", ",", ";", ":", "!", "?", "'"] and not quote_open and not code_block_open: 
-                l_insert = "{color=FFFFFF}" + letter + "{/color}"
+            # elif letter == "\"": 
+            #     if not quote_open: 
+            #         l_insert = "{color=ff9a41}\""
+            #         quote_open = True 
+            #     else: 
+            #         l_insert = "\"{/color}"
+            #         quote_open = False 
+            # # numbers 
+            # elif letter.isnumeric() and not quote_open and not code_block_open: 
+            #     l_insert = "{color=ffe941}" + letter + "{/color}" # this will cause problems probably
+            # # symbols 
+            # elif letter in ["$"] and not quote_open and not code_block_open: 
+            #     l_insert = "{color=ff2b2b}" + letter + "{/color}" # this will cause problems probably
+            # elif letter in ["[", "]"] and not quote_open and not code_block_open: 
+            #     l_insert = "{color=f13dca}" + letter + "{/color}" # this will cause problems probably
+            # elif letter in ["(", ")"] and not quote_open and not code_block_open: 
+            #     l_insert = "{color=ffbe0c}" + letter + "{/color}"
+            # elif letter in ["=", "-", "+", "/", "*", ".", ",", ";", ":", "!", "?", "'"] and not quote_open and not code_block_open: 
+            #     l_insert = "{color=FFFFFF}" + letter + "{/color}"
             # # for 
             # elif letter.lower() == "f" and (idx == 0 or t[idx-1] == " ") and not quote_open and not code_block_open and not word_open: 
             #     if len(t) >= idx+4: 
@@ -320,9 +335,9 @@ init python:
             #             l_insert = letter
             #     else:
             #         l_insert = letter
-            elif letter == " " and word_open: 
-                l_insert = "{/color} "
-                word_open = False 
+            # elif letter == " " and word_open: 
+            #     l_insert = "{/color} "
+            #     word_open = False 
             else:
                 l_insert = letter
             t_out = t_out + l_insert
@@ -363,7 +378,8 @@ init python:
         #     channels[c].append("\n{b}" + n +  " " + character_names[n] +  "{/b}\n" + t)
         channels[c].append(t)
         channels_names[c].append(n)
-        renpy.play("audio/sfx/message_sent.mp3")
+        channels_times[c].append(str(datetime.now().strftime('%H:%M')))
+        renpy.play("audio/sfx/message_3.ogg")
 
         if yadj.value == yadj.range:
             yadj.value = float('inf')
@@ -425,6 +441,7 @@ init python:
                 w = w + "are typing..."
             else: 
                 w = w+ "is typing..."
+        w = "people are typing..."
         return(w)
 
 
