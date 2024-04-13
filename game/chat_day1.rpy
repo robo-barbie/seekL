@@ -4,6 +4,12 @@ label day1_start:
     #jump day1_30
     #$ $ chat_message("odxny: testing testing")
 
+    #$ chat_message("incri: and then i beat him to death with hammers")
+
+    $ chat_message("SYSTEM: THRIM joined")
+
+    pause 1 
+
     $ chat_message("incri: who the fuck", ot="elimf, wnpep")
 
     $ chat_message("elimf: ?????????? ", ot="wnpep")
@@ -48,9 +54,9 @@ label day1_2:
 
     $ chat_message("elimf: hello ", ot="incri")
 
-    $ chat_message("incri: UR SOOOOO SUS DUDE ")
+    $ chat_message("incri: UR SOOOOO SUS DUDE ",fastmode=True)
 
-    $ chat_message("elimf: could be not a dude ")
+    $ chat_message("elimf: could be not a dude ",ot="incri")
 
     $ chat_message("incri: lick my hole ")
 
@@ -276,14 +282,14 @@ label day1_15:
 
     $ chat_message("wnpep: go ahead and type this into console on the top right ")
 
-    $ chat_message("wnpep: `select * \nfrom glowparkzoo.risk.incidents_0V67`")
+    $ chat_message("wnpep: `select * \nfrom glowparkzoo.inc_0V67`")
 
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
         # WHAT COLUMNS THEY NEED TO SEE
         required_runs["columns"] = None 
         # WHAT TABLES THEY NEED TO ENTER 
-        required_runs["tables"] = ["glowparkzoo.risk.incidents_0V67"]
+        required_runs["tables"] = ["glowparkzoo.inc_0V67"]
         # WHAT IDS MUST APPEAR 
         required_runs["idx"] = None 
         # STOP THEM BEFORE THEY GET TOO FAR 
@@ -301,19 +307,19 @@ label day1_15:
 # [2] MC: why is that so long and ugly... 
 label day1_17:
 
-    $ chat_message("elimf: JUST LIKE MY EX") 
+    $ chat_message("elimf: JUST LIKE MY EX", ot="incri") 
 
-    $ chat_message("incri: JUST LIKE MY EX")
+    $ chat_message("incri: JUST LIKE MY EX", fastmode=True)
 
     $ chat_message("elimf: i fucking beat you") 
 
-    $ chat_message("incri: no way ur message is under mine") 
+    $ chat_message("incri: no way ur message is under mine",ot="wnpep") 
 
     $ chat_message("wnpep: elimf's came up first.") 
 
     $ chat_message("elimf: AHAHAHAHAHA") 
 
-    $ chat_message("incri: FUCKING") 
+    $ chat_message("incri: FUCKING",fastmode=True,ot="wnpep") 
 
     $ chat_message("wnpep: sorry.") 
 
@@ -344,7 +350,7 @@ label day1_19:
 
     $ chat_message("wnpep: only 5 records will ever be shown, so that's why you don't see all of the incidents ") 
 
-    $ chat_message("wnpep: the table should show some id columns like incident_no and resident_id -- resident_id is the animal's id number, and incident_no is the uh incident number") 
+    $ chat_message("wnpep: the table should show some columns like incident_no_0v67 -- 0v67 is the animal's id number, and incident_no is the uh incident number") 
 
     $ chat_message("wnpep: you can see the times these things happened, how bad it was, and if any notes were left by the staff ") 
 
@@ -366,13 +372,13 @@ label day1_19:
         ]
     )
 
-    $ chat_message("elimf: no. we actually can't ") 
+    $ chat_message("elimf: no. we actually can't ", ot="wnpep") 
 
     $ chat_message("wnpep: only odxny has that level of access ") 
 
     $ chat_message("wnpep: but with some hard work, we manage. it's just about knowing where to look. ") 
 
-    $ chat_message("wnpep: for example, if i tell you there's another animal with bad behavior at the zoo with a resident_id of X77S, what would you run? ") 
+    $ chat_message("wnpep: for example, if i tell you there's another animal with bad behavior at the zoo with an id of X77S, what would you run? ") 
 
     $ player_choice(
         [
@@ -391,9 +397,9 @@ label day1_20:
     #[2] MC: no idea tbh  
 label day1_21: 
 
-    $ chat_message("elimf: ur doing amazing ")
+    $ chat_message("elimf: ur doing amazing ", ot="wnpep")
 
-    $ chat_message("wnpep: look at the name of the table. see the resident_id in there? ")
+    $ chat_message("wnpep: look at the name of the table. see the animal's id in there? ")
     
     $ player_choice(
         [
@@ -416,13 +422,13 @@ label day1_23:
 
     $ chat_message("wnpep: haha. oh boy ")
 
-    $ chat_message("wnpep: `select * from glowparkzoo.risk.incidents_X77S`")
+    $ chat_message("wnpep: `select * from glowparkzoo.inc_X77S`")
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
         # WHAT COLUMNS THEY NEED TO SEE
         required_runs["columns"] = None 
         # WHAT TABLES THEY NEED TO ENTER 
-        required_runs["tables"] = ["glowparkzoo.risk.incidents_X77S"]
+        required_runs["tables"] = ["glowparkzoo.inc_X77S"]
         # WHAT IDS MUST APPEAR 
         required_runs["idx"] = None 
         # STOP THEM BEFORE THEY GET TOO FAR 
@@ -436,7 +442,7 @@ label day1_23:
 
     $ chat_message("wnpep: ?? hand what? ")
 
-    $ chat_message("elimf: like how did you even figure out where we were ")
+    $ chat_message("elimf: like how did you even figure out where we were ",fastmode=True)
 
     # MC: fuck you 
     $ player_choice(
@@ -447,7 +453,7 @@ label day1_23:
 
     $ chat_message("incri: fuck you ")
 
-    $ chat_message("wnpep: oh you meant hand holding")
+    $ chat_message("wnpep: oh you meant hand holding",fastmode=True)
 
     $ chat_message("elimf: fuck you harder ")
 
@@ -513,6 +519,8 @@ label day1_26:
 
     # odxny online
 
+    $ chat_message("SYSTEM: ODXNY online")
+
     $ chat_message("elimf: sup big cheese")
 
     $ chat_message("wnpep: got someone new while you were gone")
@@ -521,7 +529,9 @@ label day1_26:
 
     $ chat_message("wnpep: yeah i'm sure ur already checking but i didnt see anything to worry about")
 
-    $ chat_message("incri: ban them")
+    $ chat_message("incri: ban them",fastmode=True)
+
+    pause 1 
 
     $ chat_message("odxny: For?")
 
@@ -541,7 +551,7 @@ label day1_26:
 
     $ chat_message("odxny: I'll be doing my own vetting, unrelated to being a boring annoying dumbass.")
 
-    $ chat_message("odxny: thrim Let's arrange a brief call just to verify.")
+    $ chat_message("odxny: Thrim, let's arrange a brief call just to verify.")
 
     $ chat_message("odxny: Won't pry beyond what's necessary.")
 
@@ -558,15 +568,15 @@ label day1_26:
 
     $ chat_message("wnpep: HUH")
 
-    $ chat_message("odxny: LMAO")
+    $ chat_message("odxny: LMAO",fastmode=True)
 
-    $ chat_message("wnpep: thats a new one")
+    $ chat_message("wnpep: thats a new one",fastmode=True)
 
     $ chat_message("incri: do u see now")
 
     $ chat_message("odxny: That's hilarious actually")
 
-    $ chat_message("incri: theyll drag us down with them")
+    $ chat_message("incri: theyll drag us down with them",fastmode=True)
 
     $ chat_message("odxny: Nah")
 

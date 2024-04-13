@@ -62,7 +62,8 @@ init python:
         "odxny": "#eabcff", 
         "wnpep": "#c9ffbc", 
         "incri": "#fffbbc", 
-        "elimf": "#ffd7bc"
+        "elimf": "#ffd7bc", 
+        "SYSTEM": "#999999"
     }
 
     # chat groups 
@@ -106,6 +107,9 @@ init python:
         global who_was_typing_list  
         global last_sender
         global last_window 
+        global previous_commands
+
+        previous_commands = []
 
         current_window = "all"
         active_window = "all"
@@ -153,8 +157,10 @@ init python:
     def player_choice(l): 
         global active_window
         global player_fname
+        global chat_speed
 
-        renpy.pause(1)
+        if chat_speed != 100: 
+            renpy.pause(1)
 
         selected = renpy.display_menu(l)
         x = "_"
@@ -166,7 +172,7 @@ init python:
             renpy.jump(selected)
 
     # new message
-    def chat_message(s, c="all", ot="", is_player = False): # string, channel, others typing, is player
+    def chat_message(s, c="all", ot="", is_player = False, fastmode=False): # string, channel, others typing, is player
         global chat_speed 
         global channels
         global channels_names
@@ -197,10 +203,10 @@ init python:
             if letter == "`": 
                 if not code_block_open:
                     code_block_open = True
-                    l_insert = "{color=8c8c8c}------------------------------\n{/color}{color=f3f3f3}"
+                    l_insert = "{color=8c8c8c}------------------------------\n{/color}{color=d6fa9d}{font=HELLO.ttf.ttf}"
                 else: 
                     code_block_open = False
-                    l_insert = "{/color}\n{color=8c8c8c}------------------------------{/color}"
+                    l_insert = "{/font}{/color}\n{color=8c8c8c}------------------------------{/color}"
             elif code_block_open: 
                 l_insert = letter 
             # elif letter == "\"": 
@@ -343,22 +349,24 @@ init python:
             t_out = t_out + l_insert
             if idx == len([*t]) -1 and (quote_open or code_block_open): 
                 t_out = t_out + "{/color}" 
-            #"#e839ee" 
+            #"#d6fa9d" 
         t = t_out 
         #t.replace("\"", "{color=ff9a41}\"{/color}")
         active_window = c 
 
         # pause briefly if we are swapping windows 
-        if last_window != active_window: 
+        if last_window != active_window and chat_speed != 100: 
             renpy.pause(2)
 
         if not is_player:
             # pause before displaying the message + change who is typing 
             wait_time = len(t0)/10/chat_speed + wait_time_prev
-            if ot != "": 
-                set_is_typing(n + ", " + ot, wait_time)
-            else: 
-                set_is_typing(n, wait_time)
+            if ot != "" and chat_speed != 100: 
+                set_is_typing(n + ", " + ot, wait_time, fastmode)
+            elif n != "SYSTEM" and chat_speed != 100:
+                set_is_typing(n, wait_time, fastmode)
+            elif chat_speed != 100: 
+                renpy.pause(1.0)
 
             wait_time_prev = wait_time/2
 
@@ -379,7 +387,13 @@ init python:
         channels[c].append(t)
         channels_names[c].append(n)
         channels_times[c].append(str(datetime.now().strftime('%H:%M')))
-        renpy.play("audio/sfx/message_3.ogg")
+        if chat_speed != 100:
+            if n != "SYSTEM":
+                renpy.play("audio/sfx/message_3.ogg")
+            else: 
+                renpy.play("audio/sfx/message_system.mp3")
+        elif is_player: 
+            renpy.play("audio/sfx/message_3.ogg")
 
         if yadj.value == yadj.range:
             yadj.value = float('inf')
@@ -391,11 +405,11 @@ init python:
         # update what the last window is 
         last_window = c 
 
-        if is_player: 
-            renpy.pause(2)
+        if (is_player or n == "SYSTEM") and chat_speed != 100: 
+            renpy.pause(0.5)
 
     # show who is typing + logic for timing 
-    def set_is_typing(n, wt): # names 
+    def set_is_typing(n, wt, fastmode=False): # names 
         #global who_is_typing 
         global who_is_typing
         global who_was_typing_list 
@@ -413,11 +427,16 @@ init python:
             who_is_typing = format_typers(pre_typers)
         else: 
             who_is_typing = ""
-        renpy.pause(wt * 0.25) # 1/4 of the pause time 
+        if not fastmode: 
+            renpy.pause(wt * 0.25) # 1/4 of the pause time 
 
         # show new list of typers 
         who_is_typing = format_typers(n_list)
-        renpy.pause(wt * 0.75) # 3/4 of the pause time 
+        if not fastmode: 
+            renpy.pause(wt * 0.75) # 3/4 of the pause time 
+        else: 
+            renpy.pause(0.1)
+        
 
         # save off who was now typing + reset 
         who_was_typing_list = n_list 

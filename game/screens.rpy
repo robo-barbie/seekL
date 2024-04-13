@@ -216,7 +216,10 @@ screen choice(items):
                 action i.action 
                 text_align 0.0 
                 background None 
-                xmaximum 800
+                if in_call:
+                    xmaximum 800
+                else: 
+                    xmaximum 900
 
 
 style choice_vbox is vbox
