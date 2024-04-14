@@ -348,6 +348,7 @@ init python:
                 for j in list(join_dict.keys()): 
                     join_dict[j] = join_dict[j][:5]
                     j_list = join_dict[j]
+                    l = j_list.copy() 
 
 
 
