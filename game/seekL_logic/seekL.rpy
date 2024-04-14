@@ -307,6 +307,33 @@ screen seekL_ui:
             action SetVariable("chat_speed", 3)
         textbutton "hyperspeed": 
             action SetVariable("chat_speed", 100)
+    
+    # qa hell 
+    # hbox: 
+    #     spacing 10 
+    #     vbox:
+    #         for i in where_idx: # filtered idx
+    #             text str(i)
+    #     vbox:
+    #         for i in j_v_idx: # all avail idx 
+    #             text str(i) color "#fcf945"
+    #     vbox:
+    #         for i in j_list: # filtered value 
+    #             text str(i) color "#fc2626"
+    #     text where_value color "#42e774" # what the value submitted was 
+    #     text where_place color "#fd93f8" # did we find this column in 1 table or both 
+    #     vbox:
+    #         for i in where_column_list: 
+    #             text i color "#f8df6e"
+    #     vbox:
+    #         for i in where_split_list: 
+    #             text i color "#bea638"
+    #     vbox:
+    #         for i in where_value_list: 
+    #             text i color "#4b4010"
+    #     vbox:
+    #         for i in where_parts: 
+    #             text i color "#fc5252"
 
             # # sidebar 
             # frame: 

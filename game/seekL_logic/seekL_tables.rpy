@@ -45,7 +45,14 @@ init python:
                 "C", 
                 "D", 
                 "E"
-                ]
+                ], 
+            "num": [
+                "11",  
+                "31", 
+                "41", 
+                "81", 
+                "91"
+            ]
         }, 
 
         ## DAY 1 TUTORIAL TABLE  
