@@ -6,6 +6,10 @@ label day1_start:
 
     #$ chat_message("incri: and then i beat him to death with hammers")
 
+    #jump day2_start
+
+    jump day1_15
+
     $ chat_message("SYSTEM: THRIM joined")
 
     pause 1 

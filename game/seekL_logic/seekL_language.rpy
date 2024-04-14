@@ -68,6 +68,7 @@ init python:
                 loc_where = t.index("where")
                 sort_order.append(("where", loc_where))
 
+            sort_order_test = []
             if sort_order: 
                 sort_order_test = sorted(sort_order, key=lambda x: x[1])
             for x in range(len(sort_order_test)): 
@@ -366,6 +367,7 @@ init python:
                 previous_commands.append(t_og)
                 output_strings = []
                 first_c = True
+                l_out = []
                 for c in cols_final: 
                     row_counter = 0 
                     max_len = len(c)
@@ -388,6 +390,7 @@ init python:
                     for j in list(join_dict.keys()): 
                         for j_v in join_dict[j]: 
                             if join_dict[j].index(j_v) < 5:
+                                l_out.append(j_v)
                                 i = final_table[j].index(j_v)
                                 v  = final_table[c][i]
                                 alt_string = alt_string + "\n" + "{color=8c8c8c}|{/color}"
@@ -442,9 +445,10 @@ init python:
                     #             first_c = False 
                     #         output_strings.append(output_string)
                     #         output_strings.append(alt_string)
+                
                 seekL_output = output_strings
                 renpy.play("audio/sfx/data_success.ogg")
-                player_input_confirm(tables=list([join_name, table_name]), cols = cols_final, idx = l)
+                player_input_confirm(ta=list([join_name, table_name]), cols = cols_final, idx = l_out)
 
 
 

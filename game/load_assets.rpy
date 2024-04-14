@@ -291,5 +291,5 @@ layeredimage spr odxny_3:
         attribute parted: 
             "body3_mouth_parted.png" 
 
-
+image money_rain = Fixed(SnowBlossom("images/temp/dollar.png", 1000, xspeed=(-500, 500), yspeed=(300, 500), start=10))
         

@@ -74,14 +74,14 @@ screen seekL_ui:
                             box_wrap True
                             spacing 20 
                             null height 10
-                            for idx, t in enumerate(channels[current_window]): 
+                            for idx, t in enumerate(channels[current_window][-100:]): 
                                 vbox: 
                                     xpos 20
                                     ysize None 
                                     # has fixed:
                                     #     yfit True # only for window 
                                     if idx != 0: 
-                                        if channels_names[current_window][idx] == channels_names[current_window][idx-1]:
+                                        if channels_names[current_window][-100:][idx] == channels_names[current_window][-100:][idx-1]:
                                             null height 0
                                             # text channels_names[current_window][idx] + ">":
                                             #     xanchor 1.0
@@ -102,15 +102,15 @@ screen seekL_ui:
                                                 #     text_align 1.0
                                                 #     xpos 120
                                                 #     xsize 80
-                                                if channels_names[current_window][idx] != "SYSTEM":
-                                                    text channels_names[current_window][idx] + ">" + channels_times[current_window][idx]: 
+                                                if channels_names[current_window][-100:][idx] != "SYSTEM":
+                                                    text channels_names[current_window][-100:][idx] + ">" + channels_times[current_window][-100:][idx]: 
                                                         #xanchor 1.0
                                                         #text_align 1.0
                                                         #xpos 130
                                                         xsize 100
                                                         size seekL_chat_text_size 
-                                                        if channels_names[current_window][idx] in character_colors: 
-                                                            color character_colors[channels_names[current_window][idx]] + "85"
+                                                        if channels_names[current_window][-100:][idx] in character_colors: 
+                                                            color character_colors[channels_names[current_window][-100:][idx]] + "85"
                                                         else: 
                                                             color "#FFFFFF85"
                                     else:   
@@ -122,15 +122,15 @@ screen seekL_ui:
                                             #     text_align 1.0
                                             #     xpos 120
                                             #     xsize 80
-                                            if channels_names[current_window][idx] != "SYSTEM":
-                                                text channels_names[current_window][idx] + ">" + channels_times[current_window][idx]: 
+                                            if channels_names[current_window][-100:][idx] != "SYSTEM":
+                                                text channels_names[current_window][-100:][idx] + ">" + channels_times[current_window][-100:][idx]: 
                                                     # xanchor 1.0
                                                     # text_align 1.0
                                                     # xpos 130
                                                     xsize 100
                                                     size seekL_chat_text_size 
-                                                    if channels_names[current_window][idx] in character_colors: 
-                                                        color character_colors[channels_names[current_window][idx]] + "85"
+                                                    if channels_names[current_window][-100:][idx] in character_colors: 
+                                                        color character_colors[channels_names[current_window][-100:][idx]] + "85"
                                                     else: 
                                                         color "#FFFFFF85"
                                     vbox:
@@ -141,12 +141,12 @@ screen seekL_ui:
                                         #         null height 50 
                                                 # text " ":
                                                 #     size seekL_chat_text_size-10
-                                        if channels_names[current_window][idx] != "SYSTEM":
+                                        if channels_names[current_window][-100:][idx] != "SYSTEM":
                                             text t: 
                                                 text_align 0.0
                                                 size seekL_chat_text_size 
                                                 xmaximum seekL_window_size
-                                                if channels_names[current_window][idx] in character_colors: 
+                                                if channels_names[current_window][-100:][idx] in character_colors: 
                                                     color "#ffffffba"#character_colors[channels_names[current_window][idx]]
                                                 else: 
                                                     color "#FFFFFF"
@@ -157,7 +157,7 @@ screen seekL_ui:
                                                 size seekL_chat_text_size 
                                                 bold True 
                                                 xmaximum seekL_window_size
-                                                color character_colors[channels_names[current_window][idx]] + "85"
+                                                color character_colors[channels_names[current_window][-100:][idx]] + "85"
                                             # line_spacing 10
                             null height 50 
                     frame: 
