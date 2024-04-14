@@ -208,5 +208,9 @@ label day1_call:
 
     # end day
 
+    pause  
+
+    jump day2_start
+
 
     $ renpy.pause(hard=True)

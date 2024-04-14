@@ -460,7 +460,7 @@ init python:
                 w = w + "are typing..."
             else: 
                 w = w+ "is typing..."
-        w = "people are typing..."
+        #w = "people are typing..."
         return(w)
 
 

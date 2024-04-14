@@ -93,28 +93,9 @@ init python:
             elif error_msg == "": 
                 error_msg = "ERROR: TABLE NAME NOT FOUND -\n" + table_name
 
-            # how do they combine 
-            join_columns = []
-            if join_name != "" and table_name != "" and error_msg == "": 
-                for f_k in list(tables[table_name].keys()): 
-                    if f_k in list(tables[join_name].keys()): 
-                        join_columns.append(f_k)
-
-            if not join_columns and join_name != "" and error_msg == "": 
-                error_msg = "ERROR: NO COMMON COLUMN BETWEEN TABLES"
-            elif join_columns and error_msg == "": 
-                join_dict = {}
-                for j in join_columns: 
-                    l = list(set(tables[table_name][j] + tables[join_name][j]))
-                    l.sort()
-                    join_dict[j] = l[:5]
-            elif join_name == "" and error_msg == "": 
-                join_dict = {}
-                l = next(iter(tables[table_name]))
-                join_dict[l] = tables[table_name][l][:5]
-
             # parse out where clause 
             where_clause = ""
+            where_value = ""
             if loc_where != "" and error_msg == "":
                 for idx in range(loc_where + len("join") + 1, len(t) ):
                     where_clause = where_clause + t[idx]
@@ -139,11 +120,35 @@ init python:
                     for ws in where_sides: 
                         if ws in col_search: 
                             where_column = ws 
+                        else: 
+                            where_value = ws 
                     if where_column == "": 
                         error_msg = "ERROR: WHERE MISSING VALID COLUMN"
+                    if where_value == "": 
+                        error_msg = "ERROR: WHERE MISSING VALID VALUE"
                     # fill in where logic here 
                     # else: 
                         
+            # how do they combine 
+            join_columns = []
+            if join_name != "" and table_name != "" and error_msg == "": 
+                for f_k in list(tables[table_name].keys()): 
+                    if f_k in list(tables[join_name].keys()): 
+                        join_columns.append(f_k)
+
+            if not join_columns and join_name != "" and error_msg == "": 
+                error_msg = "ERROR: NO COMMON COLUMN BETWEEN TABLES"
+            elif join_columns and error_msg == "": 
+                join_dict = {}
+                for j in join_columns: 
+                    l = list(set(tables[table_name][j] + tables[join_name][j]))
+                    l.sort()
+                    join_dict[j] = l#[:5] 
+            elif join_name == "" and error_msg == "": 
+                join_dict = {}
+                l = next(iter(tables[table_name]))
+                join_dict[l] = tables[table_name][l]#[:5]
+            ## filter out the where stuff then choose top 5 
 
 
 
