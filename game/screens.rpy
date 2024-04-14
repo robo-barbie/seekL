@@ -101,14 +101,14 @@ screen say(who, what):
     window:
         id "window"
 
-        if who is not None:
+        # if who is not None:
 
-            window:
-                id "namebox"
-                style "namebox"
-                text who id "who"
+        #     window:
+        #         id "namebox"
+        #         style "namebox"
+        #         text who id "who"
 
-        text what id "what"
+        text what id "what" text_align 0.0 size seekL_chat_text_size xalign 0.1 color "#df95e4"
 
 
     ## If there's a side image, display it above the text. Do not display on the
@@ -178,7 +178,7 @@ screen input(prompt):
     window:
 
         vbox:
-            xanchor gui.dialogue_text_xalign
+            xanchor 0.0#gui.dialogue_text_xalign
             xpos gui.dialogue_xpos
             xsize gui.dialogue_width
             ypos gui.dialogue_ypos
@@ -189,11 +189,11 @@ screen input(prompt):
 style input_prompt is default
 
 style input_prompt:
-    xalign gui.dialogue_text_xalign
+    xalign 0.0 #gui.dialogue_text_xalign
     properties gui.text_properties("input_prompt")
 
 style input:
-    xalign gui.dialogue_text_xalign
+    xalign 0.0 #gui.dialogue_text_xalign
     xmaximum gui.dialogue_width
 
 
@@ -209,8 +209,17 @@ screen choice(items):
     style_prefix "choice"
 
     vbox:
+        if in_call: 
+            ypos 700
         for i in items:
-            textbutton "> " + i.caption action i.action text_align 0.0 background None 
+            textbutton "> " + i.caption: 
+                action i.action 
+                text_align 0.0 
+                background None 
+                if in_call:
+                    xmaximum 800
+                else: 
+                    xmaximum 900
 
 
 style choice_vbox is vbox
