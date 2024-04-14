@@ -54,18 +54,35 @@ init python:
             row_counter = 0
 
             # get what's in the query 
+            sort_order = []
             if "select " in t:
                 loc_select = t.index("select")
+                sort_order.append(("select", loc_select))
             if " from " in t: 
                 loc_from = t.index("from")
+                sort_order.append(("from", loc_from))
             if " join " in t: 
                 loc_join = t.index("join") 
+                sort_order.append(("join", loc_join))
             if " where " in t: 
                 loc_where = t.index("where")
+                sort_order.append(("where", loc_where))
 
-            if t.count(" join ") > 1: 
+            if sort_order: 
+                sort_order_test = sorted(sort_order, key=lambda x: x[1])
+            for x in range(len(sort_order_test)): 
+                if x == 0 and sort_order_test[x][0] != "select": 
+                    error_msg = "ERROR: INCORRECT COMMAND ORDER"
+                elif x == 1 and sort_order_test[x][0] != "from": 
+                    error_msg = "ERROR: INCORRECT COMMAND ORDER"
+                elif x == 2 and ((sort_order_test[x][0] != "join" and loc_join != "") or (sort_order_test[x][0] != "where" and loc_join == "" and loc_where != "")): 
+                    error_msg = "ERROR: INCORRECT COMMAND ORDER"
+                elif x == 3 and sort_order_test[x][0] != "where": 
+                    error_msg = "ERROR: INCORRECT COMMAND ORDER"
+
+            if t.count(" join ") > 1 and error_msg == "": 
                 error_msg = "ERROR: TOO MANY JOINS"
-            elif t.count(" or ") > 1 or t.count(" and ") > 1 or (t.count(" and ") > 0 and t.count(" or ") > 0): 
+            elif t.count(" or ") > 1 or t.count(" and ") > 1 or (t.count(" and ") > 0 and t.count(" or ") > 0) and error_msg == "": 
                 error_msg = "ERROR: TOO MANY WHERE CONDITIONS"
             
             # columns 
@@ -74,7 +91,7 @@ init python:
                 for idx in range(loc_select + len("select") + 1, loc_from):
                     cols = cols + t[idx]
                 cols_list = cols.replace(" ", "").split(",")
-            else: 
+            elif error_msg == "": 
                 cols_list = []
                 error_msg = "ERROR: INCORRECT SYNTAX"
 
