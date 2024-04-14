@@ -41,7 +41,7 @@ init python:
 
         if t != "":
             t_og = t
-            seekL_text_send = ""
+            #seekL_text_send = ""
 
             t = t.lower() 
             t = t.replace("\n", " ")
@@ -62,6 +62,11 @@ init python:
                 loc_join = t.index("join") 
             if " where " in t: 
                 loc_where = t.index("where")
+
+            if t.count(" join ") > 1: 
+                error_msg = "ERROR: TOO MANY JOINS"
+            elif t.count(" or ") > 1 or t.count(" and ") > 1 or (t.count(" and ") > 0 and t.count(" or ") > 0): 
+                error_msg = "ERROR: TOO MANY WHERE CONDITIONS"
             
             # columns 
             cols = ""
