@@ -8,7 +8,7 @@ label day1_start:
 
     #jump day2_start
 
-    jump day1_15
+    #jump day1_15
 
     $ chat_message("SYSTEM: THRIM joined")
 
