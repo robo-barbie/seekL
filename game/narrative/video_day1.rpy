@@ -3,143 +3,141 @@ label day1_call:
     $ in_call = True 
 
     show bg odxny_bg
-    show spr odxny_1 
+    show o1 neutral 
     show fade_lower
     show fg odxny_fg onlayer screens
     hide screen seekL_ui 
 
-    odxny "There we are."
+    o "There we are."
 
     menu: 
         "You know, for someone concerned by security this is kind of a weird move.": 
             pass 
 
-    odxny "What, the call?"
+    o "What, the call?"
 
-    show spr closed neutral_open 
-    odxny "This is more secure than the server, and that's already locked tight."
-    show spr neutral 
+    show o1 eyes closed 
+    o "This is more secure than the server, and that's already locked tight."
+    show o1 neutral 
     menu: 
         "Your lack of concern unnerves me.": 
             pass
 
-    show spr open frown
-    odxny "I'm not afraid of a quick call like this. And the little risk is worth sussing out a larger one."
+    show o1 frown
+    o "I'm not afraid of a quick call like this. And the little risk is worth sussing out a larger one."
 
     menu: 
         "Am I looking like a larger risk?": 
             pass 
 
-    show spr neutral 
-    odxny "Unknown."
+    show o1 neutral 
+    o "Unknown."
 
     menu: 
         "I'm not one to blab about my less than legal doings.": 
             pass
 
-    show spr neutral_open 
-    odxny "I see."
-    show spr neutral 
+    show o1 side
+    o "I see."
+    show o1 neutral 
 
     menu: 
         "So…?": 
             pass 
 
-    show spr neutral_open
-    odxny "So nothing. This was just to see who you are."
-    show spr neutral 
+    show o1 done
+    o "So nothing. This was just to see who you are."
+    show o1 neutral 
 
     menu: 
         "Maybe I should have dressed up nicer, then.":
 
-            show spr mad 
-            odxny "This isn't a job interview."
+            show o1 mad 
+            o "This isn't a job interview."
 
             menu:
                 "True, but \"dress to impress\" still holds.": 
                     pass
 
-            show spr done neutral_open 
-            odxny "It might do you good to set more attainable goals."
-            show spr neutral 
+            show o1 done
+            o "It might do you good to set more attainable goals."
+            show o1 neutral 
 
         "What's your read? Dangerous? Useful? Alluring?":
 
-            show spr done frown 
-            odxny "One of those was distinctly different."
+            show o1 done frown 
+            o "One of those was distinctly different."
 
             menu: 
                 "I have to assess all possibilities.": 
                     pass
 
-            show spr done neutral_open 
-            odxny "Note the root word \"possible\"."
-            show spr neutral 
+            show o1 done 
+            o "Note the root word \"possible\"."
+            show o1 neutral 
 
 
     menu:
         "Oh, ouch. Noted.":
             pass
 
-    show spr closed neutral 
-    odxny "...I'm sorry. This call wasn't to insult you."
+    show o1 eyes closed 
+    o "...I'm sorry. This call wasn't to insult you."
 
-    show spr open neutral_open 
-    odxny "I was looking more to hear about your methods. How you work."
-    show spr neutral 
+    show o1 neutral
+    o "I was looking more to hear about your methods. How you work."
 
     menu: 
         "I, uh. You can't laugh at this.": 
             pass 
 
-    show spr frown 
-    odxny "Very promising."
+    show o1 frown 
+    o "Very promising."
 
     menu: 
         "I actually mostly program with esoteric languages.": 
             pass
 
-    show spr done neutral_open 
-    odxny "Esoteric... I don't know what that means." 
+    show o1 done
+    o "Esoteric... I don't know what that means." 
 
-    show spr odxny_3 open parted 
-    odxny "Searching." 
-    show spr neutral  
+    show o1 neutral parted
+    o "Searching." 
+    show o1 neutral 
 
     pause 2 
 
-    show spr parted
-    odxny "Is this a joke?"
-    show spr neutral
+    show o3 neutral parted
+    o "Is this a joke?"
+    show o1 neutral
 
     menu: 
         "I'm being completely serious.": 
             pass 
 
-    show spr shocked neutral_open 
-    odxny "...\"designed to test the boundaries of computer programming language design, as a proof of concept, as software art, as a hacking interface to another language, or as a joke.\""
+    show o3 shocked 
+    o "...\"designed to test the boundaries of computer programming language design, as a proof of concept, as software art, as a hacking interface to another language, or as a joke.\""
 
-    show spr odxny_1 closed smile_open  
-    odxny "\"Software art.\" Ha. Funny."
+    show o1 closed eye happy  
+    o "\"Software art.\" Ha. Funny."
 
-    show spr open smile
-    odxny "Which reason is it for you?" 
+    show o1 happy
+    o "Which reason is it for you?" 
 
     menu: 
         "...It will become obvious when I say the language I use.": 
             pass 
 
-    show spr neutral_open 
-    odxny "Which is...?" 
-    show spr neutral 
+    show o1 neutral 
+    o "Which is...?" 
 
     menu: 
         "ArnoldC, lately.": 
             pass 
 
-    show spr neutral_open 
-    odxny "What's special about it?" 
-    show spr neutral 
+    show o1 side neutral
+    o "What's special about it?" 
+
 
     menu: 
         "...It's built around the one liners of Arnold Schwarzenegger.": 
@@ -147,60 +145,57 @@ label day1_call:
     
     pause 1
 
-    show spr closed smile_open 
-    odxny "Oh, my god."
+    show o1 closed eye grin
+    o "Oh, my god."
+    show o1 happy
 
     menu: 
         "No laughing. This is serious stuff.": 
-            show spr open smile_open 
-            odxny "I'm not– a little. But I'm more fascinated than anything. Really?" 
-            show spr smile 
+            show o1 happy
+            o "I'm not– a little. But I'm more fascinated than anything. Really?" 
             menu: 
                 "Yes!": 
                     pass 
         "I know. Advanced. Intimidated yet?": 
-            show spr open smile_open 
-            odxny "A little. Moreso because of how freely you admitted to this." 
-            show spr smile 
+            show o1 happy
+            o "A little. Moreso because of how freely you admitted to this." 
             menu: 
                 "Yes!": 
                     pass 
 
-    show spr smile_open_big 
-    odxny "This is going to be interesting watching you interact with everyone else."
-    show spr smile 
+    show o1 happy grin
+    o "This is going to be interesting watching you interact with everyone else."
+    show o1 happy
     menu: 
         "Well now I'm nervous.": 
             pass 
 
-    show spr closed neutral 
-    odxny "Don't be."
+    show o1 eyes closed
+    o "Don't be."
 
     menu: 
         "I'll try. ":
 
-            show spr open 
-            odxny "Good enough. Just keep doing that."
+            show o1 neutral
+            o "Good enough. Just keep doing that."
 
         "The others don't exactly help.": 
 
-            show spr open 
-            odxny "That's how they are. Don't pay them much mind."
+            o "That's how they are. Don't pay them much mind."
 
     # end choices
 
-    show spr odxny_3 open parted 
-    odxny "And with that, we're good. I'll see you around on the server."
-    show spr neutral 
+    show o2 side frown 
+    o "And with that, we're good. I'll see you around on the server."
+    show o3 neutral
     menu: 
         "That was short. Does that mean you trust me now?": 
             pass 
     
-    show spr closed neutral_open 
-    odxny "Enough to keep you around."
-    show spr open parted 
-    odxny "See you later."
-    show spr neutral 
+    show o3 eyes closed
+    o "Enough to keep you around."
+    show o3 neutral 
+    o "See you later."
 
     menu: 
         "See you.": 
