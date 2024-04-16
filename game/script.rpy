@@ -15,6 +15,7 @@ label start:
     # images directory to show it.
 
     $ reset_chats()
+    $ load_tables()
 
     play music "audio/music/Server_Room.mp3" loop fadein 2.0 fadeout 2.0 
 

@@ -45,7 +45,14 @@ init python:
                 "C", 
                 "D", 
                 "E"
-                ]
+                ], 
+            "num": [
+                "11",  
+                "31", 
+                "41", 
+                "81", 
+                "91"
+            ]
         }, 
 
         ## DAY 1 TUTORIAL TABLE  
@@ -116,3 +123,88 @@ init python:
             ]
         }
     }
+
+    def load_tables(): 
+        global tables
+
+        ## azgov.police_info
+        tname = "azgov.police_info"
+        tables[tname] = {
+            "badge_no": [], 
+            "full_name": [], 
+            "hire_date": []    
+            }
+        t1 = renpy.file("tables/seekL Tables - "+tname+".tsv")
+        for l in t1:
+            l = l.decode("utf-8")
+            a = l.rstrip().split("\t")
+            tables[tname]["badge_no"].append(a[0])
+            tables[tname]["full_name"].append(a[1])
+            tables[tname]["hire_date"].append(a[2])
+        tables[tname]["badge_no"].pop(0)
+        tables[tname]["full_name"].pop(0)
+        tables[tname]["hire_date"].pop(0)
+
+        ## azgov.marriage
+        tname = "azgov.marriage"
+        tables[tname] = {
+            "mid": [], 
+            "marriage_date": [], 
+            "full_name_party_one": [], 
+            "full_name_party_two": []      
+            }
+        t2 = renpy.file("tables/seekL Tables - "+tname+".tsv")
+        for l in t2:
+            l = l.decode("utf-8")
+            a = l.rstrip().split("\t")
+            tables[tname]["mid"].append(a[0])
+            tables[tname]["marriage_date"].append(a[1])
+            tables[tname]["full_name_party_one"].append(a[2])
+            tables[tname]["full_name_party_two"].append(a[3])
+        tables[tname]["mid"].pop(0)
+        tables[tname]["marriage_date"].pop(0)
+        tables[tname]["full_name_party_one"].pop(0)
+        tables[tname]["full_name_party_two"].pop(0)
+
+        ## irs.contacts
+        tname = "irs.contacts"
+        tables[tname] = {
+            "irs_id": [], 
+            "phone": [], 
+            "email": [], 
+            "full_name": []      
+            }
+        t3 = renpy.file("tables/seekL Tables - "+tname+".tsv")
+        for l in t3:
+            l = l.decode("utf-8")
+            a = l.rstrip().split("\t")
+            tables[tname]["irs_id"].append(a[0])
+            tables[tname]["phone"].append(a[1])
+            tables[tname]["email"].append(a[2])
+            tables[tname]["full_name"].append(a[3])
+        tables[tname]["irs_id"].pop(0)
+        tables[tname]["phone"].pop(0)
+        tables[tname]["email"].pop(0)
+        tables[tname]["full_name"].pop(0)
+
+        ## godaddy.secretsmooch_users
+        tname = "godaddy.secretsmooch_users"
+        tables[tname] = {
+            "ss_cid": [], 
+            "ss_alias": [], 
+            "ss_join_date": [], 
+            "email": []      
+            }
+        t4 = renpy.file("tables/seekL Tables - "+tname+".tsv")
+        for l in t4:
+            l = l.decode("utf-8")
+            a = l.rstrip().split("\t")
+            tables[tname]["ss_cid"].append(a[0])
+            tables[tname]["ss_alias"].append(a[1])
+            tables[tname]["ss_join_date"].append(a[2])
+            tables[tname]["email"].append(a[3])
+        tables[tname]["ss_cid"].pop(0)
+        tables[tname]["ss_alias"].pop(0)
+        tables[tname]["ss_join_date"].pop(0)
+        tables[tname]["email"].pop(0)
+        

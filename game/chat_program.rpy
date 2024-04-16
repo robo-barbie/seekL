@@ -360,11 +360,11 @@ init python:
 
         if not is_player:
             # pause before displaying the message + change who is typing 
-            wait_time = len(t0)/10/chat_speed + wait_time_prev
+            wait_time = len(t0)/5/chat_speed
             if ot != "" and chat_speed != 100: 
-                set_is_typing(n + ", " + ot, wait_time, fastmode)
+                set_is_typing(n + ", " + ot, wait_time, wait_time_prev, fastmode)
             elif n != "SYSTEM" and chat_speed != 100:
-                set_is_typing(n, wait_time, fastmode)
+                set_is_typing(n, wait_time, wait_time_prev, fastmode)
             elif chat_speed != 100: 
                 renpy.pause(1.0)
 
@@ -387,6 +387,9 @@ init python:
         channels[c].append(t)
         channels_names[c].append(n)
         channels_times[c].append(str(datetime.now().strftime('%H:%M')))
+        # channels = channels[-100:].copy()
+        # channels_names = channels_names[-100:].copy()
+        # channels_times = channels_times[-100:].copy()
         if chat_speed != 100:
             if n != "SYSTEM":
                 renpy.play("audio/sfx/message_3.ogg")
@@ -406,10 +409,10 @@ init python:
         last_window = c 
 
         if (is_player or n == "SYSTEM") and chat_speed != 100: 
-            renpy.pause(0.5)
+            renpy.pause(1)
 
     # show who is typing + logic for timing 
-    def set_is_typing(n, wt, fastmode=False): # names 
+    def set_is_typing(n, wt, wtp, fastmode=False): # names 
         #global who_is_typing 
         global who_is_typing
         global who_was_typing_list 
@@ -428,12 +431,12 @@ init python:
         else: 
             who_is_typing = ""
         if not fastmode: 
-            renpy.pause(wt * 0.25) # 1/4 of the pause time 
+            renpy.pause(wtp) 
 
         # show new list of typers 
         who_is_typing = format_typers(n_list)
         if not fastmode: 
-            renpy.pause(wt * 0.75) # 3/4 of the pause time 
+            renpy.pause(wt) 
         else: 
             renpy.pause(0.1)
         
@@ -460,7 +463,7 @@ init python:
                 w = w + "are typing..."
             else: 
                 w = w+ "is typing..."
-        w = "people are typing..."
+        #w = "people are typing..."
         return(w)
 
 
