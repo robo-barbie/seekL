@@ -23,17 +23,17 @@ init python:
 
         if required_runs["columns"]: 
             for c in required_runs["columns"]: 
-                if c not in cols: 
+                if c.lower() not in [x.lower() for x in cols]: 
                     player_proceed +=1
         
         if required_runs["tables"]: 
             for t in required_runs["tables"]: 
-                if t not in ta:
+                if t.lower() not in [x.lower() for x in ta]:
                     player_proceed +=1
 
         if required_runs["idx"]: 
             for i in required_runs["idx"]:
-                if i not in idx: 
+                if i.lower() not in [x.lower() for x in idx]: 
                     player_proceed +=1
         
         if player_proceed > 0: 
