@@ -41,7 +41,7 @@ init python:
 #############################################################
 
 
-
+define o = Character("odxny", callback=speaker("odxny"))
 
 # The game starts here.
 

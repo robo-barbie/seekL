@@ -3,7 +3,7 @@ label day1_call:
     $ in_call = True 
 
     show bg odxny_bg
-    show o1 neutral 
+    show spr o1 neutral 
     show fade_lower
     show fg odxny_fg onlayer screens
     hide screen seekL_ui 
@@ -16,126 +16,126 @@ label day1_call:
 
     o "What, the call?"
 
-    show o1 eyes closed 
+    show spr o1 eyes closed 
     o "This is more secure than the server, and that's already locked tight."
-    show o1 neutral 
+    show spr o1 neutral 
     menu: 
         "Your lack of concern unnerves me.": 
             pass
 
-    show o1 frown
+    show spr o1 frown
     o "I'm not afraid of a quick call like this. And the little risk is worth sussing out a larger one."
 
     menu: 
         "Am I looking like a larger risk?": 
             pass 
 
-    show o1 neutral 
+    show spr o1 neutral 
     o "Unknown."
 
     menu: 
         "I'm not one to blab about my less than legal doings.": 
             pass
 
-    show o1 side
+    show spr o1 side
     o "I see."
-    show o1 neutral 
+    show spr o1 neutral 
 
     menu: 
         "So…?": 
             pass 
 
-    show o1 done
+    show spr o1 done
     o "So nothing. This was just to see who you are."
-    show o1 neutral 
+    show spr o1 neutral 
 
     menu: 
         "Maybe I should have dressed up nicer, then.":
 
-            show o1 mad 
+            show spr o1 mad 
             o "This isn't a job interview."
 
             menu:
                 "True, but \"dress to impress\" still holds.": 
                     pass
 
-            show o1 done
+            show spr o1 done
             o "It might do you good to set more attainable goals."
-            show o1 neutral 
+            show spr o1 neutral 
 
         "What's your read? Dangerous? Useful? Alluring?":
 
-            show o1 done frown 
+            show spr o1 done frown 
             o "One of those was distinctly different."
 
             menu: 
                 "I have to assess all possibilities.": 
                     pass
 
-            show o1 done 
+            show spr o1 done 
             o "Note the root word \"possible\"."
-            show o1 neutral 
+            show spr o1 neutral 
 
 
     menu:
         "Oh, ouch. Noted.":
             pass
 
-    show o1 eyes closed 
+    show spr o1 eyes closed 
     o "...I'm sorry. This call wasn't to insult you."
 
-    show o1 neutral
+    show spr o1 neutral
     o "I was looking more to hear about your methods. How you work."
 
     menu: 
         "I, uh. You can't laugh at this.": 
             pass 
 
-    show o1 frown 
+    show spr o1 frown 
     o "Very promising."
 
     menu: 
         "I actually mostly program with esoteric languages.": 
             pass
 
-    show o1 done
+    show spr o1 done
     o "Esoteric... I don't know what that means." 
 
-    show o1 neutral parted
+    show spr o3 neutral parted 
     o "Searching." 
-    show o1 neutral 
+    show spr o3 neutral
 
     pause 2 
 
-    show o3 neutral parted
+    show spr o3 neutral parted
     o "Is this a joke?"
-    show o1 neutral
+    show spr o1 neutral
 
     menu: 
         "I'm being completely serious.": 
             pass 
 
-    show o3 shocked 
+    show spr o3 shocked 
     o "...\"designed to test the boundaries of computer programming language design, as a proof of concept, as software art, as a hacking interface to another language, or as a joke.\""
 
-    show o1 closed eye happy  
+    show spr o1 closed eye happy  
     o "\"Software art.\" Ha. Funny."
 
-    show o1 happy
+    show spr o1 happy
     o "Which reason is it for you?" 
 
     menu: 
         "...It will become obvious when I say the language I use.": 
             pass 
 
-    show o1 neutral 
+    show spr o1 neutral 
     o "Which is...?" 
 
     menu: 
         "ArnoldC, lately.": 
             pass 
 
-    show o1 side neutral
+    show spr o1 done
     o "What's special about it?" 
 
 
@@ -145,38 +145,38 @@ label day1_call:
     
     pause 1
 
-    show o1 closed eye grin
+    show spr o1 closed eye grin
     o "Oh, my god."
-    show o1 happy
+    show spr o1 happy
 
     menu: 
         "No laughing. This is serious stuff.": 
-            show o1 happy
+            show spr o1 happy
             o "I'm not– a little. But I'm more fascinated than anything. Really?" 
             menu: 
                 "Yes!": 
                     pass 
         "I know. Advanced. Intimidated yet?": 
-            show o1 happy
+            show spr o1 happy
             o "A little. Moreso because of how freely you admitted to this." 
             menu: 
                 "Yes!": 
                     pass 
 
-    show o1 happy grin
+    show spr o1 happy grin
     o "This is going to be interesting watching you interact with everyone else."
-    show o1 happy
+    show spr o1 happy
     menu: 
         "Well now I'm nervous.": 
             pass 
 
-    show o1 eyes closed
+    show spr o1 eyes closed
     o "Don't be."
 
     menu: 
         "I'll try. ":
 
-            show o1 neutral
+            show spr o1 neutral
             o "Good enough. Just keep doing that."
 
         "The others don't exactly help.": 
@@ -185,16 +185,16 @@ label day1_call:
 
     # end choices
 
-    show o2 side frown 
+    show spr o2 side frown 
     o "And with that, we're good. I'll see you around on the server."
-    show o3 neutral
+    show spr o3 neutral
     menu: 
         "That was short. Does that mean you trust me now?": 
             pass 
     
-    show o3 eyes closed
+    show spr o3 eyes closed
     o "Enough to keep you around."
-    show o3 neutral 
+    show spr o3 neutral 
     o "See you later."
 
     menu: 

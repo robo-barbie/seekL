@@ -1,4 +1,4 @@
-define o = Character("odxny", callback=speaker("odxny"))
+
 
 default in_call = False 
 
@@ -7,8 +7,10 @@ default in_call = False
 image bg odxny_bg = "bg_video.jpg"
 image fg odxny_fg = "grain_filter.png"
 image fade_lower = "gui/fade.png"
+
 image cg platonic = "cg_platonic.jpg"
 image cg romantic = "cg_romantic.jpg"
+
 
 
 ########################################################
@@ -16,94 +18,100 @@ image cg romantic = "cg_romantic.jpg"
 
 ##### BODY 1 #################
 
-image o1 neutral = LiveComposite(
-    (0.5, 1.0),
+image spr o1 neutral = LiveComposite(
+    (1.0, 1.0),
     (0, 0), "body1.png", #body image
     (0, 0), "o1 eyes neutral", #eye animation
     (0, 0), WhileSpeaking("odxny", "o1 mouth neutral", "body1_mouth_neutral.png"), #(character, mouth animation, mouth image when not speaking)
     )
 
-image o1 eyes closed = LiveComposite(
-    (0.5, 1.0),
+image spr o1 eyes closed = LiveComposite(
+    (1.0, 1.0),
     (0, 0), "body1.png", #body image
-    (0, 0), "o1 eyes closed", #eye animation
+    (0, 0), "o1 eyes blink", #eye animation
     (0, 0), WhileSpeaking("odxny", "o1 mouth neutral", "body1_mouth_neutral.png"), #(character, mouth animation, mouth image when not speaking)
     )
 
-image o1 side neutral = LiveComposite(
-    (0.5, 1.0),
+image spr o1 side neutral = LiveComposite(
+    (1.0, 1.0),
     (0, 0), "body1.png", #body image
     (0, 0), "o1 eyes side", #eye animation
     (0, 0), WhileSpeaking("odxny", "o1 mouth neutral", "body1_mouth_neutral.png"), #(character, mouth animation, mouth image when not speaking)
     )
 
-image o1 side frown = LiveComposite(
-    (0.5, 1.0),
+image spr o1 frown = LiveComposite(
+    (1.0, 1.0),
+    (0, 0), "body1.png", #body image
+    (0, 0), "o1 eyes neutral", #eye animation
+    (0, 0), WhileSpeaking("odxny", "o1 mouth frown", "body1_mouth_frown.png"), #(character, mouth animation, mouth image when not speaking)
+    )
+
+image spr o1 side frown = LiveComposite(
+    (1.0, 1.0),
     (0, 0), "body1.png", #body image
     (0, 0), "o1 eyes side", #eye animation
     (0, 0), WhileSpeaking("odxny", "o1 mouth frown", "body1_mouth_frown.png"), #(character, mouth animation, mouth image when not speaking)
     )
 
-image o1 happy = LiveComposite(
-    (0.5, 1.0),
+image spr o1 happy = LiveComposite(
+    (1.0, 1.0),
     (0, 0), "body1.png", #body image
     (0, 0), "o1 eyes happy", #eye animation
     (0, 0), WhileSpeaking("odxny", "o1 mouth smile", "body1_mouth_smiling.png"), #(character, mouth animation, mouth image when not speaking)
     )
 
-image o1 closed eye happy = LiveComposite(
-    (0.5, 1.0),
+image spr o1 closed eye happy = LiveComposite(
+    (1.0, 1.0),
     (0, 0), "body1.png", #body image
-    (0, 0), "o1 eyes closed", #eye animation
+    (0, 0), "o1 eyes blink", #eye animation
     (0, 0), WhileSpeaking("odxny", "o1 mouth smile", "body1_mouth_smiling.png"), #(character, mouth animation, mouth image when not speaking)
     )
 
-image o1 happy grin = LiveComposite(
-    (0.5, 1.0),
+image spr o1 happy grin = LiveComposite(
+    (1.0, 1.0),
     (0, 0), "body1.png", #body image
     (0, 0), "o1 eyes happy", #eye animation
     (0, 0), WhileSpeaking("odxny", "o1 mouth grin", "body1_mouth_grin.png"), #(character, mouth animation, mouth image when not speaking)
     )
 
-image o1 closed eye grin = LiveComposite(
-    (0.5, 1.0),
+image spr o1 closed eye grin = LiveComposite(
+    (1.0, 1.0),
     (0, 0), "body1.png", #body image
-    (0, 0), "o1 eyes closed", #eye animation
+    (0, 0), "o1 eyes blink", #eye animation
     (0, 0), WhileSpeaking("odxny", "o1 mouth grin", "body1_mouth_grin.png"), #(character, mouth animation, mouth image when not speaking)
     )
 
-image o1 grin = LiveComposite(
-    (0.5, 1.0),
+image spr o1 grin = LiveComposite(
+    (1.0, 1.0),
     (0, 0), "body1.png", #body image
     (0, 0), "o1 eyes neutral", #eye animation
     (0, 0), WhileSpeaking("odxny", "o1 mouth grin", "body1_mouth_grin.png"), #(character, mouth animation, mouth image when not speaking)
     )
 
-image o1 side smile = LiveComposite(
-    (0.5, 1.0),
+image spr o1 side smile = LiveComposite(
+    (1.0, 1.0),
     (0, 0), "body1.png", #body image
     (0, 0), "o1 eyes side", #eye animation
     (0, 0), WhileSpeaking("odxny", "o1 mouth happy", "body1_mouth_smiling.png"), #(character, mouth animation, mouth image when not speaking)
     )
 
-image o1 done frown = LiveComposite(
-    (0.5, 1.0),
+image spr o1 done frown = LiveComposite(
+    (1.0, 1.0),
     (0, 0), "body1.png", #body image
     (0, 0), "o1 eyes done", #eye animation
     (0, 0), WhileSpeaking("odxny", "o1 mouth frown", "body1_mouth_frown.png"), #(character, mouth animation, mouth image when not speaking)
     )
 
-image o1 done = LiveComposite(
-    (0.5, 1.0),
+image spr o1 done = LiveComposite(
+    (1.0, 1.0),
     (0, 0), "body1.png", #body image
     (0, 0), "o1 eyes done", #eye animation
     (0, 0), WhileSpeaking("odxny", "o1 mouth neutral", "body1_mouth_neutral.png"), #(character, mouth animation, mouth image when not speaking)
     )
 
 
-
-image o1 mad = LiveComposite(
-    (0.5, 1.0),
+image spr o1 mad = LiveComposite(
+    (1.0, 1.0),
     (0, 0), "body1.png", #body image
     (0, 0), "o1 eyes mad", #eye animation
     (0, 0), WhileSpeaking("odxny", "o1 mouth frown", "body1_mouth_frown.png"), #(character, mouth animation, mouth image when not speaking)
@@ -111,29 +119,29 @@ image o1 mad = LiveComposite(
 
 ####### BODY 2 ####################
 
-image o2 sad = LiveComposite(
-    (0.5, 1.0),
+image spr o2 sad = LiveComposite(
+    (1.0, 1.0),
     (0, 0), "body2.png", #body image
     (0, 0), "o2 eyes sad", #eye animation
     (0, 0), WhileSpeaking("odxny", "o2 mouth frown", "body2_mouth_frown.png"), #(character, mouth animation, mouth image when not speaking)
     )
 
-image o2 scowl = LiveComposite(
-    (0.5, 1.0),
+image spr o2 scowl = LiveComposite(
+    (1.0, 1.0),
     (0, 0), "body2.png", #body image
     (0, 0), "o2 eyes upset", #eye animation
     (0, 0), WhileSpeaking("odxny", "o2 mouth scowl", "body2_mouth_scowl.png"), #(character, mouth animation, mouth image when not speaking)
     )
 
-image o2 side frown = LiveComposite(
-    (0.5, 1.0),
+image spr o2 side frown = LiveComposite(
+    (1.0, 1.0),
     (0, 0), "body2.png", #body image
     (0, 0), "o2 eyes side", #eye animation
     (0, 0), WhileSpeaking("odxny", "o2 mouth frown", "body2_mouth_frown.png"), #(character, mouth animation, mouth image when not speaking)
     )
 
-image o2 side scowl = LiveComposite(
-    (0.5, 1.0),
+image spr o2 side scowl = LiveComposite(
+    (1.0, 1.0),
     (0, 0), "body2.png", #body image
     (0, 0), "o2 eyes side", #eye animation
     (0, 0), WhileSpeaking("odxny", "o2 mouth scowl", "body2_mouth_scowl.png"), #(character, mouth animation, mouth image when not speaking)
@@ -141,36 +149,36 @@ image o2 side scowl = LiveComposite(
 
 ###### BODY 3 #####################
 
-image o3 shocked = LiveComposite(
-    (0.5, 1.0),
+image spr o3 shocked = LiveComposite(
+    (1.0, 1.0),
     (0, 0), "body3.png", #body image
     (0, 0), "o3 eyes shocked", #eye animation
     (0, 0), WhileSpeaking("odxny", "o3 mouth parted", "body3_mouth_parted.png"), #(character, mouth animation, mouth image when not speaking)
     )
 
-image o3 neutral = LiveComposite(
-    (0.5, 1.0),
+image spr o3 neutral = LiveComposite(
+    (1.0, 1.0),
     (0, 0), "body3.png", #body image
     (0, 0), "o3 eyes neutral", #eye animation
     (0, 0), WhileSpeaking("odxny", "o3 mouth neutral", "body3_mouth_neutral.png"), #(character, mouth animation, mouth image when not speaking)
     )
 
-image o3 eyes closed = LiveComposite(
-    (0.5, 1.0),
+image spr o3 eyes closed = LiveComposite(
+    (1.0, 1.0),
     (0, 0), "body3.png", #body image
-    (0, 0), "o3 eyes closed", #eye animation
+    (0, 0), "o3 eyes blink", #eye animation
     (0, 0), WhileSpeaking("odxny", "o3 mouth neutral", "body3_mouth_neutral.png"), #(character, mouth animation, mouth image when not speaking)
     )
 
-image o3 silly = LiveComposite(
-    (0.5, 1.0),
+image spr o3 silly = LiveComposite(
+    (1.0, 1.0),
     (0, 0), "body3.png", #body image
     (0, 0), "o3 eyes silly", #eye animation
     (0, 0), WhileSpeaking("odxny", "o3 mouth parted", "body3_mouth_parted.png"), #(character, mouth animation, mouth image when not speaking)
     )
 
-image o3 neutral parted = LiveComposite(
-    (0.5, 1.0),
+image spr o3 neutral parted = LiveComposite(
+    (1.0, 1.0),
     (0, 0), "body3.png", #body image
     (0, 0), "o3 eyes neutral", #eye animation
     (0, 0), WhileSpeaking("odxny", "o3 mouth parted", "body3_mouth_parted.png"), #(character, mouth animation, mouth image when not speaking)
@@ -186,7 +194,7 @@ image o3 neutral parted = LiveComposite(
 
 ## BODY 1 ############
 
-image o1 eyes closed = "body1_eyes_blink.png"
+image o1 eyes blink = "body1_eyes_blink.png"
 
 image o1 eyes neutral: 
     "body1_eyes_neutral.png"
@@ -200,17 +208,8 @@ image o1 eyes neutral:
     0.1
     repeat
 
-image o1 eyes side: 
-    "body1_eyes_side.png"
-    choice:
-        4.5
-    choice:
-        3.5
-    choice:
-        1.5
-    "body1_eyes_blink.png"
-    0.1
-    repeat
+image o1 eyes side = "body1_eyes_side.png"
+
 
 image o1 eyes done: 
     "body1_eyes_done.png"
@@ -237,17 +236,8 @@ image o1 eyes mad:
     0.1
     repeat
 
-image o1 eyes happy: 
-    "body1_eyes_smiling.png"
-    choice:
-        4.5
-    choice:
-        3.5
-    choice:
-        1.5
-    "body1_eyes_blink.png"
-    0.1
-    repeat
+image o1 eyes happy = "body1_eyes_smiling.png"
+   
 
 
 #### BODY 2 ####################
@@ -291,7 +281,7 @@ image o2 eyes side:
 
 ##### BODY 3 EYES ##############
 
-image o3 eyes closed = "body3_eyes_neutral_blink.png"
+image o3 eyes blink = "body3_eyes_neutral_blink.png"
 
 image o3 eyes neutral: 
     "body3_eyes_neutral.png"
