@@ -150,8 +150,8 @@ init python:
         tables[tname] = {
             "mid": [], 
             "marriage_date": [], 
-            "full_name_party_one": [], 
-            "full_name_party_two": []      
+            "full_name": [], 
+            "spouse_name": []      
             }
         t2 = renpy.file("tables/seekL Tables - "+tname+".tsv")
         for l in t2:
@@ -159,33 +159,33 @@ init python:
             a = l.rstrip().split("\t")
             tables[tname]["mid"].append(a[0])
             tables[tname]["marriage_date"].append(a[1])
-            tables[tname]["full_name_party_one"].append(a[2])
-            tables[tname]["full_name_party_two"].append(a[3])
+            tables[tname]["full_name"].append(a[2])
+            tables[tname]["spouse_name"].append(a[3])
         tables[tname]["mid"].pop(0)
         tables[tname]["marriage_date"].pop(0)
-        tables[tname]["full_name_party_one"].pop(0)
-        tables[tname]["full_name_party_two"].pop(0)
+        tables[tname]["full_name"].pop(0)
+        tables[tname]["spouse_name"].pop(0)
 
         ## irs.contacts
         tname = "irs.contacts"
         tables[tname] = {
             "irs_id": [], 
+            "full_name": [], 
             "phone": [], 
-            "email": [], 
-            "full_name": []      
+            "email": []      
             }
         t3 = renpy.file("tables/seekL Tables - "+tname+".tsv")
         for l in t3:
             l = l.decode("utf-8")
             a = l.rstrip().split("\t")
             tables[tname]["irs_id"].append(a[0])
-            tables[tname]["phone"].append(a[1])
-            tables[tname]["email"].append(a[2])
-            tables[tname]["full_name"].append(a[3])
+            tables[tname]["full_name"].append(a[1])
+            tables[tname]["phone"].append(a[2])
+            tables[tname]["email"].append(a[3])
         tables[tname]["irs_id"].pop(0)
+        tables[tname]["full_name"].pop(0)
         tables[tname]["phone"].pop(0)
         tables[tname]["email"].pop(0)
-        tables[tname]["full_name"].pop(0)
 
         ## godaddy.secretsmooch_users
         tname = "godaddy.secretsmooch_users"

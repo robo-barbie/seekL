@@ -10,6 +10,8 @@ label day1_start:
 
     #jump day1_15
 
+    #jump day2_7
+
     $ chat_message("SYSTEM: THRIM joined")
 
     pause 1 
@@ -286,7 +288,7 @@ label day1_15:
 
     $ chat_message("wnpep: go ahead and type this into console on the top right ")
 
-    $ chat_message("wnpep: `select * \nfrom glowparkzoo.inc_0V67`")
+    $ chat_message("wnpep: `select * from glowparkzoo.inc_0V67`")
 
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
@@ -342,6 +344,7 @@ label day1_18:
 
 label day1_19: 
     $ player_is_waiting = False 
+    $ tables_seen.append("glowparkzoo.inc_0v67")
     
     # MC: done 
     $ player_choice(
@@ -383,6 +386,16 @@ label day1_19:
     $ chat_message("wnpep: but with some hard work, we manage. it's just about knowing where to look. ") 
 
     $ chat_message("wnpep: for example, if i tell you there's another animal with bad behavior at the zoo with an id of X77S, what would you run? ") 
+    ## SET REQUIREMENTS TO PROGRESS 
+    python: 
+        # WHAT COLUMNS THEY NEED TO SEE
+        required_runs["columns"] = None 
+        # WHAT TABLES THEY NEED TO ENTER 
+        required_runs["tables"] = ["glowparkzoo.inc_X77S"]
+        # WHAT IDS MUST APPEAR 
+        required_runs["idx"] = None 
+        # STOP THEM BEFORE THEY GET TOO FAR 
+        player_can_pass = False 
 
     $ player_choice(
         [
@@ -427,16 +440,6 @@ label day1_23:
     $ chat_message("wnpep: haha. oh boy ")
 
     $ chat_message("wnpep: `select * from glowparkzoo.inc_X77S`")
-    ## SET REQUIREMENTS TO PROGRESS 
-    python: 
-        # WHAT COLUMNS THEY NEED TO SEE
-        required_runs["columns"] = None 
-        # WHAT TABLES THEY NEED TO ENTER 
-        required_runs["tables"] = ["glowparkzoo.inc_X77S"]
-        # WHAT IDS MUST APPEAR 
-        required_runs["idx"] = None 
-        # STOP THEM BEFORE THEY GET TOO FAR 
-        player_can_pass = False 
 
     $ chat_message("wnpep: notice the end of the table name has changed ")
 
@@ -508,6 +511,7 @@ label day1_25:
     $ renpy.pause(hard=True)
 
 label day1_26: 
+    $ tables_seen.append("glowparkzoo.inc_x77s")
     $ player_is_waiting = False 
 
     # MC: i see. this one barely had any problems at all 

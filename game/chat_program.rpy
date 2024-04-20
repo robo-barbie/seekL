@@ -197,18 +197,27 @@ init python:
         t_out = ""
         quote_open = False
         code_block_open = False 
+        table_name_open = False
         word_open = False 
         l_insert = ""
         for idx, letter in enumerate([*t]):
             if letter == "`": 
                 if not code_block_open:
                     code_block_open = True
-                    l_insert = "{color=8c8c8c}------------------------------\n{/color}{color=d6fa9d}{font=HELLO.ttf.ttf}"
+                    l_insert = "{color=ffb8f3}------------------------------\n{/color}{color=ff75e8}{font=HELLO.ttf.ttf}"
                 else: 
                     code_block_open = False
-                    l_insert = "{/font}{/color}\n{color=8c8c8c}------------------------------{/color}"
+                    l_insert = "{/font}{/color}\n{color=ffb8f3}------------------------------{/color}"
+            elif letter == "{": 
+                if not table_name_open:  
+                    table_name_open = True 
+                    l_insert = "{color=ccff11}{font=HELLO.ttf.ttf}"
+                else: 
+                    table_name_open = False 
+                    l_insert = "{/font}{/color}"
             elif code_block_open: 
                 l_insert = letter 
+            # "#ff75e8"
             # elif letter == "\"": 
             #     if not quote_open: 
             #         l_insert = "{color=ff9a41}\""

@@ -296,8 +296,9 @@ init python:
                     if where_split_list[wlv] == "=": 
                         if is_float(where_value_list[wlv]):
                             where_idx = [i for i in range(len(t_search)) if t_search[i] == where_value_list[wlv]]
-                        elif where_value_list[wlv].startswith("'") and where_value_list[wlv].endswith("'"):
+                        elif where_value_list[wlv].startswith("'") and where_value_list[wlv].endswith("'") or  where_value_list[wlv].startswith('"') and where_value_list[wlv].endswith('"'):
                             where_value_list[wlv] = where_value_list[wlv].replace("'", "").lower()
+                            where_value_list[wlv] = where_value_list[wlv].replace('"', "").lower()
                             where_idx = [i for i in range(len(t_search)) if t_search[i].lower() == where_value_list[wlv]]
                         else: 
                             error_msg = "ERROR: WHERE VALUE STRING MISSING \nSINGLE QUOTES"
@@ -361,7 +362,7 @@ init python:
             #"#ee6464"
             if error_msg != "": 
                 seekL_output = ["{color=ee6464}"+error_msg+"{/color}"]
-                previous_commands.append("{color=945050}{size=20}UNSUCCESSFUL{/size}\n"+t_og+"{/color}")
+                previous_commands.append("{color=945050}{size=20}UNSUCCESSFUL{/size}{/color}\n"+t_og)
                 renpy.play("audio/sfx/data_error.ogg")
             else: 
                 previous_commands.append(t_og)

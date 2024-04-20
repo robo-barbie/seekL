@@ -64,7 +64,7 @@ label day2_2:
 
     $ chat_message("wnpep: can we see some of that?")
 
-    $ chat_message("incr: kindly fuck off")
+    $ chat_message("incri: kindly fuck off")
 
     $ chat_message("wnpep: yea alright",ot="elimf")
 
@@ -247,7 +247,8 @@ label day2_7:
 
     $ chat_message("incri: i already have his badge numbr ")
 
-    $ chat_message("incri: go pull up the table azgov.police_info")
+    $ chat_message("incri: go pull up the table: {azgov.police_info{")
+    $ tables_seen.append("azgov.police_info")
     
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
@@ -303,6 +304,7 @@ label day2_9:
     $ chat_message("incri: ok do u see ths badge number ")
 
     $ chat_message("incri: 55242 ")
+    $ hack_notes.append("badge: \n55242")
 
     $ player_choice(
         [
@@ -343,6 +345,7 @@ label day2_12:
             ("says \"Bruce Johnson\"", "x")
         ]
     )
+    $ hack_notes.append("name: \n'Bruce Johnson'")
 
     $ chat_message("wnpep: did the cop look like a bruce? ")
 
@@ -350,7 +353,8 @@ label day2_12:
 
     $ chat_message("incri: ok can u look at this table now ")
 
-    $ chat_message("incri: azgov.marriage")
+    $ chat_message("incri: {azgov.marriage{")
+    $ tables_seen.append("azgov.marriage")
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
         # WHAT COLUMNS THEY NEED TO SEE
@@ -483,7 +487,7 @@ label day2_15:
 
     $ chat_message("incri: GO LOOK AT THE TABLE ")
 
-    $ chat_message("incri: AZGOV>MARRIAGE")
+    $ chat_message("incri: {AZGOV.MARRIAGE{")
 
     jump day2_16
 
@@ -522,7 +526,7 @@ label day2_17:
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
         # WHAT COLUMNS THEY NEED TO SEE
-        required_runs["columns"] = ["full_name_party_two"] 
+        required_runs["columns"] = ["spouse_name"] 
         # WHAT TABLES THEY NEED TO ENTER 
         required_runs["tables"] = ["azgov.marriage"]
         # WHAT IDS MUST APPEAR 
@@ -591,7 +595,7 @@ label day2_19:
 
     $ chat_message("wnpep: yes. well. here. might as well help ")
 
-    $ chat_message("wnpep: `select * \nfrom azgov.marriage \nwhere full_name_party_one = 'bruce johnson'`")
+    $ chat_message("wnpep: `select * \nfrom azgov.marriage \nwhere full_name = 'bruce johnson'`")
 
     jump day2_20 
 
@@ -626,6 +630,7 @@ label day2_22:
     )
 
 label day2_23: 
+    $ hack_notes.append("wife: \n'Laura Crane'")
 
     $ chat_message("wnpep: could be a maiden name and not her legal name now" )
 
@@ -662,6 +667,7 @@ label day2_24:
     )
 
     $ chat_message("wnpep: the spouse is 'Laura Crane' inc ", ot="incri")
+    $ hack_notes.append("wife: \n'Laura Crane'")
 
     $ chat_message("incri: :) ")
 
@@ -702,7 +708,8 @@ label day2_25:
         ]
     )
 
-    $ chat_message("incri: irs.contacts")
+    $ chat_message("incri: {irs.contacts{")
+    $ tables_seen.append("irs.contacts")
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
         # WHAT COLUMNS THEY NEED TO SEE
@@ -762,6 +769,7 @@ label day2_27:
             ("bruce.johnson@copmail.com", "x")
         ]
     )
+    $ hack_notes.append("email: \n'bruce.johnson\n@copmail.com'")
 
     $ chat_message("incri: OK NOW LAURA\"S EMAIL")   
     ## SET REQUIREMENTS TO PROGRESS 
@@ -841,6 +849,7 @@ label day2_30:
 label day2_31: 
 
     $ chat_message("wnpep: disagree. laura.crane.johnson is way more likely ") 
+    $ hack_notes.append("email wife: \n'laura.crane.\njohnson\n@eeemail.com'")
 
     $ chat_message("wnpep: matches bruce's last name + her maiden name ") 
 
@@ -880,6 +889,7 @@ label day2_31:
 label day2_32:     
 
     $ chat_message("wnpep: agreed. all the others don't seem as likely ") 
+    $ hack_notes.append("email wife: \n'laura.crane.\njohnson\n@eeemail.com'")
 
     $ chat_message("elimf: i think ur all underselling crazy js girl ")
 
@@ -1028,7 +1038,8 @@ label day2_37:
 
     $ chat_message("incri: use bruce's email to see if he's here thrim ")
 
-    $ chat_message("incri: godaddy.secretsmooch_users")
+    $ chat_message("incri: {godaddy.secretsmooch_users{")
+    $ tables_seen.append("godaddy.secretsmooch_users")
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
         # WHAT COLUMNS THEY NEED TO SEE
@@ -1089,6 +1100,7 @@ label day2_39:
             ("it's \"OfficerOral\"", "x")
         ]
     )
+    $ hack_notes.append("alias: \n'OfficerOral'")
 
     $ chat_message("elimf: LOOOOOOOOOOOOOOLLLLLLLLLLLLLLLLLLLLLL ",ot="odxny")
 
