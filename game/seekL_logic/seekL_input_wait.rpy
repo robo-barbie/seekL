@@ -10,6 +10,7 @@ init python:
     player_is_waiting = False
     waiting_label = ""
     tables_active = []
+    look_at_idx = {}
 
     def player_input_confirm(ta=None, cols=None, idx=None): 
         global player_input_confirm_label_jump
@@ -17,7 +18,9 @@ init python:
         global player_is_waiting 
         global waiting_label 
         global tables_active 
+        global look_at_idx
         tables_active = ta 
+        look_at_idx = idx 
 
         player_proceed = 0
 
@@ -33,7 +36,9 @@ init python:
 
         if required_runs["idx"]: 
             for i in required_runs["idx"]:
-                if i.lower() not in [x.lower() for x in idx]: 
+                if i[0].lower() not in idx.keys(): 
+                    player_proceed +=1
+                elif i[1].lower() not in [x.lower() for x in idx[i[0]]]: 
                     player_proceed +=1
         
         if player_proceed > 0: 

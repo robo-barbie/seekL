@@ -324,6 +324,7 @@ label day1_15:
 
     $ chat_message("wnpep: `select * from table.example`")
     $ tables_seen.append("table.example")
+    play sound "audio/sfx/message_notification_01_002 new table.ogg"
 
     $ chat_message("elimf: or, notice how a table just appeared under the tables list on the far right?")
 
