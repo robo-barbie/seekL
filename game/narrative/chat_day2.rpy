@@ -249,6 +249,8 @@ label day2_7:
 
     $ chat_message("incri: go pull up the table: {azgov.police_info{")
     $ tables_seen.append("azgov.police_info")
+    pause 0.5
+    play sound "audio/sfx/message_notification_01_002 new table.ogg"
     
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
@@ -305,6 +307,8 @@ label day2_9:
 
     $ chat_message("incri: 55242 ")
     $ hack_notes.append("badge: \n55242")
+    pause 0.5
+    play sound "audio/sfx/message_notification_01_003 new info.ogg"
 
     $ player_choice(
         [
@@ -346,6 +350,8 @@ label day2_12:
         ]
     )
     $ hack_notes.append("name: \n'Bruce Johnson'")
+    pause 0.5
+    play sound "audio/sfx/message_notification_01_003 new info.ogg"
 
     $ chat_message("wnpep: did the cop look like a bruce? ")
 
@@ -355,6 +361,8 @@ label day2_12:
 
     $ chat_message("incri: {azgov.marriage{")
     $ tables_seen.append("azgov.marriage")
+    pause 0.5
+    play sound "audio/sfx/message_notification_01_002 new table.ogg"
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
         # WHAT COLUMNS THEY NEED TO SEE
@@ -530,7 +538,7 @@ label day2_17:
         # WHAT TABLES THEY NEED TO ENTER 
         required_runs["tables"] = ["azgov.marriage"]
         # WHAT IDS MUST APPEAR 
-        required_runs["idx"] = ["M2635187"] 
+        required_runs["idx"] = [("mid", "M2635187")] 
         # STOP THEM BEFORE THEY GET TOO FAR 
         player_can_pass = False 
 
@@ -631,6 +639,8 @@ label day2_22:
 
 label day2_23: 
     $ hack_notes.append("wife: \n'Laura Crane'")
+    pause 0.5
+    play sound "audio/sfx/message_notification_01_003 new info.ogg"
 
     $ chat_message("wnpep: could be a maiden name and not her legal name now" )
 
@@ -668,6 +678,8 @@ label day2_24:
 
     $ chat_message("wnpep: the spouse is 'Laura Crane' inc ", ot="incri")
     $ hack_notes.append("wife: \n'Laura Crane'")
+    pause 0.5
+    play sound "audio/sfx/message_notification_01_003 new info.ogg"
 
     $ chat_message("incri: :) ")
 
@@ -710,6 +722,8 @@ label day2_25:
 
     $ chat_message("incri: {irs.contacts{")
     $ tables_seen.append("irs.contacts")
+    pause 0.5
+    play sound "audio/sfx/message_notification_01_002 new table.ogg"
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
         # WHAT COLUMNS THEY NEED TO SEE
@@ -717,7 +731,7 @@ label day2_25:
         # WHAT TABLES THEY NEED TO ENTER 
         required_runs["tables"] = ["irs.contacts"]
         # WHAT IDS MUST APPEAR 
-        required_runs["idx"] = ["I80397-693"] 
+        required_runs["idx"] = [("irs_id", "I80397-693")] 
         # STOP THEM BEFORE THEY GET TOO FAR 
         player_can_pass = False 
 
@@ -770,6 +784,8 @@ label day2_27:
         ]
     )
     $ hack_notes.append("email: \n'bruce.johnson\n@copmail.com'")
+    pause 0.5
+    play sound "audio/sfx/message_notification_01_003 new info.ogg"
 
     $ chat_message("incri: OK NOW LAURA\"S EMAIL")   
     ## SET REQUIREMENTS TO PROGRESS 
@@ -779,7 +795,7 @@ label day2_27:
         # WHAT TABLES THEY NEED TO ENTER 
         required_runs["tables"] = ["irs.contacts"]
         # WHAT IDS MUST APPEAR 
-        required_runs["idx"] = ["I20210-713", "I24270-766"] 
+        required_runs["idx"] = [("irs_id", "I20210-713"), ("irs_id", "I24270-766")] 
         # STOP THEM BEFORE THEY GET TOO FAR 
         player_can_pass = False 
 
@@ -850,6 +866,8 @@ label day2_31:
 
     $ chat_message("wnpep: disagree. laura.crane.johnson is way more likely ") 
     $ hack_notes.append("email wife: \n'laura.crane.\njohnson\n@eeemail.com'")
+    pause 0.5
+    play sound "audio/sfx/message_notification_01_003 new info.ogg"
 
     $ chat_message("wnpep: matches bruce's last name + her maiden name ") 
 
@@ -890,6 +908,8 @@ label day2_32:
 
     $ chat_message("wnpep: agreed. all the others don't seem as likely ") 
     $ hack_notes.append("email wife: \n'laura.crane.\njohnson\n@eeemail.com'")
+    pause 0.5
+    play sound "audio/sfx/message_notification_01_003 new info.ogg"
 
     $ chat_message("elimf: i think ur all underselling crazy js girl ")
 
@@ -1040,6 +1060,8 @@ label day2_37:
 
     $ chat_message("incri: {godaddy.secretsmooch_users{")
     $ tables_seen.append("godaddy.secretsmooch_users")
+    pause 0.5
+    play sound "audio/sfx/message_notification_01_002 new table.ogg"
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
         # WHAT COLUMNS THEY NEED TO SEE
@@ -1047,7 +1069,7 @@ label day2_37:
         # WHAT TABLES THEY NEED TO ENTER 
         required_runs["tables"] = ["godaddy.secretsmooch_users"]
         # WHAT IDS MUST APPEAR 
-        required_runs["idx"] = ["72770-SS"] 
+        required_runs["idx"] = [("ss_cid", "72770-SS")] # this needs to change to allow a join find to work later on. i'm not sure why it didn't work
         # STOP THEM BEFORE THEY GET TOO FAR 
         player_can_pass = False
 
@@ -1101,6 +1123,8 @@ label day2_39:
         ]
     )
     $ hack_notes.append("alias: \n'OfficerOral'")
+    pause 0.5
+    play sound "audio/sfx/message_notification_01_003 new info.ogg"
 
     $ chat_message("elimf: LOOOOOOOOOOOOOOLLLLLLLLLLLLLLLLLLLLLL ",ot="odxny")
 
@@ -1231,14 +1255,16 @@ label day2_42:
 
     $ chat_message("incri: I NEVER LOSE")
 
+    pause 0.5
+
     jump day2_moneyrain
 
 label day2_moneyrain:
 
     #play sound "audio/sfx/chaching.mp3"
 
-    play sound "audio/sfx/Casino_Jackpot_001.ogg"
-    
+    play chat "audio/sfx/Casino_Jackpot_001.ogg" loop fadeout 0.2
+
     # make it rain money??  
     show money_rain onlayer screens
 
@@ -1248,13 +1274,18 @@ label day2_moneyrain:
 
     $ chat_message("elimf: wow that was the fastest one yet ",ot="incri")
 
+    pause 0.2
+
+    hide money_rain onlayer screens with Dissolve(0.5)
+    stop chat fadeout 0.5
+
+    pause 0.5 
+
     $ chat_message("incri: AHHHHHHHHHHHHHHHH")
      
     $ chat_message("incri: FREEDOM. I\"M FREEEEEEEE ")
 
     pause 0.2
-
-    hide money_rain onlayer screens with Dissolve(2.0)
 
     $ chat_message("elimf: whoa really? is that ur last one ")
 

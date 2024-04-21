@@ -208,7 +208,8 @@ init python:
                 for f_k in list(tables[table_name].keys()): 
                     if f_k in list(tables[join_name].keys()): 
                         join_columns.append(f_k)
-
+                        if f_k not in cols_final: 
+                            cols_final.append(f_k)
             if not join_columns and join_name != "" and error_msg == "": 
                 error_msg = "ERROR: NO COMMON COLUMN BETWEEN TABLES"
             elif join_columns and error_msg == "": 
@@ -368,8 +369,9 @@ init python:
                 previous_commands.append(t_og)
                 output_strings = []
                 first_c = True
-                l_out = []
+                l_out = {}
                 for c in cols_final: 
+                    l_out[c] = []
                     row_counter = 0 
                     max_len = len(c)
 
@@ -391,9 +393,9 @@ init python:
                     for j in list(join_dict.keys()): 
                         for j_v in join_dict[j]: 
                             if join_dict[j].index(j_v) < 5:
-                                l_out.append(j_v)
                                 i = final_table[j].index(j_v)
                                 v  = final_table[c][i]
+                                l_out[c].append(v)
                                 alt_string = alt_string + "\n" + "{color=8c8c8c}|{/color}"
                                 output_string = output_string + "\n" + v 
                     if first_c: 

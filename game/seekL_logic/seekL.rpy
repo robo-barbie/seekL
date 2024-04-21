@@ -108,7 +108,7 @@ screen seekL_ui:
                             background seekL_button_color_unclicked
                         #ysize seekL_button_height
                         text "all chat"  size 25
-                        action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_chat_active", 0)
+                        action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), SetVariable("seekL_chat_active", 0)
                     button: 
                         xalign 0.5
                         if seekL_chat_active == 1: 
@@ -117,7 +117,7 @@ screen seekL_ui:
                             background seekL_button_color_unclicked
                         #ysize seekL_button_height
                         text "admin chat"  size 25
-                        action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_chat_active", 1)
+                        action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), SetVariable("seekL_chat_active", 1)
                     null width 200
                     button: 
                         xalign 0.5
@@ -127,7 +127,7 @@ screen seekL_ui:
                             background seekL_button_color_unclicked
                         #ysize seekL_button_height
                         text "seekL guide" size 25
-                        action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_chat_active", 2)
+                        action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), SetVariable("seekL_chat_active", 2)
                     # button: 
                     #     xsize seekL_sidebar_size
                     #     background seekL_button_color 
@@ -226,8 +226,9 @@ screen seekL_ui:
                                                     else: 
                                                         color "#FFFFFF"
                                             else: 
-                                                text t + " ------": 
-                                                    text_align 0.5
+                                                text ">>" + t : 
+                                                    # text_align 0.5
+                                                    # xalign 0.5
                                                     font "HELLO.ttf.ttf"
                                                     size seekL_chat_text_size 
                                                     bold True 
@@ -273,7 +274,7 @@ screen seekL_ui:
                                     background seekL_button_color_unclicked
                                 ysize seekL_button_height
                                 text "console"  size 25
-                                action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_window_active", 1)
+                                action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), SetVariable("seekL_window_active", 1)
                             button: 
                                 xalign 0.5
                                 if seekL_window_active == 0: 
@@ -282,11 +283,11 @@ screen seekL_ui:
                                     background seekL_button_color_unclicked
                                 ysize seekL_button_height
                                 text "history"  size 25
-                                action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_window_active", 0)
+                                action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), SetVariable("seekL_window_active", 0)
                         frame: 
                             xsize seekL_window_size 
                             ysize seekL_height_half - seekL_button_height
-                            padding(20,20,20,20)
+                            padding(5,5,5,5)
                             viewport: 
                                 scrollbars "both"
                                 mousewheel True 
@@ -316,15 +317,16 @@ screen seekL_ui:
                                         xmaximum seekL_window_size-40
                                         for i in range(len(previous_commands)): 
                                             vbox: 
-                                                spacing 0 
+                                                spacing 5
                                                 textbutton previous_commands[len(previous_commands)-(i+1)]:
                                                     background "#FFFFFF20"
+                                                    xfill True 
                                                     text_color "#ffffff69" 
                                                     text_hover_color gui.hover_color
                                                     text_font "HELLO.ttf.ttf"
                                                     text_size 25
-                                                    action Function(run_history, previous_commands[len(previous_commands)-(i+1)])
-                                                text "--------" color "#ffffff69" font "HELLO.ttf.ttf" #xalign 0.5
+                                                    action Play("sound", "audio/sfx/message_notification_02_003 reload query.ogg"), Function(run_history, previous_commands[len(previous_commands)-(i+1)])
+                                                #text "--------" color "#ffffff69" font "HELLO.ttf.ttf" #xalign 0.5
                                 # elif seekL_window_active == -1: 
                                 #     vbox: 
                                 #         xmaximum seekL_window_size-40
@@ -343,7 +345,7 @@ screen seekL_ui:
                                     background seekL_button_color_unclicked
                                 ysize seekL_button_height
                                 text "tables"  size 25
-                                action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_help_active", 0)
+                                action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), SetVariable("seekL_help_active", 0)
                             button: 
                                 xalign 0.5
                                 if seekL_help_active == 1: 
@@ -352,9 +354,10 @@ screen seekL_ui:
                                     background seekL_button_color_unclicked
                                 ysize seekL_button_height
                                 text "info"  size 25
-                                action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_help_active", 1)
+                                action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), SetVariable("seekL_help_active", 1)
                         if seekL_help_active == 0: 
                             frame: 
+                                padding(5,5,5,5)
                                 xsize seekL_sidebar_size
                                 ysize seekL_height_half - seekL_button_height
                                 #xmaximum seekL_sidebar_size - 20
@@ -367,11 +370,12 @@ screen seekL_ui:
                                         for i in range(len(tables_seen)): 
                                             textbutton tables_seen[len(tables_seen)-(i+1)]: 
                                                 background "#FFFFFF20"
+                                                xfill True 
                                                 text_font "HELLO.ttf.ttf"
                                                 text_color "#ffffff69" 
                                                 text_size 25
                                                 text_hover_color gui.hover_color
-                                                action SetVariable("seekL_text_send", "select * \nfrom " + tables_seen[len(tables_seen)-(i+1)]), SetVariable("seekL_window_active", 1)
+                                                action Play("sound", "audio/sfx/message_notification_02_003 reload query.ogg"), SetVariable("seekL_text_send", "select * \nfrom " + tables_seen[len(tables_seen)-(i+1)]), SetVariable("seekL_window_active", 1)
                         elif seekL_help_active == 1: 
                             frame: 
                                 xsize seekL_sidebar_size
@@ -450,7 +454,7 @@ screen seekL_ui:
                 text "clear" bold True  color "#b1b1b1"
             ysize seekL_button_height
             if seekL_window_active == 1:
-                action Play("sound", "audio/sfx/query_clear.ogg"), SetVariable("seekL_text_send", "")
+                action Play("sound", "audio/sfx/message_notification_02_006 clear.ogg"), SetVariable("seekL_text_send", "")
 
     hbox: 
         ypos 0
