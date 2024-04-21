@@ -248,10 +248,11 @@ label day2_7:
     $ chat_message("incri: i already have his badge numbr ")
 
     $ chat_message("incri: go pull up the table: {azgov.police_info{")
-    $ tables_seen.append("azgov.police_info")
     pause 0.5
+    $ tables_seen.append("azgov.police_info")
     play sound "audio/sfx/message_notification_01_002 new table.ogg"
-    
+    show highlight_small onlayer screens: 
+        pos highlight_tab_table_pos
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
         # WHAT COLUMNS THEY NEED TO SEE
@@ -284,6 +285,12 @@ label day2_7:
     jump day2_8
 
 label day2_8:
+    if first_flash:
+        pause 0.5 
+        play sound "audio/sfx/message_notification_01_001 tutorial.ogg"
+        show highlight_large onlayer screens: 
+            pos highlight_frame_console_pos 
+        $ first_flash = False 
     # wait for input 
     $ player_is_waiting = True 
     $ waiting_label = "day2_9"
@@ -295,6 +302,8 @@ label day2_8:
     $ renpy.pause(hard=True)
 
 label day2_9:
+    hide highlight_large onlayer screens 
+    $ first_flash = True 
     $ player_is_waiting = False 
     #MC: I see the table now. 
     $ player_choice(
@@ -307,8 +316,10 @@ label day2_9:
 
     $ chat_message("incri: 55242 ")
     $ hack_notes.append("badge: \n55242")
-    pause 0.5
+    pause 0.2
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
+    show highlight_small onlayer screens: 
+        pos highlight_tab_info_pos
 
     $ player_choice(
         [
@@ -350,8 +361,10 @@ label day2_12:
         ]
     )
     $ hack_notes.append("name: \n'Bruce Johnson'")
-    pause 0.5
+    pause 0.2
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
+    show highlight_small onlayer screens: 
+        pos highlight_tab_info_pos
 
     $ chat_message("wnpep: did the cop look like a bruce? ")
 
@@ -360,9 +373,11 @@ label day2_12:
     $ chat_message("incri: ok can u look at this table now ")
 
     $ chat_message("incri: {azgov.marriage{")
-    $ tables_seen.append("azgov.marriage")
     pause 0.5
+    $ tables_seen.append("azgov.marriage")
     play sound "audio/sfx/message_notification_01_002 new table.ogg"
+    show highlight_small onlayer screens: 
+        pos highlight_tab_table_pos
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
         # WHAT COLUMNS THEY NEED TO SEE
@@ -501,6 +516,12 @@ label day2_15:
 
 
 label day2_16:
+    if first_flash:
+        pause 0.5 
+        play sound "audio/sfx/message_notification_01_001 tutorial.ogg"
+        show highlight_large onlayer screens: 
+            pos highlight_frame_console_pos 
+        $ first_flash = False 
     # wait for input 
     $ player_is_waiting = True 
     $ waiting_label = "day2_17"
@@ -512,6 +533,8 @@ label day2_16:
     $ renpy.pause(hard=True)
 
 label day2_17:
+    hide highlight_large onlayer screens 
+    $ first_flash = True 
     $ player_is_waiting = False 
 
     #MC: i see it 
@@ -561,17 +584,19 @@ label day2_17:
 
     $ chat_message("wnpep: it's like a filter you use when you only care about certain records ")
 
-    $ chat_message("wnpep: like, if we were in the zoo table again, and i just wanted information on incident number 14 ")
+    $ chat_message("wnpep: like, if we were looking at table.example again and i wanted to see my information")
 
-    $ chat_message("wnpep: i would add this to the end of my code: where incident_no_0v67 = 14")
+    $ chat_message("wnpep: i would add this to the end of my code: where hacker_name = 'wnpep'")
 
     $ chat_message("wnpep: does that make sense? ")
 
-    $ chat_message("wnpep: the whole statement would become `select * from glowparkzoo.inc_0v67 where incident_no_0v67 = 14`")
+    $ chat_message("wnpep: the whole statement would become \n`select * \nfrom table.example \nwhere hacker_name = 'wnpep'`")
 
-    $ chat_message("wnpep: just like that. yea? ")
+    $ chat_message("elimf: except u dont have to use quotes when ur looking at numbers")
 
-    $ chat_message("elimf: except u have to put anything that's a word/phrase in a set of single quotes")
+    $ chat_message("elimf: like if i wanted to see who had more than 30 hacks i could write ")
+
+    $ chat_message("elimf: `select hacker_name \nfrom table.example\nwhere number_of_hacks > 30`")
 
     $ chat_message("elimf: make sense?")
 
@@ -614,6 +639,12 @@ label day2_20:
 
 
 label day2_21:
+    if first_flash:
+        pause 0.5 
+        play sound "audio/sfx/message_notification_01_001 tutorial.ogg"
+        show highlight_large onlayer screens: 
+            pos highlight_frame_console_pos 
+        $ first_flash = False 
     # wait for input 
     $ player_is_waiting = True 
     $ waiting_label = "day2_22"
@@ -625,6 +656,8 @@ label day2_21:
     $ renpy.pause(hard=True)
 
 label day2_22:
+    hide highlight_large onlayer screens 
+    $ first_flash = True 
     $ player_is_waiting = False 
 
     $ chat_message("incri: found him?" )
@@ -639,8 +672,10 @@ label day2_22:
 
 label day2_23: 
     $ hack_notes.append("wife: \n'Laura Crane'")
-    pause 0.5
+    pause 0.2
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
+    show highlight_small onlayer screens: 
+        pos highlight_tab_info_pos
 
     $ chat_message("wnpep: could be a maiden name and not her legal name now" )
 
@@ -678,8 +713,10 @@ label day2_24:
 
     $ chat_message("wnpep: the spouse is 'Laura Crane' inc ", ot="incri")
     $ hack_notes.append("wife: \n'Laura Crane'")
-    pause 0.5
+    pause 0.2
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
+    show highlight_small onlayer screens: 
+        pos highlight_tab_info_pos
 
     $ chat_message("incri: :) ")
 
@@ -721,9 +758,11 @@ label day2_25:
     )
 
     $ chat_message("incri: {irs.contacts{")
-    $ tables_seen.append("irs.contacts")
     pause 0.5
+    $ tables_seen.append("irs.contacts")
     play sound "audio/sfx/message_notification_01_002 new table.ogg"
+    show highlight_small onlayer screens: 
+        pos highlight_tab_table_pos
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
         # WHAT COLUMNS THEY NEED TO SEE
@@ -753,6 +792,12 @@ label day2_25:
 
     # wait for code to run 
 label day2_26:
+    if first_flash:
+        pause 0.5 
+        play sound "audio/sfx/message_notification_01_001 tutorial.ogg"
+        show highlight_large onlayer screens: 
+            pos highlight_frame_console_pos 
+        $ first_flash = False 
     # wait for input 
     $ player_is_waiting = True 
     $ waiting_label = "day2_27"
@@ -764,6 +809,8 @@ label day2_26:
     $ renpy.pause(hard=True)
 
 label day2_27:
+    hide highlight_large onlayer screens 
+    $ first_flash = True 
     $ player_is_waiting = False 
 
     $ chat_message("incri: I\"M WAITING") 
@@ -784,8 +831,10 @@ label day2_27:
         ]
     )
     $ hack_notes.append("email: \n'bruce.johnson\n@copmail.com'")
-    pause 0.5
+    pause 0.2
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
+    show highlight_small onlayer screens: 
+        pos highlight_tab_info_pos
 
     $ chat_message("incri: OK NOW LAURA\"S EMAIL")   
     ## SET REQUIREMENTS TO PROGRESS 
@@ -825,6 +874,12 @@ label day2_27:
 
     # // wait for code to run and see both results 
 label day2_28:
+    if first_flash:
+        pause 0.5 
+        play sound "audio/sfx/message_notification_01_001 tutorial.ogg"
+        show highlight_large onlayer screens: 
+            pos highlight_frame_console_pos 
+        $ first_flash = False 
     # wait for input 
     $ player_is_waiting = True 
     $ waiting_label = "day2_29"
@@ -836,6 +891,8 @@ label day2_28:
     $ renpy.pause(hard=True)
 
 label day2_29:
+    hide highlight_large onlayer screens 
+    $ first_flash = True 
     $ player_is_waiting = False 
 
     $ chat_message("odxny: So, which looks like the best match? ") 
@@ -866,8 +923,10 @@ label day2_31:
 
     $ chat_message("wnpep: disagree. laura.crane.johnson is way more likely ") 
     $ hack_notes.append("email wife: \n'laura.crane.\njohnson\n@eeemail.com'")
-    pause 0.5
+    pause 0.2
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
+    show highlight_small onlayer screens: 
+        pos highlight_tab_info_pos
 
     $ chat_message("wnpep: matches bruce's last name + her maiden name ") 
 
@@ -908,8 +967,10 @@ label day2_32:
 
     $ chat_message("wnpep: agreed. all the others don't seem as likely ") 
     $ hack_notes.append("email wife: \n'laura.crane.\njohnson\n@eeemail.com'")
-    pause 0.5
+    pause 0.2
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
+    show highlight_small onlayer screens: 
+        pos highlight_tab_info_pos
 
     $ chat_message("elimf: i think ur all underselling crazy js girl ")
 
@@ -1051,6 +1112,11 @@ label day2_36:
 
     $ chat_message("elimf: married")
 
+    # pause 0.2
+    # play sound "audio/sfx/message_notification_01_001 tutorial.ogg"
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
+
     jump day2_37
 
     # end choices 
@@ -1059,9 +1125,11 @@ label day2_37:
     $ chat_message("incri: use bruce's email to see if he's here thrim ")
 
     $ chat_message("incri: {godaddy.secretsmooch_users{")
-    $ tables_seen.append("godaddy.secretsmooch_users")
     pause 0.5
+    $ tables_seen.append("godaddy.secretsmooch_users")
     play sound "audio/sfx/message_notification_01_002 new table.ogg"
+    show highlight_small onlayer screens: 
+        pos highlight_tab_table_pos
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
         # WHAT COLUMNS THEY NEED TO SEE
@@ -1079,6 +1147,12 @@ label day2_37:
 
     # waits for MC 
 label day2_38:
+    if first_flash:
+        pause 0.5 
+        play sound "audio/sfx/message_notification_01_001 tutorial.ogg"
+        show highlight_large onlayer screens: 
+            pos highlight_frame_console_pos 
+        $ first_flash = False 
     # wait for input 
     $ player_is_waiting = True 
     $ waiting_label = "day2_39"
@@ -1090,6 +1164,8 @@ label day2_38:
     $ renpy.pause(hard=True)
 
 label day2_39:
+    hide highlight_large onlayer screens 
+    $ first_flash = True 
     $ player_is_waiting = False 
 
     # MC: i got it! he's totally here! 
@@ -1123,8 +1199,10 @@ label day2_39:
         ]
     )
     $ hack_notes.append("alias: \n'OfficerOral'")
-    pause 0.5
+    pause 0.2
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
+    show highlight_small onlayer screens: 
+        pos highlight_tab_info_pos
 
     $ chat_message("elimf: LOOOOOOOOOOOOOOLLLLLLLLLLLLLLLLLLLLLL ",ot="odxny")
 

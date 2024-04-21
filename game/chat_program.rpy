@@ -58,37 +58,42 @@ init python:
     # }
 
     character_colors = {
-        "thrim": "#bcfffe", 
-        "odxny": "#eabcff", 
-        "wnpep": "#c9ffbc", 
-        "incri": "#fffbbc", 
-        "elimf": "#ffd7bc", 
+        "thrim": "#ffa1a1", 
+        "odxny": "#dd95ff", 
+        "wnpep": "#aeff9a", 
+        "incri": "#e4ff9a", 
+        "elimf": "#9affd0", 
         "SYSTEM": "#999999"
     }
 
     # chat groups 
     channels = {
-        "all" : []
+        "all" : [], 
+        "admin" : []
     }
 
     # chat groups names 
     channels_names = {
-        "all" : []
+        "all" : [], 
+        "admin" : []
     }
 
     # chat times
     channels_times = {
-        "all" : []
+        "all" : [], 
+        "admin" : []
     }
 
     # indicator for when a new message arrives 
     channels_new_message = {
-        "all" : False
+        "all" : False, 
+        "admin" : False
     }
 
     # who sent the last message in the channel 
     channels_last_sender = {
-        "all" : ""
+        "all" : "", 
+        "admin" : ""
     }
 
 
@@ -130,27 +135,32 @@ init python:
 
         # chat groups 
         channels = {
-            "all" : []
+            "all" : [], 
+            "admin" : []
         }
 
         # chat groups names 
         channels_names = {
-            "all" : []
+            "all" : [], 
+            "admin" : []
         }
 
         # chat times
         channels_times = {
-            "all" : []
+            "all" : [], 
+            "admin" : []
         }
 
         # indicator for when a new message arrives 
         channels_new_message = {
-            "all" : False
+            "all" : False, 
+            "admin" : False 
         }
 
         # who sent the last message in the channel 
         channels_last_sender = {
-            "all" : ""
+            "all" : "", 
+            "admin" : ""
         }
 
     # player makes a choice 
@@ -171,6 +181,12 @@ init python:
         if len(l) > 1:
             renpy.jump(selected)
 
+    seekL_recent_example = ""
+    def click_text(): 
+        global seekL_text_send 
+        global seekL_recent_example 
+        seekL_text_send = seekL_recent_example
+
     # new message
     def chat_message(s, c="all", ot="", is_player = False, fastmode=False): # string, channel, others typing, is player
         global chat_speed 
@@ -188,6 +204,7 @@ init python:
         global yadj 
         global yadjValue
         global wait_time_prev
+        global seekL_recent_example
 
         # split into name / content, get new active channel  
         n = s.split(': ', 1)[0]
@@ -202,7 +219,9 @@ init python:
         l_insert = ""
         for idx, letter in enumerate([*t]):
             if letter == "`": 
+                ##### IF YOU CHANGE THIS, YOU NEED TO CHANGE IT IN SEEKL AS WELL 
                 if not code_block_open:
+                    seekL_recent_example = ""
                     code_block_open = True
                     l_insert = "{color=ffb8f3}------------------------------\n{/color}{color=ff75e8}{font=HELLO.ttf.ttf}"
                 else: 
@@ -216,6 +235,7 @@ init python:
                     table_name_open = False 
                     l_insert = "{/font}{/color}"
             elif code_block_open: 
+                seekL_recent_example = seekL_recent_example + letter 
                 l_insert = letter 
             # "#ff75e8"
             # elif letter == "\"": 
@@ -475,6 +495,8 @@ init python:
         #w = "people are typing..."
         return(w)
 
+screen click_text_screen: 
+    on "show" action Function(click_text), Hide("click_text_screen")
 
 ##-----------------------------------------------------
 ## screen 

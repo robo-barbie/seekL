@@ -38,6 +38,8 @@ init python:
     # Curried form of the same.
     speaker = renpy.curry(speaker_callback)
 
+    first_flash = True 
+
 #############################################################
 
 

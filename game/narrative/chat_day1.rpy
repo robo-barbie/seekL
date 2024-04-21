@@ -323,8 +323,11 @@ label day1_15:
     $ chat_message("wnpep: go ahead and type this into console on the top right ")
 
     $ chat_message("wnpep: `select * from table.example`")
+    pause 0.5 
     $ tables_seen.append("table.example")
     play sound "audio/sfx/message_notification_01_002 new table.ogg"
+    show highlight_small onlayer screens: 
+        xpos 1590 ypos 130 
 
     $ chat_message("elimf: or, notice how a table just appeared under the tables list on the far right?")
 
@@ -378,6 +381,13 @@ label day1_17:
     jump day1_18
 
 label day1_18:
+    if first_flash:
+        pause 0.5 
+        play sound "audio/sfx/message_notification_01_001 tutorial.ogg"
+        show highlight_large onlayer screens: 
+            pos highlight_frame_console_pos
+        $ first_flash = False 
+    
     # wait for input 
     $ player_is_waiting = True 
     $ waiting_label = "day1_19"
@@ -389,6 +399,8 @@ label day1_18:
     $ renpy.pause(hard=True)
 
 label day1_19: 
+    hide highlight_large onlayer screens 
+    $ first_flash = True 
     $ player_is_waiting = False 
     #$ tables_seen.append("table.example")
     
@@ -523,6 +535,13 @@ label day1_19_2_cont:
     jump day1_19_2_cont_2
 
 label day1_19_2_cont_2:
+    if first_flash:
+        pause 0.5 
+        play sound "audio/sfx/message_notification_01_001 tutorial.ogg"
+        show highlight_large onlayer screens: 
+            pos highlight_frame_console_pos 
+        $ first_flash = False 
+
     # wait for input 
     $ player_is_waiting = True 
     $ waiting_label = "day1_19_2_cont_3"
@@ -536,6 +555,8 @@ label day1_19_2_cont_2:
 
 
 label day1_19_2_cont_3: 
+    hide highlight_large onlayer screens 
+    $ first_flash = True 
     $ player_is_waiting = False 
     $ player_choice(
         [

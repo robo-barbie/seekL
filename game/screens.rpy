@@ -209,17 +209,25 @@ screen choice(items):
     style_prefix "choice"
 
     vbox:
+        spacing 0 
         if in_call: 
             ypos 700
-        for i in items:
-            textbutton "> " + i.caption: 
-                action i.action 
-                text_align 0.0 
-                background None 
-                if in_call:
-                    xmaximum 800
-                else: 
-                    xmaximum 900
+        elif len(items) > 2: 
+            ypos 860 
+        if in_call or current_window == active_window: 
+            for i in items:
+                textbutton "> " + i.caption: 
+                    action i.action 
+                    text_align 0.0 
+                    if len(items) > 2: 
+                        text_size gui.text_size - 3
+                    else: 
+                        text_size gui.text_size
+                    background None 
+                    if in_call:
+                        xmaximum 800
+                    else: 
+                        xmaximum 900
 
 
 style choice_vbox is vbox
@@ -247,6 +255,7 @@ style choice_button_text is default:
 ## menus.
 
 screen quick_menu():
+    default qtt = Tooltip("")
 
     ## Ensure this appears on top of other screens.
     zorder 100
@@ -262,35 +271,48 @@ screen quick_menu():
 
             imagebutton:
                 auto "gui/button/backbutton_%s.png"
+                hovered qtt.Action("rollback")
                 action Rollback()  
 
             imagebutton:
                 auto "gui/button/history_%s.png"
+                hovered qtt.Action("call history")
                 action ShowMenu('history')
 
-            imagebutton:
-                auto "gui/button/skip_%s.png"
-                action Skip() alternate Skip(fast=True, confirm=True)
+            # imagebutton:
+            #     auto "gui/button/skip_%s.png"
+            #     action Skip() alternate Skip(fast=True, confirm=True)
 
             imagebutton:
                 auto "gui/button/auto_%s.png"
+                hovered qtt.Action("auto (call only)")
                 action Preference("auto-forward", "toggle")
 
             imagebutton:
                 auto "gui/button/save_%s.png"
+                hovered qtt.Action("save")
                 action ShowMenu('save')
+                tooltip "x"
 
-            imagebutton:
-                auto "gui/button/qsave_%s.png"
-                action QuickSave()
+            # imagebutton:
+            #     auto "gui/button/qsave_%s.png"
+            #     action QuickSave()
 
-            imagebutton:
-                auto "gui/button/qload_%s.png"
-                action QuickLoad()
+            # imagebutton:
+            #     auto "gui/button/qload_%s.png"
+            #     action QuickLoad()
             
             imagebutton:
                 auto "gui/button/prefs_%s.png"
+                hovered qtt.Action("preferences")
                 action ShowMenu('preferences')
+        frame:
+            # set this frame to the position of the mouse
+            pos renpy.get_mouse_pos() 
+            background None 
+
+            # display text with value set in tt.Action() above.
+            text qtt.value outlines [ (3, "#000000", 0, 0) ]
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
