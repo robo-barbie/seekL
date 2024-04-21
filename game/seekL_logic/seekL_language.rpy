@@ -446,7 +446,8 @@ init python:
                     #             first_c = False 
                     #         output_strings.append(output_string)
                     #         output_strings.append(alt_string)
-                
+            
+
                 seekL_output = output_strings
                 renpy.play("audio/sfx/data_success.ogg")
                 player_input_confirm(ta=list([join_name, table_name]), cols = cols_final, idx = l_out)

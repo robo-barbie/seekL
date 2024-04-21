@@ -74,14 +74,16 @@ init python:
 
     rulebook = [
         """{font=HELLO.ttf.ttf}{size=25}1. SELECT
-Use this to select specific columns (comma separated) or all columns at once (*).{color=ffffff69}
-    EX: SELECT * 
-    EX: SELECT id, date, part_no
-        {/color}{/size}{/font}""",
+Use this to select specific columns (comma separated) or all columns at once (*).
+    {/size}{/font}""",
         """{font=HELLO.ttf.ttf}{size=25}2. FROM 
 Indicate which table you'd like to see. {color=ffffff69}
-    EX: SELECT * FROM tablename 
-        {/color}{/size}{/font}"""
+
+EX: SELECT * 
+    FROM table.example 
+EX: SELECT hacker_name, favorite_fruit 
+    FROM table.example 
+    {/color}{/size}{/font}"""
     ]
 
 screen seekL_ui: 
@@ -180,7 +182,7 @@ screen seekL_ui:
                                                             #xanchor 1.0
                                                             #text_align 1.0
                                                             #xpos 130
-                                                            xsize 100
+                                                            #xsize 100
                                                             size seekL_chat_text_size 
                                                             if channels_names[current_window][-100:][idx] in character_colors: 
                                                                 color character_colors[channels_names[current_window][-100:][idx]] + "85"
@@ -200,7 +202,7 @@ screen seekL_ui:
                                                         # xanchor 1.0
                                                         # text_align 1.0
                                                         # xpos 130
-                                                        xsize 100
+                                                        #xsize 100
                                                         size seekL_chat_text_size 
                                                         if channels_names[current_window][-100:][idx] in character_colors: 
                                                             color character_colors[channels_names[current_window][-100:][idx]] + "85"
@@ -218,7 +220,7 @@ screen seekL_ui:
                                                 text t: 
                                                     text_align 0.0
                                                     size seekL_chat_text_size 
-                                                    xmaximum seekL_window_size
+                                                    xmaximum seekL_window_size + seekL_sidebar_size - 100 
                                                     if channels_names[current_window][-100:][idx] in character_colors: 
                                                         color "#ffffffba"#character_colors[channels_names[current_window][idx]]
                                                     else: 
@@ -229,7 +231,7 @@ screen seekL_ui:
                                                     font "HELLO.ttf.ttf"
                                                     size seekL_chat_text_size 
                                                     bold True 
-                                                    xmaximum seekL_window_size
+                                                    xmaximum seekL_window_size + seekL_sidebar_size - 100
                                                     color character_colors[channels_names[current_window][-100:][idx]] + "85"
                                                 # line_spacing 10
                             elif seekL_chat_active == 2: 
@@ -437,7 +439,7 @@ screen seekL_ui:
             ysize seekL_button_height
             
             if seekL_window_active == 1:
-                action Function(process_seekL, seekL_text_send) 
+                action SetVariable("seekL_output", ""), Show("timer_window")#Function(process_seekL, seekL_text_send) 
         button: 
             xalign 0.5
             if seekL_window_active == 1 and seekL_text_send != "": 
@@ -586,3 +588,6 @@ screen seekL_ui:
 
 #         key "K_BACKSPACE" action Function(next_letter, "DELETE")
 #         key "K_TAB" action Function(next_letter, "TAB")
+
+screen timer_window: 
+    timer 0.1 action Function(process_seekL, seekL_text_send), Hide("timer_window")

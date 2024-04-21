@@ -55,6 +55,40 @@ init python:
             ]
         }, 
 
+        ## TRAINING TABLE 
+        "table.example": {
+            "table_id": [
+                "T1",  
+                "T2", 
+                "T3", 
+                "T4"
+                ],
+            "hacker_name": [
+                "wnpep",  
+                "incri", 
+                "elimf", 
+                "odxny"
+                ],
+            "chat_join_date": [
+                "2023-11-2", 
+                "2024-2-16", 
+                "2023-12-12", 
+                "2023-3-15"
+                ], 
+            "favorite_fruit": [
+                "Apple",  
+                "Mango", 
+                "Banana", 
+                "Date"
+            ], 
+            "number_of_hacks": [
+                "12",  
+                "27", 
+                "19", 
+                "50"
+            ]
+        }, 
+
         ## DAY 1 TUTORIAL TABLE  
         "glowparkzoo.inc_0v67":{
             "incident_no_0v67": [

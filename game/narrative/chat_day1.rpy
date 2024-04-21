@@ -222,7 +222,13 @@ label day1_9:
         ]
     )
 
-    $ chat_message("wnpep: do you know SQL? ")
+    $ chat_message("wnpep: we can access databases from a variety of companies/government agencies in here ")
+
+    $ chat_message("wnpep: a giant backend program is constantly breaking into places and copying information to us")
+
+    $ chat_message("wnpep: and we use seekL to access that information.")
+
+    $ chat_message("elimf: do you know SQL? ")
 
     $ player_choice(
         [
@@ -236,7 +242,9 @@ label day1_10:
 
     $ chat_message("wnpep: then you've got a great head start champ ")
 
-    $ chat_message("wnpep: but, don't think it can do all that SQL can. it's pretty limited ")
+    $ chat_message("elimf: but, don't think it can do all that SQL can. it's pretty limited ")
+
+    $ chat_message("wnpep: seekL is very similar but has small differences")
 
     jump day1_12
 
@@ -245,25 +253,49 @@ label day1_11:
 
     $ chat_message("wnpep: no issue. it's not a hard language to pick up") 
 
-    $ chat_message("wnpep: if you find it difficult...")
+    $ chat_message("elimf: if you find it difficult...")
 
-    $ chat_message("elimf: concerning")
+    $ chat_message("incri: concerning")
+
+    $ chat_message("wnpep: let's explain some syntax")
+
+    $ chat_message("wnpep: when we want to look at some data, we run commands like this:")
+
+    $ chat_message("wnpep: `select *\nfrom table_name`")
+
+    $ chat_message("wnpep: SELECT is used to tell the table which information we want from it")
+
+    $ player_choice(
+        [
+            ("what does a star mean? that asterisk *", "x")
+        ]
+    )
+
+    $ chat_message("wnpep: it means we are telling the table we want all information it has")
+
+    $ chat_message("elimf: * = all")
+
+    $ chat_message("elimf: you can specify by name certain pieces of information too, i'm sure they'll show that next")
+
+    $ chat_message("wnpep: FROM says which table we want to grab this information from")
+
+    $ chat_message("wnpep: so, you'd put a real table name there where it says \"table_name\"")
+
+    $ chat_message("wnpep: put it all together and this query is saying-")
+
+    $ chat_message("wnpep: \"please give me all the information you have from table_name\"")
 
     jump day1_12
 
     # end choices 
 label day1_12:
 
-    $ chat_message("wnpep: we can access a plethora of databases from a variety of companies/government agencies in here ")
-
-    $ chat_message("wnpep: how this works is there's a giant backend program constantly breaking into them and copying different tables of data over into a massive warehouse ")
-
-    $ chat_message("wnpep: and that's what the interface you work with here will run on. does that make sense so far? ")
+    $ chat_message("wnpep: any questions? ")
 
     $ player_choice(
         [
-            ("yeah, simple ", "day1_13"), 
-            ("not really...", "day1_14")
+            ("no, this is simple", "day1_13"), 
+            ("i might.......", "day1_14")
         ]
     )
 
@@ -272,14 +304,16 @@ label day1_13:
 
     $ chat_message("elimf: phew ")
 
+    $ chat_message("wnpep: let's go through an example anyway")
+
     jump day1_15
 
     # [2] MC: not really...
 label day1_14:
 
-    $ chat_message("elimf: lollllllllllll")
+    $ chat_message("incri: lollllllllllll")
 
-    $ chat_message("wnpep: hm. well. maybe an example will help ")
+    $ chat_message("wnpep: let's go through an actual example now")
 
     jump day1_15
 
@@ -288,14 +322,25 @@ label day1_15:
 
     $ chat_message("wnpep: go ahead and type this into console on the top right ")
 
-    $ chat_message("wnpep: `select * from glowparkzoo.inc_0V67`")
+    $ chat_message("wnpep: `select * from table.example`")
+    $ tables_seen.append("table.example")
+
+    $ chat_message("elimf: or, notice how a table just appeared under the tables list on the far right?")
+
+    $ chat_message("elimf: any time you encounter a new table, it gets added to your personal little reference bank there")
+
+    $ chat_message("wnpep: if you click it, it will pre-fill the console with a basic query to look at the table")
+
+    $ chat_message("wnpep: pretty useful to just look at a table when you aren't familiar with what's in it")
+
+    $ chat_message("wnpep: either way, typing or clicking, go ahead and take a look in there thrim")
 
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
         # WHAT COLUMNS THEY NEED TO SEE
         required_runs["columns"] = None 
         # WHAT TABLES THEY NEED TO ENTER 
-        required_runs["tables"] = ["glowparkzoo.inc_0V67"]
+        required_runs["tables"] = ["table.example"]
         # WHAT IDS MUST APPEAR 
         required_runs["idx"] = None 
         # STOP THEM BEFORE THEY GET TOO FAR 
@@ -304,7 +349,7 @@ label day1_15:
     $ player_choice(
         [
             ("ok, one moment", "day1_18"), 
-            ("why is that so long and ugly...", "day1_17")
+            ("but... why is that so long and ugly...", "day1_17")
         ]
     )
 
@@ -344,7 +389,7 @@ label day1_18:
 
 label day1_19: 
     $ player_is_waiting = False 
-    $ tables_seen.append("glowparkzoo.inc_0v67")
+    #$ tables_seen.append("table.example")
     
     # MC: done 
     $ player_choice(
@@ -353,97 +398,161 @@ label day1_19:
         ]
     )
 
-    $ chat_message("wnpep: okay, so. what you see here is a small table recording negative behavior from an animal at a zoo ") 
+    $ chat_message("wnpep: okay, so. what you see here is just a small example table we built ages ago.", ot="elimf") 
 
-    $ chat_message("wnpep: only 5 records will ever be shown, so that's why you don't see all of the incidents ") 
+    $ chat_message("elimf: do you already know how tables of data work?") 
 
-    $ chat_message("wnpep: the table should show some columns like incident_no_0v67 -- 0v67 is the animal's id number, and incident_no is the uh incident number") 
-
-    $ chat_message("wnpep: you can see the times these things happened, how bad it was, and if any notes were left by the staff ") 
-
-    # MC: this doesn't say what the animal did though? 
+    # MC: done 
     $ player_choice(
         [
-            ("this doesn't say what the animal did though?", "x"), 
+            ("yes! i'm well versed", "day1_19_1"), 
+            ("no, not really", "day1_19_2"), 
         ]
     )
 
-    $ chat_message("wnpep: no. it doesnt ") 
+label day1_19_1: 
+    $ chat_message("wnpep: great. then we can skip all that, thrim.") 
+    jump day1_24
 
-    $ chat_message("wnpep: the data isn't perfect. you'll run into that a lot ") 
 
-    # MC: can i see a list of all the tables we have access to? 
+label day1_19_2: 
+
+    $ chat_message("wnpep: no problem! let's explain a bit.") 
+
+    $ chat_message("elimf: a table is just storage of information about things") 
+
+    $ chat_message("incri: stupid summary",ot="elimf") 
+
+    $ chat_message("elimf: each row is a thing and each column is information") 
+
+    $ chat_message("wnpep: ok no no ur being confusing") 
+
+    $ chat_message("wnpep: thrim, in this table there are 5 columns:") 
+
+    $ chat_message("wnpep: table_id - this is just a unique thing for each row. you can mostly ignore this") 
+
+    $ chat_message("wnpep: hacker_name - this tells you who each row is about among the four of us here. minus you") 
+
+    $ chat_message("elimf: we should update and add thrim", ot="wnpep")
+
+    $ chat_message("wnpep: chat_join_date - this tells you when each of us joined seekL") 
+
+    $ chat_message("elimf: so, like i'm on row 3, and it says i joined 2023-12-12 right before christmas")
+
+    $ chat_message("elimf: make sense?")
+
     $ player_choice(
         [
-            ("can i see a list of all the tables we have access to?", "x"), 
+            ("i think so", "x")
         ]
     )
 
-    $ chat_message("elimf: no. we actually can't ", ot="wnpep") 
+    $ chat_message("wnpep: favorite_fruit - everyone's favorite fruits from a poll") 
 
-    $ chat_message("wnpep: only odxny has that level of access ") 
+    $ chat_message("wnpep: number_of_hacks - how many successful hacks we've each pulled off")  
 
-    $ chat_message("wnpep: but with some hard work, we manage. it's just about knowing where to look. ") 
+    $ chat_message("incri: my number shuld b higher")
 
-    $ chat_message("wnpep: for example, if i tell you there's another animal with bad behavior at the zoo with an id of X77S, what would you run? ") 
+    $ chat_message("wnpep: successful being the key word here")
+
+    $ chat_message("elimf: lmao")
+
+    $ chat_message("wnpep: so, based off of that information, can you tell me who in here has the most hacks completed?")  
+
+    $ player_choice(
+        [
+            ("wnpep.", "day1_19_2_1"), 
+            ("incri.", "day1_19_2_2"), 
+            ("odxny.", "day1_19_2_3"), 
+        ]
+    )
+
+label day1_19_2_1: 
+    $ chat_message("wnpep: lol i wish, but not quite.")
+    jump day1_19_2_cont
+
+label day1_19_2_2: 
+    $ chat_message("incri: secretly ur right. these losers can't count")
+
+    $ chat_message("elimf: ya tru probs")
+
+    $ player_choice(
+        [
+            ("damn it", "x")
+        ]
+    )
+
+    jump day1_19_2_cont
+
+
+## correct choice
+label day1_19_2_3: 
+    $ chat_message("wnpep: yes! that's right!")
+
+    $ chat_message("wnpep: if you want to see it even clearer, you can run this: `select hacker_name, number_of_hacks \nfrom table.example`")
+
+    $ chat_message("wnpep: but, essentially, the row that has 50 hacks also has odxny's name on it")
+
+    $ chat_message("wnpep: which means that's the number of hacks he's done!")
+
+    $ chat_message("elimf: nice job thrim")
+
+    jump day1_24
+
+
+## cont if wrong through tutorial 
+label day1_19_2_cont: 
+
+    $ chat_message("wnpep: it might help you see better if you run this: \n`select hacker_name, number_of_hacks \nfrom table.example`")
+
+    $ chat_message("wnpep: or, just, you know, try taking a look at those columns again. hit execute again i mean.")
+
+    $ chat_message("wnpep: let us know when you're done")
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
         # WHAT COLUMNS THEY NEED TO SEE
-        required_runs["columns"] = None 
+        required_runs["hacker_name", "number_of_hacks"] = None 
         # WHAT TABLES THEY NEED TO ENTER 
-        required_runs["tables"] = ["glowparkzoo.inc_X77S"]
+        required_runs["tables"] = ["table.example"]
         # WHAT IDS MUST APPEAR 
         required_runs["idx"] = None 
         # STOP THEM BEFORE THEY GET TOO FAR 
         player_can_pass = False 
-
-    $ player_choice(
-        [
-            ("easy. i can do this", "day1_20"), 
-            ("no idea tbh", "day1_21")
-        ]
-    )
-
-    # [1] MC: easy. i can do this 
-label day1_20: 
-
-    $ chat_message("wnpep: go on then thrim")
-
-    jump day1_24
-
-    #[2] MC: no idea tbh  
-label day1_21: 
-
-    $ chat_message("elimf: ur doing amazing ", ot="wnpep")
-
-    $ chat_message("wnpep: look at the name of the table. see the animal's id in there? ")
     
+    jump day1_19_2_cont_2
+
+label day1_19_2_cont_2:
+    # wait for input 
+    $ player_is_waiting = True 
+    $ waiting_label = "day1_19_2_cont_3"
+
+    # if they arrive already ready to pass 
+    if player_can_pass:
+        $ player_is_waiting = False 
+        jump day1_19_2_cont_3 
+    $ renpy.pause(hard=True)
+
+
+
+label day1_19_2_cont_3: 
+    $ player_is_waiting = False 
     $ player_choice(
         [
-            ("oh, i get it now", "day1_22"), 
-            ("???????", "day1_23")
+            ("done!", "x")
         ]
     )
 
-    #[2-A] MC: oh, i get it now 
-label day1_22:
+    $ chat_message("wnpep: neat! so who has their name next to the highest number of hacks?")
 
-    $ chat_message("wnpep: okay! try to run something then thrim ")
+    $ player_choice(
+        [
+            ("elimf.", "day1_19_2_cont_3_1"), 
+            ("odxny.", "day1_19_2_cont_3_2"), 
+        ]
+    )
 
-    jump day1_24
-
-    #[2-B] MC: ??????? 
-label day1_23: 
-
-    $ chat_message("incri: just give them the fufcking table i can't stand this")
-
-    $ chat_message("wnpep: haha. oh boy ")
-
-    $ chat_message("wnpep: `select * from glowparkzoo.inc_X77S`")
-
-    $ chat_message("wnpep: notice the end of the table name has changed ")
-
-    $ chat_message("wnpep: try running that ")
+label day1_19_2_cont_3_1:
+    $ chat_message("incri: IT'S ODXNY DIPSHIT")
 
     $ chat_message("elimf: is this how much hand massaging ur gonna need lol ")
 
@@ -470,9 +579,32 @@ label day1_23:
 
     $ chat_message("elimf: ok ")
 
-    $ chat_message("wnpep: let me know when you've run that thrim ")
+    $ chat_message("wnpep: we can help you out as you go thrim. just ask")
 
-    jump day1_24 
+    $ player_choice(
+        [
+            ("okay....", "x")
+        ]
+    )
+
+    jump day1_24
+
+
+label day1_19_2_cont_3_2: 
+
+    $ chat_message("elimf: my god they've done it")
+
+    $ chat_message("wnpep: yayyyy!!")
+
+    $ chat_message("incri: this is so fkin boring")
+
+    $ chat_message("wnpep: shut up inc")
+
+    $ chat_message("incri: no")
+
+    $ chat_message("wnpep: yay thrim!!")
+
+    jump day1_24
 
 
     # end choices 
@@ -485,7 +617,7 @@ label day1_24:
         ]
     )
 
-    $ chat_message("elimf: it's randomized when u join")
+    $ chat_message("wnpep: it's randomized when u join, for anonymity purposes")
 
     # MC: ohhhh 
     $ player_choice(
@@ -494,36 +626,13 @@ label day1_24:
         ]
     )
 
-    $ chat_message("wnpep: code please")
+    $ chat_message("elimf: lol imagine being named incri")
 
-    jump day1_25 
+    $ chat_message("incri: imagine not having the highest number of hacks in here")
 
-    # wait for the code to be executed 
-label day1_25:
-    # wait for input 
-    $ player_is_waiting = True 
-    $ waiting_label = "day1_26"
+    $ chat_message("elimf: yea you can imagine that. since you have like 4 total right")
 
-    # if they arrive already ready to pass 
-    if player_can_pass:
-        $ player_is_waiting = False 
-        jump day1_26 
-    $ renpy.pause(hard=True)
-
-label day1_26: 
-    $ tables_seen.append("glowparkzoo.inc_x77s")
-    $ player_is_waiting = False 
-
-    # MC: i see. this one barely had any problems at all 
-    $ player_choice(
-        [
-            ("i see. this one barely had any problems at all ", "x")
-        ]
-    )
-
-    $ chat_message("wnpep: yes! not a very interesting table ")
-
-    $ chat_message("wnpep: anyway, that's some of the basics")
+    $ chat_message("incri: WHAT")
 
     # odxny online
 
@@ -533,9 +642,9 @@ label day1_26:
 
     $ chat_message("wnpep: got someone new while you were gone")
 
-    $ chat_message("odxny: Did you check on them?")
+    $ chat_message("odxny: Did you check them out?")
 
-    $ chat_message("wnpep: yeah i'm sure ur already checking but i didnt see anything to worry about")
+    $ chat_message("wnpep: yeah i'm sure ur already doing that too but i didnt see anything to worry about")
 
     $ chat_message("incri: ban them",fastmode=True)
 
