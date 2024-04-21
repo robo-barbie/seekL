@@ -401,11 +401,11 @@ init python:
         # channels_times = channels_times[-100:].copy()
         if chat_speed != 100:
             if n != "SYSTEM":
-                renpy.play("audio/sfx/message_3.ogg")
+                renpy.play("audio/sfx/message_notification_01_005 chat.ogg")
             else: 
-                renpy.play("audio/sfx/message_system.mp3")
+                renpy.play("audio/sfx/message_notification_03_001 system.ogg")
         elif is_player: 
-            renpy.play("audio/sfx/message_3.ogg")
+            renpy.play("audio/sfx/message_notification_01_005 chat.ogg")
 
         if yadj.value == yadj.range:
             yadj.value = float('inf')
@@ -418,7 +418,7 @@ init python:
         last_window = c 
 
         if (is_player or n == "SYSTEM") and chat_speed != 100: 
-            renpy.pause(1)
+            renpy.pause(0.5)
 
     # show who is typing + logic for timing 
     def set_is_typing(n, wt, wtp, fastmode=False): # names 

@@ -1237,10 +1237,8 @@ label day2_moneyrain:
 
     #play sound "audio/sfx/chaching.mp3"
 
-    play sound "audio/sfx/chaching.mp3"
-
-    pause 2.5 
-
+    play sound "audio/sfx/Casino_Jackpot_001.ogg"
+    
     # make it rain money??  
     show money_rain onlayer screens
 

@@ -439,7 +439,7 @@ screen seekL_ui:
             ysize seekL_button_height
             
             if seekL_window_active == 1:
-                action SetVariable("seekL_output", ""), Show("timer_window")#Function(process_seekL, seekL_text_send) 
+                action Hide("timer_window"),Show("timer_window")#Function(process_seekL, seekL_text_send) 
         button: 
             xalign 0.5
             if seekL_window_active == 1 and seekL_text_send != "": 
@@ -590,4 +590,5 @@ screen seekL_ui:
 #         key "K_TAB" action Function(next_letter, "TAB")
 
 screen timer_window: 
-    timer 0.1 action Function(process_seekL, seekL_text_send), Hide("timer_window")
+    on "show" action  SetVariable("seekL_output", "")
+    timer 0.1 action [Function(process_seekL, seekL_text_send), Hide("timer_window")]

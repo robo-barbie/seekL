@@ -363,7 +363,7 @@ init python:
             if error_msg != "": 
                 seekL_output = ["{color=ee6464}"+error_msg+"{/color}"]
                 previous_commands.append("{color=945050}{size=20}UNSUCCESSFUL{/size}{/color}\n"+t_og)
-                renpy.play("audio/sfx/data_error.ogg")
+                renpy.play("audio/sfx/message_received_001 data error.ogg")
             else: 
                 previous_commands.append(t_og)
                 output_strings = []
@@ -449,7 +449,7 @@ init python:
             
 
                 seekL_output = output_strings
-                renpy.play("audio/sfx/data_success.ogg")
+                renpy.play("audio/sfx/data_loaded_001.ogg")
                 player_input_confirm(ta=list([join_name, table_name]), cols = cols_final, idx = l_out)
 
 
