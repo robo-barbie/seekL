@@ -1,12 +1,12 @@
 
 init python: 
     seekL_button_color = "#48cb3a"
-    seekL_button_color_inactive = "#4e4e4e"
+    seekL_button_color_inactive = "#4154cc"
     seekL_button_color_unclicked = "#3c6837"
-    seekL_button_color_execute = "#30abe4"
+    seekL_button_color_execute = "#4154cc"
     seekL_button_color_clear = "#eb7c7c"
     seekL_window_size = 550
-    seekL_sidebar_size = 350 
+    seekL_sidebar_size = 330
     seekL_height = 950
     seekL_height_half = 475
     seekL_button_height = 50 
@@ -87,6 +87,7 @@ EX: SELECT hacker_name, favorite_fruit
     ]
 
 screen seekL_ui: 
+    add "images/chat_screenbg.jpg"
     hbox: 
         xalign 0.5 
         yalign 0.5
@@ -95,47 +96,45 @@ screen seekL_ui:
         vbox:
             # chat labels 
             frame: 
-                xsize seekL_sidebar_size + seekL_window_size
-                ysize seekL_button_height
+                #xsize seekL_sidebar_size + seekL_window_size
+                #ysize seekL_button_height
+                xsize 880
+                ysize 75
                 background None 
                 hbox: 
                     spacing 5
                     button: 
                         xalign 0.5
                         if seekL_chat_active == 0: 
-                            background seekL_button_color
+                            add "gui/button/allchat_active.png"
                         else: 
-                            background seekL_button_color_unclicked
-                        #ysize seekL_button_height
-                        text "all chat"  size 25
-                        action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_chat_active", 0)
+                            add "gui/button/allchat_idle.png"
+                            action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_chat_active", 0)
                     button: 
                         xalign 0.5
                         if seekL_chat_active == 1: 
-                            background seekL_button_color
+                            add "gui/button/adminchat_active.png"
                         else: 
-                            background seekL_button_color_unclicked
-                        #ysize seekL_button_height
-                        text "admin chat"  size 25
-                        action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_chat_active", 1)
+                            add "gui/button/adminchat_idle.png"
+                            action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_chat_active", 1)
                     null width 200
                     button: 
                         xalign 0.5
                         if seekL_chat_active == 2: 
-                            background seekL_button_color
+                            add "gui/button/seeklguide_active.png"
                         else: 
-                            background seekL_button_color_unclicked
-                        #ysize seekL_button_height
-                        text "seekL guide" size 25
-                        action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_chat_active", 2)
+                            add "gui/button/seeklguide_active.png"
+                            action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_chat_active", 2)
                     # button: 
                     #     xsize seekL_sidebar_size
                     #     background seekL_button_color 
                     #     text "odxny" xalign 0.5 bold True
             # actual chat + guide
             frame: 
-                xsize seekL_window_size + seekL_sidebar_size
-                ysize seekL_height - seekL_button_height
+                xsize seekL_window_size + seekL_sidebar_size +15
+                ysize seekL_height - seekL_button_height -10
+                padding (10, 10, 10, 10)
+                background None 
                 vbox:
                     viewport  yadjustment yadj: 
                         ysize seekL_height - seekL_choice_window_height
@@ -238,10 +237,10 @@ screen seekL_ui:
                                 for i in range(len(rulebook)): 
                                     text rulebook[i]
                             null height 50 
-                    frame: 
-                        background "#ffffff15"
-                        xfill True 
-                        yfill True 
+                    #frame: 
+                        #background "#ffffff15"
+                        #xfill True 
+                        #yfill True 
                         # text " > ": 
                         #     size seekL_chat_text_size
                 # frame: 
@@ -254,6 +253,7 @@ screen seekL_ui:
 
         # inputs + data 
         hbox: 
+            ypos 5
             spacing 10 
             # area to interact
             # seekL program 
@@ -263,30 +263,32 @@ screen seekL_ui:
                     vbox: 
                         # command history 
                         hbox: 
-                            xalign 0.0
+                            xalign 0.3
                             spacing 5
                             button: 
-                                xalign 0.5
+                                #xalign 0.5
                                 if seekL_window_active == 1: 
-                                    background seekL_button_color
+                                    add "gui/button/console_active.png"
                                 else: 
-                                    background seekL_button_color_unclicked
-                                ysize seekL_button_height
-                                text "console"  size 25
-                                action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_window_active", 1)
+                                    add "gui/button/console_idle.png"
+                                    action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_window_active", 1)
                             button: 
-                                xalign 0.5
+                                #xalign 0.5
                                 if seekL_window_active == 0: 
-                                    background seekL_button_color
+                                    add "gui/button/historytab_active.png"
+
                                 else: 
-                                    background seekL_button_color_unclicked
-                                ysize seekL_button_height
-                                text "history"  size 25
-                                action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_window_active", 0)
+                                    add "gui/button/historytab_idle.png"
+                                    action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_window_active", 0)
+                                
                         frame: 
-                            xsize seekL_window_size 
-                            ysize seekL_height_half - seekL_button_height
-                            padding(20,20,20,20)
+                            #xsize seekL_window_size 
+                            #ysize seekL_height_half - seekL_button_height
+                            xsize 545
+                            ysize 380
+                            xpos 30
+                            padding(25,25,25,25)
+                            background None
                             viewport: 
                                 scrollbars "both"
                                 mousewheel True 
@@ -338,25 +340,26 @@ screen seekL_ui:
                             button: 
                                 xalign 0.5
                                 if seekL_help_active == 0: 
-                                    background seekL_button_color
+                                    add "gui/button/tables_active.png"
                                 else: 
-                                    background seekL_button_color_unclicked
-                                ysize seekL_button_height
-                                text "tables"  size 25
-                                action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_help_active", 0)
+                                    add "gui/button/tables_idle.png"
+                                    action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_help_active", 0)
                             button: 
                                 xalign 0.5
                                 if seekL_help_active == 1: 
-                                    background seekL_button_color
+                                    add "gui/button/info_active.png"
                                 else: 
-                                    background seekL_button_color_unclicked
-                                ysize seekL_button_height
-                                text "info"  size 25
-                                action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_help_active", 1)
+                                    add "gui/button/info_idle.png"
+                                    action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_help_active", 1)
                         if seekL_help_active == 0: 
                             frame: 
-                                xsize seekL_sidebar_size
-                                ysize seekL_height_half - seekL_button_height
+                                #xsize seekL_sidebar_size
+                                #ysize seekL_height_half - seekL_button_height
+                                xsize 360
+                                ysize 385
+                                xpos 20
+                                padding (25,25,25,25)
+                                background None
                                 #xmaximum seekL_sidebar_size - 20
                                 viewport: 
                                     scrollbars "vertical"
@@ -374,8 +377,13 @@ screen seekL_ui:
                                                 action SetVariable("seekL_text_send", "select * \nfrom " + tables_seen[len(tables_seen)-(i+1)]), SetVariable("seekL_window_active", 1)
                         elif seekL_help_active == 1: 
                             frame: 
-                                xsize seekL_sidebar_size
-                                ysize seekL_height_half - seekL_button_height
+                                #xsize seekL_sidebar_size
+                                #ysize seekL_height_half - seekL_button_height
+                                xsize 360
+                                ysize 385
+                                xpos 20
+                                padding (25,25,25,25)
+                                background None
                                 #xmaximum seekL_sidebar_size - 20
                                 viewport: 
                                     scrollbars "vertical"
@@ -399,9 +407,14 @@ screen seekL_ui:
     
     
                 frame: 
-                    xsize seekL_window_size + seekL_sidebar_size
-                    ysize seekL_height_half
+                    #xsize seekL_window_size + seekL_sidebar_size
+                    #ysize seekL_height_half
+                    xsize 870
+                    ysize 475
+                    ypos 27
+                    xpos 40
                     padding(30,30,30,30)
+                    background None
                     viewport: 
                         draggable True
                         scrollbars "horizontal"
@@ -422,45 +435,62 @@ screen seekL_ui:
             #xalign 0.0
             xpos 50
 
-    hbox: 
-        xpos 1920-800 
-        ypos seekL_height_half+20
+    #hbox: 
+        #xalign 0.93
+        #ypos seekL_height_half+25
         #xalign 0.5 
-        spacing 10 
+        #spacing 25
         # execute 
-        button: 
-            xalign 0.5
-            if seekL_window_active == 1 and seekL_text_send != "": 
-                background seekL_button_color_execute
-                text "execute" bold True 
-            else: 
-                background seekL_button_color_inactive
-                text "execute" bold True color "#b1b1b1"
-            ysize seekL_button_height
+    button: 
+        xalign 0.83
+        ypos seekL_height_half+17
+        if seekL_window_active == 1 and seekL_text_send != "": 
+            background None
+            text "{font=Teko-VariableFont_wght.ttf}EXECUTE" bold True 
+        else: 
+            background None
+            text "{font=Teko-VariableFont_wght.ttf}{size=44}EXECUTE" color "#000000"
+        ysize seekL_button_height
             
-            if seekL_window_active == 1:
-                action Hide("timer_window"),Show("timer_window")#Function(process_seekL, seekL_text_send) 
-        button: 
-            xalign 0.5
-            if seekL_window_active == 1 and seekL_text_send != "": 
-                background seekL_button_color_clear
-                text "clear" bold True
-            else: 
-                background seekL_button_color_inactive
-                text "clear" bold True  color "#b1b1b1"
-            ysize seekL_button_height
-            if seekL_window_active == 1:
-                action Play("sound", "audio/sfx/query_clear.ogg"), SetVariable("seekL_text_send", "")
+        if seekL_window_active == 1:
+            action Hide("timer_window"),Show("timer_window")#Function(process_seekL, seekL_text_send) 
+
+    button: 
+        xalign 0.93
+        ypos seekL_height_half+17
+        if seekL_window_active == 1 and seekL_text_send != "": 
+            background None
+            text "{font=Teko-VariableFont_wght.ttf}CLEAR" bold True
+        else: 
+            background None
+            text "{font=Teko-VariableFont_wght.ttf}{size=45}CLEAR"  color "#95ec96"
+        ysize seekL_button_height
+        if seekL_window_active == 1:
+            action Play("sound", "audio/sfx/query_clear.ogg"), SetVariable("seekL_text_send", "")
 
     hbox: 
-        ypos 0
-        xpos 0
-        textbutton "slow": 
-            action SetVariable("chat_speed", 2)
-        textbutton "normal": 
-            action SetVariable("chat_speed", 3)
-        textbutton "hyperspeed": 
-            action SetVariable("chat_speed", 100)
+        ypos 0.0
+        xalign 0.04
+        button:
+            if chat_speed == 2:
+                add "gui/button/slow_hover.png"
+            else: 
+                add "gui/button/slow_idle.png"
+                action SetVariable("chat_speed", 2)
+
+        button:
+            if chat_speed == 3:
+                add "gui/button/normal_active.png"
+            else:
+                add "gui/button/normal_idle.png"
+                action SetVariable("chat_speed", 3)
+
+        button:
+            if chat_speed == 100:
+                add "gui/button/hyperspeed_active.png"
+            else:
+                add "gui/button/hyperspeed_idle.png" 
+                action SetVariable("chat_speed", 100)
     
     # qa hell 
     # hbox: 

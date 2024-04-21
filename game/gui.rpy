@@ -63,10 +63,10 @@ define gui.text_font = "Martian_Mono/MartianMono-VariableFont_wdth,wght.ttf" #"D
 define gui.name_text_font = "Martian_Mono/MartianMono-VariableFont_wdth,wght.ttf" #"DejaVuSans.ttf"
 
 ## The font used for out-of-game text.
-define gui.interface_text_font = "BebasNeue-Regular.ttf"
+define gui.interface_text_font = "Teko-VariableFont_wght.ttf"
 
 ## The size of normal dialogue text.
-define gui.text_size = 33
+define gui.text_size = 26
 
 ## The size of character names.
 define gui.name_text_size = 45
@@ -81,7 +81,7 @@ define gui.label_text_size = 36
 define gui.notify_text_size = 24
 
 ## The size of the game's title.
-define gui.title_text_size = 80
+define gui.title_text_size = 95
 
 
 ## Main and Game Menus #########################################################
@@ -310,7 +310,7 @@ define gui.frame_tile = False
 ## The height of horizontal bars, scrollbars, and sliders. The width of vertical
 ## bars, scrollbars, and sliders.
 define gui.bar_size = 38
-define gui.scrollbar_size = 18
+define gui.scrollbar_size = 10
 define gui.slider_size = 38
 
 ## True if bar images should be tiled. False if they should be linearly scaled.

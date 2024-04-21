@@ -256,17 +256,41 @@ screen quick_menu():
         hbox:
             style_prefix "quick"
 
-            xalign 0.5
-            yalign 1.0
+            xalign 0.04
+            yalign 0.99
+            spacing 6
 
-            textbutton _("Back") action Rollback()
-            textbutton _("History") action ShowMenu('history')
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Save") action ShowMenu('save')
-            textbutton _("Q.Save") action QuickSave()
-            textbutton _("Q.Load") action QuickLoad()
-            textbutton _("Prefs") action ShowMenu('preferences')
+            imagebutton:
+                auto "gui/button/backbutton_%s.png"
+                action Rollback()  
+
+            imagebutton:
+                auto "gui/button/history_%s.png"
+                action ShowMenu('history')
+
+            imagebutton:
+                auto "gui/button/skip_%s.png"
+                action Skip() alternate Skip(fast=True, confirm=True)
+
+            imagebutton:
+                auto "gui/button/auto_%s.png"
+                action Preference("auto-forward", "toggle")
+
+            imagebutton:
+                auto "gui/button/save_%s.png"
+                action ShowMenu('save')
+
+            imagebutton:
+                auto "gui/button/qsave_%s.png"
+                action QuickSave()
+
+            imagebutton:
+                auto "gui/button/qload_%s.png"
+                action QuickLoad()
+            
+            imagebutton:
+                auto "gui/button/prefs_%s.png"
+                action ShowMenu('preferences')
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -301,44 +325,44 @@ screen navigation():
         style_prefix "navigation"
 
         xalign 0.5
-        yalign 0.55
+        yalign 0.56
 
         spacing gui.navigation_spacing
 
         if main_menu:
 
-            textbutton _("Start") action Start()
+            textbutton _("START") action Start()
 
         else:
 
-            textbutton _("History") action ShowMenu("history")
+            textbutton _("HISTORY") action ShowMenu("history")
 
-            textbutton _("Save") action ShowMenu("save")
+            textbutton _("SAVE") action ShowMenu("save")
 
-        textbutton _("Load") action ShowMenu("load")
+        textbutton _("LOAD") action ShowMenu("load")
 
-        textbutton _("Preferences") action ShowMenu("preferences")
+        textbutton _("PREFERENCES") action ShowMenu("preferences")
 
         if _in_replay:
 
-            textbutton _("End Replay") action EndReplay(confirm=True)
+            textbutton _("END REPLAY") action EndReplay(confirm=True)
 
         elif not main_menu:
 
-            textbutton _("Main Menu") action MainMenu()
+            textbutton _("MAIN MENU") action MainMenu()
 
-        textbutton _("About") action ShowMenu("about")
+        #textbutton _("About") action ShowMenu("about")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
             ## Help isn't necessary or relevant to mobile devices.
-            textbutton _("Help") action ShowMenu("help")
+            textbutton _("HELP") action ShowMenu("help")
 
         if renpy.variant("pc"):
 
             ## The quit button is banned on iOS and unnecessary on Android and
             ## Web.
-            textbutton _("Quit") action Quit(confirm=not main_menu)
+            textbutton _("QUIT") action Quit(confirm=not main_menu)
 
 
 style navigation_button is gui_button
@@ -380,7 +404,7 @@ screen main_menu():
         vbox:
             xalign 0.5 yalign 0.25
 
-            text "[config.name!t]":
+            text "{u}seekL{/u}":
                 style "main_menu_title"
                 
 

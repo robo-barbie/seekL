@@ -11,6 +11,8 @@ image fade_lower = "gui/fade.png"
 image cg platonic = "cg_platonic.jpg"
 image cg romantic = "cg_romantic.jpg"
 
+image chatscreen_bg = "images/chat_screenbg.jpg" 
+
 
 
 ########################################################
