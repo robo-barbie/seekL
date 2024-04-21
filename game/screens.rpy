@@ -300,8 +300,8 @@ screen navigation():
     vbox:
         style_prefix "navigation"
 
-        xpos gui.navigation_xpos
-        yalign 0.5
+        xalign 0.5
+        yalign 0.55
 
         spacing gui.navigation_spacing
 
@@ -350,6 +350,7 @@ style navigation_button:
 
 style navigation_button_text:
     properties gui.button_text_properties("navigation_button")
+    xalign 0.5
 
 
 ## Main Menu screen ############################################################
@@ -368,6 +369,7 @@ screen main_menu():
     ## This empty frame darkens the main menu.
     frame:
         style "main_menu_frame"
+        xalign 0.02
 
     ## The use statement includes another screen inside this one. The actual
     ## contents of the main menu are in the navigation screen.
@@ -376,13 +378,14 @@ screen main_menu():
     if gui.show_name:
 
         vbox:
-            style "main_menu_vbox"
+            xalign 0.5 yalign 0.25
 
             text "[config.name!t]":
                 style "main_menu_title"
+                
 
-            text "[config.version]":
-                style "main_menu_version"
+            #text "[config.version]":
+                #style "main_menu_version"
 
 
 style main_menu_frame is empty
