@@ -31,6 +31,7 @@ init python:
     seekL_chat_active = 0 
     seekL_help_active = 0 
 
+    # these need to be moved out to DEFAULT in order to persist across saves
     tables_seen = []
     hack_notes = []
 
@@ -125,6 +126,7 @@ define highlight_frame_console_pos = (850, 50)
 
 screen seekL_ui: 
     add "images/chat_screenbg.jpg"
+    #add "#000000af" # dark tint 
     hbox: 
         xalign 0.5 
         yalign 0.35
