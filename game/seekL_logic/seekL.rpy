@@ -127,7 +127,7 @@ screen seekL_ui:
     add "images/chat_screenbg.jpg"
     hbox: 
         xalign 0.5 
-        yalign 0.5
+        yalign 0.35
         spacing 20
         # chats
         vbox:
@@ -136,7 +136,7 @@ screen seekL_ui:
                 #xsize seekL_sidebar_size + seekL_window_size
                 #ysize seekL_button_height
                 xsize 880
-                ysize 75
+                ysize 85
                 background None 
                 hbox: 
                     spacing 5
@@ -187,7 +187,7 @@ screen seekL_ui:
             # actual chat + guide
             frame: 
                 xsize seekL_window_size + seekL_sidebar_size +15
-                ysize seekL_height - seekL_button_height -200
+                ysize seekL_height - seekL_button_height -190
                 padding (10, 10, 10, 10)
                 background None 
                 vbox:
