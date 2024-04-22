@@ -11,7 +11,7 @@ init python:
     seekL_height_half = 475
     seekL_button_height = 50 
 
-    seekL_chat_text_size = 25 
+    seekL_chat_text_size = 20
     seekL_choice_window_height = 200
 
     seekL_text_entry = ""

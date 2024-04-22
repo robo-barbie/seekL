@@ -66,7 +66,7 @@ define gui.name_text_font = "Martian_Mono/MartianMono-VariableFont_wdth,wght.ttf
 define gui.interface_text_font = "Teko-VariableFont_wght.ttf"
 
 ## The size of normal dialogue text.
-define gui.text_size = 26
+define gui.text_size = 20
 
 ## The size of character names.
 define gui.name_text_size = 45
