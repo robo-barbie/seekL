@@ -249,12 +249,13 @@ label day2_7:
 
     $ chat_message("incri: i already have his badge numbr ")
 
-    $ chat_message("incri: go pull up the table: {azgov.police_info{")
+    $ chat_message("incri: go pull up the table: #azgov.police_info#")
     pause 0.5
     $ tables_seen.append("azgov.police_info")
     play sound "audio/sfx/message_notification_01_002 new table.ogg"
     show highlight_small onlayer screens: 
         pos highlight_tab_table_pos
+    $ renpy.notify("TABLE LIST UPDATED")
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
         # WHAT COLUMNS THEY NEED TO SEE
@@ -283,6 +284,8 @@ label day2_7:
     $ chat_message("wnpep: remember ")
 
     $ chat_message("wnpep: `select * from azgov.police_info`")
+
+    $ chat_message("wnpep: or click the table in your table list and hit execute")
 
     jump day2_8
 
@@ -316,12 +319,14 @@ label day2_9:
 
     $ chat_message("incri: ok do u see ths badge number ")
 
-    $ chat_message("incri: 55242 ")
-    $ hack_notes.append("badge: \n55242")
+    $ chat_message("incri: {color=ccff11}55242{/color} ")
     pause 0.2
+    $ hack_notes.append("badge: \n55242")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
     show highlight_small onlayer screens: 
         pos highlight_tab_info_pos
+    $ renpy.notify("INFO TAB UPDATED")
+    pause 0.5
 
     $ player_choice(
         [
@@ -340,7 +345,7 @@ label day2_10:
     #[2] MC: no? 
 label day2_11: 
 
-    $ chat_message("incri: under the badge_no column idiot ")
+    $ chat_message("incri: under the {color=ccff11}badge_no column{/color} idiot ")
 
     #MC: ok. yes. i see it. 
     $ player_choice(
@@ -362,11 +367,13 @@ label day2_12:
             ("says \"Bruce Johnson\"", "x")
         ]
     )
-    $ hack_notes.append("name: \n'Bruce Johnson'")
     pause 0.2
+    $ hack_notes.append("name: \n'Bruce Johnson'")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
     show highlight_small onlayer screens: 
         pos highlight_tab_info_pos
+    $ renpy.notify("INFO TAB UPDATED")
+    pause 0.5
 
     $ chat_message("wnpep: did the cop look like a bruce? ")
 
@@ -374,12 +381,13 @@ label day2_12:
 
     $ chat_message("incri: ok can u look at this table now ")
 
-    $ chat_message("incri: {azgov.marriage{")
+    $ chat_message("incri: #azgov.marriage#")
     pause 0.5
     $ tables_seen.append("azgov.marriage")
     play sound "audio/sfx/message_notification_01_002 new table.ogg"
     show highlight_small onlayer screens: 
         pos highlight_tab_table_pos
+    $ renpy.notify("TABLE LIST UPDATED")
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
         # WHAT COLUMNS THEY NEED TO SEE
@@ -512,7 +520,7 @@ label day2_15:
 
     $ chat_message("incri: GO LOOK AT THE TABLE ")
 
-    $ chat_message("incri: {AZGOV.MARRIAGE{")
+    $ chat_message("incri: #AZGOV.MARRIAGE#")
 
     jump day2_16
 
@@ -582,19 +590,19 @@ label day2_17:
 
     $ chat_message("elimf: I ALSO HEARD WNPEP IS MARRIED", ot="wnpep")
 
-    $ chat_message("wnpep: ok thrim, a where clause is something you would put after the from statement. ")
+    $ chat_message("wnpep: ok thrim, {color=ccff11}a where clause is something you would put after the from statement.{/color}")
 
-    $ chat_message("wnpep: it's like a filter you use when you only care about certain records ")
+    $ chat_message("wnpep: it's like {color=ccff11}a filter you use when you only care about certain records{/color}")
 
     $ chat_message("wnpep: like, if we were looking at table.example again and i wanted to see my information")
 
-    $ chat_message("wnpep: i would add this to the end of my code: where hacker_name = 'wnpep'")
+    $ chat_message("wnpep: i would add this to the end of my code: {color=ccff11}where hacker_name = 'wnpep'{/color}")
 
     $ chat_message("wnpep: does that make sense? ")
 
     $ chat_message("wnpep: the whole statement would become \n`select * \nfrom table.example \nwhere hacker_name = 'wnpep'`")
 
-    $ chat_message("elimf: except u dont have to use quotes when ur looking at numbers")
+    $ chat_message("elimf: except {color=ccff11}u dont have to use quotes when ur looking at numbers{/color}")
 
     $ chat_message("elimf: like if i wanted to see who had more than 30 hacks i could write ")
 
@@ -635,7 +643,7 @@ label day2_19:
     jump day2_20 
 
 label day2_20: 
-    $ chat_message("incri: let me know when ur fuckin g done")
+    $ chat_message("incri: let me know when ur fuckin g done finding dumbass cop in the marriage tbl")
 
     jump day2_21
 
@@ -673,11 +681,13 @@ label day2_22:
     )
 
 label day2_23: 
-    $ hack_notes.append("wife: \n'Laura Crane'")
     pause 0.2
+    $ hack_notes.append("wife: \n'Laura Crane'")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
     show highlight_small onlayer screens: 
         pos highlight_tab_info_pos
+    $ renpy.notify("INFO TAB UPDATED")
+    pause 0.5
 
     $ chat_message("wnpep: could be a maiden name and not her legal name now" )
 
@@ -714,11 +724,13 @@ label day2_24:
     )
 
     $ chat_message("wnpep: the spouse is 'Laura Crane' inc ", ot="incri")
-    $ hack_notes.append("wife: \n'Laura Crane'")
     pause 0.2
+    $ hack_notes.append("wife: \n'Laura Crane'")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
     show highlight_small onlayer screens: 
         pos highlight_tab_info_pos
+    $ renpy.notify("INFO TAB UPDATED")
+    pause 0.5
 
     $ chat_message("incri: :) ")
 
@@ -759,12 +771,13 @@ label day2_25:
         ]
     )
 
-    $ chat_message("incri: {irs.contacts{")
+    $ chat_message("incri: #irs.contacts#")
     pause 0.5
     $ tables_seen.append("irs.contacts")
     play sound "audio/sfx/message_notification_01_002 new table.ogg"
     show highlight_small onlayer screens: 
         pos highlight_tab_table_pos
+    $ renpy.notify("TABLE LIST UPDATED")
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
         # WHAT COLUMNS THEY NEED TO SEE
@@ -789,6 +802,8 @@ label day2_25:
     $ chat_message("wnpep: lol",ot="incri") 
 
     $ chat_message("incri: GO FIND BRUCE\"S EMAIL THRIM") 
+
+    $ chat_message("elimf: WITH A DELICIOUS USE OF THE {color=ccff11}WHERE CLAUSE{/color}") 
 
     jump day2_26
 
@@ -832,11 +847,13 @@ label day2_27:
             ("bruce.johnson@copmail.com", "x")
         ]
     )
-    $ hack_notes.append("email: \n'bruce.johnson\n@copmail.com'")
     pause 0.2
+    $ hack_notes.append("email: \n'bruce.johnson\n@copmail.com'")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
     show highlight_small onlayer screens: 
         pos highlight_tab_info_pos
+    $ renpy.notify("INFO TAB UPDATED")
+    pause 0.5 
 
     $ chat_message("incri: OK NOW LAURA\"S EMAIL")   
     ## SET REQUIREMENTS TO PROGRESS 
@@ -863,9 +880,9 @@ label day2_27:
         ]
     )
 
-    $ chat_message("wnpep: you can use an OR")  
+    $ chat_message("wnpep: {color=ccff11}you can use an OR{/color}")  
 
-    $ chat_message("wnpep: where full_name = 'laura johnson' or full_name = 'laura crane'") 
+    $ chat_message("wnpep: {color=ccff11}where full_name = 'laura johnson' or full_name = 'laura crane'{/color}") 
 
     #MC: ok ok ok 
     $ player_choice(
@@ -923,12 +940,14 @@ label day2_30:
 
 label day2_31: 
 
-    $ chat_message("wnpep: disagree. laura.crane.johnson is way more likely ") 
+    $ chat_message("wnpep: disagree. laura.crane.johnson is way more likely ")
+    pause 0.2 
     $ hack_notes.append("email wife: \n'laura.crane.\njohnson\n@eeemail.com'")
-    pause 0.2
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
     show highlight_small onlayer screens: 
         pos highlight_tab_info_pos
+    $ renpy.notify("INFO TAB UPDATED")
+    pause 0.5
 
     $ chat_message("wnpep: matches bruce's last name + her maiden name ") 
 
@@ -968,11 +987,13 @@ label day2_31:
 label day2_32:     
 
     $ chat_message("wnpep: agreed. all the others don't seem as likely ") 
-    $ hack_notes.append("email wife: \n'laura.crane.\njohnson\n@eeemail.com'")
     pause 0.2
+    $ hack_notes.append("email wife: \n'laura.crane.\njohnson\n@eeemail.com'")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
     show highlight_small onlayer screens: 
         pos highlight_tab_info_pos
+    $ renpy.notify("INFO TAB UPDATED")
+    pause 0.5
 
     $ chat_message("elimf: i think ur all underselling crazy js girl ")
 
@@ -1126,12 +1147,13 @@ label day2_37:
 
     $ chat_message("incri: use bruce's email to see if he's here thrim ")
 
-    $ chat_message("incri: {godaddy.secretsmooch_users{")
+    $ chat_message("incri: #godaddy.secretsmooch_users#")
     pause 0.5
     $ tables_seen.append("godaddy.secretsmooch_users")
     play sound "audio/sfx/message_notification_01_002 new table.ogg"
     show highlight_small onlayer screens: 
         pos highlight_tab_table_pos
+    $ renpy.notify("TABLE LIST UPDATED")
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
         # WHAT COLUMNS THEY NEED TO SEE
@@ -1200,11 +1222,13 @@ label day2_39:
             ("it's \"OfficerOral\"", "x")
         ]
     )
-    $ hack_notes.append("alias: \n'OfficerOral'")
     pause 0.2
+    $ hack_notes.append("alias: \n'OfficerOral'")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
     show highlight_small onlayer screens: 
         pos highlight_tab_info_pos
+    $ renpy.notify("INFO TAB UPDATED")
+    pause 0.5
 
     $ chat_message("elimf: LOOOOOOOOOOOOOOLLLLLLLLLLLLLLLLLLLLLL ",ot="odxny")
 

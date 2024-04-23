@@ -210,8 +210,11 @@ init python:
         # split into name / content, get new active channel  
         n = s.split(': ', 1)[0]
         t = s.split(': ', 1)[1]
+
+        if t == "no (tutorial)": 
+            t = "no"
         t0 = t
-        
+
         t_out = ""
         quote_open = False
         code_block_open = False 
@@ -228,7 +231,7 @@ init python:
                 else: 
                     code_block_open = False
                     l_insert = "{/font}{/color}\n{color=ffb8f3}------------------------------{/color}"
-            elif letter == "{": 
+            elif letter == "#": 
                 if not table_name_open:  
                     table_name_open = True 
                     l_insert = "{color=ccff11}{font=HELLO.ttf.ttf}"
