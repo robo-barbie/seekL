@@ -1,17 +1,17 @@
 
-init python: 
-    required_runs = {
-        "columns":None, 
-        "tables":None, 
-        "idx":None
-    }
+default required_runs = {
+    "columns":None, 
+    "tables":None, 
+    "idx":None
+}
 
-    player_can_pass = False
-    player_is_waiting = False
-    waiting_label = ""
-    tables_active = []
-    look_at_idx = {}
+default player_can_pass = False
+default player_is_waiting = False
+default waiting_label = ""
+default tables_active = []
+default look_at_idx = {}
 
+init python:
     def player_input_confirm(ta=None, cols=None, idx=None): 
         global player_input_confirm_label_jump
         global player_can_pass

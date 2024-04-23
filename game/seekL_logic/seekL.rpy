@@ -14,29 +14,12 @@ init python:
     seekL_chat_text_size = 20
     seekL_choice_window_height = 200
 
-    seekL_text_entry = ""
-    seekL_text_send = ""
-    seekL_text_send_previous = ""
-    seekL_text_show = ""
-    seekL_text_formatting_open = ""
-
-    t2 = "" 
-
-    # autoscroll vars
     xadjValue_sl = float("inf")
     xadj_sl = ui.adjustment()
     xadj_sl.value = float("inf")
 
-    seekL_window_active = 1
-    seekL_chat_active = 0 
-    seekL_help_active = 0 
-
-    # these need to be moved out to DEFAULT in order to persist across saves
-    tables_seen = []
-    hack_notes = []
-
     seekL_cmd_color = "#28a9ff"
-    seekL_cmd_color = "#28a9ff"
+    #seekL_cmd_color = "#28a9ff"
 
     def run_history(hist): 
         global seekL_text_send 
@@ -75,7 +58,7 @@ init python:
         if " on " in value.lower(): 
             seekL_text_show = seekL_text_show.replace(" where ", " {color=28a9ff}on{/color} ")
 
-    rulebook = [
+default rulebook = [
         """{font=HELLO.ttf.ttf}{size=25}1. SELECT
 Use this to select specific columns (comma separated) or all columns at once (*).
     {/size}{/font}""",
@@ -88,6 +71,22 @@ EX: SELECT hacker_name, favorite_fruit
     FROM table.example 
     {/color}{/size}{/font}"""
     ]
+
+default seekL_text_entry = ""
+default seekL_text_send = ""
+default seekL_text_send_previous = ""
+default seekL_text_show = ""
+default seekL_text_formatting_open = ""
+
+default t2 = "" 
+
+default seekL_window_active = 1
+default seekL_chat_active = 0 
+default seekL_help_active = 0 
+
+# these need to be moved out to DEFAULT in order to persist across saves
+default tables_seen = []
+default hack_notes = []
 
 image new_message_all: 
     "gui/button/allchat_idle.png"

@@ -1,6 +1,69 @@
 ##-----------------------------------------------------
 ## chat program setup 
 
+default chat_speed = 3 
+
+    # this is for formatting the text 
+default who_is_typing = ""
+default who_was_typing_list = []
+default last_sender = ""
+default last_window = "X"
+default wait_time_prev = 0
+
+    # this is also for formatting 
+default current_window = "all"
+default active_window = "all"
+
+default seekL_recent_example = ""
+
+    # character info 
+    # character_names = {
+    #     "Felix" : "Doyle", 
+    #     "Jerri" : "Ngo", 
+    #     "Major" : "Alstone", 
+    #     "Sungho" : "Go"
+    # }
+
+default character_colors = {
+    "thrim": "#ffa1a1", 
+    "odxny": "#dd95ff", 
+    "wnpep": "#aeff9a", 
+    "incri": "#e4ff9a", 
+    "elimf": "#9affd0", 
+    "SYSTEM": "#999999"
+}
+
+    # chat groups 
+default channels = {
+    "all" : [], 
+    "admin" : []
+}
+
+    # chat groups names 
+default channels_names = {
+    "all" : [], 
+    "admin" : []
+}
+
+    # chat times
+default channels_times = {
+    "all" : [], 
+    "admin" : []
+}
+
+    # indicator for when a new message arrives 
+default channels_new_message = {
+    "all" : False, 
+    "admin" : False
+}
+
+    # who sent the last message in the channel 
+default channels_last_sender = {
+    "all" : "", 
+    "admin" : ""
+}
+
+
 init python: 
 
     import time 
@@ -34,67 +97,6 @@ init python:
     # autoscroll vars
     yadjValue = float("inf")
     yadj = ui.adjustment()
-
-    # chat speed - you can make this changeable as a setting 
-    chat_speed = 3 
-
-    # this is for formatting the text 
-    who_is_typing = ""
-    who_was_typing_list = []
-    last_sender = ""
-    last_window = "X"
-    wait_time_prev = 0
-
-    # this is also for formatting 
-    current_window = "all"
-    active_window = "all"
-
-    # character info 
-    # character_names = {
-    #     "Felix" : "Doyle", 
-    #     "Jerri" : "Ngo", 
-    #     "Major" : "Alstone", 
-    #     "Sungho" : "Go"
-    # }
-
-    character_colors = {
-        "thrim": "#ffa1a1", 
-        "odxny": "#dd95ff", 
-        "wnpep": "#aeff9a", 
-        "incri": "#e4ff9a", 
-        "elimf": "#9affd0", 
-        "SYSTEM": "#999999"
-    }
-
-    # chat groups 
-    channels = {
-        "all" : [], 
-        "admin" : []
-    }
-
-    # chat groups names 
-    channels_names = {
-        "all" : [], 
-        "admin" : []
-    }
-
-    # chat times
-    channels_times = {
-        "all" : [], 
-        "admin" : []
-    }
-
-    # indicator for when a new message arrives 
-    channels_new_message = {
-        "all" : False, 
-        "admin" : False
-    }
-
-    # who sent the last message in the channel 
-    channels_last_sender = {
-        "all" : "", 
-        "admin" : ""
-    }
 
 
     ## chat functions 
@@ -181,7 +183,6 @@ init python:
         if len(l) > 1:
             renpy.jump(selected)
 
-    seekL_recent_example = ""
     def click_text(): 
         global seekL_text_send 
         global seekL_recent_example 

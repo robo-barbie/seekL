@@ -1,17 +1,16 @@
-
+default seekL_output = []
+default previous_commands = []
+default where_idx = []
+default j_list = []
+default j_v_idx = []
+default where_value = ""
+default where_place = ""
+default where_column_list = []
+default where_value_list = []
+default where_split_list = []
+default where_parts = []
 
 init python: 
-    seekL_output = []
-    previous_commands = []
-    where_idx = []
-    j_list = []
-    j_v_idx = []
-    where_value = ""
-    where_place = ""
-    where_column_list = []
-    where_value_list = []
-    where_split_list = []
-    where_parts = []
 
 
     def is_float(element: any) -> bool:
