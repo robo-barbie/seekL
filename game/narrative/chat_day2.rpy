@@ -3,6 +3,7 @@ label day2_start:
     $ chat_location = "DAY 2 - CHAT"
     show screen seekL_ui 
     $ in_call = False
+    play music "audio/music/Server_Room.mp3" loop fadein 2.0 fadeout 2.0 
 
     $ player_choice(
         [
