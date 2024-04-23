@@ -698,14 +698,14 @@ screen save():
 
     tag menu
 
-    use file_slots(_("Save"))
+    use file_slots(_("SAVE"))
 
 
 screen load():
 
     tag menu
 
-    use file_slots(_("Load"))
+    use file_slots(_("LOAD"))
 
 
 screen file_slots(title):
@@ -842,7 +842,7 @@ screen preferences():
 
     tag menu
 
-    use game_menu(_("Preferences"), scroll="viewport"):
+    use game_menu(_("PREFERENCES"), scroll="viewport"):
 
 
         vbox:
@@ -1027,7 +1027,7 @@ screen history():
 
     
 
-    use game_menu(_("History"), scroll=("vpgrid" if gui.history_height else "viewport"), yinitial=1.0):
+    use game_menu(_("HISTORY"), scroll=("vpgrid" if gui.history_height else "viewport"), yinitial=1.0):
 
         style_prefix "history"
 
@@ -1115,7 +1115,7 @@ screen help():
 
     default device = "keyboard"
 
-    use game_menu(_("Help"), scroll="viewport"):
+    use game_menu(_("HELP"), scroll="viewport"):
 
         style_prefix "help"
 

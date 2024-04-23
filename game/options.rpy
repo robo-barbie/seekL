@@ -83,7 +83,7 @@ define config.exit_transition = dissolve
 
 ## Between screens of the game menu.
 
-define config.intra_transition = dissolve
+define config.intra_transition = None
 
 
 ## A transition that is used after a game has been loaded.
