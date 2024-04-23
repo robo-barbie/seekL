@@ -444,7 +444,7 @@ style main_menu_frame:
     xsize 420
     yfill True
     
-    #background "gui/overlay/main_menu.png"
+    background "gui/overlay/main_menu.png"
 
 style main_menu_vbox:
     xalign 1.0
@@ -476,8 +476,7 @@ transform game_menu_popup:
     on show:
         yoffset 1080
         easein_back 0.8 yoffset 0
-        
-transform game_menu_hide:
+    on hide:
         yoffset 0
         pause 0.5
         easeout_back 0.8 yoffset 1080
@@ -558,7 +557,7 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
         textbutton _("LOAD") action ShowMenu("load")
 
-        textbutton _("PREFERENCES") action ShowMenu("preferences")
+        textbutton _("PREFERENCES") action Show("preferences")
 
         if _in_replay:
 
