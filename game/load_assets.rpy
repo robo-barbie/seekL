@@ -328,62 +328,62 @@ image o3 eyes silly:
 
 image o1 mouth neutral:
     "body1_mouth_neutral.png"
-    .2
+    .1
     "body1_mouth_neutral_open.png"
-    .2
+    .1
     repeat
 
 image o1 mouth smile:
     "body1_mouth_smiling.png"
-    .2
+    .1
     "body1_mouth_neutral_open.png"
-    .2
+    .1
     repeat
 
 image o1 mouth grin:
     "body1_mouth_grin.png"
-    .2
+    .1
     "body1_mouth_grin_open.png"
-    .2
+    .1
     repeat
 
 image o1 mouth frown:
     "body1_mouth_frown.png"
-    .2
+    .1
     "body1_mouth_neutral_open.png"
-    .2
+    .1
     repeat
 
 ####### BODY 2 ####################
 
 image o2 mouth frown:
     "body2_mouth_frown.png"
-    .2
+    .1
     "body2_mouth_frown_open.png"
-    .2
+    .1
     repeat
 
 image o2 mouth scowl:
     "body2_mouth_scowl.png"
-    .2
+    .1
     "body2_mouth_scowl_open.png"
-    .2
+    .1
     repeat
 
 ##### BODY 3 ########################
 
 image o3 mouth neutral:
     "body3_mouth_neutral.png"
-    .2
+    .1
     "body3_mouth_neutral_open.png"
-    .2
+    .1
     repeat
 
 image o3 mouth parted:
     "body3_mouth_parted.png"
-    .2
+    .1
     "body3_mouth_neutral_open.png"
-    .2
+    .1
     repeat
 
 
