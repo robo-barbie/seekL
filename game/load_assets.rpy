@@ -212,6 +212,8 @@ image o1 eyes neutral:
 
 image o1 eyes side = "body1_eyes_side.png"
 
+image o1 eyes nervous = "body1_eyes_side_sweat.png"
+
 
 image o1 eyes done: 
     "body1_eyes_done.png"
