@@ -1,6 +1,7 @@
 label day1_call: 
 
     $ in_call = True 
+    $ chat_location = "DAY 1 - CALL"
 
     show bg odxny_bg
     show spr o1 neutral 
