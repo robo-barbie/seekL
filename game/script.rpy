@@ -46,10 +46,15 @@ init python:
 define o = Character("odxny", callback=speaker("odxny"))
 
 default chat_location = "DAY 1 - CHAT"
+default _game_menu_screen = None
+screen ive_had_enough_of_the_fucking_scroll_up_rollback():
+    key 'mousedown_4':
+        action NullAction()
 
 # The game starts here.
 
 label start:
+    show screen ive_had_enough_of_the_fucking_scroll_up_rollback
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.

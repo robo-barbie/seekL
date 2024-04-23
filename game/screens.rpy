@@ -1443,9 +1443,10 @@ screen notify(message):
     style_prefix "notify"
 
     frame at notify_appear:
-        text "[message!tq]"
+        xfill True 
+        text "[message!tq]" size 30 xalign 0.5 #bold True 
 
-    timer 3.25 action Hide('notify')
+    timer 2 action Hide('notify')
 
 
 transform notify_appear:
@@ -1460,7 +1461,7 @@ style notify_frame is empty
 style notify_text is gui_text
 
 style notify_frame:
-    ypos gui.notify_ypos
+    ypos 0#gui.notify_ypos
 
     background Frame("gui/notify.png", gui.notify_frame_borders, tile=gui.frame_tile)
     padding gui.notify_frame_borders.padding

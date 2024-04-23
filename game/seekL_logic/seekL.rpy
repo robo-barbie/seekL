@@ -67,8 +67,49 @@ Indicate which table you'd like to see. {color=ffffff69}
 
 EX: SELECT * 
     FROM table.example 
+
 EX: SELECT hacker_name, favorite_fruit 
     FROM table.example 
+    {/color}{/size}{/font}""", 
+    """{font=HELLO.ttf.ttf}{size=25}3. WHERE 
+Filter your data down to records you care about. The columns filtered on will always be displayed. 
+Can run up to two statements in the where clause, separated by an OR or an AND. 
+WHERE must appear at the end of the query. {color=ffffff69}
+
+EX: SELECT * 
+    FROM table.example 
+    WHERE hacker_name = 'incri'
+
+EX: SELECT hacker_name  
+    FROM table.example 
+    WHERE number_of_hacks > 15 
+        and number_of_hacks < 45 
+    {/color}{/size}{/font}""", 
+    """{font=HELLO.ttf.ttf}{size=25}4. JOIN 
+Join two tables together that share a common column name. The common column will always be displayed.
+JOIN must appear after the FROM statement.{color=ffffff69}
+
+EX: SELECT * 
+    FROM irs.contacts
+    JOIN azgov.marriage  
+
+EX: SELECT * 
+    FROM irs.contacts
+    JOIN godaddy.secretsmooch_users 
+    WHERE full_name = 'bruce johnson'
+    {/color}{/size}{/font}""", 
+
+    """{font=HELLO.ttf.ttf}{size=25}MORE EXAMPLES {color=ffffff69}
+
+EX: SELECT phone, full_name, badge_no 
+    FROM irs.contacts
+    JOIN azgov.police_info
+    WHERE badge_no = 55242  
+
+EX: SELECT ss_alias, phone  
+    FROM irs.contacts
+    JOIN godaddy.secretsmooch_users 
+    WHERE full_name = 'bruce johnson'
     {/color}{/size}{/font}"""
     ]
 
@@ -313,7 +354,7 @@ screen seekL_ui:
                                                         xmaximum seekL_window_size + seekL_sidebar_size - 100 
                                                         text_font "HELLO.ttf.ttf"
                                                         text_color "#ff75e8"
-                                                        action SetVariable("seekL_text_send", t.split("{color=ffb8f3}------------------------------\n{/color}{color=ff75e8}{font=HELLO.ttf.ttf}")[1].replace("{color=ffb8f3}------------------------------\n{/color}{color=ff75e8}{font=HELLO.ttf.ttf}", "").replace("{/font}{/color}\n{color=ffb8f3}------------------------------{/color}", ""))
+                                                        action SetVariable("seekL_text_send", t.split("{color=ffb8f3}------------------------------\n{/color}{color=ff75e8}{font=HELLO.ttf.ttf}")[1].replace("{color=ffb8f3}------------------------------\n{/color}{color=ff75e8}{font=HELLO.ttf.ttf}", "").replace("{/font}{/color}\n{color=ffb8f3}------------------------------{/color}", "")), SetVariable("seekL_window_active", 1)
                                                         # if channels_names[current_window][-100:][idx] in character_colors: 
                                                         #     text_color "#ffffffba"#character_colors[channels_names[current_window][idx]]
                                                         # else: 

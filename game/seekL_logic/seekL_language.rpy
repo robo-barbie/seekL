@@ -181,6 +181,9 @@ init python:
                     if error_msg == "": 
                         where_column = ""
                         where_sides = wp.split(split_me)
+
+                        if where_sides[0].strip() not in cols_final: 
+                            cols_final.append(where_sides[0].strip())
                         for ws in where_sides: 
                             ws = ws.strip()#replace(" ", "")
                             if ws in col_search: 
