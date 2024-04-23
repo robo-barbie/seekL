@@ -697,6 +697,16 @@ style about_label_text:
 ## https://www.renpy.org/doc/html/screen_special.html#save https://
 ## www.renpy.org/doc/html/screen_special.html#load
 
+init python:
+    # custom save/load screens
+    def add_save_image(d):
+        d["save_image"] = "gui/new_main_menu/saves/" + route +  "_" + str(dayofweek_actual) + ".png"
+    config.save_json_callbacks = [add_save_image]
+
+    def add_save_text(d):
+        d["save_text"] = chat_location
+    config.save_json_callbacks = [add_save_text]
+
 screen save():
 
     modal True 
@@ -728,70 +738,87 @@ screen file_slots(title):
             order_reverse True
 
             ## The page name, which can be edited by clicking on a button.
-            button:
-                style "page_label"
+            # button:
+            #     style "page_label"
 
-                key_events True
-                xalign 0.5
-                yalign 0.0
-                action page_name_value.Toggle()
+            #     key_events True
+            #     xalign 0.5
+            #     yalign 0.0
+            #     action page_name_value.Toggle()
 
-                input:
-                    style "page_label_text"
-                    value page_name_value
+            #     input:
+            #         style "page_label_text"
+            #         value page_name_value
 
             ## The grid of file slots.
-            grid gui.file_slot_cols gui.file_slot_rows:
-                style_prefix "slot" 
-                xalign 0.5
-                yalign 0.7
+            #grid gui.file_slot_cols gui.file_slot_rows:
 
-                #spacing gui.slot_spacing
-                spacing 2
-                for i in range(gui.file_slot_cols * gui.file_slot_rows):
+            viewport: 
+                mousewheel True 
+                scrollbars "vertical"
+                area(150,100,1250, 500)
+                vbox: 
+                    #style_prefix "slot" 
+                    xalign 0.5
+                    yalign 0.7
 
-                    $ slot = i + 1
+                    #spacing gui.slot_spacing
+                    spacing 2
+                    #for i in range(gui.file_slot_cols * gui.file_slot_rows):
+                    for i in range(1 * 20):
 
-                    button:
-                        action FileAction(slot)
+                        $ slot = i + 1
 
-                        has vbox
+                        button:
+                            action FileAction(slot)
 
-                        add FileScreenshot(slot) xalign 0.5
+                            has vbox
 
-                        text FileTime(slot, format=_("{#file_time}%A, %B %d %Y, %H:%M"), empty=_("empty slot")):
-                            style "slot_time_text"
+                            #add FileScreenshot(slot) xalign 0.5
+                            text FileJson(slot, "save_text", empty=Null(), missing=Null()):
+                                yalign 1.0
+                                hover_color gui.hover_color
+                                color gui.insensitive_color
 
-                        text FileSaveName(slot):
-                            style "slot_name_text"
+                            text FileTime(slot, format=_("{#file_time}%A, %B %d %Y, %H:%M"), empty=_("empty slot")):
+                                # style "slot_time_text"
+                                yalign 0.0
+                                hover_color gui.hover_color
+                                color gui.insensitive_color
 
-                        key "save_delete" action FileDelete(slot)
+                            text FileSaveName(slot):
+                                # style "slot_name_text"
+                                yalign 1.0
+                                hover_color gui.hover_color
+                                color gui.insensitive_color
+
+                            key "save_delete" action FileDelete(slot)
 
             ## Buttons to access other pages.
-            vbox:
-                style_prefix "page"
+            # vbox:
+            #     style_prefix "page"
 
-                xalign 0.5
-                yalign 1.0
+            #     xalign 0.5
+            #     yalign 1.0
 
-                hbox:
-                    xalign 0.5
+            #     hbox:
+            #         xalign 0.5
 
-                    spacing gui.page_spacing
+            #         spacing gui.page_spacing
 
-                    textbutton _("<") action FilePagePrevious()
+            #         textbutton _("<") action FilePagePrevious()
 
-                    if config.has_autosave:
-                        textbutton _("{#auto_page}A") action FilePage("auto")
+            #         if config.has_autosave:
+            #             textbutton _("{#auto_page}A") action FilePage("auto")
 
-                    if config.has_quicksave:
-                        textbutton _("{#quick_page}Q") action FilePage("quick")
+            #         if config.has_quicksave:
+            #             textbutton _("{#quick_page}Q") action FilePage("quick")
 
-                    ## range(1, 10) gives the numbers from 1 to 9.
-                    for page in range(1, 10):
-                        textbutton "[page]" action FilePage(page)
+            #         ## range(1, 10) gives the numbers from 1 to 9.
+            #         for page in range(1, 10):
+            #             textbutton "[page]" action FilePage(page)
 
-                    textbutton _(">") action FilePageNext()
+            #         textbutton _(">") action FilePageNext()
 
                 #if config.has_sync:
                     #if CurrentScreenName() == "save":

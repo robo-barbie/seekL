@@ -45,6 +45,8 @@ init python:
 
 define o = Character("odxny", callback=speaker("odxny"))
 
+default chat_location = "DAY 1 - CHAT"
+
 # The game starts here.
 
 label start:

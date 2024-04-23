@@ -1,4 +1,6 @@
 label day2_start: 
+
+    $ chat_location = "DAY 2 - CHAT"
     show screen seekL_ui 
     $ in_call = False
 
