@@ -443,8 +443,8 @@ style main_menu_version is main_menu_text
 style main_menu_frame:
     xsize 420
     yfill True
-
-    background "gui/overlay/main_menu.png"
+    
+    #background "gui/overlay/main_menu.png"
 
 style main_menu_vbox:
     xalign 1.0
@@ -472,16 +472,28 @@ style main_menu_version:
 ## This screen is intended to be used with one or more children, which are
 ## transcluded (placed) inside it.
 
-screen game_menu(title, scroll=None, yinitial=0.0):
+transform game_menu_popup:
+    on show:
+        yoffset 1080
+        easein_back 0.8 yoffset 0
+        
+transform game_menu_hide:
+        yoffset 0
+        pause 0.5
+        easeout_back 0.8 yoffset 1080
 
-    style_prefix "game_menu"
+screen game_menu(title, scroll=None, yinitial=0.0):
+   
+    
+    style_prefix "game_menu"   
 
     if main_menu:
         add gui.main_menu_background
     else:
-        add gui.game_menu_background
+        add gui.game_menu_background at game_menu_popup
+        
 
-    frame:
+    frame at game_menu_popup:
         style "game_menu_outer_frame"
 
         hbox:
@@ -526,17 +538,58 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
                     transclude
 
-    use navigation
+    hbox at game_menu_popup:
+        #style_prefix "navigation"
+        xsize 900
+        xalign 0.6
+        yalign 0.19
 
-    textbutton _("Return"):
-        style "return_button"
+        spacing 50
 
-        action Return()
+        if main_menu:
 
-    label title
+            textbutton _("START") action Start()
+
+        else:
+
+            textbutton _("HISTORY") action ShowMenu("history")
+
+            textbutton _("SAVE") action ShowMenu("save")
+
+        textbutton _("LOAD") action ShowMenu("load")
+
+        textbutton _("PREFERENCES") action ShowMenu("preferences")
+
+        if _in_replay:
+
+            textbutton _("END REPLAY") action EndReplay(confirm=True)
+
+        elif not main_menu:
+
+            textbutton _("MAIN MENU") action MainMenu()
+
+        #textbutton _("About") action ShowMenu("about")
+
+        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+
+            ## Help isn't necessary or relevant to mobile devices.
+            textbutton _("HELP") action ShowMenu("help")
+
+        if renpy.variant("pc"):
+
+            ## The quit button is banned on iOS and unnecessary on Android and
+            ## Web.
+            textbutton _("QUIT") action Quit(confirm=not main_menu)
+
+        textbutton _("RETURN"):
+            #style "return_button"
+            action Return() 
+
+    label title at game_menu_popup
 
     if main_menu:
         key "game_menu" action ShowMenu("main_menu")
+
 
 
 style game_menu_outer_frame is empty
@@ -553,22 +606,26 @@ style return_button is navigation_button
 style return_button_text is navigation_button_text
 
 style game_menu_outer_frame:
-    bottom_padding 45
-    top_padding 180
+    bottom_padding 95
+    top_padding 200
 
     background "gui/overlay/game_menu.png"
 
 style game_menu_navigation_frame:
-    xsize 420
+    xsize 260
     yfill True
 
 style game_menu_content_frame:
-    left_margin 60
+    left_margin 80
     right_margin 30
-    top_margin 15
+    top_margin 80
 
 style game_menu_viewport:
-    xsize 1380
+    xsize 1475
+    ysize 570
+    ypos 0.1
+    
+
 
 style game_menu_vscrollbar:
     unscrollable gui.unscrollable
@@ -577,8 +634,8 @@ style game_menu_side:
     spacing 15
 
 style game_menu_label:
-    xpos 75
-    ysize 180
+    xpos 480
+    ysize 140
 
 style game_menu_label_text:
     size gui.title_text_size
@@ -670,6 +727,7 @@ screen file_slots(title):
 
                 key_events True
                 xalign 0.5
+                yalign 0.0
                 action page_name_value.Toggle()
 
                 input:
@@ -678,13 +736,12 @@ screen file_slots(title):
 
             ## The grid of file slots.
             grid gui.file_slot_cols gui.file_slot_rows:
-                style_prefix "slot"
-
+                style_prefix "slot" 
                 xalign 0.5
-                yalign 0.5
+                yalign 0.7
 
-                spacing gui.slot_spacing
-
+                #spacing gui.slot_spacing
+                spacing 2
                 for i in range(gui.file_slot_cols * gui.file_slot_rows):
 
                     $ slot = i + 1
@@ -730,15 +787,17 @@ screen file_slots(title):
 
                     textbutton _(">") action FilePageNext()
 
-                if config.has_sync:
-                    if CurrentScreenName() == "save":
-                        textbutton _("Upload Sync"):
-                            action UploadSync()
-                            xalign 0.5
-                    else:
-                        textbutton _("Download Sync"):
-                            action DownloadSync()
-                            xalign 0.5
+                #if config.has_sync:
+                    #if CurrentScreenName() == "save":
+                        #textbutton _("Upload Sync"):
+                            #action UploadSync()
+                            #xalign 0.5
+                            #ypos 0.8
+                    #else:
+                        #textbutton _("Download Sync"):
+                            #action DownloadSync()
+                            #xalign 0.5
+                            #ypos 0.8
 
 
 style page_label is gui_label
@@ -786,7 +845,11 @@ screen preferences():
 
     use game_menu(_("Preferences"), scroll="viewport"):
 
+
         vbox:
+
+            xpos 0.12
+            
 
             hbox:
                 box_wrap True
@@ -806,26 +869,9 @@ screen preferences():
                     textbutton _("After Choices") action Preference("after choices", "toggle")
                     textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
 
-                ## Additional vboxes of type "radio_pref" or "check_pref" can be
-                ## added here, to add additional creator-defined preferences.
-
-            null height (4 * gui.pref_spacing)
-
-            hbox:
-                style_prefix "slider"
-                box_wrap True
-
                 vbox:
-
-                    label _("Text Speed")
-
-                    bar value Preference("text speed")
-
-                    label _("Auto-Forward Time")
-
-                    bar value Preference("auto-forward time")
-
-                vbox:
+                    style_prefix "slider"
+                    box_wrap True
 
                     if config.has_music:
                         label _("Music Volume")
@@ -859,6 +905,39 @@ screen preferences():
                         textbutton _("Mute All"):
                             action Preference("all mute", "toggle")
                             style "mute_all_button"
+
+                    #vbox:
+                        #label _("Text Speed")
+                        #bar value Preference("text speed")
+                        #label _("Auto-Forward Time")
+                        #bar value Preference("auto-forward time")
+
+                ## Additional vboxes of type "radio_pref" or "check_pref" can be
+                ## added here, to add additional creator-defined preferences.
+
+            #null height (4 * gui.pref_spacing)
+
+            hbox:
+                style_prefix "slider"
+                box_wrap True
+
+                #vbox:
+
+                    #label _("Text Speed")
+
+                    #bar value Preference("text speed")
+
+                    #label _("Auto-Forward Time")
+
+                    #bar value Preference("auto-forward time")
+
+                vbox:
+                    label _("Text Speed")
+                    bar value Preference("text speed")
+                
+                vbox:
+                    label _("Auto-Forward Time")
+                    bar value Preference("auto-forward time")
 
 
 style pref_label is gui_label
@@ -947,9 +1026,12 @@ screen history():
     ## Avoid predicting this screen, as it can be very large.
     predict False
 
+    
+
     use game_menu(_("History"), scroll=("vpgrid" if gui.history_height else "viewport"), yinitial=1.0):
 
         style_prefix "history"
+
 
         for h in _history_list:
 
@@ -1040,8 +1122,10 @@ screen help():
 
         vbox:
             spacing 23
+            ysize 200
 
             hbox:
+                xpos 0.5
 
                 textbutton _("Keyboard") action SetScreenVariable("device", "keyboard")
                 textbutton _("Mouse") action SetScreenVariable("device", "mouse")
