@@ -277,7 +277,7 @@ screen quick_menu():
             imagebutton:
                 auto "gui/button/history_%s.png"
                 hovered qtt.Action("call history")
-                action ShowMenu('history')
+                action Show('history')
 
             # imagebutton:
             #     auto "gui/button/skip_%s.png"
@@ -291,7 +291,7 @@ screen quick_menu():
             imagebutton:
                 auto "gui/button/save_%s.png"
                 hovered qtt.Action("save")
-                action ShowMenu('save')
+                action Show('save')
                 tooltip "x"
 
             # imagebutton:
@@ -305,7 +305,7 @@ screen quick_menu():
             imagebutton:
                 auto "gui/button/prefs_%s.png"
                 hovered qtt.Action("preferences")
-                action ShowMenu('preferences')
+                action Show('preferences')
         frame:
             # set this frame to the position of the mouse
             pos renpy.get_mouse_pos() 
@@ -551,11 +551,11 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
         else:
 
-            textbutton _("HISTORY") action ShowMenu("history")
+            textbutton _("HISTORY") action Show("history")
 
-            textbutton _("SAVE") action ShowMenu("save")
+            textbutton _("SAVE") action Show("save")
 
-        textbutton _("LOAD") action ShowMenu("load")
+        textbutton _("LOAD") action Show("load")
 
         textbutton _("PREFERENCES") action Show("preferences")
 
@@ -569,10 +569,10 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
         #textbutton _("About") action ShowMenu("about")
 
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+        # if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
-            ## Help isn't necessary or relevant to mobile devices.
-            textbutton _("HELP") action ShowMenu("help")
+        #     ## Help isn't necessary or relevant to mobile devices.
+        #     textbutton _("HELP") action ShowMenu("help")
 
         if renpy.variant("pc"):
 
@@ -582,7 +582,10 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
         textbutton _("RETURN"):
             #style "return_button"
-            action Return() 
+            if main_menu: 
+                action Return() 
+            else: 
+                action Hide(title.lower())
 
     label title at game_menu_popup
 
@@ -696,12 +699,16 @@ style about_label_text:
 
 screen save():
 
+    modal True 
+
     tag menu
 
     use file_slots(_("SAVE"))
 
 
 screen load():
+
+    modal True 
 
     tag menu
 
@@ -839,6 +846,8 @@ style slot_button_text:
 ## https://www.renpy.org/doc/html/screen_special.html#preferences
 
 screen preferences():
+
+    modal True 
 
     tag menu
 
@@ -1019,6 +1028,8 @@ style slider_vbox:
 ## https://www.renpy.org/doc/html/history.html
 
 screen history():
+
+    modal True 
 
     tag menu
 
