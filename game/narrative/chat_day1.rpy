@@ -16,6 +16,10 @@ label day1_start:
 
     pause 1 
 
+    $ chat_message("elimf: and that's when i started breaking down in the waffle house")
+
+    $ chat_message("elimf: wait who")
+
     $ chat_message("incri: who the fuck", ot="elimf, wnpep")
 
     $ chat_message("elimf: ?????????? ", ot="wnpep")
@@ -73,9 +77,15 @@ label day1_2:
 label day1_3: 
     # end choices 
 
-    $ chat_message("wnpep: but don't worry. i checked them out")
+    $ chat_message("wnpep: don't worry. i'm checking them out")
+
+    $ chat_message("elimf: anything juicy")
+
+    pause 1 
 
     $ chat_message("wnpep: this person is not a threat of any kind ")
+
+    pause 1
 
     $ chat_message("wnpep: ...to anyone ")
 
@@ -83,7 +93,7 @@ label day1_3:
 
     $ player_choice(
         [
-            ("you...... checked?", "x")
+            ("you're..... checking", "x")
         ]
     )
 
@@ -95,13 +105,19 @@ label day1_3:
 
     $ chat_message("incri: idiot vibes so far definnitely ")
 
+    $ player_choice(
+        [
+            ("i've barely said anything", "x")
+        ]
+    )
+
     $ chat_message("elimf: very silly vibes", ot="wnpep")
 
     $ chat_message("wnpep: do you like the life you lead, thrim? ")
 
     $ player_choice(
         [
-            ("what the hell are you looking at??", "day1_4"), 
+            ("what the hell are you looking at", "day1_4"), 
             ("you're bluffing. i'm super secure", "day1_5")
         ]
     )
@@ -114,6 +130,12 @@ label day1_4:
     $ chat_message("wnpep: you should aim higher. i think you can do better ")
 
     $ chat_message("elimf: i found them too ")
+
+    $ player_choice(
+        [
+            ("wtf", "x")
+        ]
+    )
 
     $ chat_message("incri: this isnt wort hh the effort ")
 
@@ -222,13 +244,27 @@ label day1_9:
         ]
     )
 
-    $ chat_message("wnpep: we can access databases from a variety of companies/government agencies in here ")
+    $ chat_message("wnpep: we access data from a variety of companies/government agencies")
 
     $ chat_message("wnpep: a giant backend program is constantly breaking into places and copying information to us")
 
-    $ chat_message("wnpep: and we use seekL to access that information.")
+    $ chat_message("wnpep: and we use that information for a uh")
 
-    $ chat_message("elimf: do you know SQL? ")
+    $ chat_message("wnpep: range of things")
+
+    $ player_choice(
+        [
+            ("like ethical hacking ", "x"), 
+        ]
+    )
+
+    $ chat_message("elimf: bastions of goodness, us")
+
+    $ chat_message("incri: what did u jst call me")
+
+    $ chat_message("wnpep: uh some of us are more ethical than others")
+
+    $ chat_message("wnpep: do you know SQL? ")
 
     $ player_choice(
         [

@@ -62,7 +62,8 @@ label start:
     $ reset_chats()
     $ load_tables()
 
-    play music "audio/music/Server_Room.mp3" loop fadein 2.0 fadeout 2.0 
+    #play music "audio/music/Server_Room.mp3" loop fadein 2.0 fadeout 2.0 
+    play music "audio/music/Lost_in_Code_with_You.mp3" loop fadein 2.0 fadeout 2.0 
 
     show screen seekL_ui 
 
