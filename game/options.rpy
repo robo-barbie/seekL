@@ -7,6 +7,9 @@
 
 ## Basics ######################################################################
 
+####### mouse pointer #################
+define config.mouse = { 'default' : [ ('gui/cursor.png', 0, 0)]}
+
 ## A human-readable name of the game. This is used to set the default window
 ## title, and shows up in the interface and error reports.
 ##
