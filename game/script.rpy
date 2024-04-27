@@ -51,9 +51,22 @@ screen ive_had_enough_of_the_fucking_scroll_up_rollback():
     key 'mousedown_4':
         action NullAction()
 
+
 # The game starts here.
 
 label start:
+
+    $ quick_menu = False
+
+    show day1_glitch
+    pause
+    show chat1_glitch 
+    pause 0.5
+
+    $ quick_menu = True
+
+
+
     show screen ive_had_enough_of_the_fucking_scroll_up_rollback
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the

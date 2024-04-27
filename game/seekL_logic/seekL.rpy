@@ -427,9 +427,9 @@ screen seekL_ui:
                         frame: 
                             #xsize seekL_window_size 
                             #ysize seekL_height_half - seekL_button_height
-                            xsize 545
+                            xsize 490
                             ysize 380
-                            xpos 30
+                            xpos 15
                             padding(25,25,25,25)
                             background None
                                     #background seekL_button_color_unclicked
@@ -671,11 +671,19 @@ screen seekL_ui:
                 action SetVariable("chat_speed", 3)
 
         button:
-            if chat_speed == 100:
+            if chat_speed == 5:
                 add "gui/button/hyperspeed_active.png"
             else:
                 add "gui/button/hyperspeed_idle.png" 
+                action SetVariable("chat_speed", 5)
+
+        button:
+            if chat_speed == 100:
+                add "gui/button/superfast_active.png"
+            else:
+                add "gui/button/_idle.png" 
                 action SetVariable("chat_speed", 100)
+        
     
     # qa hell 
     # hbox: 

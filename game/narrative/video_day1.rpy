@@ -7,7 +7,12 @@ label day1_call:
     show spr o1 neutral 
     show fade_lower
     show fg odxny_fg onlayer screens
+    show call_frame
     hide screen seekL_ui 
+
+    camera:
+        subpixel True pos (0,0) zoom 1.0
+    with dissolve
 
     o "There we are."
 

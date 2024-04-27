@@ -532,6 +532,23 @@ screen game_menu(title, scroll=None, yinitial=0.0):
                         side_yfill True
 
                         transclude
+                
+                
+                elif scroll == "vpgrid_history":
+
+                    vpgrid:
+                        cols 1
+                        ysize 520
+                        ypos 0.15
+
+                        scrollbars "vertical"
+                        mousewheel True
+                        draggable True
+                        pagekeys True
+
+                        side_yfill True
+
+                        transclude
 
                 else:
 
@@ -1054,6 +1071,8 @@ style slider_vbox:
 ##
 ## https://www.renpy.org/doc/html/history.html
 
+
+
 screen history():
 
     modal True 
@@ -1065,7 +1084,7 @@ screen history():
 
     
 
-    use game_menu(_("HISTORY"), scroll=("vpgrid" if gui.history_height else "viewport"), yinitial=1.0):
+    use game_menu(_("HISTORY"), scroll=("vpgrid_history" if gui.history_height else "viewport"), yinitial=1.0):
 
         style_prefix "history"
 
@@ -1073,7 +1092,8 @@ screen history():
         for h in _history_list:
 
             window:
-
+                #background None
+                
                 ## This lays things out properly if history_height is None.
                 has fixed:
                     yfit True

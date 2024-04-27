@@ -1,5 +1,12 @@
 label day2_start: 
 
+    $ quick_menu = False
+    show day2_glitch
+    pause
+    show chat2_glitch
+    pause 0.5
+    $ quick_menu = True
+
     $ chat_location = "DAY 2 - CHAT"
     show screen seekL_ui 
     $ in_call = False

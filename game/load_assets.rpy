@@ -4,16 +4,41 @@ default in_call = False
 
 #########################################################
 ###### IMAGES ###########################################
-image bg odxny_bg = "bg_video.jpg"
+image bg odxny_bg:
+    "bg_video1.jpg"
+    3.0
+    "bg_video2.jpg"
+    0.3
+    "bg_video3.jpg"
+    3.0
+    "bg_video1.jpg"
+    0.5
+    "bg_video2.jpg"
+    repeat
+
+
 image fg odxny_fg = "grain_filter.png"
 image fade_lower = "gui/fade.png"
+image call_frame = "call_frame.png"
 
 image cg platonic = "cg_platonic.jpg"
 image cg romantic = "cg_romantic.jpg"
 
 image chatscreen_bg = "images/chat_screenbg.jpg" 
 
+image video_call_popup:
+    "videocall_window3.png"
+    1.0
+    "videocall_window2.png"
+    1.0
+    "videocall_window1.png"
+    repeat
 
+screen video_call_window:
+    add "video_call_popup" at game_menu_popup 
+
+    
+    
 
 ########################################################
 #### ODXNY SPIRITE EXPRESSIONS #########################
