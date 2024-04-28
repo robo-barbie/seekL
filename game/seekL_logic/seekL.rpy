@@ -167,435 +167,292 @@ define highlight_frame_console_pos = (850, 50)
 screen seekL_ui: 
     add "images/chat_screenbg.jpg"
     #add "#000000af" # dark tint 
-    hbox: 
-        xalign 0.5 
-        yalign 0.35
-        spacing 20
-        # chats
+ 
+    frame: 
+        area (40, 52, 896, 62)
+        background None 
+        hbox: 
+            spacing 5
+            button: 
+                xalign 0.5
+                if channels_new_message["all"]: 
+                    add "new_message_all"
+                    action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("current_window", "all"), SetDict(channels_new_message, "all", False), SetVariable("seekL_chat_active", 0)
+                elif seekL_chat_active == 0: 
+                    add "gui/button/allchat_active.png"
+                else: 
+                    add "gui/button/allchat_idle.png"
+                    action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("current_window", "all"), SetDict(channels_new_message, "all", False), SetVariable("seekL_chat_active", 0)
+    
+            button: 
+                xalign 0.5
+                if channels_new_message["admin"]: 
+                    add "new_message_admin"
+                    action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("current_window", "admin"), SetDict(channels_new_message, "admin", False), SetVariable("seekL_chat_active", 1)
+                elif seekL_chat_active == 1: 
+                    add "gui/button/adminchat_active.png"
+                else: 
+                    add "gui/button/adminchat_idle.png"
+                    action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("current_window", "admin"), SetDict(channels_new_message, "admin", False), SetVariable("seekL_chat_active", 1)
+       
+            null width 200
+            button: 
+                xalign 0.5
+                if seekL_chat_active == 2: 
+                    add "gui/button/seeklguide_active.png"
+                else: 
+                    add "gui/button/seeklguide_active.png"
+                    action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("current_window", "guide"), SetVariable("seekL_chat_active", 2)
+  
+    # actual chat + guide
+    frame: 
+        area (53, 143, 856, 700)
+        background None 
         vbox:
-            # chat labels 
-            frame: 
-                #xsize seekL_sidebar_size + seekL_window_size
-                #ysize seekL_button_height
-                xsize 880
-                ysize 85
-                background None 
-                hbox: 
-                    spacing 5
-                    button: 
-                        xalign 0.5
-                        if channels_new_message["all"]: 
-                            add "new_message_all"
-                            action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("current_window", "all"), SetDict(channels_new_message, "all", False), SetVariable("seekL_chat_active", 0)
-                        elif seekL_chat_active == 0: 
-                            add "gui/button/allchat_active.png"
-                        else: 
-                            add "gui/button/allchat_idle.png"
-                            action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("current_window", "all"), SetDict(channels_new_message, "all", False), SetVariable("seekL_chat_active", 0)
-                            #background seekL_button_color_unclicked
-                        #ysize seekL_button_height
-                        #text "all chat"  size 25
-                        #action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), SetVariable("seekL_chat_active", 0)
-                    button: 
-                        xalign 0.5
-                        if channels_new_message["admin"]: 
-                            add "new_message_admin"
-                            action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("current_window", "admin"), SetDict(channels_new_message, "admin", False), SetVariable("seekL_chat_active", 1)
-                        elif seekL_chat_active == 1: 
-                            add "gui/button/adminchat_active.png"
-                        else: 
-                            add "gui/button/adminchat_idle.png"
-                            action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("current_window", "admin"), SetDict(channels_new_message, "admin", False), SetVariable("seekL_chat_active", 1)
-                            #background seekL_button_color_unclicked
-                        #ysize seekL_button_height
-                        #text "admin chat"  size 25
-                        #action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), SetVariable("seekL_chat_active", 1)
-                    null width 200
-                    button: 
-                        xalign 0.5
-                        if seekL_chat_active == 2: 
-                            add "gui/button/seeklguide_active.png"
-                        else: 
-                            add "gui/button/seeklguide_active.png"
-                            action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("current_window", "guide"), SetVariable("seekL_chat_active", 2)
-                            #background seekL_button_color_unclicked
-                        #ysize seekL_button_height
-                        #text "seekL guide" size 25
-                        #action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), SetVariable("seekL_chat_active", 2)
-                    # button: 
-                    #     xsize seekL_sidebar_size
-                    #     background seekL_button_color 
-                    #     text "odxny" xalign 0.5 bold True
-            # actual chat + guide
-            frame: 
-                xsize seekL_window_size + seekL_sidebar_size +15
-                ysize seekL_height - seekL_button_height -190
-                padding (10, 10, 10, 10)
-                background None 
-                vbox:
-                    viewport  yadjustment yadj: 
-                        ysize seekL_height - seekL_choice_window_height
-                        draggable True
-                        scrollbars "vertical"
-                        mousewheel "change"
-                        yinitial 1.0
+            viewport  yadjustment yadj: 
+                # ysize seekL_height - seekL_choice_window_height
+                draggable True
+                scrollbars "vertical"
+                mousewheel "change"
+                yinitial 1.0
 
-                        vbox: 
-                            box_wrap True
-                            spacing 15 
-                            null height 10
-                            if seekL_chat_active == 0: 
-                                for idx, t in enumerate(channels[current_window][-100:]): 
-                                    vbox: 
-                                        xpos 20
-                                        ysize None 
-                                        # has fixed:
-                                        #     yfit True # only for window 
-                                        if idx != 0: 
-                                            if channels_names[current_window][-100:][idx] == channels_names[current_window][-100:][idx-1]:
-                                                null height 0
-                                                # text channels_names[current_window][idx] + ">":
-                                                #     xanchor 1.0
-                                                #     text_align 1.0
-                                                #     xpos 130
-                                                #     xsize 100
-                                                #     size seekL_chat_text_size 
-                                                #     if channels_names[current_window][idx] in character_colors: 
-                                                #         color character_colors[channels_names[current_window][idx]] + "85"
-                                                #     else: 
-                                                #         color "#FFFFFF85"
-                                            else: 
-                                                vbox:
-                                                    null height 30 
-                                                    # text channels_times[current_window][idx]:
-                                                    #     size seekL_chat_text_size-10
-                                                    #     xanchor 1.0
-                                                    #     text_align 1.0
-                                                    #     xpos 120
-                                                    #     xsize 80
-                                                    if channels_names[current_window][-100:][idx] != "SYSTEM":
-                                                        hbox:
-                                                            yalign 0.5 
-                                                            spacing 5
-                                                            frame:  
-                                                                area(0,0,18,18)
-                                                                background Frame(character_colors[channels_names[current_window][-100:][idx]] + "85",0,0,0,0) 
-                                                                text channels_names[current_window][-100:][idx][0] size 15 yalign 0.5 xalign 0.5
-                                                            text channels_names[current_window][-100:][idx] + "{size=12} " + channels_times[current_window][-100:][idx] + "{/size}": 
-                                                                #xanchor 1.0
-                                                                #text_align 1.0
-                                                                #xpos 130
-                                                                #xsize 100
-                                                                yalign 0.5 
-                                                                size seekL_chat_text_size 
-                                                                if channels_names[current_window][-100:][idx] in character_colors: 
-                                                                    color character_colors[channels_names[current_window][-100:][idx]] + "85"
-                                                                else: 
-                                                                    color "#FFFFFF85"
-                                        else:   
-                                            vbox:
-                                                #null height 30 
-                                                # text channels_times[current_window][idx]:
-                                                #     size seekL_chat_text_size-10
-                                                #     xanchor 1.0
-                                                #     text_align 1.0
-                                                #     xpos 120
-                                                #     xsize 80
-                                                if channels_names[current_window][-100:][idx] != "SYSTEM":
-                                                    hbox:
-                                                        yalign 0.5 
-                                                        spacing 5
-                                                        frame:  
-                                                            area(0,0,18,18)
-                                                            background Frame(character_colors[channels_names[current_window][-100:][idx]] + "85",0,0,0,0) 
-                                                            text channels_names[current_window][-100:][idx][0] size 15 yalign 0.5 xalign 0.5
-                                                        text channels_names[current_window][-100:][idx] + "{size=12} " + channels_times[current_window][-100:][idx] + "{/size}": 
-                                                            #xanchor 1.0
-                                                            #text_align 1.0
-                                                            #xpos 130
-                                                            #xsize 100
-                                                            yalign 0.5 
-                                                            size seekL_chat_text_size 
-                                                            if channels_names[current_window][-100:][idx] in character_colors: 
-                                                                color character_colors[channels_names[current_window][-100:][idx]] + "85"
-                                                            else: 
-                                                                color "#FFFFFF85"
+                vbox: 
+                    box_wrap True
+                    spacing 15 
+                    null height 10
+                    if seekL_chat_active == 0: 
+                        for idx, t in enumerate(channels[current_window][-100:]): 
+                            vbox: 
+                                xpos 20
+                                ysize None 
+                                # has fixed:
+                                #     yfit True # only for window 
+                                if idx != 0: 
+                                    if channels_names[current_window][-100:][idx] == channels_names[current_window][-100:][idx-1]:
+                                        null height 0
+                                    else: 
                                         vbox:
-                                            #xpos 20 
-                                            #xanchor 0.0
-                                            # if idx != 0: 
-                                            #     if channels_names[current_window][idx] != channels_names[current_window][idx-1]:
-                                            #         null height 50 
-                                                    # text " ":
-                                                    #     size seekL_chat_text_size-10
-                                            if channels_names[current_window][-100:][idx] != "SYSTEM" and "------------------------------" not in t:
-                                                text t: 
-                                                    text_align 0.0
-                                                    size seekL_chat_text_size 
-                                                    xmaximum seekL_window_size + seekL_sidebar_size - 100 
-                                                    if channels_names[current_window][-100:][idx] in character_colors: 
-                                                        color "#ffffffba"#character_colors[channels_names[current_window][idx]]
-                                                    else: 
-                                                        color "#FFFFFF"
-                                            elif channels_names[current_window][-100:][idx] != "SYSTEM" and "------------------------------" in t:
-                                                vbox:
-                                                    text t.split("{color=ffb8f3}------------------------------\n{/color}{color=ff75e8}{font=HELLO.ttf.ttf}")[0]: 
-                                                        text_align 0.0
+                                            null height 30 
+                                            if channels_names[current_window][-100:][idx] != "SYSTEM":
+                                                hbox:
+                                                    yalign 0.5 
+                                                    spacing 5
+                                                    frame:  
+                                                        area(0,0,18,18)
+                                                        background Frame(character_colors[channels_names[current_window][-100:][idx]] + "85",0,0,0,0) 
+                                                        text channels_names[current_window][-100:][idx][0] size 15 yalign 0.5 xalign 0.5
+                                                    text channels_names[current_window][-100:][idx] + "{size=12} " + channels_times[current_window][-100:][idx] + "{/size}": 
+                                    
+                                                        yalign 0.5 
                                                         size seekL_chat_text_size 
-                                                        xmaximum seekL_window_size + seekL_sidebar_size - 100 
                                                         if channels_names[current_window][-100:][idx] in character_colors: 
-                                                            color "#ffffffba"#character_colors[channels_names[current_window][idx]]
+                                                            color character_colors[channels_names[current_window][-100:][idx]] + "85"
                                                         else: 
-                                                            color "#FFFFFF"
-                                                    text "{color=ffb8f3}------------------------------{/color}"
-                                                    textbutton t.split("{color=ffb8f3}------------------------------\n{/color}{color=ff75e8}{font=HELLO.ttf.ttf}")[1].replace("{color=ffb8f3}------------------------------\n{/color}{color=ff75e8}{font=HELLO.ttf.ttf}", "").replace("{/font}{/color}\n{color=ffb8f3}------------------------------{/color}", ""): 
-                                                        text_align 0.0
-                                                        text_size seekL_chat_text_size 
-                                                        xmaximum seekL_window_size + seekL_sidebar_size - 100 
-                                                        text_font "HELLO.ttf.ttf"
-                                                        text_color "#ff75e8"
-                                                        action SetVariable("seekL_text_send", t.split("{color=ffb8f3}------------------------------\n{/color}{color=ff75e8}{font=HELLO.ttf.ttf}")[1].replace("{color=ffb8f3}------------------------------\n{/color}{color=ff75e8}{font=HELLO.ttf.ttf}", "").replace("{/font}{/color}\n{color=ffb8f3}------------------------------{/color}", "")), SetVariable("seekL_window_active", 1)
-                                                        # if channels_names[current_window][-100:][idx] in character_colors: 
-                                                        #     text_color "#ffffffba"#character_colors[channels_names[current_window][idx]]
-                                                        # else: 
-                                                        #     text_color "#FFFFFF"
-                                                    text "{color=ffb8f3}------------------------------{/color}"
-                                            else: 
-                                                text ">>" + t : 
-                                                    # text_align 0.5
-                                                    # xalign 0.5
-                                                    font "HELLO.ttf.ttf"
+                                                            color "#FFFFFF85"
+                                else:   
+                                    vbox:
+                                        if channels_names[current_window][-100:][idx] != "SYSTEM":
+                                            hbox:
+                                                yalign 0.5 
+                                                spacing 5
+                                                frame:  
+                                                    area(0,0,18,18)
+                                                    background Frame(character_colors[channels_names[current_window][-100:][idx]] + "85",0,0,0,0) 
+                                                    text channels_names[current_window][-100:][idx][0] size 15 yalign 0.5 xalign 0.5
+                                                text channels_names[current_window][-100:][idx] + "{size=12} " + channels_times[current_window][-100:][idx] + "{/size}": 
+                                                    #xanchor 1.0
+                                                    #text_align 1.0
+                                                    #xpos 130
+                                                    #xsize 100
+                                                    yalign 0.5 
                                                     size seekL_chat_text_size 
-                                                    bold True 
-                                                    xmaximum seekL_window_size + seekL_sidebar_size - 100
-                                                    color character_colors[channels_names[current_window][-100:][idx]] + "85"
-                                                # line_spacing 10
-                            elif seekL_chat_active == 2: 
-                                for i in range(len(rulebook)): 
-                                    text rulebook[i]: 
-                                        xpos 20 
-                                        xmaximum seekL_window_size + seekL_sidebar_size - 100 
-                            null height 50 
-                    #frame: 
-                        #background "#ffffff15"
-                        #xfill True 
-                        #yfill True 
-                        # text " > ": 
-                        #     size seekL_chat_text_size
-                # frame: 
-                #     xsize 2 
-                #     ysize seekL_height - seekL_choice_window_height
-                #     xpos 139
-                #     background "#ffffff23"
+                                                    if channels_names[current_window][-100:][idx] in character_colors: 
+                                                        color character_colors[channels_names[current_window][-100:][idx]] + "85"
+                                                    else: 
+                                                        color "#FFFFFF85"
+                                vbox:
+                                    if channels_names[current_window][-100:][idx] != "SYSTEM" and "------------------------------" not in t:
+                                        text t: 
+                                            text_align 0.0
+                                            size seekL_chat_text_size 
+                                            xmaximum seekL_window_size + seekL_sidebar_size - 100 
+                                            if channels_names[current_window][-100:][idx] in character_colors: 
+                                                color "#ffffffba"#character_colors[channels_names[current_window][idx]]
+                                            else: 
+                                                color "#FFFFFF"
+                                    elif channels_names[current_window][-100:][idx] != "SYSTEM" and "------------------------------" in t:
+                                        vbox:
+                                            text t.split("{color=ffb8f3}------------------------------\n{/color}{color=ff75e8}{font=HELLO.ttf.ttf}")[0]: 
+                                                text_align 0.0
+                                                size seekL_chat_text_size 
+                                                xmaximum seekL_window_size + seekL_sidebar_size - 100 
+                                                if channels_names[current_window][-100:][idx] in character_colors: 
+                                                    color "#ffffffba"#character_colors[channels_names[current_window][idx]]
+                                                else: 
+                                                    color "#FFFFFF"
+                                            text "{color=ffb8f3}------------------------------{/color}"
+                                            textbutton t.split("{color=ffb8f3}------------------------------\n{/color}{color=ff75e8}{font=HELLO.ttf.ttf}")[1].replace("{color=ffb8f3}------------------------------\n{/color}{color=ff75e8}{font=HELLO.ttf.ttf}", "").replace("{/font}{/color}\n{color=ffb8f3}------------------------------{/color}", ""): 
+                                                text_align 0.0
+                                                text_size seekL_chat_text_size 
+                                                xmaximum seekL_window_size + seekL_sidebar_size - 100 
+                                                text_font "HELLO.ttf.ttf"
+                                                text_color "#ff75e8"
+                                                action SetVariable("seekL_text_send", t.split("{color=ffb8f3}------------------------------\n{/color}{color=ff75e8}{font=HELLO.ttf.ttf}")[1].replace("{color=ffb8f3}------------------------------\n{/color}{color=ff75e8}{font=HELLO.ttf.ttf}", "").replace("{/font}{/color}\n{color=ffb8f3}------------------------------{/color}", "")), SetVariable("seekL_window_active", 1)
+                              
+                                            text "{color=ffb8f3}------------------------------{/color}"
+                                    else: 
+                                        text ">>" + t : 
+                                            # text_align 0.5
+                                            # xalign 0.5
+                                            font "HELLO.ttf.ttf"
+                                            size seekL_chat_text_size 
+                                            bold True 
+                                            xmaximum seekL_window_size + seekL_sidebar_size - 100
+                                            color character_colors[channels_names[current_window][-100:][idx]] + "85"
+                                        # line_spacing 10
+                    elif seekL_chat_active == 2: 
+                        for i in range(len(rulebook)): 
+                            text rulebook[i]: 
+                                xpos 20 
+                                xmaximum seekL_window_size + seekL_sidebar_size - 100 
+                    null height 50 
 
 
 
         # inputs + data 
-        hbox: 
-            ypos 5
-            spacing 10 
-            # area to interact
-            # seekL program 
-            vbox: 
-                
-                hbox: 
-                    vbox: 
-                        # command history 
-                        hbox: 
-                            xalign 0.3
-                            spacing 5
-                            button: 
-                                #xalign 0.5
-                                if seekL_window_active == 1: 
-                                    add "gui/button/console_active.png"
-                                else: 
-                                    add "gui/button/console_idle.png"
-                                    action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_window_active", 1)
-                                    #background seekL_button_color_unclicked
-                                #ysize seekL_button_height
-                                #text "console"  size 25
-                                #action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), SetVariable("seekL_window_active", 1)
-                            button: 
-                                #xalign 0.5
-                                if seekL_window_active == 0: 
-                                    add "gui/button/historytab_active.png"
+    hbox: 
+        area (997, 58, 424, 66)
+        button: 
+            #xalign 0.5
+            if seekL_window_active == 1: 
+                add "gui/button/console_active.png"
+            else: 
+                add "gui/button/console_idle.png"
+                action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_window_active", 1)
+        button: 
+            #xalign 0.5
+            if seekL_window_active == 0: 
+                add "gui/button/historytab_active.png"
 
-                                else: 
-                                    add "gui/button/historytab_idle.png"
-                                    action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_window_active", 0)
+            else: 
+                add "gui/button/historytab_idle.png"
+                action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_window_active", 0)
                                 
-                        frame: 
-                            #xsize seekL_window_size 
-                            #ysize seekL_height_half - seekL_button_height
-                            xsize 490
-                            ysize 380
-                            xpos 15
-                            padding(25,25,25,25)
-                            background None
-                                    #background seekL_button_color_unclicked
-                                #ysize seekL_button_height
-                                #text "history"  size 25
-                                #action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), SetVariable("seekL_window_active", 0)
-                        #frame: 
-                            #xsize seekL_window_size 
-                            #ysize seekL_height_half - seekL_button_height
-                            #padding(5,5,5,5)
-                            viewport: 
-                                #scrollbars "both"
-                                mousewheel True 
-                                draggable True 
-                                ymaximum 250
-                                #xinitial 1.0 
-                                if seekL_window_active == 1:
-                                    # vbox: 
-                                    #     xmaximum seekL_window_size-40
-                                    #     text seekL_text_show:
-                                    #         color "#FFFFFF"
-                                    #         font "HELLO.ttf.ttf"
-                                    input default "":
-                                        caret_blink True 
-                                        multiline True 
-                                        copypaste True 
-                                        xmaximum seekL_window_size-100
-                                        font "HELLO.ttf.ttf"
-                                        color "#d6fa9d"
-                                        size 24
-                                        #color "#00000000"
-                                        #size 1
-                                        #text_size seekL_chat_text_size
-                                        #changed change_seekl_text_shown
-                                        value VariableInputValue("seekL_text_send")
-                                elif seekL_window_active == 0: 
-                                    vbox: 
-                                        spacing 5
-                                        xmaximum seekL_window_size-100
-                                        for i in range(len(previous_commands)): 
-                                            vbox: 
-                                                spacing 5
-                                                textbutton previous_commands[len(previous_commands)-(i+1)]:
-                                                    background "#FFFFFF20"
-                                                    xfill True 
-                                                    text_color "#ffffff69" 
-                                                    text_hover_color gui.hover_color
-                                                    text_font "HELLO.ttf.ttf"
-                                                    text_size 22
-                                                    action Play("sound", "audio/sfx/message_notification_02_003 reload query.ogg"), Function(run_history, previous_commands[len(previous_commands)-(i+1)])
-                                                #text "--------" color "#ffffff69" font "HELLO.ttf.ttf" #xalign 0.5
-                                # elif seekL_window_active == -1: 
-                                #     vbox: 
-                                #         xmaximum seekL_window_size-40
-                                #         for i in range(len(rulebook)): 
-                                #             text rulebook[i]
-                        # notes and tables 
-                    vbox: 
-                        hbox: 
-                            xalign 0.0
+    frame: 
+        area (1000, 142, 480, 292)
+        background None
+        viewport: 
+            #scrollbars "both"
+            if seekL_window_active == 0: 
+                scrollbars "vertical"
+            mousewheel True 
+            draggable True 
+            ymaximum 250
+            #xinitial 1.0 
+            if seekL_window_active == 1:
+                input default "":
+                    caret_blink True 
+                    multiline True 
+                    copypaste True 
+                    xmaximum seekL_window_size-100
+                    font "HELLO.ttf.ttf"
+                    color "#d6fa9d"
+                    size 24
+                    #color "#00000000"
+                    #size 1
+                    #text_size seekL_chat_text_size
+                    #changed change_seekl_text_shown
+                    value VariableInputValue("seekL_text_send")
+            elif seekL_window_active == 0: 
+                vbox: 
+                    spacing 5
+                    xmaximum seekL_window_size-100
+                    for i in range(len(previous_commands)): 
+                        vbox: 
                             spacing 5
-                            button: 
-                                xalign 0.5
-                                if seekL_help_active == 0: 
-                                    add "gui/button/tables_active.png"
-                                else: 
-                                    add "gui/button/tables_idle.png"
-                                    action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_help_active", 0)
-                                    #background seekL_button_color_unclicked
-                                #ysize seekL_button_height
-                                #text "tables"  size 25
-                                #action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), SetVariable("seekL_help_active", 0)
-                            button: 
-                                xalign 0.5
-                                if seekL_help_active == 1: 
-                                    add "gui/button/info_active.png"
-                                else: 
-                                    add "gui/button/info_idle.png"
-                                    action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_help_active", 1)
-                        if seekL_help_active == 0: 
-                            frame: 
-                                #xsize seekL_sidebar_size
-                                #ysize seekL_height_half - seekL_button_height
-                                xsize 360
-                                ysize 385
-                                xpos 20
-                                padding (25,25,25,25)
-                                background None
-                                    #background seekL_button_color_unclicked
-                                #ysize seekL_button_height
-                                #text "info"  size 25
-                                #action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), SetVariable("seekL_help_active", 1)
-                        #if seekL_help_active == 0: 
-                            #frame: 
-                                #padding(5,5,5,5)
-                                #xsize seekL_sidebar_size
-                                #ysize seekL_height_half - seekL_button_height
-                                #xmaximum seekL_sidebar_size - 20
-                                viewport: 
-                                    #scrollbars "vertical"
-                                    mousewheel True 
-                                    draggable True 
-                                    ymaximum 250
-                                    vbox: 
-                                        xmaximum seekL_sidebar_size - 70
-                                        spacing 10 
-                                        for i in range(len(tables_seen)): 
-                                            textbutton tables_seen[len(tables_seen)-(i+1)]: 
-                                                background "#FFFFFF20"
-                                                xfill True 
-                                                text_font "HELLO.ttf.ttf"
-                                                text_color "#ffffff69" 
-                                                text_size 20
-                                                text_hover_color gui.hover_color
-                                                action Play("sound", "audio/sfx/message_notification_02_003 reload query.ogg"), SetVariable("seekL_text_send", "select * \nfrom " + tables_seen[len(tables_seen)-(i+1)]), SetVariable("seekL_window_active", 1)
-                        elif seekL_help_active == 1: 
-                            frame: 
-                                #xsize seekL_sidebar_size
-                                #ysize seekL_height_half - seekL_button_height
-                                xsize 360
-                                ysize 385
-                                xpos 20
-                                padding (25,25,25,25)
-                                background None
-                                #xmaximum seekL_sidebar_size - 20
-                                viewport: 
-                                    #scrollbars "vertical"
-                                    mousewheel True 
-                                    draggable True 
-                                    ymaximum 250
-                                    vbox: 
-                                        xmaximum seekL_sidebar_size - 100
-                                        spacing 10 
-                                        for i in range(len(hack_notes)): 
-                                            textbutton hack_notes[len(hack_notes)-(i+1)]:
-                                                text_font "HELLO.ttf.ttf"
-                                                text_color "#FFFFFF"
-                                                text_size 20
-                    # frame: 
-                    #     xsize seekL_sidebar_size
-                    #     ysize seekL_height_half 
-                    #     vbox: 
-                    #         text "NOTES"
-                    #         for n in hack_notes: 
-                    #             text n: 
-                    #                 font "HELLO.ttf.ttf"
-    
-    
-                frame: 
-                    #xsize seekL_window_size + seekL_sidebar_size
-                    #ysize seekL_height_half
-                    xsize 870
-                    ysize 475
-                    ypos 27
-                    xpos 40
-                    padding(30,30,30,30)
-                    background None
-                    viewport: 
-                        draggable True
-                        scrollbars "horizontal"
-                        mousewheel "change"
+                            textbutton previous_commands[len(previous_commands)-(i+1)]:
+                                background "#FFFFFF20"
+                                xfill True 
+                                text_color "#ffffff69" 
+                                text_hover_color gui.hover_color
+                                text_font "HELLO.ttf.ttf"
+                                text_size 22
+                                action Play("sound", "audio/sfx/message_notification_02_003 reload query.ogg"), Function(run_history, previous_commands[len(previous_commands)-(i+1)])
 
-                        hbox: 
-                            spacing 30
-                            for o in seekL_output: 
-                                text o line_spacing 5 size 24 font "HELLO.ttf.ttf"
+    hbox: 
+        #xalign 0.0
+        #spacing 5
+        area (1490, 58, 200, 66)
+        button: 
+            xalign 0.5
+            if seekL_help_active == 0: 
+                add "gui/button/tables_active.png"
+            else: 
+                add "gui/button/tables_idle.png"
+                action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_help_active", 0)
+        button: 
+            xalign 0.5
+            if seekL_help_active == 1: 
+                add "gui/button/info_active.png"
+            else: 
+                add "gui/button/info_idle.png"
+                action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("seekL_help_active", 1)                   
+    if seekL_help_active == 0: 
+        frame: 
+            area (1534, 142, 298, 282)
+            background None
+            viewport: 
+                scrollbars "vertical"
+                #scrollbars "vertical"
+                mousewheel True 
+                draggable True 
+                ymaximum 250
+                vbox: 
+                    xmaximum seekL_sidebar_size - 70
+                    spacing 10 
+                    for i in range(len(tables_seen)): 
+                        textbutton tables_seen[len(tables_seen)-(i+1)]: 
+                            background "#FFFFFF20"
+                            xfill True 
+                            text_font "HELLO.ttf.ttf"
+                            text_color "#ffffff69" 
+                            text_size 20
+                            text_hover_color gui.hover_color
+                            action Play("sound", "audio/sfx/message_notification_02_003 reload query.ogg"), SetVariable("seekL_text_send", "select * \nfrom " + tables_seen[len(tables_seen)-(i+1)]), SetVariable("seekL_window_active", 1)
+    elif seekL_help_active == 1: 
+        frame: 
+            area (1534, 142, 298, 282)
+            background None
+            #xmaximum seekL_sidebar_size - 20
+            viewport: 
+                scrollbars "vertical"
+                #scrollbars "vertical"
+                mousewheel True 
+                draggable True 
+                ymaximum 250
+                vbox: 
+                    xmaximum seekL_sidebar_size - 100
+                    spacing 10 
+                    for i in range(len(hack_notes)): 
+                        textbutton hack_notes[len(hack_notes)-(i+1)]:
+                            text_font "HELLO.ttf.ttf"
+                            text_color "#FFFFFF"
+                            text_size 20
+    
+    
+    frame: 
+        area (1006, 591, 844, 350)
+        #padding(30,30,30,30)
+        background None
+        viewport: 
+            draggable True
+            scrollbars "horizontal"
+            mousewheel "horizontal"
+
+            hbox: 
+                spacing 30
+                for o in seekL_output: 
+                    text o line_spacing 5 size 24 font "HELLO.ttf.ttf"
             
 
     if current_window == active_window: 
@@ -607,12 +464,6 @@ screen seekL_ui:
             #xalign 0.0
             xpos 70
 
-    #hbox: 
-        #xalign 0.93
-        #ypos seekL_height_half+25
-        #xalign 0.5 
-        #spacing 25
-        # execute 
     button: 
         xalign 0.83
         ypos seekL_height_half+17
