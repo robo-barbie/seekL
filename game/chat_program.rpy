@@ -425,11 +425,13 @@ init python:
         # channels_times = channels_times[-100:].copy()
         if chat_speed != 100:
             if n != "SYSTEM":
-                renpy.play("audio/sfx/message_notification_01_005 chat.ogg")
+                #renpy.play("audio/sfx/message_notification_01_005 chat.ogg")
+                renpy.play("audio/sfx/message_notification_03_002 message alt.ogg")
             else: 
                 renpy.play("audio/sfx/message_notification_03_001 system.ogg")
         elif is_player: 
-            renpy.play("audio/sfx/message_notification_01_005 chat.ogg")
+            #renpy.play("audio/sfx/message_notification_01_005 chat.ogg")
+            renpy.play("audio/sfx/message_notification_03_002 message alt.ogg")
 
         if yadj.value == yadj.range:
             yadj.value = float('inf')
