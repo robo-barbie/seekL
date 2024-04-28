@@ -681,7 +681,7 @@ screen seekL_ui:
             if chat_speed == 100:
                 add "gui/button/superfast_active.png"
             else:
-                add "gui/button/_idle.png" 
+                add "gui/button/superfast_idle.png" 
                 action SetVariable("chat_speed", 100)
         
     
