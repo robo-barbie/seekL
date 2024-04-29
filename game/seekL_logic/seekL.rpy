@@ -534,8 +534,31 @@ screen seekL_ui:
             else:
                 add "gui/button/superfast_idle.png" 
                 action SetVariable("chat_speed", 100)
+
+        hbox:
+            yalign 1.0 
+            textbutton "disable autoplay chat": 
+                if is_paused: 
+                    text_color gui.hover_color
+                else: 
+                    text_color gui.idle_color
+                text_size 26
+                yalign 1.0
+                action ToggleVariable("is_paused")
+            if not is_paused: 
+                textbutton "(click around to restart the chat)":
+                    text_size 20 
+                    yalign 1.0 
+                    text_color gui.idle_color 
+                    action NullAction()
+            else: 
+                textbutton "                                    ":
+                    text_size 20 
+                    yalign 1.0 
+                    text_color gui.idle_color 
+                    action NullAction()
         
-    
+default is_paused = False  
     # qa hell 
     # hbox: 
     #     spacing 10 

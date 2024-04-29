@@ -189,6 +189,7 @@ init python:
         global yadjValue
         global wait_time_prev
         global seekL_recent_example
+        global is_paused
 
         # split into name / content, get new active channel  
         n = s.split(': ', 1)[0]
@@ -429,6 +430,9 @@ init python:
         if (is_player or n == "SYSTEM") and chat_speed != 100: 
             renpy.pause(0.5)
 
+        if is_paused: 
+            renpy.pause()
+
     # show who is typing + logic for timing 
     def set_is_typing(n, wt, wtp, fastmode=False): # names 
         #global who_is_typing 
@@ -486,6 +490,10 @@ init python:
 
 screen click_text_screen: 
     on "show" action Function(click_text), Hide("click_text_screen")
+
+screen pause_me: 
+    modal True 
+    add "#00000000"
 
 ##-----------------------------------------------------
 ## screen 

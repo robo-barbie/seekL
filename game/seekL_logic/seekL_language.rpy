@@ -304,7 +304,7 @@ init python:
                             where_value_list[wlv] = where_value_list[wlv].replace('"', "").lower()
                             where_idx = [i for i in range(len(t_search)) if t_search[i].lower() == where_value_list[wlv]]
                         else: 
-                            error_msg = "ERROR: WHERE VALUE STRING MISSING \nSINGLE QUOTES"
+                            error_msg = "ERROR: WHERE VALUE STRING MISSING QUOTES"
                     elif(is_float(where_value_list[wlv])): 
                         try:
                             if where_split_list[wlv] == ">=":
