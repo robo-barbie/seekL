@@ -34,9 +34,19 @@ image video_call_popup:
     "videocall_window1.png"
     repeat
 
-screen video_call_window:
-    add "video_call_popup" at game_menu_popup 
+screen video_call_window(j):
+    on "show" action Play("music", "audio/music/call_incoming_002_-_seekL.ogg")
+    on "hide" action Stop("music")
+    zorder 3
+    modal True 
+    add "#00000077"
+    add "video_call_popup" at game_menu_popup_video 
+    button: 
+        area (908, 678, 82, 82)
+        action Jump(j)
 
+screen black_window: 
+    add "#000000"
     
     
 

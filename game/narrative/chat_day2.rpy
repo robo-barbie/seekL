@@ -1,16 +1,20 @@
 label day2_start: 
 
     $ quick_menu = False
-    show day2_glitch
+    show day2_glitch 
     pause
-    show chat2_glitch
+    show chat2_glitch 
     pause 0.5
     $ quick_menu = True
 
     $ chat_location = "DAY 2 - CHAT"
+    $ reset_chats(in_day = True) 
+    $ seekL_text_send = "" 
+    $ seekL_output = []
     show screen seekL_ui 
     $ in_call = False
-    play music "audio/music/little_hand_on_the_clock_loop.wav" loop fadein 2.0 fadeout 2.0 
+    hide screen black_window 
+    play music "audio/music/little_hand_on_the_clock.mp3" loop fadein 2.0 fadeout 2.0 
 
     $ player_choice(
         [

@@ -107,8 +107,7 @@ screen say(who, what):
         #         id "namebox"
         #         style "namebox"
         #         text who id "who"
-
-        text what id "what" text_align 0.0 size seekL_chat_text_size xalign 0.1 color "#df95e4"
+        text what id "what" text_align 0.5 size gui.text_size + 5 color character_colors["odxny"] xsize gui.dialogue_width
 
 
     ## If there's a side image, display it above the text. Do not display on the
@@ -205,21 +204,77 @@ style input:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#choice
 
+# for i, (caption, action, chosen) in enumerate(items):
+#     button:
+#         text caption
+#         action [Function(log_menu_choice, caption), action]
+init python: 
+    ### code to add choices to history window
+    def log_menu_choice(item_text):
+        global in_call
+        if item_text != "Menu Prediction" and in_call:
+            """Log a choice-menu choice, which is passed in as item_text.
+            Implementation based on add_history() in renpy/character.py."""
+            h = renpy.character.HistoryEntry()
+            h.who = ""
+            h.what = "> " + item_text
+            h.what_args = []
+
+            if renpy.game.context().rollback:
+                h.rollback_identifier = renpy.game.log.current.identifier
+            else:
+                h.rollback_identifier = None
+
+            _history_list.append(h)
+
+            while len(_history_list) > renpy.config.history_length:
+                _history_list.pop(0)
+
 screen choice(items):
     style_prefix "choice"
 
     vbox:
         spacing 0 
         if in_call: 
-            ypos 700
-        elif len(items) > 2: 
-            ypos 860 
+            xalign 0.5 
+            ypos gui.dialogue_ypos + 750 #700
+            #for h in _history_list:
+         
+            if _history_list: 
+                $ what = renpy.filter_text_tags(_history_list[len(_history_list)-1].what, allow=gui.history_allow_tags)
+                text what:
+                    #adjust_spacing False
+                    #style_prefix "say"
+                    substitute False
+                    font gui.text_font
+                    size gui.text_size - 2
+                    xalign 0.5 
+                    text_align 0.5
+                    xmaximum gui.dialogue_width-500
+                    #size 20 
+                    if _history_list[len(_history_list)-1].who: 
+                        color character_colors["odxny"] + "99"
+                    else: 
+                        color character_colors["thrim"] + "99"
+                null height 20 
+        
+        else: 
+            #xpos 320
+            if len(items) > 2: 
+                ypos 860 
         if in_call or current_window == active_window: 
             for i in items:
                 textbutton "> " + i.caption: 
-                    action i.action 
+                    #action i.action 
+                    action [Function(log_menu_choice, i.caption), i.action]
                     text_align 0.0 
-                    if len(items) > 2: 
+                    if in_call:
+                        xalign 0.5
+                    if in_call: 
+                        text_size gui.text_size + 5
+                        text_hover_color character_colors["thrim"]
+                        #text_hover_color "#FFFFFF"
+                    elif len(items) > 2: 
                         text_size gui.text_size - 3
                     else: 
                         text_size gui.text_size
@@ -342,6 +397,8 @@ style quick_button_text:
 ## to other menus, and to start the game.
 
 screen navigation():
+    ## Ensure this appears on top of other screens.
+    zorder 100
 
     vbox:
         style_prefix "navigation"
@@ -445,6 +502,8 @@ image cage_cg_preview:
     yoffset +65
 
 screen gallery():
+    ## Ensure this appears on top of other screens.
+    zorder 100
     modal True
     tag menu
     #use navigation
@@ -670,7 +729,16 @@ transform game_menu_popup:
         pause 0.5
         easeout_back 0.8 yoffset 1080
 
+transform game_menu_popup_video:
+    on show:
+        yoffset 1080
+        easein_back 0.8 yoffset 0
+
+
 screen game_menu(title, scroll=None, yinitial=0.0):
+
+    ## Ensure this appears on top of other screens.
+    zorder 99
    
     
     style_prefix "game_menu"   
@@ -916,6 +984,8 @@ init python:
     config.save_json_callbacks = [add_save_text]
 
 screen save():
+    ## Ensure this appears on top of other screens.
+    zorder 100
 
     modal True 
 
@@ -925,6 +995,8 @@ screen save():
 
 
 screen load():
+    ## Ensure this appears on top of other screens.
+    zorder 100
 
     modal True 
 
@@ -1081,6 +1153,8 @@ style slot_button_text:
 ## https://www.renpy.org/doc/html/screen_special.html#preferences
 
 screen preferences():
+    ## Ensure this appears on top of other screens.
+    zorder 100
 
     modal True 
 
@@ -1265,6 +1339,8 @@ style slider_vbox:
 
 
 screen history():
+    ## Ensure this appears on top of other screens.
+    zorder 100
 
     modal True 
 
@@ -1275,37 +1351,50 @@ screen history():
 
     
 
-    use game_menu(_("HISTORY"), scroll=("vpgrid_history" if gui.history_height else "viewport"), yinitial=1.0):
+    use game_menu(_("HISTORY")):#), scroll=("vpgrid_history" if gui.history_height else "viewport"), yinitial=1.0):
 
-        style_prefix "history"
+        viewport: 
+            style_prefix "history"
+            mousewheel True 
+            scrollbars "vertical"
+            area(150,100,1250, 500)
+            vbox: 
+                xalign 0.5
+                yalign 0.7
 
+                spacing 0
 
-        for h in _history_list:
+                for h in _history_list:
 
-            window:
-                #background None
-                
-                ## This lays things out properly if history_height is None.
-                has fixed:
-                    yfit True
+                    window:
+                        #background None
+                        
+                        ## This lays things out properly if history_height is None.
+                        has fixed:
+                            yfit True
 
-                if h.who:
+                        # if h.who:
 
-                    label h.who:
-                        style "history_name"
-                        substitute False
+                        #     label h.who:
+                        #         style "history_name"
+                        #         substitute False
 
-                        ## Take the color of the who text from the Character, if
-                        ## set.
-                        if "color" in h.who_args:
-                            text_color h.who_args["color"]
+                        #         ## Take the color of the who text from the Character, if
+                        #         ## set.
+                        #         if "color" in h.who_args:
+                        #             text_color h.who_args["color"]
+                        $ what = renpy.filter_text_tags(h.what, allow=gui.history_allow_tags)
+                        text what:
+                            substitute False
+                            font gui.text_font
+                            size 20 
+                            if h.who: 
+                                color character_colors["odxny"]
+                            else: 
+                                color character_colors["thrim"] + "99"
 
-                $ what = renpy.filter_text_tags(h.what, allow=gui.history_allow_tags)
-                text what:
-                    substitute False
-
-        if not _history_list:
-            label _("The dialogue history is empty.")
+                if not _history_list:
+                    label _("The dialogue history is empty.")
 
 
 ## This determines what tags are allowed to be displayed on the history screen.
@@ -1359,6 +1448,8 @@ style history_label_text:
 ## help.
 
 screen help():
+    ## Ensure this appears on top of other screens.
+    zorder 100
 
     tag menu
 

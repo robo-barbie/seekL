@@ -6,6 +6,8 @@ image day4 = "daycard_4.jpg"
 image day5 = "daycard_5.jpg"
 image chat bg mock = "chat_bg_mock.jpg"
 
+image black_bg = "#000000"
+
 image day1_glitch:
     At("day1", glitch)
     pause 0.1

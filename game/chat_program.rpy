@@ -25,7 +25,7 @@ default seekL_recent_example = ""
     # }
 
 default character_colors = {
-    "thrim": "#ffa1a1", 
+    "thrim": "#9b9eff", 
     "odxny": "#dd95ff", 
     "wnpep": "#aeff9a", 
     "incri": "#e4ff9a", 
@@ -69,26 +69,6 @@ init python:
     import time 
     from datetime import datetime 
 
-    ### code to add choices to history window
-    def log_menu_choice(item_text):
-        if item_text != "Menu Prediction":
-            """Log a choice-menu choice, which is passed in as item_text.
-            Implementation based on add_history() in renpy/character.py."""
-            h = renpy.character.HistoryEntry()
-            h.who = ""
-            h.what = ">> " + item_text
-            h.what_args = []
-
-            if renpy.game.context().rollback:
-                h.rollback_identifier = renpy.game.log.current.identifier
-            else:
-                h.rollback_identifier = None
-
-            _history_list.append(h)
-
-            while len(_history_list) > renpy.config.history_length:
-                _history_list.pop(0)
-
     ## basic variables 
 
     player_fname = "thrim"
@@ -102,7 +82,7 @@ init python:
     ## chat functions 
 
     # function to call to reset/clear everything 
-    def reset_chats(): 
+    def reset_chats(in_day = False): 
         global current_window
         global active_window
         # global character_names 
@@ -116,7 +96,8 @@ init python:
         global last_window 
         global previous_commands
 
-        previous_commands = []
+        if not in_day: 
+            previous_commands = []
 
         current_window = "all"
         active_window = "all"

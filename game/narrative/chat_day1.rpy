@@ -819,11 +819,13 @@ label day1_29:
 
     $ chat_message("odxny: We'll see.")
 
-    show screen video_call_window 
-    pause
-    hide screen video_call_window 
+    show screen video_call_window("day1_call")
+
+    $ renpy.pause(hard=True)
+    # pause
+    # hide screen video_call_window 
    
-    jump day1_call
+    #jump day1_call
 
 
     

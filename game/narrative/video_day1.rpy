@@ -10,6 +10,10 @@ label day1_call:
     show call_frame
     hide screen seekL_ui 
 
+    show screen black_window with Dissolve(0.01) zorder 2 
+    hide screen video_call_window with Pixellate(0.2, 5)
+    hide screen black_window with Dissolve(0.3)
+
     camera:
         subpixel True pos (0,0) zoom 1.0
     with dissolve
@@ -19,6 +23,8 @@ label day1_call:
     menu: 
         "You know, for someone concerned by security this is kind of a weird move.": 
             pass 
+
+    play music "audio/music/cracking_the_code.mp3" loop fadein 2.0 fadeout 2.0 
 
     o "What, the call?"
 
@@ -208,9 +214,12 @@ label day1_call:
             pass
 
     # end day
-
+    pause 1 
+    play sound "audio/sfx/ui_menu_back_001 hangup.ogg"
+    show black_bg
     pause  
-
+    pause 0.5
+    hide black_bg
     jump day2_start
 
 
