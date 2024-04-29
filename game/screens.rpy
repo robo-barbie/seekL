@@ -399,6 +399,195 @@ style navigation_button_text:
     xalign 0.5
 
 
+## Gallery screen ############################################################
+##
+## Allowing underfull grids - For Gallery ##########################################################
+# This line of code is so an error isn't thrown if the gallery grid isn't completely full.
+#define config.allow_underfull_grids = True
+
+init python:
+    #    # image cg necklace= "cg necklace.jpg"
+    gallery_page = "1" # we're using code similar to the 'help' screen to switch gallery pages
+    gal = Gallery() # Setting up the gallery
+    gal.button("bad") # defining the first CG button
+    gal.unlock_image("cg platonic") # which picture it unlocks
+
+    gal.button("platonic")
+    gal.unlock_image("cg platonic")
+
+    gal.button("romantic")
+    gal.unlock_image("cg romantic")
+    #gal.unlock_image("cg cage smile") #This button has variations, so we add an additional unlock image
+
+    gal.transition = dissolve # What transition is used when CGs are shown
+
+# Gallery image previews ###########
+# Rendering smaller versions of the CGs to use as the preview image
+image basil_cg_preview:
+    "cg bad"
+    zoom 0.35
+    #xoffset +15
+    yoffset +65
+image gallery_locked:
+    "gui/button/gallery_locked.png"
+    zoom 0.35
+    #xoffset +15
+    yoffset +65
+image greenhouse_cg_preview:
+    "cg platonic"
+    zoom 0.35
+    #xoffset +15
+    yoffset +65
+image cage_cg_preview:
+    "cg romantic"
+    zoom 0.35
+    #xoffset +15
+    yoffset +65
+
+screen gallery():
+    modal True
+    tag menu
+    #use navigation
+
+    use game_menu("GALLERY"):
+        #text "Page [gallery_page]" style "page_label_text" xalign 0.5 ypos 5
+        hbox:
+                style_prefix "page"
+
+                xalign 0.5
+                yalign 1.0
+
+                spacing 30
+
+                #Pages to change gallery screens
+                textbutton "Bad End" action SetScreenVariable("gallery_page","1")
+                textbutton "Platonic End" action SetScreenVariable("gallery_page","2")
+                textbutton "Romantic End" action SetScreenVariable("gallery_page","3")
+                
+        #determines which page of CGs to show
+        if gallery_page == "1":
+            use gallery_1
+        elif gallery_page == "2":
+            use gallery_2
+        else:
+            use gallery_3
+        
+#CG grids
+screen gallery_1:
+    modal True
+    frame:
+        
+        #style "game_menu_content_frame"
+        ysize 600
+        xsize 1100
+        ypos 0.1
+        xpos 0.1
+    
+        background None
+
+        hbox:
+        #grid gui.file_slot_cols gui.file_slot_rows:
+        #spacing 15
+        #ysize 500
+        #xsize 700
+            frame:
+                background None
+                #ypos 50
+                #xpos 20
+            #style_prefix "slot"
+            #xalign 0.4
+            #yalign 0.37
+            #xspacing 40
+            #yspacing 100
+
+                add gal.make_button("bad","bad_cg_preview","gallery_locked","gui/button/gallery_hover.png", xpadding = 0, ypadding = 0, xmargin = 0,ymargin = 0, background = None,style ="gui_button")
+         
+            frame:
+                background None
+                ysize 520
+                xsize 500
+                xpos 75
+                padding (25,40,25,25)
+
+                viewport:
+                    scrollbars "vertical"
+                    mousewheel True
+                    draggable True
+                    #ymaximum 500
+                    
+                    frame:
+                        background None
+                        text "the cops cleaned up my whole weed stash bro they took EVERYTHING"
+
+
+
+#Gallery second page
+screen gallery_2:
+    modal True
+    frame:
+
+        ysize 600
+        xsize 1100
+        ypos 0.1
+        xpos 0.1
+    
+        background None
+
+        hbox:
+            frame:
+                background None
+                add gal.make_button("platonic","platonic_cg_preview","gallery_locked","gui/button/gallery_hover.png", xpadding = 0, ypadding = 0, xmargin = 0,ymargin = 0, background = None,style ="gui_button")
+         
+            frame:
+                background None
+                ysize 520
+                xsize 500
+                xpos 75
+                padding (25,40,25,25)
+
+                viewport:
+                    scrollbars "vertical"
+                    mousewheel True
+                    draggable True
+                    
+                    frame:
+                        background None
+                        text "we shook hands"
+
+screen gallery_3:
+    modal True
+    frame:
+
+        ysize 600
+        xsize 1100
+        ypos 0.1
+        xpos 0.1
+    
+        background None
+
+        hbox:
+            frame:
+                background None
+                add gal.make_button("romantic","romantic_cg_preview","gallery_locked","gui/button/gallery_hover.png", xpadding = 0, ypadding = 0, xmargin = 0,ymargin = 0, background = None,style ="gui_button")
+         
+            frame:
+                background None
+                ysize 520
+                xsize 500
+                xpos 75
+                padding (25,40,25,25)
+
+                viewport:
+                    scrollbars "vertical"
+                    mousewheel True
+                    draggable True
+
+                    frame:
+                        background None
+                        text "we HELD hands"
+
+
+
 ## Main Menu screen ############################################################
 ##
 ## Used to display the main menu when Ren'Py starts.
@@ -556,8 +745,8 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
     hbox at game_menu_popup:
         #style_prefix "navigation"
-        xsize 900
-        xalign 0.6
+        xsize 1000
+        xalign 0.7
         yalign 0.19
 
         spacing 50
@@ -575,6 +764,8 @@ screen game_menu(title, scroll=None, yinitial=0.0):
         textbutton _("LOAD") action Show("load")
 
         textbutton _("PREFERENCES") action Show("preferences")
+
+        textbutton _("GALLERY") action Show("gallery")
 
         if _in_replay:
 
