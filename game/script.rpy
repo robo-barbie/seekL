@@ -55,6 +55,7 @@ screen ive_had_enough_of_the_fucking_scroll_up_rollback():
 # The game starts here.
 
 label start:
+    $ _preferences.afm_enable = True 
 
     $ quick_menu = False
 
@@ -76,7 +77,7 @@ label start:
     $ load_tables()
 
     #play music "audio/music/Server_Room.mp3" loop fadein 2.0 fadeout 2.0 
-    play music "audio/music/server_room_chiller_version.mp3" loop fadein 2.0 fadeout 2.0 
+    play music "audio/music/cracking_the_code.mp3" loop fadein 2.0 fadeout 2.0 
 
     show screen seekL_ui 
 

@@ -15,7 +15,7 @@ label day2_start:
     show screen seekL_ui 
     $ in_call = False
     hide screen black_window 
-    play music "audio/music/little_hand_on_the_clock.mp3" loop fadein 2.0 fadeout 2.0 
+    play music "audio/music/server_room_chiller_version.mp3" loop fadein 2.0 fadeout 2.0 
 
     $ player_choice(
         [

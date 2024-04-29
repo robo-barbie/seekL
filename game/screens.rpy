@@ -370,7 +370,10 @@ screen quick_menu():
         
             if in_call:
                 imagebutton:
-                    auto "gui/button/auto_%s.png"
+                    if _preferences.afm_enable:
+                        idle "gui/button/auto_hover.png"
+                    else: 
+                        auto "gui/button/auto_%s.png"
                     hovered qtt.Action("auto (call only)")
                     action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Preference("auto-forward", "toggle")
         frame:
