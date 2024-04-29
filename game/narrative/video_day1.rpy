@@ -216,6 +216,7 @@ label day1_call:
     # end day
     pause 1 
     play sound "audio/sfx/ui_menu_back_001 hangup.ogg"
+    stop music fadeout 1.0
     show black_bg
     pause  
     pause 0.5

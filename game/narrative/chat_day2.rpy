@@ -1,6 +1,7 @@
 label day2_start: 
 
     $ quick_menu = False
+    play sound "audio/sfx/ui_start_game_002 day swap.ogg"
     show day2_glitch 
     pause
     show chat2_glitch 

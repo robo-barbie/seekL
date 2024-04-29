@@ -4,17 +4,109 @@ default in_call = False
 
 #########################################################
 ###### IMAGES ###########################################
-image bg odxny_bg:
-    "bg_video1.jpg"
-    3.0
-    "bg_video2.jpg"
-    0.3
-    "bg_video3.jpg"
-    3.0
-    "bg_video1.jpg"
-    0.5
-    "bg_video2.jpg"
-    repeat
+# image bg odxny_bg:
+#     "bg_video1.jpg"
+#     3.0
+#     "bg_video2.jpg"
+#     0.3
+#     "bg_video3.jpg"
+#     3.0
+#     "bg_video1.jpg"
+#     0.5
+#     "bg_video2.jpg"
+#     repeat
+
+# router 
+image bg_odxny_3: 
+    "bg_video3a.png" # slightly on 
+    choice: 
+        0.2
+    choice: 
+        1.0 
+    choice: 
+        5.0 
+    choice: 
+        9.0 
+    "bg_video3b.png" # off mode (quick) 
+    choice: 
+        0.1
+    choice: 
+        2.0
+    choice: 
+        0.5
+    choice: 
+        1.0 
+    "bg_video3c.png" # full on 
+    choice: 
+        9.0
+    choice: 
+        6.0
+    choice: 
+        3.0
+    choice: 
+        8.0
+    repeat 
+
+# big server column 
+# just rotates steadily through all modes
+image bg_odxny_2: 
+    "bg_video2a.png"
+    choice: 
+        8.0
+    choice: 
+        10.0 
+    "bg_video2b.png" 
+    choice: 
+        8.0
+    choice: 
+        10.0 
+    "bg_video2c.png" 
+    choice: 
+        8.0
+    choice: 
+        10.0 
+    repeat 
+
+# small top right object (i call it the odxbox)
+# flashes more randomly from mode to mode 
+image bg_odxny_1: 
+    "bg_video1a.png"
+    choice: 
+        0.2
+    choice: 
+        1.0 
+    choice: 
+        5.0 
+    choice: 
+        9.0 
+    "bg_video1b.png" 
+    choice: 
+        0.1
+    choice: 
+        2.0
+    choice: 
+        7.0 
+    choice: 
+        10.0 
+    "bg_video1c.png" 
+    choice: 
+        0.5
+    choice: 
+        1.5
+    choice: 
+        3.0
+    choice: 
+        8.0
+    repeat  
+
+
+layeredimage bg odxny_bg: 
+
+    always "bg_video1.jpg" 
+    always "bg_odxny_1"
+    always "bg_odxny_2"
+    always "bg_odxny_3" 
+
 
 
 image fg odxny_fg = "grain_filter.png"

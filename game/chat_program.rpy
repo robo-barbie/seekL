@@ -24,12 +24,14 @@ default seekL_recent_example = ""
     #     "Sungho" : "Go"
     # }
 
+
+# saf these are all adjusted from the colors you sent
 default character_colors = {
-    "thrim": "#9b9eff", 
-    "odxny": "#dd95ff", 
-    "wnpep": "#aeff9a", 
-    "incri": "#e4ff9a", 
-    "elimf": "#9affd0", 
+    "thrim": "#868ff9", 
+    "odxny": "#c4426b", 
+    "wnpep": "#7be04d", 
+    "incri": "#d8ea36", 
+    "elimf": "#54ee96", 
     "SYSTEM": "#999999"
 }
 

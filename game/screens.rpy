@@ -107,7 +107,14 @@ screen say(who, what):
         #         id "namebox"
         #         style "namebox"
         #         text who id "who"
-        text what id "what" text_align 0.5 size gui.text_size + 5 color character_colors["odxny"] xsize gui.dialogue_width
+        text what:
+            id "what" 
+            text_align 0.0 
+            xalign 0.1
+            size gui.text_size #+ 5 
+            color character_colors["odxny"] 
+            xsize gui.dialogue_width
+            outlines [ (3, "#000000", 0, 0) ]
 
 
     ## If there's a side image, display it above the text. Do not display on the
@@ -236,7 +243,8 @@ screen choice(items):
     vbox:
         spacing 0 
         if in_call: 
-            xalign 0.5 
+            xalign 0.1
+
             ypos gui.dialogue_ypos + 750 #700
             #for h in _history_list:
          
@@ -248,9 +256,10 @@ screen choice(items):
                     substitute False
                     font gui.text_font
                     size gui.text_size - 2
-                    xalign 0.5 
-                    text_align 0.5
-                    xmaximum gui.dialogue_width-500
+                    xalign 0.0
+                    text_align 0.0
+                    xmaximum gui.dialogue_width-300
+                    outlines [ (3, "#000000", 0, 0) ]
                     #size 20 
                     if _history_list[len(_history_list)-1].who: 
                         color character_colors["odxny"] + "99"
@@ -269,9 +278,10 @@ screen choice(items):
                     action [Function(log_menu_choice, i.caption), i.action]
                     text_align 0.0 
                     if in_call:
-                        xalign 0.5
+                        xalign 0.0
+                        text_outlines [ (3, "#000000", 0, 0) ]
                     if in_call: 
-                        text_size gui.text_size + 5
+                        text_size gui.text_size #+ 5
                         text_hover_color character_colors["thrim"]
                         #text_hover_color "#FFFFFF"
                     elif len(items) > 2: 
@@ -327,40 +337,42 @@ screen quick_menu():
             imagebutton:
                 auto "gui/button/backbutton_%s.png"
                 hovered qtt.Action("rollback")
-                action Rollback()  
+                action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Rollback()  
 
             imagebutton:
                 auto "gui/button/history_%s.png"
                 hovered qtt.Action("call history")
-                action Show('history')
+                action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Show('history')
 
             # imagebutton:
             #     auto "gui/button/skip_%s.png"
-            #     action Skip() alternate Skip(fast=True, confirm=True)
-
-            imagebutton:
-                auto "gui/button/auto_%s.png"
-                hovered qtt.Action("auto (call only)")
-                action Preference("auto-forward", "toggle")
+            #     action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Skip() alternate Skip(fast=True, confirm=True)
 
             imagebutton:
                 auto "gui/button/save_%s.png"
                 hovered qtt.Action("save")
-                action Show('save')
+                action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Show('save')
                 tooltip "x"
 
             # imagebutton:
             #     auto "gui/button/qsave_%s.png"
-            #     action QuickSave()
+            #     action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), QuickSave()
 
-            # imagebutton:
-            #     auto "gui/button/qload_%s.png"
-            #     action QuickLoad()
+            imagebutton:
+                auto "gui/button/qload_%s.png"
+                hovered qtt.Action("load")
+                action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Show('load')
             
             imagebutton:
                 auto "gui/button/prefs_%s.png"
                 hovered qtt.Action("preferences")
-                action Show('preferences')
+                action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Show('preferences')
+        
+            if in_call:
+                imagebutton:
+                    auto "gui/button/auto_%s.png"
+                    hovered qtt.Action("auto (call only)")
+                    action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Preference("auto-forward", "toggle")
         frame:
             # set this frame to the position of the mouse
             pos renpy.get_mouse_pos() 
@@ -410,17 +422,17 @@ screen navigation():
 
         if main_menu:
 
-            textbutton _("START") action Start()
+            textbutton _("START") action Play("sound", "audio/sfx/ui_start_game_001 start.ogg"), Start()
 
         else:
 
-            textbutton _("HISTORY") action ShowMenu("history")
+            textbutton _("HISTORY") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), ShowMenu("history")
 
-            textbutton _("SAVE") action ShowMenu("save")
+            textbutton _("SAVE") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), ShowMenu("save")
 
-        textbutton _("LOAD") action ShowMenu("load")
+        textbutton _("LOAD") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), ShowMenu("load")
 
-        textbutton _("PREFERENCES") action ShowMenu("preferences")
+        textbutton _("PREFERENCES") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), ShowMenu("preferences")
 
         if _in_replay:
 
@@ -428,20 +440,20 @@ screen navigation():
 
         elif not main_menu:
 
-            textbutton _("MAIN MENU") action MainMenu()
+            textbutton _("MAIN MENU") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), MainMenu()
 
         #textbutton _("About") action ShowMenu("about")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
             ## Help isn't necessary or relevant to mobile devices.
-            textbutton _("HELP") action ShowMenu("help")
+            textbutton _("HELP") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), ShowMenu("help")
 
         if renpy.variant("pc"):
 
             ## The quit button is banned on iOS and unnecessary on Android and
             ## Web.
-            textbutton _("QUIT") action Quit(confirm=not main_menu)
+            textbutton _("QUIT") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Quit(confirm=not main_menu)
 
 
 style navigation_button is gui_button
@@ -519,9 +531,9 @@ screen gallery():
                 spacing 30
 
                 #Pages to change gallery screens
-                textbutton "Bad End" action SetScreenVariable("gallery_page","1")
-                textbutton "Platonic End" action SetScreenVariable("gallery_page","2")
-                textbutton "Romantic End" action SetScreenVariable("gallery_page","3")
+                textbutton "Bad End" action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), SetScreenVariable("gallery_page","1")
+                textbutton "Platonic End" action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), SetScreenVariable("gallery_page","2")
+                textbutton "Romantic End" action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), SetScreenVariable("gallery_page","3")
                 
         #determines which page of CGs to show
         if gallery_page == "1":
@@ -821,19 +833,19 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
         if main_menu:
 
-            textbutton _("START") action Start()
+            textbutton _("START") action Play("sound", "audio/sfx/ui_start_game_001 start.ogg"), Start()
 
         else:
 
-            textbutton _("HISTORY") action Show("history")
+            textbutton _("HISTORY") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Show("history")
 
-            textbutton _("SAVE") action Show("save")
+            textbutton _("SAVE") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Show("save")
 
-        textbutton _("LOAD") action Show("load")
+        textbutton _("LOAD") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Show("load")
 
-        textbutton _("PREFERENCES") action Show("preferences")
+        textbutton _("PREFERENCES") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Show("preferences")
 
-        textbutton _("GALLERY") action Show("gallery")
+        textbutton _("GALLERY") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Show("gallery")
 
         if _in_replay:
 
@@ -841,7 +853,7 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
         elif not main_menu:
 
-            textbutton _("MAIN MENU") action MainMenu()
+            textbutton _("MAIN MENU") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), MainMenu()
 
         #textbutton _("About") action ShowMenu("about")
 
@@ -854,14 +866,14 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
             ## The quit button is banned on iOS and unnecessary on Android and
             ## Web.
-            textbutton _("QUIT") action Quit(confirm=not main_menu)
+            textbutton _("QUIT") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Quit(confirm=not main_menu)
 
         textbutton _("RETURN"):
             #style "return_button"
             if main_menu: 
-                action Return() 
+                action Play("sound", "audio/sfx/ui_menu_back_001 hangup.ogg"), Return() 
             else: 
-                action Hide(title.lower())
+                action Play("sound", "audio/sfx/ui_menu_back_001 hangup.ogg"), Hide(title.lower())
 
     label title at game_menu_popup
 
@@ -1646,8 +1658,8 @@ screen confirm(message, yes_action, no_action):
                 xalign 0.5
                 spacing 150
 
-                textbutton _("Yes") action yes_action
-                textbutton _("No") action no_action
+                textbutton _("Yes") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), yes_action
+                textbutton _("No") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), no_action
 
     ## Right-click and escape answer "no".
     key "game_menu" action no_action
