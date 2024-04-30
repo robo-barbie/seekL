@@ -11,6 +11,31 @@ default waiting_label = ""
 default tables_active = []
 default look_at_idx = {}
 
+label wait_start:
+    if first_flash:
+        pause 0.5 
+        play sound "audio/sfx/message_notification_01_001 tutorial.ogg"
+        show highlight_large onlayer screens: 
+            pos highlight_frame_console_pos
+        $ first_flash = False 
+    
+    # wait for input 
+    $ player_is_waiting = True 
+    $ _preferences.afm_enable = False 
+
+    # if they arrive already ready to pass 
+    if player_can_pass:
+        $ player_is_waiting = False 
+        jump wait_end
+    $ renpy.pause(hard=True)
+
+label wait_end: 
+    hide highlight_large onlayer screens 
+    $ first_flash = True 
+    $ player_is_waiting = False 
+    $ _preferences.afm_enable = True 
+    $ renpy.jump(waiting_label)
+
 init python:
     def player_input_confirm(ta=None, cols=None, idx=None): 
         global player_input_confirm_label_jump
@@ -46,6 +71,6 @@ init python:
         else: 
             player_can_pass = True 
             if player_is_waiting: 
-                renpy.jump(waiting_label)
+                renpy.jump("wait_end")
         #return(player_proceed)
                     

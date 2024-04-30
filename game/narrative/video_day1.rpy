@@ -18,14 +18,16 @@ label day1_call:
         subpixel True pos (0,0) zoom 1.0
     with dissolve
 
+    $ _preferences.afm_enable = True 
+
     voice "audio/voice/day1/o1-001.ogg"
     o "There we are."
+
+    play music "audio/music/little_hand_on_the_clock.mp3" loop fadein 2.0 fadeout 2.0 
 
     menu: 
         "You know, for someone concerned by security this is kind of a weird move.": 
             pass 
-
-    play music "audio/music/little_hand_on_the_clock.mp3" loop fadein 2.0 fadeout 2.0 
 
     voice "audio/voice/day1/o1-002.ogg"
     o "What, the call?"
@@ -254,6 +256,7 @@ label day1_call:
     play sound "audio/sfx/ui_menu_back_001 hangup.ogg"
     stop music fadeout 1.0
     show black_bg
+    $ _preferences.afm_enable = False 
     pause  
     pause 0.5
     hide black_bg

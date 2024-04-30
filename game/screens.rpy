@@ -114,7 +114,7 @@ screen say(who, what):
             size gui.text_size #+ 5 
             color character_colors["odxny"] 
             xsize gui.dialogue_width
-            outlines [ (3, "#000000", 0, 0) ]
+            outlines [ (3, "#11173f", 0, 0) ]
 
 
     ## If there's a side image, display it above the text. Do not display on the
@@ -259,12 +259,13 @@ screen choice(items):
                     xalign 0.0
                     text_align 0.0
                     xmaximum gui.dialogue_width-300
-                    outlines [ (3, "#000000", 0, 0) ]
                     #size 20 
                     if _history_list[len(_history_list)-1].who: 
                         color character_colors["odxny"] + "99"
+                        outlines [ (3, "#11173f", 0, 0) ]
                     else: 
                         color character_colors["thrim"] + "99"
+                        outlines [ (3, "#17173f", 0, 0) ]
                 null height 20 
         
         else: 
@@ -279,7 +280,7 @@ screen choice(items):
                     text_align 0.0 
                     if in_call:
                         xalign 0.0
-                        text_outlines [ (3, "#000000", 0, 0) ]
+                        text_outlines [ (3, "#17173f", 0, 0) ]
                     if in_call: 
                         text_size gui.text_size #+ 5
                         text_hover_color character_colors["thrim"]
@@ -337,12 +338,13 @@ screen quick_menu():
             imagebutton:
                 auto "gui/button/backbutton_%s.png"
                 hovered qtt.Action("rollback")
-                action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Rollback()  
+                #action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), 
+                action Rollback()  
 
             imagebutton:
                 auto "gui/button/history_%s.png"
                 hovered qtt.Action("call history")
-                action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Show('history')
+                action Show('history')
 
             # imagebutton:
             #     auto "gui/button/skip_%s.png"
@@ -351,7 +353,7 @@ screen quick_menu():
             imagebutton:
                 auto "gui/button/save_%s.png"
                 hovered qtt.Action("save")
-                action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Show('save')
+                action Show('save')
                 tooltip "x"
 
             # imagebutton:
@@ -361,12 +363,12 @@ screen quick_menu():
             imagebutton:
                 auto "gui/button/qload_%s.png"
                 hovered qtt.Action("load")
-                action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Show('load')
+                action Show('load')
             
             imagebutton:
                 auto "gui/button/prefs_%s.png"
                 hovered qtt.Action("preferences")
-                action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Show('preferences')
+                action Show('preferences')
         
             if in_call:
                 imagebutton:
@@ -374,15 +376,30 @@ screen quick_menu():
                         idle "gui/button/auto_hover.png"
                     else: 
                         auto "gui/button/auto_%s.png"
-                    hovered qtt.Action("auto (call only)")
-                    action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Preference("auto-forward", "toggle")
+                    hovered qtt.Action("auto")
+                    action Preference("auto-forward", "toggle")
+            else: 
+                imagebutton:
+                    if player_is_waiting: 
+                        idle "gui/button/auto_inactive.png" 
+                    elif not is_paused or _preferences.afm_enable: 
+                        idle "gui/button/auto_hover.png"
+                    else: 
+                        auto "gui/button/auto_%s.png"
+                    hovered qtt.Action("auto")
+                    if player_is_waiting: 
+                        action NullAction() 
+                    elif not is_paused:
+                        action SetVariable("is_paused", True), SetVariable("player_set_pause", True), SetVariable("_preferences.afm_enable", False)
+                    else: 
+                        action SetVariable("_preferences.afm_enable", True)
         frame:
             # set this frame to the position of the mouse
             pos renpy.get_mouse_pos() 
             background None 
 
             # display text with value set in tt.Action() above.
-            text qtt.value outlines [ (3, "#000000", 0, 0) ]
+            text qtt.value outlines [ (3, "#252F71", 0, 0) ]
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -874,9 +891,10 @@ screen game_menu(title, scroll=None, yinitial=0.0):
         textbutton _("RETURN"):
             #style "return_button"
             if main_menu: 
-                action Play("sound", "audio/sfx/ui_menu_back_001 hangup.ogg"), Return() 
+                #action Play("sound", "audio/sfx/ui_menu_back_001 hangup.ogg"), 
+                action Return() 
             else: 
-                action Play("sound", "audio/sfx/ui_menu_back_001 hangup.ogg"), Hide(title.lower())
+                action Hide(title.lower())
 
     label title at game_menu_popup
 

@@ -28,7 +28,7 @@ default seekL_recent_example = ""
 # saf these are all adjusted from the colors you sent
 default character_colors = {
     "thrim": "#868ff9", 
-    "odxny": "#c4426b", 
+    "odxny": "#c051ec", 
     "wnpep": "#7be04d", 
     "incri": "#d8ea36", 
     "elimf": "#54ee96", 
@@ -190,6 +190,7 @@ init python:
         global wait_time_prev
         global seekL_recent_example
         global is_paused
+        global player_set_pause 
 
         # split into name / content, get new active channel  
         n = s.split(': ', 1)[0]
@@ -410,7 +411,10 @@ init python:
         if chat_speed != 100:
             if n != "SYSTEM":
                 #renpy.play("audio/sfx/message_notification_01_005 chat.ogg")
-                renpy.play("audio/sfx/message_notification_03_002 message alt.ogg")
+                if active_window == current_window: 
+                    renpy.play("audio/sfx/message_notification_03_002 message alt.ogg")
+                else: 
+                    renpy.play("audio/sfx/message_notification_01_005 chat.ogg")
             else: 
                 renpy.play("audio/sfx/message_notification_03_001 system.ogg")
         elif is_player: 
@@ -430,8 +434,11 @@ init python:
         if (is_player or n == "SYSTEM") and chat_speed != 100: 
             renpy.pause(0.5)
 
-        if is_paused: 
+        if is_paused and player_set_pause: 
+            player_set_pause = False 
             renpy.pause()
+        elif is_paused: 
+            is_paused = False 
 
     # show who is typing + logic for timing 
     def set_is_typing(n, wt, wtp, fastmode=False): # names 

@@ -220,7 +220,7 @@ screen seekL_ui:
                     box_wrap True
                     spacing 15 
                     null height 10
-                    if seekL_chat_active == 0: 
+                    if seekL_chat_active in [0,1]: 
                         for idx, t in enumerate(channels[current_window][-100:]): 
                             vbox: 
                                 xpos 20
@@ -505,8 +505,12 @@ screen seekL_ui:
                 #action Play("sound", "audio/sfx/message_notification_02_006 clear.ogg"), SetVariable("seekL_text_send", "")
 
     hbox: 
-        ypos 0.0
-        xalign 0.04
+        # ypos 0.0
+        # xalign 0.04
+
+        ypos 0.94 
+        xalign 0.3
+        spacing -20
         button:
             if chat_speed == 2:
                 add "gui/button/slow_hover.png"
@@ -535,30 +539,31 @@ screen seekL_ui:
                 add "gui/button/superfast_idle.png" 
                 action SetVariable("chat_speed", 100)
 
-        hbox:
-            yalign 1.0 
-            textbutton "disable autoplay chat": 
-                if is_paused: 
-                    text_color gui.hover_color
-                else: 
-                    text_color gui.idle_color
-                text_size 26
-                yalign 1.0
-                action ToggleVariable("is_paused")
-            if not is_paused: 
-                textbutton "(click around to restart the chat)":
-                    text_size 20 
-                    yalign 1.0 
-                    text_color gui.idle_color 
-                    action NullAction()
-            else: 
-                textbutton "                                    ":
-                    text_size 20 
-                    yalign 1.0 
-                    text_color gui.idle_color 
-                    action NullAction()
+        # hbox:
+        #     yalign 1.0 
+        #     textbutton "disable autoplay chat": 
+        #         if is_paused: 
+        #             text_color gui.hover_color
+        #         else: 
+        #             text_color gui.idle_color
+        #         text_size 26
+        #         yalign 1.0
+        #         action SetVariable("is_paused", True), SetVariable("player_set_pause", True)
+        #     if not is_paused: 
+        #         textbutton "(click around to restart the chat)":
+        #             text_size 20 
+        #             yalign 1.0 
+        #             text_color gui.idle_color 
+        #             action NullAction()
+        #     else: 
+        #         textbutton "                                    ":
+        #             text_size 20 
+        #             yalign 1.0 
+        #             text_color gui.idle_color 
+        #             action NullAction()
         
 default is_paused = False  
+default player_set_pause = False 
     # qa hell 
     # hbox: 
     #     spacing 10 

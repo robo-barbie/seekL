@@ -11,6 +11,7 @@ label day1_start:
     #jump day1_15
 
     #jump day2_7
+    $ _preferences.afm_enable = True 
 
     $ chat_message("SYSTEM: THRIM joined")
 
@@ -390,10 +391,11 @@ label day1_15:
         required_runs["idx"] = None 
         # STOP THEM BEFORE THEY GET TOO FAR 
         player_can_pass = False 
+        waiting_label = "day1_19"
 
     $ player_choice(
         [
-            ("ok, one moment", "day1_18"), 
+            ("ok, one moment", "wait_start"), 
             ("but... why is that so long and ugly...", "day1_17")
         ]
     )
@@ -419,30 +421,32 @@ label day1_17:
 
     $ chat_message("wnpep: sorry.") 
 
-    jump day1_18
+    jump wait_start 
 
-label day1_18:
-    if first_flash:
-        pause 0.5 
-        play sound "audio/sfx/message_notification_01_001 tutorial.ogg"
-        show highlight_large onlayer screens: 
-            pos highlight_frame_console_pos
-        $ first_flash = False 
+# label day1_18:
+#     if first_flash:
+#         pause 0.5 
+#         play sound "audio/sfx/message_notification_01_001 tutorial.ogg"
+#         show highlight_large onlayer screens: 
+#             pos highlight_frame_console_pos
+#         $ first_flash = False 
     
-    # wait for input 
-    $ player_is_waiting = True 
-    $ waiting_label = "day1_19"
+#     # wait for input 
+#     $ player_is_waiting = True 
+#     $ _preferences.afm_enable = False 
+#     $ waiting_label = "day1_19"
 
-    # if they arrive already ready to pass 
-    if player_can_pass:
-        $ player_is_waiting = False 
-        jump day1_19 
-    $ renpy.pause(hard=True)
+#     # if they arrive already ready to pass 
+#     if player_can_pass:
+#         $ player_is_waiting = False 
+#         jump day1_19 
+#     $ renpy.pause(hard=True)
 
 label day1_19: 
-    hide highlight_large onlayer screens 
-    $ first_flash = True 
-    $ player_is_waiting = False 
+    # hide highlight_large onlayer screens 
+    # $ first_flash = True 
+    # $ player_is_waiting = False 
+    # $ _preferences.afm_enable = True 
     #$ tables_seen.append("table.example")
     
     # MC: done 
@@ -818,6 +822,10 @@ label day1_29:
     $ chat_message("wnpep: or foolish")
 
     $ chat_message("odxny: We'll see.")
+
+    $ _preferences.afm_enable = False 
+
+    pause 2 
 
     show screen video_call_window("day1_call")
 

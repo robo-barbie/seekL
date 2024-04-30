@@ -1,9 +1,9 @@
 label day2_start: 
 
     $ quick_menu = False
-    play sound "audio/sfx/ui_start_game_002 day swap.ogg"
     show day2_glitch 
     pause
+    play sound "audio/sfx/ui_start_game_002 day swap.ogg"
     show chat2_glitch 
     pause 0.5
     $ quick_menu = True
@@ -13,9 +13,13 @@ label day2_start:
     $ seekL_text_send = "" 
     $ seekL_output = []
     show screen seekL_ui 
+    hide day2_glitch 
+    hide chat2_glitch 
     $ in_call = False
     hide screen black_window 
     play music "audio/music/server_room_chiller_version.mp3" loop fadein 2.0 fadeout 2.0 
+
+    $ _preferences.afm_enable = True 
 
     $ player_choice(
         [
@@ -279,6 +283,7 @@ label day2_7:
         required_runs["idx"] = None 
         # STOP THEM BEFORE THEY GET TOO FAR 
         player_can_pass = False 
+        waiting_label = "day2_9"
 
     $ chat_message("elimf: ur in arizona????")
 
@@ -300,29 +305,31 @@ label day2_7:
 
     $ chat_message("wnpep: or click the table in your table list and hit execute")
 
-    jump day2_8
+    jump wait_start
 
-label day2_8:
-    if first_flash:
-        pause 0.5 
-        play sound "audio/sfx/message_notification_01_001 tutorial.ogg"
-        show highlight_large onlayer screens: 
-            pos highlight_frame_console_pos 
-        $ first_flash = False 
-    # wait for input 
-    $ player_is_waiting = True 
-    $ waiting_label = "day2_9"
+# label day2_8:
+#     if first_flash:
+#         pause 0.5 
+#         play sound "audio/sfx/message_notification_01_001 tutorial.ogg"
+#         show highlight_large onlayer screens: 
+#             pos highlight_frame_console_pos 
+#         $ first_flash = False 
+#     # wait for input 
+#     $ player_is_waiting = True 
+#     $ _preferences.afm_enable = False
+#     $ waiting_label = "day2_9"
 
-    # if they arrive already ready to pass 
-    if player_can_pass:
-        $ player_is_waiting = False 
-        jump day2_9 
-    $ renpy.pause(hard=True)
+#     # if they arrive already ready to pass 
+#     if player_can_pass:
+#         $ player_is_waiting = False 
+#         jump day2_9 
+#     $ renpy.pause(hard=True)
 
 label day2_9:
-    hide highlight_large onlayer screens 
-    $ first_flash = True 
-    $ player_is_waiting = False 
+    # hide highlight_large onlayer screens 
+    # $ first_flash = True 
+    # $ player_is_waiting = False 
+    # $ _preferences.afm_enable = True 
     #MC: I see the table now. 
     $ player_choice(
         [
@@ -411,6 +418,7 @@ label day2_12:
         required_runs["idx"] = None 
         # STOP THEM BEFORE THEY GET TOO FAR 
         player_can_pass = False 
+        waiting_label = "day2_17"
 
     #MC: why? 
     $ player_choice(
@@ -535,30 +543,32 @@ label day2_15:
 
     $ chat_message("incri: #AZGOV.MARRIAGE#")
 
-    jump day2_16
+    jump wait_start
 
 
-label day2_16:
-    if first_flash:
-        pause 0.5 
-        play sound "audio/sfx/message_notification_01_001 tutorial.ogg"
-        show highlight_large onlayer screens: 
-            pos highlight_frame_console_pos 
-        $ first_flash = False 
-    # wait for input 
-    $ player_is_waiting = True 
-    $ waiting_label = "day2_17"
+# label day2_16:
+#     if first_flash:
+#         pause 0.5 
+#         play sound "audio/sfx/message_notification_01_001 tutorial.ogg"
+#         show highlight_large onlayer screens: 
+#             pos highlight_frame_console_pos 
+#         $ first_flash = False 
+#     # wait for input 
+#     $ player_is_waiting = True 
+#     $ _preferences.afm_enable = False
+#     $ waiting_label = "day2_17"
 
-    # if they arrive already ready to pass 
-    if player_can_pass:
-        $ player_is_waiting = False 
-        jump day2_17 
-    $ renpy.pause(hard=True)
+#     # if they arrive already ready to pass 
+#     if player_can_pass:
+#         $ player_is_waiting = False 
+#         jump day2_17 
+#     $ renpy.pause(hard=True)
 
 label day2_17:
-    hide highlight_large onlayer screens 
-    $ first_flash = True 
-    $ player_is_waiting = False 
+    # hide highlight_large onlayer screens 
+    # $ first_flash = True 
+    # $ player_is_waiting = False 
+    # $ _preferences.afm_enable = True 
 
     #MC: i see it 
     $ player_choice(
@@ -587,6 +597,7 @@ label day2_17:
         required_runs["idx"] = [("mid", "M2635187")] 
         # STOP THEM BEFORE THEY GET TOO FAR 
         player_can_pass = False 
+        waiting_label = "day2_22"
 
     $ chat_message("wnpep: we didn't show thrim where clauses yet ")
 
@@ -658,30 +669,32 @@ label day2_19:
 label day2_20: 
     $ chat_message("incri: let me know when ur fuckin g done finding dumbass cop in the marriage tbl")
 
-    jump day2_21
+    jump wait_start
 
 
-label day2_21:
-    if first_flash:
-        pause 0.5 
-        play sound "audio/sfx/message_notification_01_001 tutorial.ogg"
-        show highlight_large onlayer screens: 
-            pos highlight_frame_console_pos 
-        $ first_flash = False 
-    # wait for input 
-    $ player_is_waiting = True 
-    $ waiting_label = "day2_22"
+# label day2_21:
+#     if first_flash:
+#         pause 0.5 
+#         play sound "audio/sfx/message_notification_01_001 tutorial.ogg"
+#         show highlight_large onlayer screens: 
+#             pos highlight_frame_console_pos 
+#         $ first_flash = False 
+#     # wait for input 
+#     $ player_is_waiting = True 
+#     $ _preferences.afm_enable = False 
+#     $ waiting_label = "day2_22"
 
-    # if they arrive already ready to pass 
-    if player_can_pass:
-        $ player_is_waiting = False 
-        jump day2_22 
-    $ renpy.pause(hard=True)
+#     # if they arrive already ready to pass 
+#     if player_can_pass:
+#         $ player_is_waiting = False 
+#         jump day2_22 
+#     $ renpy.pause(hard=True)
 
 label day2_22:
-    hide highlight_large onlayer screens 
-    $ first_flash = True 
-    $ player_is_waiting = False 
+    # hide highlight_large onlayer screens 
+    # $ first_flash = True 
+    # $ player_is_waiting = False 
+    # $ _preferences.afm_enable = True 
 
     $ chat_message("incri: found him?" )
 
@@ -801,6 +814,7 @@ label day2_25:
         required_runs["idx"] = [("irs_id", "I80397-693")] 
         # STOP THEM BEFORE THEY GET TOO FAR 
         player_can_pass = False 
+        waiting_label = "day2_27"
 
     $ chat_message("elimf: yo when did we get irs data wait",ot="wnpep")
 
@@ -818,30 +832,32 @@ label day2_25:
 
     $ chat_message("elimf: WITH A DELICIOUS USE OF THE {color=ccff11}WHERE CLAUSE{/color}") 
 
-    jump day2_26
+    jump wait_start
 
     # wait for code to run 
-label day2_26:
-    if first_flash:
-        pause 0.5 
-        play sound "audio/sfx/message_notification_01_001 tutorial.ogg"
-        show highlight_large onlayer screens: 
-            pos highlight_frame_console_pos 
-        $ first_flash = False 
-    # wait for input 
-    $ player_is_waiting = True 
-    $ waiting_label = "day2_27"
+# label day2_26:
+#     if first_flash:
+#         pause 0.5 
+#         play sound "audio/sfx/message_notification_01_001 tutorial.ogg"
+#         show highlight_large onlayer screens: 
+#             pos highlight_frame_console_pos 
+#         $ first_flash = False 
+#     # wait for input 
+#     $ player_is_waiting = True 
+#     $ _preferences.afm_enable = False 
+#     $ waiting_label = "day2_27"
 
-    # if they arrive already ready to pass 
-    if player_can_pass:
-        $ player_is_waiting = False 
-        jump day2_27 
-    $ renpy.pause(hard=True)
+#     # if they arrive already ready to pass 
+#     if player_can_pass:
+#         $ player_is_waiting = False 
+#         jump day2_27 
+#     $ renpy.pause(hard=True)
 
 label day2_27:
-    hide highlight_large onlayer screens 
-    $ first_flash = True 
-    $ player_is_waiting = False 
+    # hide highlight_large onlayer screens 
+    # $ first_flash = True 
+    # $ player_is_waiting = False 
+    # $ _preferences.afm_enable = True 
 
     $ chat_message("incri: I\"M WAITING") 
 
@@ -879,6 +895,7 @@ label day2_27:
         required_runs["idx"] = [("irs_id", "I20210-713"), ("irs_id", "I24270-766")] 
         # STOP THEM BEFORE THEY GET TOO FAR 
         player_can_pass = False 
+        waiting_label = "day2_29"
 
     $ chat_message("odxny: Reading up. What about the maiden name thing?")  
 
@@ -904,28 +921,32 @@ label day2_27:
         ]
     )
 
-    # // wait for code to run and see both results 
-label day2_28:
-    if first_flash:
-        pause 0.5 
-        play sound "audio/sfx/message_notification_01_001 tutorial.ogg"
-        show highlight_large onlayer screens: 
-            pos highlight_frame_console_pos 
-        $ first_flash = False 
-    # wait for input 
-    $ player_is_waiting = True 
-    $ waiting_label = "day2_29"
+    jump wait_start
 
-    # if they arrive already ready to pass 
-    if player_can_pass:
-        $ player_is_waiting = False 
-        jump day2_29 
-    $ renpy.pause(hard=True)
+    # // wait for code to run and see both results 
+# label day2_28:
+#     if first_flash:
+#         pause 0.5 
+#         play sound "audio/sfx/message_notification_01_001 tutorial.ogg"
+#         show highlight_large onlayer screens: 
+#             pos highlight_frame_console_pos 
+#         $ first_flash = False 
+#     # wait for input 
+#     $ player_is_waiting = True 
+#     $ _preferences.afm_enable = False 
+#     $ waiting_label = "day2_29"
+
+#     # if they arrive already ready to pass 
+#     if player_can_pass:
+#         $ player_is_waiting = False 
+#         jump day2_29 
+#     $ renpy.pause(hard=True)
 
 label day2_29:
-    hide highlight_large onlayer screens 
-    $ first_flash = True 
-    $ player_is_waiting = False 
+    # hide highlight_large onlayer screens 
+    # $ first_flash = True 
+    # $ player_is_waiting = False 
+    # $ _preferences.afm_enable = True 
 
     $ chat_message("odxny: So, which looks like the best match? ") 
 
@@ -1177,33 +1198,36 @@ label day2_37:
         required_runs["idx"] = [("ss_cid", "72770-SS")] # this needs to change to allow a join find to work later on. i'm not sure why it didn't work
         # STOP THEM BEFORE THEY GET TOO FAR 
         player_can_pass = False
+        waiting_label = "day2_39"
 
     $ chat_message("elimf: ol' faithful secretsmooch")
 
-    jump day2_38
+    jump wait_start
 
     # waits for MC 
-label day2_38:
-    if first_flash:
-        pause 0.5 
-        play sound "audio/sfx/message_notification_01_001 tutorial.ogg"
-        show highlight_large onlayer screens: 
-            pos highlight_frame_console_pos 
-        $ first_flash = False 
-    # wait for input 
-    $ player_is_waiting = True 
-    $ waiting_label = "day2_39"
+# label day2_38:
+#     if first_flash:
+#         pause 0.5 
+#         play sound "audio/sfx/message_notification_01_001 tutorial.ogg"
+#         show highlight_large onlayer screens: 
+#             pos highlight_frame_console_pos 
+#         $ first_flash = False 
+#     # wait for input 
+#     $ player_is_waiting = True 
+#     $ _preferences.afm_enable = False 
+#     $ waiting_label = "day2_39"
 
-    # if they arrive already ready to pass 
-    if player_can_pass:
-        $ player_is_waiting = False 
-        jump day2_39 
-    $ renpy.pause(hard=True)
+#     # if they arrive already ready to pass 
+#     if player_can_pass:
+#         $ player_is_waiting = False 
+#         jump day2_39 
+#     $ renpy.pause(hard=True)
 
 label day2_39:
-    hide highlight_large onlayer screens 
-    $ first_flash = True 
-    $ player_is_waiting = False 
+    # hide highlight_large onlayer screens 
+    # $ first_flash = True 
+    # $ player_is_waiting = False 
+    # $ _preferences.afm_enable = True 
 
     # MC: i got it! he's totally here! 
     $ player_choice(
@@ -1408,197 +1432,321 @@ label day2_moneyrain:
 
     $ chat_message("incri: YES ")
 
-    $ renpy.pause(hard=True)
+    $ chat_message("wnpep: aw. i guess i only have one left as well ")
 
-    # wnpep: aw. i guess i only have one left as well 
+    $ chat_message("elimf: wait me too ")
 
-    # elimf: wait me too 
+    $ chat_message("wnpep: omg? ",ot="odxny")
 
-    # wnpep: omg? 
+    $ chat_message("odxny: It's almost time. ",ot="incri")
 
-    # odxny: It's almost time. 
+    $ chat_message("incri: I\"M A FUCKING GOD ")
 
-    # incri: I"M A FUCKING GOD 
+    $ chat_message("incri: NOBODY FUCKING OWNS ME I OWN THEM ")
 
-    # incri: NOBODY FUCKING OWNS ME I OWN THEM 
+    $ chat_message("incri: I OWN ALL OF THEM ",ot="elimf")
 
-    # incri: I OWN ALL OF THEM 
+    $ chat_message("elimf: respectfully can you shut the fuck up ")
 
-    # elimf: respectfully can you shut the fuck up 
+    $ chat_message("incri: I COULD OWN YOU TOO ")
 
-    # incri: I COULD OWN YOU TOO 
+    $ chat_message("elimf: u've tried. i saw it a month ago. fucking failed ")
 
-    # elimf: u've tried. i saw it a month ago. fucking failed 
+    pause 2 
 
-    # incri: that asnt fme 
+    $ chat_message("incri: that asnt fme ")
 
-    # elimf: don't lie to me inc 
+    $ chat_message("elimf: don't lie to me inc ",ot="incri")
 
-    # incri: i would own you if i tried 
+    $ chat_message("incri: i would own you if i tried ")
 
-    # incri: 1st try 
+    $ chat_message("incri: 1st try ",ot="elimf")
 
-    # elimf: lol 
+    $ chat_message("elimf: lol ",ot="incri")
 
-    # incri: 1ST TRY 
+    $ chat_message("incri: 1ST TRY ",ot="wnpep")
 
-    # wnpep: woo congrats incri! please relax 
+    $ chat_message("wnpep: woo congrats incri! please relax ")
 
-    # incri: BUZZKILL CHAT 
+    $ chat_message("incri: BUZZKILL CHAT ")
 
-    # incri: jhkfejkhws0-0h  0909  999  9f9g9   
+    $ chat_message("incri: jhkfejkhws0-0h  0909  999  9f9g9   ")
 
-    # // incri logs off 
+    # incri logs off 
 
-    # wnpep: but. anyway. it is crazy. never thought this would all be over this soon. 
+    $ chat_message("wnpep: but. anyway. it is crazy. never thought this would all be over this soon. ")
 
     # MC: what do you mean? 
+    $ player_choice(
+        [
+            ("what do you mean?", "x")
+        ]
+    )
 
-    # odxny: Everyone came in here with set goals. Those goals are almost met. 
+    $ chat_message("odxny: Everyone came in here with set goals. Those goals are almost met. ")
 
-    # odxny: When they are, I'm shutting this down for good. 
+    $ chat_message("odxny: When they are, I'm shutting this down for good. ")
 
     # MC: why?? what about if i have goals? 
+    $ player_choice(
+        [
+            ("why?? what about if i have goals? ", "x")
+        ]
+    )
 
-    # odxny: I don't really care. No offense. 
+    $ chat_message("odxny: I don't really care. No offense. ")
 
-    # odxny: It's about time. 
+    $ chat_message("odxny: It's about time. ")
 
     # MC: then... you won't ever talk to each other again? 
+    $ player_choice(
+        [
+            ("then... you won't ever talk to each other again?", "x")
+        ]
+    )
 
-    # wnpep: life is made up of meetings and partings 
+    $ chat_message("wnpep: life is made up of meetings and partings ")
 
-    # wnpep: that is the way of it 
+    $ chat_message("wnpep: that is the way of it ")
 
-    # elimf: that's a fucking muppet quote 
+    pause 1 
 
-    # wnpep: watched it last christmas. great movie 
+    $ chat_message("elimf: that's a fucking muppet quote ")
 
-    # elimf: with your wife? 
+    $ chat_message("wnpep: watched it last christmas. great movie ")
 
-    # wnpep: yes! 
+    $ chat_message("elimf: with your wife? ")
 
-    # elimf: WHAT 
+    $ chat_message("wnpep: yes!") 
 
-    # wnpep: wait 
+    pause 2 
 
-    # wnpep: no i misread it i misread it 
+    $ chat_message("elimf: WHAT ")
 
-    # elimf: THE PRIVACY PACT
+    $ chat_message("wnpep: wait ")
 
-    # odxny: So. Enjoy your short time here, thrim. Our last member. 
+    $ chat_message("wnpep: no i misread it i misread it ",ot="elimf")
+
+    $ chat_message("elimf: THE PRIVACY PACT",ot="odxny")
+
+    $ chat_message("odxny: So. Enjoy your short time here, thrim. Our last member. ")
+
+    $ player_choice(
+        [
+            ("shit I gotta cram all my enjoyment in then", "day2_43"), 
+            ("We're just ships passing in an undetermined time zone, huh", "day2_44")
+        ]
+    )
+
 
     # [1] MC: shit I gotta cram all my enjoyment in then
+label day2_43:
 
-    # elimf: didnt realize u were into the grind
+    $ chat_message("elimf: didnt realize u were into the grind")
 
     # MC: u know it
+    $ player_choice(
+        [
+            ("u know it", "x")
+        ]
+    )
 
-    # wnpep: i'm not sure if this is how joy works
+    $ chat_message("wnpep: i'm not sure if this is how joy works")
+
+    jump day2_45
+
 
     # [2] MC: We're just ships passing in an undetermined time zone, huh
+label day2_44:
 
-    # odxny: Thank you for the sincere and edited idiom.
+    $ chat_message("odxny: Thank you for the sincere and edited idiom.")
 
     # MC: I had to offer an equally fine allusion
+    $ player_choice(
+        [
+            ("I had to offer an equally fine allusion", "x")
+        ]
+    )
 
-    # elimf: and it is. love movies
+    $ chat_message("elimf: and it is. love movies")
 
-    # // end choices
+    jump day2_45
 
-    # incri: cry less hard thrim
 
-    # incri: u will leave here a bit less stupid thanks to me
+    # end choices
+label day2_45:
+
+    $ chat_message("incri: cry less hard thrim")
+
+    $ chat_message("incri: u will leave here a bit less stupid thanks to me")
 
     # MC: of course
+    $ player_choice(
+        [
+            ("of course", "x")
+        ]
+    )
 
-    # incri: im done so ur on ur own. no more help from me
+    $ chat_message("incri: im done so ur on ur own. no more help from me")
 
     # MC: I think I got that, yeah. thanks for helping earlier tho
+    $ player_choice(
+        [
+            ("I think I got that, yeah. thanks for helping earlier tho", "x")
+        ]
+    )
 
-    # incri: finally some 	GRATITUDE
+    $ chat_message("incri: finally some 	GRATITUDE")
 
-    # wnpep: look what youve done. youve enabled them
+    $ chat_message("wnpep: look what youve done. youve enabled them")
 
-    # elimf: gonna be such an overlord
+    $ chat_message("elimf: gonna be such an overlord")
 
-    # wnpep: of another server? god forbid
+    $ chat_message("wnpep: of another server? god forbid",ot="incri")
 
-    # incri: fuck both of u
+    $ chat_message("incri: fuck both of u")
 
-    # elimf: no just like. in general
+    $ chat_message("elimf: no just like. in general")
 
-    # elimf: with a hat n stuff
+    $ chat_message("elimf: with a hat n stuff")
 
-    # wnpep: are you high rn
+    $ chat_message("wnpep: are you high rn")
 
-    # elimf: :^)
+    $ chat_message("elimf: :^)")
 
-    # odxny: I'd love to see incri run something.
+    $ chat_message("odxny: I'd love to see incri run something.")
 
-    # incri: thank u
+    $ chat_message("incri: thank u")
 
-    # odxny: From a safe distance.
+    $ chat_message("odxny: From a safe distance.")
 
-    # incri: fuck u too
+    $ chat_message("incri: fuck u too")
 
-# // dms
+    # dms
 
-# odxny: I won't lie, I'm a little impressed.
+    $ chat_message("odxny: I won't lie, I'm a little impressed.",c="admin")
 
-# MC: how so?
+    # MC: how so?
+    $ player_choice(
+        [
+            ("how so?", "x")
+        ]
+    )
 
-# odxny: Managing to get incri to be anything close to helpful is quite a feat
+    $ chat_message("odxny: Managing to get incri to be anything close to helpful is quite a feat",c="admin")
 
-# odxny: Have to give props where it's due.
+    $ chat_message("odxny: Have to give props where it's due.",c="admin")
 
-# [1] MC: about time!!
-
-# odxny: You can't hear it but I'm clapping for you.
-
-# MC: well now it just feels sardonic
-
-# odxny: I'll stop the clapping then.
-
-# MC: no keep doing that
-
-# odxny: As you wish.
-
-# [2] MC: it was a struggle but we got there
-
-# odxny: We will never forget your sacrifice.
-
-# MC: do I get a medal? or a plaque?
-
-# odxny: I can send you enough money for a commemorative sandwich.
-
-# MC: two sandwiches?
-
-# odxny: Deal.
-
-# // end choices 
-
-# MC: did you message just to congratulate me tho?
-
-# odxny: Well, partially. Felt a bit awkward to do so in the main chat.
-
-# odxny: But I was also wondering if you wanted to call again.
-
-# MC: oh?
-
-# odxny: Just to chat. No vetting this time.
-
-# MC: no insults?
-
-# odxny: Depends.
-
-# odxny: I'll try to refrain, though.
-
-# MC: i'll accept that risk, then
-
-# odxny: Excellent.
+    $ player_choice(
+        [
+            ("about time!!", "day2_46"), 
+            ("it was a struggle but we got there", "day2_47")
+        ]
+    )
 
 
+    # [1] MC: about time!!
+label day2_46:
+
+    $ chat_message("odxny: You can't hear it but I'm clapping for you.",c="admin")
+
+    # MC: well now it just feels sardonic
+    $ player_choice(
+        [
+            ("well now it just feels sardonic", "x")
+        ]
+    )
+
+    $ chat_message("odxny: I'll stop the clapping then.",c="admin")
+
+    # MC: no keep doing that
+    $ player_choice(
+        [
+            ("no keep doing that", "x")
+        ]
+    )
+
+    $ chat_message("odxny: As you wish.",c="admin")
+
+    jump day2_48
+
+
+    # [2] MC: it was a struggle but we got there
+label day2_47:
+
+    $ chat_message("odxny: We will never forget your sacrifice.",c="admin")
+
+    # MC: do I get a medal? or a plaque?
+    $ player_choice(
+        [
+            ("do I get a medal? or a plaque?", "x")
+        ]
+    )
+
+    $ chat_message("odxny: I can send you enough money for a commemorative sandwich.",c="admin")
+
+    # MC: two sandwiches?
+    $ player_choice(
+        [
+            ("two sandwiches?", "x")
+        ]
+    )
+
+    $ chat_message("odxny: Deal.",c="admin")
+
+    jump day2_48
+
+
+label day2_48:
+    # end choices 
+
+    # MC: did you message just to congratulate me tho?
+    $ player_choice(
+        [
+            ("did you message just to congratulate me tho?", "x")
+        ]
+    )
+
+    $ chat_message("odxny: Well, partially. Felt a bit awkward to do so in the main chat.",c="admin")
+
+    $ chat_message("odxny: But I was also wondering if you wanted to call again.",c="admin")
+
+    # MC: oh?
+    $ player_choice(
+        [
+            ("oh?", "x")
+        ]
+    )
+
+    $ chat_message("odxny: Just to chat. No vetting this time.",c="admin")
+
+    # MC: no insults?
+    $ player_choice(
+        [
+            ("no insults?", "x")
+        ]
+    )
+
+    $ chat_message("odxny: Depends.",c="admin")
+
+    $ chat_message("odxny: I'll try to refrain, though.",c="admin")
+
+    # MC: i'll accept that risk, then
+    $ player_choice(
+        [
+            ("i'll accept that risk, then", "x")
+        ]
+    )
+
+    $ chat_message("odxny: Excellent.",c="admin")
+
+    $ _preferences.afm_enable = False 
+
+    pause 2 
+
+    show screen video_call_window("day2_call")
+
+    $ renpy.pause(hard=True)
 
 
 

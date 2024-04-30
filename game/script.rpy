@@ -55,12 +55,15 @@ screen ive_had_enough_of_the_fucking_scroll_up_rollback():
 # The game starts here.
 
 label start:
-    $ _preferences.afm_enable = True 
+    pause 2
+    #$ _preferences.afm_enable = True 
+    $ _preferences.afm_enable = False 
 
     $ quick_menu = False
 
     show day1_glitch
     pause
+    play sound "audio/sfx/ui_start_game_002 day swap.ogg"
     show chat1_glitch 
     pause 0.5
 
@@ -80,6 +83,8 @@ label start:
     play music "audio/music/cracking_the_code.mp3" loop fadein 2.0 fadeout 2.0 
 
     show screen seekL_ui 
+    hide day1_glitch 
+    hide chat1_glitch 
 
     jump day1_start
 
