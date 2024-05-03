@@ -454,6 +454,8 @@ screen navigation():
 
         textbutton _("PREFERENCES") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), ShowMenu("preferences")
 
+        textbutton _("GALLERY") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Show("gallery")
+
         if _in_replay:
 
             textbutton _("END REPLAY") action EndReplay(confirm=True)
@@ -464,10 +466,10 @@ screen navigation():
 
         #textbutton _("About") action ShowMenu("about")
 
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+        # if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
-            ## Help isn't necessary or relevant to mobile devices.
-            textbutton _("HELP") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), ShowMenu("help")
+        #     ## Help isn't necessary or relevant to mobile devices.
+        #     textbutton _("HELP") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), ShowMenu("help")
 
         if renpy.variant("pc"):
 
@@ -551,10 +553,10 @@ screen gallery():
                 spacing 30
 
                 #Pages to change gallery screens
-                textbutton "Bad End" action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), SetScreenVariable("gallery_page","1")
-                textbutton "Platonic End" action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), SetScreenVariable("gallery_page","2")
-                textbutton "Romantic End" action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), SetScreenVariable("gallery_page","3")
-                
+                textbutton "{b}seekL{/b}{color=b3b3af}oss{/color}" action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), SetScreenVariable("gallery_page","1")
+                textbutton "{b}seekL{/b}{color=ecde8f}ife{/color}" action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), SetScreenVariable("gallery_page","2")
+                textbutton "{b}seekL{/b}{color=f57cdf}ove{/color}" action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), SetScreenVariable("gallery_page","3")
+                # "#f57cdf"
         #determines which page of CGs to show
         if gallery_page == "1":
             use gallery_1
@@ -851,11 +853,11 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
         spacing 50
 
-        if main_menu:
+        # if main_menu:
 
-            textbutton _("START") action Play("sound", "audio/sfx/ui_start_game_001 start.ogg"), Start()
+        #     textbutton _("START") action Play("sound", "audio/sfx/ui_start_game_001 start.ogg"), Start()
 
-        else:
+        if not main_menu:
 
             textbutton _("HISTORY") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Show("history")
 
@@ -863,9 +865,15 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
         textbutton _("LOAD") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Show("load")
 
-        textbutton _("PREFERENCES") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Show("preferences")
+        textbutton _("PREFERENCES"): 
+            text_hover_color gui.hover_color
+            action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Show("preferences")
 
         textbutton _("GALLERY") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Show("gallery")
+
+        #null width 50 
+
+        text "//" yalign 0.5 color gui.insensitive_color bold True 
 
         if _in_replay:
 
@@ -873,7 +881,10 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
         elif not main_menu:
 
-            textbutton _("MAIN MENU") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), MainMenu()
+            textbutton _("MAIN MENU"):
+                # text_color gui.idle_color
+                # text_hover_color gui.hover_color
+                action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), MainMenu()
 
         #textbutton _("About") action ShowMenu("about")
 
@@ -884,11 +895,20 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
         if renpy.variant("pc"):
 
+            #null width 50
+
             ## The quit button is banned on iOS and unnecessary on Android and
             ## Web.
-            textbutton _("QUIT") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Quit(confirm=not main_menu)
+            textbutton _("QUIT"):
+                # text_color gui.idle_color
+                # text_hover_color gui.hover_color
+                action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Quit(confirm=not main_menu)
+
+        #null width 50
 
         textbutton _("RETURN"):
+            # text_color gui.hover_muted_color
+            # text_hover_color gui.hover_color
             #style "return_button"
             if main_menu: 
                 #action Play("sound", "audio/sfx/ui_menu_back_001 hangup.ogg"), 
