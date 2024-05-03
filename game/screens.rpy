@@ -553,9 +553,26 @@ screen gallery():
                 spacing 30
 
                 #Pages to change gallery screens
-                textbutton "{b}seekL{/b}{color=b3b3af}oss{/color}" action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), SetScreenVariable("gallery_page","1")
-                textbutton "{b}seekL{/b}{color=ecde8f}ife{/color}" action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), SetScreenVariable("gallery_page","2")
-                textbutton "{b}seekL{/b}{color=f57cdf}ove{/color}" action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), SetScreenVariable("gallery_page","3")
+                if gallery_page=="1":
+                    textbutton "{b}{color=66cc00}seekL{/color}{/b}{color=b3b3af}oss{/color}": 
+                        action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), SetScreenVariable("gallery_page","1")
+                else: 
+                    textbutton "{b}seekL{/b}{color=b3b3af}oss{/color}": 
+                        action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), SetScreenVariable("gallery_page","1")
+                
+                if gallery_page=="2": 
+                    textbutton "{b}{color=66cc00}seekL{/color}{/b}{color=ecde8f}ife{/color}":
+                        action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), SetScreenVariable("gallery_page","2")
+                else:
+                    textbutton "{b}seekL{/b}{color=ecde8f}ife{/color}":
+                        action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), SetScreenVariable("gallery_page","2")
+                
+                if gallery_page=="3":
+                    textbutton "{b}{color=66cc00}seekL{/color}{/b}{color=f57cdf}ove{/color}":
+                        action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), SetScreenVariable("gallery_page","3")
+                else:
+                    textbutton "{b}seekL{/b}{color=f57cdf}ove{/color}":
+                        action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), SetScreenVariable("gallery_page","3")
                 # "#f57cdf"
         #determines which page of CGs to show
         if gallery_page == "1":
