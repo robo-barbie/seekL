@@ -304,7 +304,7 @@ label day1_11:
 
     $ chat_message("elimf: (that's not a real table so don't try typing that in quite yet)")
 
-    $ chat_message("wnpep: {color=ccff11}SELECT{/color} is used to tell the table which information we want from it")
+    $ chat_message("wnpep: {color="+color_syntax+"}SELECT{/color} is used to tell the table which information we want from it")
 
     $ player_choice(
         [
@@ -314,9 +314,9 @@ label day1_11:
 
     $ chat_message("wnpep: it means we are telling the table we want all information it has")
 
-    $ chat_message("elimf: {color=ccff11}* = all{/color}")
+    $ chat_message("elimf: {color="+color_help+"}* = all{/color}")
 
-    $ chat_message("wnpep: {color=ccff11}FROM{/color} says which table we want to grab this information from")
+    $ chat_message("wnpep: {color="+color_syntax+"}FROM{/color} says which table we want to grab this information from")
 
     $ chat_message("wnpep: so, you'd put a real table name there where it says \"table_name\"")
 
@@ -371,13 +371,13 @@ label day1_15:
 
     $ chat_message("elimf: or, notice how a table just appeared under the tables list on the far right?")
 
-    $ chat_message("elimf: {color=ccff11}any time you encounter a new table, it gets added to your personal little reference bank there{/color}")
+    $ chat_message("elimf: {color="+color_help+"}any time you encounter a new table, it gets added to your personal little reference bank there{/color}")
 
     $ chat_message("wnpep: if you click it, it will pre-fill the console with a basic query to look at the table")
 
-    $ chat_message("wnpep: {color=ccff11}pretty useful to just look at a table when you aren't familiar with what's in it{/color}")
+    $ chat_message("wnpep: {color="+color_help+"}pretty useful to just look at a table when you aren't familiar with what's in it{/color}")
 
-    $ chat_message("elimf: there's also an {color=ccff11}info sheet{/color} in the same area where we share notes")
+    $ chat_message("elimf: there's also an {color="+color_help+"}info sheet{/color} in the same area where we share notes")
 
     $ chat_message("elimf: useful to look in there for information when you're stuck")
 
@@ -489,13 +489,13 @@ label day1_19_2:
 
     $ chat_message("wnpep: thrim, in this table there are 5 columns:") 
 
-    $ chat_message("wnpep: {color=ccff11}table_id{/color} - this is just a unique thing for each row. you can mostly ignore this") 
+    $ chat_message("wnpep: {color="+color_help+"}table_id{/color} - this is just a unique thing for each row. you can mostly ignore this") 
 
-    $ chat_message("wnpep: {color=ccff11}hacker_name{/color} - this tells you who each row is about among the four of us here. minus you") 
+    $ chat_message("wnpep: {color="+color_help+"}hacker_name{/color} - this tells you who each row is about among the four of us here. minus you") 
 
     $ chat_message("elimf: we should update and add thrim", ot="wnpep")
 
-    $ chat_message("wnpep: {color=ccff11}chat_join_date{/color} - this tells you when each of us joined seekL") 
+    $ chat_message("wnpep: {color="+color_help+"}chat_join_date{/color} - this tells you when each of us joined seekL") 
 
     $ chat_message("elimf: so, like i'm on row 3, and it says i joined 2023-12-12 right before christmas")
 
@@ -507,9 +507,9 @@ label day1_19_2:
         ]
     )
 
-    $ chat_message("wnpep: {color=ccff11}favorite_fruit{/color} - everyone's favorite fruits from a poll") 
+    $ chat_message("wnpep: {color="+color_help+"}favorite_fruit{/color} - everyone's favorite fruits from a poll") 
 
-    $ chat_message("wnpep: {color=ccff11}number_of_hacks{/color} - how many successful hacks we've each pulled off")  
+    $ chat_message("wnpep: {color="+color_help+"}number_of_hacks{/color} - how many successful hacks we've each pulled off")  
 
     $ chat_message("incri: my number shuld b higher")
 
@@ -517,7 +517,7 @@ label day1_19_2:
 
     $ chat_message("elimf: lmao")
 
-    $ chat_message("wnpep: so, based off of that information, {color=ccff11}can you tell me who in here has the most hacks completed?{/color}")  
+    $ chat_message("wnpep: so, based off of that information, {color="+color_help+"}can you tell me who in here has the most hacks completed?{/color}")  
 
     $ player_choice(
         [
@@ -551,7 +551,7 @@ label day1_19_2_3:
 
     $ chat_message("wnpep: if you want to see it even clearer, you can run this: `select hacker_name, number_of_hacks \nfrom table.example`")
 
-    $ chat_message("wnpep: but, essentially, {color=ccff11}the row that has 50 hacks also has odxny's name on it{/color}")
+    $ chat_message("wnpep: but, essentially, {color="+color_help+"}the row that has 50 hacks also has odxny's name on it{/color}")
 
     $ chat_message("wnpep: which means that's the number of hacks he's done!")
 
@@ -565,7 +565,7 @@ label day1_19_2_cont:
 
     $ chat_message("wnpep: it might help you see better if you run this: \n`select hacker_name, number_of_hacks \nfrom table.example`")
 
-    $ chat_message("wnpep: or, just, you know, {color=ccff11}try taking a look at those columns again{/color}. hit execute again i mean.")
+    $ chat_message("wnpep: or, just, you know, {color="+color_help+"}try taking a look at those columns again{/color}. hit execute again i mean.")
 
     $ chat_message("wnpep: let us know when you're done")
     ## SET REQUIREMENTS TO PROGRESS 

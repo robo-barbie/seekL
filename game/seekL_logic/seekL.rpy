@@ -282,7 +282,7 @@ screen seekL_ui:
                                                 color "#FFFFFF"
                                     elif channels_names[current_window][-100:][idx] != "SYSTEM" and "------------------------------" in t:
                                         vbox:
-                                            text t.split("{color=ffb8f3}------------------------------\n{/color}{color=ff75e8}{font=HELLO.ttf.ttf}")[0]: 
+                                            text t.split("{color=ffb8f3}------------------------------\n{/color}{color="+color_syntax+"}{font=HELLO.ttf.ttf}")[0]: 
                                                 text_align 0.0
                                                 size seekL_chat_text_size 
                                                 xmaximum seekL_window_size + seekL_sidebar_size - 100 
@@ -291,13 +291,13 @@ screen seekL_ui:
                                                 else: 
                                                     color "#FFFFFF"
                                             text "{color=ffb8f3}------------------------------{/color}"
-                                            textbutton t.split("{color=ffb8f3}------------------------------\n{/color}{color=ff75e8}{font=HELLO.ttf.ttf}")[1].replace("{color=ffb8f3}------------------------------\n{/color}{color=ff75e8}{font=HELLO.ttf.ttf}", "").replace("{/font}{/color}\n{color=ffb8f3}------------------------------{/color}", ""): 
+                                            textbutton t.split("{color=ffb8f3}------------------------------\n{/color}{color="+color_syntax+"}{font=HELLO.ttf.ttf}")[1].replace("{color=ffb8f3}------------------------------\n{/color}{color="+color_syntax+"}{font=HELLO.ttf.ttf}", "").replace("{/font}{/color}\n{color=ffb8f3}------------------------------{/color}", ""): 
                                                 text_align 0.0
                                                 text_size seekL_chat_text_size 
                                                 xmaximum seekL_window_size + seekL_sidebar_size - 100 
                                                 text_font "HELLO.ttf.ttf"
-                                                text_color "#ff75e8"
-                                                action SetVariable("seekL_text_send", t.split("{color=ffb8f3}------------------------------\n{/color}{color=ff75e8}{font=HELLO.ttf.ttf}")[1].replace("{color=ffb8f3}------------------------------\n{/color}{color=ff75e8}{font=HELLO.ttf.ttf}", "").replace("{/font}{/color}\n{color=ffb8f3}------------------------------{/color}", "")), SetVariable("seekL_window_active", 1)
+                                                text_color color_syntax
+                                                action SetVariable("seekL_text_send", t.split("{color=ffb8f3}------------------------------\n{/color}{color="+color_syntax+"}{font=HELLO.ttf.ttf}")[1].replace("{color=ffb8f3}------------------------------\n{/color}{color="+color_syntax+"}{font=HELLO.ttf.ttf}", "").replace("{/font}{/color}\n{color=ffb8f3}------------------------------{/color}", "")), SetVariable("seekL_window_active", 1)
                               
                                             text "{color=ffb8f3}------------------------------{/color}"
                                     else: 

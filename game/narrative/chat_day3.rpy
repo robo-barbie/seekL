@@ -272,9 +272,9 @@ label day3_8:
 
     $ chat_message("wnpep: I need you to track down a company in there that matches the following two criteria - ")
 
-    $ chat_message("wnpep: {color=ccff11}1) has INS_TYPE = 'medical'{/color}, and ")
+    $ chat_message("wnpep: {color="+color_help+"}1) has INS_TYPE = 'medical'{/color}, and ")
 
-    $ chat_message("wnpep: {color=ccff11}2) has INS_HSP_PARTNERS = 1{/color} ")
+    $ chat_message("wnpep: {color="+color_help+"}2) has INS_HSP_PARTNERS = 1{/color} ")
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
         # WHAT COLUMNS THEY NEED TO SEE
@@ -320,7 +320,7 @@ label day3_10:
 
     $ chat_message("wnpep: yes! exactly ")
 
-    $ chat_message("elimf: {color=ccff11}instead of using \"OR\" like before, you can use \"AND\"{/color} ")
+    $ chat_message("elimf: {color="+color_help+"}instead of using \"OR\" like before, you can use \"AND\"{/color} ")
 
     # in dms 
 
@@ -404,9 +404,9 @@ label day3_11:
 
     $ chat_message("wnpep: anyway. go ahead and try to find that hospital name thrim ")
 
-    $ chat_message("wnpep: {color=ccff11}1) has INS_TYPE = 'medical'{/color}, and ")
+    $ chat_message("wnpep: {color="+color_help+"}1) has INS_TYPE = 'medical'{/color}, and ")
 
-    $ chat_message("wnpep: {color=ccff11}2) has INS_HSP_PARTNERS = 1{/color} ")
+    $ chat_message("wnpep: {color="+color_help+"}2) has INS_HSP_PARTNERS = 1{/color} ")
 
     jump wait_start
 
@@ -547,7 +547,7 @@ label day3_15:
 
     $ chat_message("elimf: wild ")
 
-    $ chat_message("wnpep: {color=ccff11}go take a peek at that table{/color} and {color=ccff11}see if you can figure out how to find which one works with that insurance company{/color}")
+    $ chat_message("wnpep: go take a peek at that table and {color="+color_help+"}see if you can figure out how to find which one works with that insurance company{/color}")
 
     jump wait_start
 
@@ -871,7 +871,7 @@ label day3_22:
 
 label day3_23: 
 
-    $ chat_message("wnpep: for this, {color=ccff11}let's compare the output of two tables{/color}")
+    $ chat_message("wnpep: for this, {color="+color_help+"}let's compare the output of two tables{/color}")
 
     $ chat_message("wnpep: table 1 - #pride.paystubs23#")
 
@@ -925,9 +925,9 @@ label day3_23:
 
     $ chat_message("elimf: bingo bango bongo ")
 
-    $ chat_message("wnpep: this might be a great point to show you a new seekL function -- {color=ccff11}JOIN{/color}")
+    $ chat_message("wnpep: this might be a great point to show you a new seekL function -- {color="+color_help+"}JOIN{/color}")
 
-    $ chat_message("wnpep: {color=ccff11}do you already know how natural joins work?{/color}")
+    $ chat_message("wnpep: {color="+color_help+"}do you already know how natural joins work?{/color}")
 
     $ player_choice(
         [
@@ -967,11 +967,11 @@ label day3_25:
 
     $ chat_message("odxny: I can help out here. ")
 
-    $ chat_message("odxny: A {color=ccff11}JOIN{/color} can be used to combine the columns of two tables together. ")
+    $ chat_message("odxny: A {color="+color_syntax+"}JOIN{/color} can be used to combine the columns of two tables together. ")
 
-    $ chat_message("odxny: {color=ccff11}It will search for a common column between the two tables and, if one exists, it will output those two tables combined together.{/color}")
+    $ chat_message("odxny: {color="+color_help+"}It will search for a common column between the two tables and, if one exists, it will output those two tables combined together.{/color}")
 
-    $ chat_message("odxny: So, if you want to get information about someone from two different tables, run it with a {color=ccff11}JOIN{/color} and you can get a clean view of everything you need. ")
+    $ chat_message("odxny: So, if you want to get information about someone from two different tables, run it with a {color="+color_syntax+"}JOIN{/color} and you can get a clean view of everything you need. ")
 
     $ chat_message("odxny: Here's an example. Remember \"OfficerOral\"? ")
 
@@ -990,9 +990,9 @@ label day3_25:
 
     $ chat_message("odxny: You got to that alias yesterday through where clauses and looking between tables, but you also could have gotten there just by running this directly. ")
 
-    $ chat_message("odxny: #irs.contacts# and #secretsmooch.users# both {color=ccff11}share the column \"email\", which lets you join those tables together{/color} and take a look at Bruce's alias in there. ")
+    $ chat_message("odxny: #irs.contacts# and #secretsmooch.users# both {color="+color_help+"}share the column \"email\", which lets you join those tables together{/color} and take a look at Bruce's alias in there. ")
 
-    $ chat_message("odxny: notice too how {color=ccff11}whichever column is joined on is printed out as well{/color}, even if you don't specifically list it in your {color=ccff11}SELECT{/color} statement. Same for the column in the {color=ccff11}WHERE{/color} clause. ")
+    $ chat_message("odxny: notice too how {color="+color_help+"}whichever column is joined on is printed out as well{/color}, even if you don't specifically list it in your {color="+color_syntax+"}SELECT{/color} statement. Same for the column in the {color="+color_syntax+"}WHERE{/color} clause. ")
 
     $ chat_message("odxny: It helps keep track of things. ")
 
@@ -1047,11 +1047,11 @@ label day3_25B:
     # exit bronches
 label day3_26:
 
-    $ chat_message("wnpep: thrim, if u ever need reminders on how stuff works, {color=ccff11}you can always check the seekL guide tab{/color}")
+    $ chat_message("wnpep: thrim, if u ever need reminders on how stuff works, {color="+color_help+"}you can always check the seekL guide tab{/color}")
 
-    $ chat_message("wnpep: so, {color=ccff11}go ahead and see if you can tell who has mis-matching records between #pride.paystubs23# and #irs.income23# only between those two names in the claims table{/color}")
+    $ chat_message("wnpep: so, {color="+color_help+"}go ahead and see if you can tell who has mis-matching records between #pride.paystubs23# and #irs.income23# only between those two names in the claims table{/color}")
 
-    $ chat_message("wnpep: {color=ccff11}you'll want to utilize a JOIN and a WHERE clause to get the info we need.{/color}")
+    $ chat_message("wnpep: {color="+color_help+"}you'll want to utilize a JOIN and a WHERE clause to get the info we need.{/color}")
 
     # MC: u got it 
     $ player_choice(
@@ -1077,7 +1077,7 @@ label day3_27:
 
     $ chat_message("odxny: Nice job. ")
 
-    $ chat_message("wnpep: so, who is it? {color=ccff11}which paystub totals don't match for 2023?{/color}")
+    $ chat_message("wnpep: so, who is it? {color="+color_help+"}which paystub totals don't match for 2023?{/color}")
 
     $ player_choice(
         [
@@ -1169,7 +1169,7 @@ label day3_30:
 
     $ chat_message("wnpep: given my intel, this seems pretty straightforward ")
 
-    $ chat_message("wnpep: {color=ccff11}mind grabbing me Bailey Yang's email from {/color}#irs.contacts#, thrim? ")
+    $ chat_message("wnpep: {color="+color_help+"}mind grabbing me Bailey Yang's email from {/color}#irs.contacts#, thrim? ")
 
     ## SET REQUIREMENTS TO PROGRESS 
     python: 

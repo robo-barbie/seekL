@@ -320,7 +320,7 @@ label day2_9:
 
     $ chat_message("incri: ok do u see ths badge number ")
 
-    $ chat_message("incri: {color=ccff11}55242{/color} ")
+    $ chat_message("incri: {color="+color_help+"}55242{/color} ")
     pause 0.2
     $ hack_notes.append("badge: \n55242")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
@@ -346,7 +346,7 @@ label day2_10:
     #[2] MC: no? 
 label day2_11: 
 
-    $ chat_message("incri: under the {color=ccff11}badge_no column{/color} idiot ")
+    $ chat_message("incri: under the {color="+color_help+"}badge_no column{/color} idiot ")
 
     #MC: ok. yes. i see it. 
     $ player_choice(
@@ -595,19 +595,19 @@ label day2_17:
 
     $ chat_message("elimf: I ALSO HEARD WNPEP IS MARRIED", ot="wnpep")
 
-    $ chat_message("wnpep: ok thrim, {color=ccff11}a where clause is something you would put after the from statement.{/color}")
+    $ chat_message("wnpep: ok thrim, {color="+color_syntax+"}WHERE{/color} is something you would put after the from statement.")
 
-    $ chat_message("wnpep: it's like {color=ccff11}a filter you use when you only care about certain records{/color}")
+    $ chat_message("wnpep: it's like {color="+color_help+"}a filter you use when you only care about certain records{/color}")
 
     $ chat_message("wnpep: like, if we were looking at table.example again and i wanted to see my information")
 
-    $ chat_message("wnpep: i would add this to the end of my code: {color=ccff11}where hacker_name = 'wnpep'{/color}")
+    $ chat_message("wnpep: i would add this to the end of my code: {color="+color_syntax+"}where hacker_name = 'wnpep'{/color}")
 
     $ chat_message("wnpep: does that make sense? ")
 
     $ chat_message("wnpep: the whole statement would become \n`select * \nfrom table.example \nwhere hacker_name = 'wnpep'`")
 
-    $ chat_message("elimf: except {color=ccff11}u dont have to use quotes when ur looking at numbers{/color}")
+    $ chat_message("elimf: except {color="+color_help+"}u dont have to use quotes when ur looking at numbers{/color}")
 
     $ chat_message("elimf: like if i wanted to see who had more than 30 hacks i could write ")
 
@@ -811,7 +811,7 @@ label day2_25:
 
     $ chat_message("incri: GO FIND BRUCE\"S EMAIL THRIM") 
 
-    $ chat_message("elimf: WITH A DELICIOUS USE OF THE {color=ccff11}WHERE CLAUSE{/color}") 
+    $ chat_message("elimf: {color="+color_help+"}WITH A DELICIOUS USE OF THE WHERE CLAUSE{/color}") 
 
     jump wait_start
 
@@ -891,9 +891,9 @@ label day2_27:
         ]
     )
 
-    $ chat_message("wnpep: {color=ccff11}you can use an OR{/color}")  
+    $ chat_message("wnpep: {color="+color_help+"}you can use an OR{/color}")  
 
-    $ chat_message("wnpep: {color=ccff11}where full_name = 'laura johnson' or full_name = 'laura crane'{/color}") 
+    $ chat_message("wnpep: {color="+color_syntax+"}where full_name = 'laura johnson' or full_name = 'laura crane'{/color}") 
 
     #MC: ok ok ok 
     $ player_choice(

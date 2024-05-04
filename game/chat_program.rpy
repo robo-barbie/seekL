@@ -10,6 +10,11 @@ default last_sender = ""
 default last_window = "X"
 default wait_time_prev = 0
 
+#"#000000"
+default color_syntax = "c051ec"
+default color_help = "7be04d"
+default color_tables = "c051ec"
+
     # this is also for formatting 
 default current_window = "all"
 default active_window = "all"
@@ -192,6 +197,10 @@ init python:
         global is_paused
         global player_set_pause 
 
+        global color_help 
+        global color_tables 
+        global color_syntax 
+
         # split into name / content, get new active channel  
         n = s.split(': ', 1)[0]
         t = s.split(': ', 1)[1]
@@ -212,14 +221,14 @@ init python:
                 if not code_block_open:
                     seekL_recent_example = ""
                     code_block_open = True
-                    l_insert = "{color=ffb8f3}------------------------------\n{/color}{color=ff75e8}{font=HELLO.ttf.ttf}"
+                    l_insert = "{color=ffb8f3}------------------------------\n{/color}{color="+color_syntax+"}{font=HELLO.ttf.ttf}"
                 else: 
                     code_block_open = False
                     l_insert = "{/font}{/color}\n{color=ffb8f3}------------------------------{/color}"
             elif letter == "#": 
                 if not table_name_open:  
                     table_name_open = True 
-                    l_insert = "{color=ccff11}{font=HELLO.ttf.ttf}"
+                    l_insert = "{color="+color_tables+"}{font=HELLO.ttf.ttf}"
                 else: 
                     table_name_open = False 
                     l_insert = "{/font}{/color}"
