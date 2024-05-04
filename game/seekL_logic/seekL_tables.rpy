@@ -222,8 +222,8 @@ init python:
         tables[tname]["phone"].pop(0)
         tables[tname]["email"].pop(0)
 
-        ## godaddy.secretsmooch_users
-        tname = "godaddy.secretsmooch_users"
+        ## secretsmooch.users
+        tname = "secretsmooch.users"
         tables[tname] = {
             "ss_cid": [], 
             "ss_alias": [], 
@@ -242,4 +242,126 @@ init python:
         tables[tname]["ss_alias"].pop(0)
         tables[tname]["ss_join_date"].pop(0)
         tables[tname]["email"].pop(0)
+
+        ## azgov.insurance
+        tname = "azgov.insurance"
+        tables[tname] = {
+            "ins_id": [], 
+            "ins_name": [], 
+            "ins_alias": [], 
+            "ins_type": [],      
+            "ins_hsp_partners": []      
+            }
+        t5 = renpy.file("tables/seekL Tables - "+tname+".tsv")
+        for l in t5:
+            l = l.decode("utf-8")
+            a = l.rstrip().split("\t")
+            tables[tname]["ins_id"].append(a[0])
+            tables[tname]["ins_name"].append(a[1])
+            tables[tname]["ins_alias"].append(a[2])
+            tables[tname]["ins_type"].append(a[3])
+            tables[tname]["ins_hsp_partners"].append(a[4])
+        tables[tname]["ins_id"].pop(0)
+        tables[tname]["ins_name"].pop(0)
+        tables[tname]["ins_alias"].pop(0)
+        tables[tname]["ins_type"].pop(0)
+        tables[tname]["ins_hsp_partners"].pop(0)
+
+        ## azgov.hospitals
+        tname = "azgov.hospitals"
+        tables[tname] = {
+            "hsp_id": [], 
+            "hsp_name": [], 
+            "ins_betma": [], 
+            "ins_gered": [],      
+            "ins_digma": [],       
+            "ins_medicaid": [],       
+            "ins_define": []      
+            }
+        t6 = renpy.file("tables/seekL Tables - "+tname+".tsv")
+        for l in t6:
+            l = l.decode("utf-8")
+            a = l.rstrip().split("\t")
+            tables[tname]["hsp_id"].append(a[0])
+            tables[tname]["hsp_name"].append(a[1])
+            tables[tname]["ins_betma"].append(a[2])
+            tables[tname]["ins_gered"].append(a[3])
+            tables[tname]["ins_digma"].append(a[4])
+            tables[tname]["ins_medicaid"].append(a[5])
+            tables[tname]["ins_define"].append(a[6])
+        tables[tname]["hsp_id"].pop(0)
+        tables[tname]["hsp_name"].pop(0)
+        tables[tname]["ins_betma"].pop(0)
+        tables[tname]["ins_gered"].pop(0)
+        tables[tname]["ins_digma"].pop(0)
+        tables[tname]["ins_medicaid"].pop(0)
+        tables[tname]["ins_define"].pop(0)
+
+        ## pride.claims
+        tname = "pride.claims"
+        tables[tname] = {
+            "claim_no": [], 
+            "claim_type": [], 
+            "claim_doctor": [], 
+            "claim_patient_id": [],      
+            "claim_date": [],       
+            "ins_name": []     
+            }
+        t7 = renpy.file("tables/seekL Tables - "+tname+".tsv")
+        for l in t7:
+            l = l.decode("utf-8")
+            a = l.rstrip().split("\t")
+            tables[tname]["claim_no"].append(a[0])
+            tables[tname]["claim_type"].append(a[1])
+            tables[tname]["claim_doctor"].append(a[2])
+            tables[tname]["claim_patient_id"].append(a[3])
+            tables[tname]["claim_date"].append(a[4])
+            tables[tname]["ins_name"].append(a[5])
+        tables[tname]["claim_no"].pop(0)
+        tables[tname]["claim_type"].pop(0)
+        tables[tname]["claim_doctor"].pop(0)
+        tables[tname]["claim_patient_id"].pop(0)
+        tables[tname]["claim_date"].pop(0)
+        tables[tname]["ins_name"].pop(0)
         
+        ## pride.paystubs23
+        tname = "pride.paystubs23"
+        tables[tname] = {
+            "pay_no": [], 
+            "pay_year": [], 
+            "full_name": [], 
+            "pay_total": []    
+            }
+        t8 = renpy.file("tables/seekL Tables - "+tname+".tsv")
+        for l in t8:
+            l = l.decode("utf-8")
+            a = l.rstrip().split("\t")
+            tables[tname]["pay_no"].append(a[0])
+            tables[tname]["pay_year"].append(a[1])
+            tables[tname]["full_name"].append(a[2])
+            tables[tname]["pay_total"].append(a[3])
+        tables[tname]["pay_no"].pop(0)
+        tables[tname]["pay_year"].pop(0)
+        tables[tname]["full_name"].pop(0)
+        tables[tname]["pay_total"].pop(0)
+
+        ## irs.income23 
+        tname = "irs.income23"
+        tables[tname] = {
+            "pstb_no": [], 
+            "tax_year": [], 
+            "full_name": [], 
+            "irs_total": []    
+            }
+        t9 = renpy.file("tables/seekL Tables - "+tname+".tsv")
+        for l in t9:
+            l = l.decode("utf-8")
+            a = l.rstrip().split("\t")
+            tables[tname]["pstb_no"].append(a[0])
+            tables[tname]["tax_year"].append(a[1])
+            tables[tname]["full_name"].append(a[2])
+            tables[tname]["irs_total"].append(a[3])
+        tables[tname]["pstb_no"].pop(0)
+        tables[tname]["tax_year"].pop(0)
+        tables[tname]["full_name"].pop(0)
+        tables[tname]["irs_total"].pop(0)

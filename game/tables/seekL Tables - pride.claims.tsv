@@ -1,0 +1,19 @@
+claim_no	claim_type	claim_doctor	claim_patient_id	claim_date	ins_name
+C7011	DIAGNOSIS	Bailey Yang	020-3838	2022-3-21	Gered Group
+C5227	PROCEDURE	Adriel Humphrey	020-2659	2023-2-26	Define
+C1751	SUPPLIES	Bailey Yang	020-5907	2023-2-23	Define
+C9879	DEVICES	Adriel Humphrey	020-5596	2022-8-18	Gered Group
+C4227	PHARMACEUTICALS	Bailey Yang	020-1727	2023-10-18	Define
+C7144	TRANSPORT	Adriel Humphrey	020-8151	2022-2-2	Gered Group
+C3945	DIAGNOSIS	Adriel Humphrey	020-8927	2023-10-15	Gered Group
+C5898	PROCEDURE	Bailey Yang	020-8722	2022-7-27	Gered Group
+C4197	SUPPLIES	Adriel Humphrey	020-8123	2023-5-2	Define
+C2198	DEVICES	Bailey Yang	020-2074	2023-8-12	Define
+C4980	PHARMACEUTICALS	Adriel Humphrey	020-9196	2023-5-3	Gered Group
+C6080	TRANSPORT	Bailey Yang	020-8549	2022-3-25	Define
+C2257	DIAGNOSIS	Adriel Humphrey	020-4379	2022-2-24	Gered Group
+C8381	PROCEDURE	Bailey Yang	020-2118	2023-12-24	Gered Group
+C3365	SUPPLIES	Adriel Humphrey	020-4073	2022-1-26	Define
+C6278	DEVICES	Bailey Yang	020-1842	2023-11-17	Define
+C2633	PHARMACEUTICALS	Adriel Humphrey	020-7608	2022-3-15	Define
+C7467	TRANSPORT	Adriel Humphrey	020-9579	2023-1-13	Define

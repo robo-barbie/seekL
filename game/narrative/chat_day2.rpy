@@ -1162,9 +1162,9 @@ label day2_37:
 
     $ chat_message("incri: use bruce's email to see if he's here thrim ")
 
-    $ chat_message("incri: #godaddy.secretsmooch_users#")
+    $ chat_message("incri: #secretsmooch.users#")
     pause 0.5
-    $ tables_seen.append("godaddy.secretsmooch_users")
+    $ tables_seen.append("secretsmooch.users")
     play sound "audio/sfx/message_notification_01_002 new table.ogg"
     show highlight_small onlayer screens: 
         pos highlight_tab_table_pos
@@ -1174,7 +1174,7 @@ label day2_37:
         # WHAT COLUMNS THEY NEED TO SEE
         required_runs["columns"] = ["ss_alias"] 
         # WHAT TABLES THEY NEED TO ENTER 
-        required_runs["tables"] = ["godaddy.secretsmooch_users"]
+        required_runs["tables"] = ["secretsmooch.users"]
         # WHAT IDS MUST APPEAR 
         required_runs["idx"] = [("ss_cid", "72770-SS")] # this needs to change to allow a join find to work later on. i'm not sure why it didn't work
         # STOP THEM BEFORE THEY GET TOO FAR 

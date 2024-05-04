@@ -1,4 +1,4 @@
-
+default has_sql_knowledge = False
 
 label day1_start: 
     #jump day1_30
@@ -276,6 +276,8 @@ label day1_9:
 
     # [1] MC: yes 
 label day1_10: 
+
+    $ has_sql_knowledge = True 
 
     $ chat_message("wnpep: then you've got a great head start champ ")
 

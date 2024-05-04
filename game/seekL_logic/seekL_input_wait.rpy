@@ -13,7 +13,7 @@ default look_at_idx = {}
 default next_day_number= "1"
 
 label wait_start:
-    if first_flash:
+    if first_flash and not player_can_pass:
         pause 0.5 
         play sound "audio/sfx/message_notification_01_001 tutorial.ogg"
         show highlight_large onlayer screens: 

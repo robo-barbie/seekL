@@ -259,7 +259,7 @@ label day2_call:
 
 
     ## must run these two lines to swap to next day 
-    # $ next_day_number = "3"
-    # jump day_swap
+    $ next_day_number = "3"
+    jump day_swap
 
     $ renpy.pause(hard=True)
