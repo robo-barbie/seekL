@@ -22,23 +22,21 @@ image bg_odxny_3:
     choice: 
         0.2
     choice: 
-        1.0 
+        0.5 
     choice: 
-        5.0 
+        0.1
     choice: 
-        9.0 
+        0.3 
     "bg_video3b.png" # off mode (quick) 
     choice: 
         0.1
     choice: 
-        2.0
+        0.2
     choice: 
-        0.5
-    choice: 
-        1.0 
+        0.05
     "bg_video3c.png" # full on 
     choice: 
-        9.0
+        2.0
     choice: 
         6.0
     choice: 
@@ -50,17 +48,23 @@ image bg_odxny_3:
 # big server column 
 # just rotates steadily through all modes
 image bg_odxny_2: 
-    "bg_video2a.png"
+    ease 0.1 alpha 0.0 
+    "bg_video2a.png"  
+    ease 0.1 alpha 1.0 
     choice: 
         8.0
     choice: 
         10.0 
+    ease 0.1 alpha 0.0 
     "bg_video2b.png" 
+    ease 0.1 alpha 1.0 
     choice: 
         8.0
     choice: 
         10.0 
+    ease 0.1 alpha 0.0 
     "bg_video2c.png" 
+    ease 0.1 alpha 1.0 
     choice: 
         8.0
     choice: 
@@ -70,7 +74,9 @@ image bg_odxny_2:
 # small top right object (i call it the odxbox)
 # flashes more randomly from mode to mode 
 image bg_odxny_1: 
+    ease 0.5 alpha 0.0 
     "bg_video1a.png"
+    ease 0.5 alpha 1.0 
     choice: 
         0.2
     choice: 
@@ -79,7 +85,9 @@ image bg_odxny_1:
         5.0 
     choice: 
         9.0 
+    ease 0.5 alpha 0.0 
     "bg_video1b.png" 
+    ease 0.5 alpha 1.0 
     choice: 
         0.1
     choice: 
@@ -88,7 +96,9 @@ image bg_odxny_1:
         7.0 
     choice: 
         10.0 
+    ease 0.5 alpha 0.0 
     "bg_video1c.png" 
+    ease 0.5 alpha 1.0 
     choice: 
         0.5
     choice: 
@@ -126,7 +136,7 @@ image video_call_popup:
     "videocall_window1.png"
     repeat
 
-screen video_call_window(j):
+screen video_call_window:
     on "show" action Play("music", "audio/music/call_incoming_002_-_seekL.ogg")
     on "hide" action Stop("music")
     zorder 3
@@ -135,7 +145,7 @@ screen video_call_window(j):
     add "video_call_popup" at game_menu_popup_video 
     button: 
         area (908, 678, 82, 82)
-        action Jump(j)
+        action Jump("go_to_call2")
 
 screen black_window: 
     add "#000000"

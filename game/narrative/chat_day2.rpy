@@ -1,25 +1,6 @@
 label day2_start: 
 
-    $ quick_menu = False
-    show day2_glitch 
-    pause
-    play sound "audio/sfx/ui_start_game_002 day swap.ogg"
-    show chat2_glitch 
-    pause 0.5
-    $ quick_menu = True
-
-    $ chat_location = "DAY 2 - CHAT"
-    $ reset_chats(in_day = True) 
-    $ seekL_text_send = "" 
-    $ seekL_output = []
-    show screen seekL_ui 
-    hide day2_glitch 
-    hide chat2_glitch 
-    $ in_call = False
-    hide screen black_window 
     play music "audio/music/server_room_chiller_version.mp3" loop fadein 2.0 fadeout 2.0 
-
-    $ _preferences.afm_enable = True 
 
     $ player_choice(
         [
@@ -1740,11 +1721,9 @@ label day2_48:
 
     $ chat_message("odxny: Excellent.",c="admin")
 
-    $ _preferences.afm_enable = False 
 
-    pause 2 
-
-    show screen video_call_window("day2_call")
+    ## call time 
+    jump go_to_call
 
     $ renpy.pause(hard=True)
 

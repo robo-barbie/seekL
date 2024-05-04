@@ -10,6 +10,7 @@ default player_is_waiting = False
 default waiting_label = ""
 default tables_active = []
 default look_at_idx = {}
+default next_day_number= "1"
 
 label wait_start:
     if first_flash:
@@ -74,3 +75,74 @@ init python:
                 renpy.jump("wait_end")
         #return(player_proceed)
                     
+## OTHER WAITING / CHANGE THINGS 
+label day_swap: 
+    ## END CALL + CLICK TO CONTINUE ## 
+    pause 1 
+    play sound "audio/sfx/ui_menu_back_001 hangup.ogg"
+    stop music fadeout 1.0
+    show black_bg
+    $ _preferences.afm_enable = False 
+    pause  
+    pause 0.5
+    hide black_bg
+    # jump day2_start
+
+    ## GLITCH EFFECT ## 
+    $ quick_menu = False
+    #$show day2_glitch 
+    $ renpy.show("day"+next_day_number+"_glitch")
+    pause
+    play sound "audio/sfx/ui_start_game_002 day swap.ogg"
+    #show chat2_glitch 
+    $ renpy.show("chat"+next_day_number+"_glitch")
+    pause 0.5
+    $ quick_menu = True
+
+    ## SETUP AND START THE CHAT ## 
+    $ chat_location = "DAY " + next_day_number + " - CHAT"
+    $ reset_chats(in_day = True) 
+    $ seekL_text_send = "" 
+    $ seekL_output = []
+    show screen seekL_ui 
+    #hide day2_glitch 
+    $ renpy.hide("day"+next_day_number+"_glitch")
+    #hide chat2_glitch 
+    $ renpy.hide("chat"+next_day_number+"_glitch")
+    $ in_call = False
+    hide screen black_window 
+    $ _preferences.afm_enable = True 
+
+    ## JUMP TO DAY LABEL ## 
+    $ renpy.jump("day"+next_day_number+"_start")
+    $ renpy.pause(hard=True)
+
+label go_to_call: 
+    $ _preferences.afm_enable = False 
+    pause 2 
+    show screen video_call_window
+    $ renpy.pause(hard=True)
+
+label go_to_call2: 
+    $ in_call = True 
+    $ chat_location = "DAY " +next_day_number+ " - CALL"
+
+    show bg odxny_bg
+    show spr o1 neutral 
+    show fade_lower
+    show fg odxny_fg onlayer screens
+    show call_frame
+    hide screen seekL_ui 
+
+    show screen black_window with Dissolve(0.01) zorder 2 
+    hide screen video_call_window with Pixellate(0.2, 5)
+    hide screen black_window with Dissolve(0.3)
+
+    camera:
+        subpixel True pos (0,0) zoom 1.0
+    with dissolve
+
+    $ _preferences.afm_enable = True 
+
+    $ renpy.jump("day"+next_day_number+"_call")
+    $ renpy.pause(hard=True)

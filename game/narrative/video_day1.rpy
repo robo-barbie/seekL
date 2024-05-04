@@ -1,25 +1,5 @@
 label day1_call: 
 
-    $ in_call = True 
-    $ chat_location = "DAY 1 - CALL"
-
-    show bg odxny_bg
-    show spr o1 neutral 
-    show fade_lower
-    show fg odxny_fg onlayer screens
-    show call_frame
-    hide screen seekL_ui 
-
-    show screen black_window with Dissolve(0.01) zorder 2 
-    hide screen video_call_window with Pixellate(0.2, 5)
-    hide screen black_window with Dissolve(0.3)
-
-    camera:
-        subpixel True pos (0,0) zoom 1.0
-    with dissolve
-
-    $ _preferences.afm_enable = True 
-
     voice "audio/voice/day1/o1-001.ogg"
     o "There we are."
 
@@ -251,16 +231,6 @@ label day1_call:
         "See you.": 
             pass
 
-    # end day
-    pause 1 
-    play sound "audio/sfx/ui_menu_back_001 hangup.ogg"
-    stop music fadeout 1.0
-    show black_bg
-    $ _preferences.afm_enable = False 
-    pause  
-    pause 0.5
-    hide black_bg
-    jump day2_start
-
-
-    $ renpy.pause(hard=True)
+    ## must run these two lines to swap to next day 
+    $ next_day_number = "2"
+    jump day_swap

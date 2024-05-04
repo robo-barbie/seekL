@@ -15,11 +15,11 @@ label day1_start:
 
     $ chat_message("SYSTEM: THRIM joined")
 
-    pause 1 
+    $ chat_message("elimf: and that's when i literally took a handful of mud and",fastmode=True)
 
-    $ chat_message("elimf: and that's when i started breaking down in the waffle house")
+    pause 2 
 
-    $ chat_message("elimf: wait who")
+    $ chat_message("elimf: wait who",fastmode=True)
 
     $ chat_message("incri: who the fuck", ot="elimf, wnpep")
 
@@ -823,17 +823,12 @@ label day1_29:
 
     $ chat_message("odxny: We'll see.")
 
-    $ _preferences.afm_enable = False 
 
-    pause 2 
-
-    show screen video_call_window("day1_call")
+    ## call time 
+    jump go_to_call
 
     $ renpy.pause(hard=True)
-    # pause
-    # hide screen video_call_window 
-   
-    #jump day1_call
+
 
 
     
