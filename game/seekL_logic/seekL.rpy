@@ -562,19 +562,21 @@ screen seekL_ui:
         #             text_color gui.idle_color 
         #             action NullAction()
         
-default is_paused = False  
-default player_set_pause = False 
     # qa hell 
     # hbox: 
     #     spacing 10 
-    #     text current_window 
-    #     text active_window 
-        # vbox: 
-        #     for i in tables_active: 
-        #         text i 
-        # vbox:
-        #     for i in where_idx: # filtered idx
-        #         text str(i)
+    #     # text current_window 
+    #     # text active_window 
+    #     # vbox: 
+    #     #     for i in tables_active: 
+    #     #         text i 
+    #     vbox:
+    #         for i in look_at_idx: # filtered idx
+    #             text str(i)
+    #             hbox: 
+    #                 spacing 10 
+    #                 for j in look_at_idx[i]: 
+    #                     text str(j)
         # vbox:
         #     for i in j_v_idx: # all avail idx 
         #         text str(i) color "#fcf945"
@@ -692,6 +694,9 @@ default player_set_pause = False
 
 #         key "K_BACKSPACE" action Function(next_letter, "DELETE")
 #         key "K_TAB" action Function(next_letter, "TAB")
+
+default is_paused = False  
+default player_set_pause = False 
 
 screen timer_window: 
     on "show" action  SetVariable("seekL_output", "")

@@ -9,6 +9,7 @@ default where_column_list = []
 default where_value_list = []
 default where_split_list = []
 default where_parts = []
+default l_out = {}
 
 init python: 
 
@@ -37,6 +38,7 @@ init python:
         global where_value_list 
         global where_split_list 
         global where_parts
+        global l_out
 
         if t != "":
             t_og = t
@@ -66,6 +68,16 @@ init python:
             if " where " in t: 
                 loc_where = t.index("where")
                 sort_order.append(("where", loc_where))
+            
+            ## error hunting 
+            # if "where" in t and loc_where == "": 
+            #     error_msg = "ERROR: NEED SPACING AROUND WHERE"
+            # if "from" in t and loc_from == "": 
+            #     error_msg = "ERROR: NEED SPACING AROUND FROM"
+            # if "join" in t and loc_join == "": 
+            #     error_msg = "ERROR: NEED SPACING AROUND JOIN"
+            # if "select" in t and loc_select == "": 
+            #     error_msg = "ERROR: NEED SPACING AROUND SELECT"
 
             sort_order_test = []
             if sort_order: 
@@ -141,6 +153,20 @@ init python:
                     error_msg = "ERROR: COLUMN NAMES NOT FOUND"
             elif error_msg == "": 
                 error_msg = "ERROR: TABLE NAME NOT FOUND -\n" + table_name
+
+            if error_msg == "":
+                remove_me = []
+                id_list_name_1 = next(iter(tables[table_name]))
+                if id_list_name_1 not in cols_final: 
+                    remove_me.append(id_list_name_1)
+                    cols_final.append(id_list_name_1)
+                #id_list_1 = tables[table_name][id_list_name_1].copy()
+                if join_name != "":
+                    id_list_name_2 = next(iter(tables[join_name]))
+                    if id_list_name_2 not in cols_final: 
+                        remove_me.append(id_list_name_2)
+                        cols_final.append(id_list_name_2)
+                    #id_list_2 = tables[join_name][id_list_name_2].copy()
 
             # parse out where clause 
             where_clause = ""
@@ -230,6 +256,7 @@ init python:
 
             if error_msg == "":
                 final_table = {}
+
                 # only 1 table 
                 if join_name == "": 
                     final_table = tables[table_name]
@@ -373,84 +400,53 @@ init python:
                 first_c = True
                 l_out = {}
                 for c in cols_final: 
-                    l_out[c] = []
-                    row_counter = 0 
-                    max_len = len(c)
-
-                    # only 1 table 
-                    #if join_name == "": 
-                    # the line thing 
-                    max_len = len(c)
-                    for v in final_table[c]:
-                        if len(v) > max_len:
-                            max_len = len(v)
-                    output_string = c + "\n{color=8c8c8c}" + "-"*max_len + "{/color}"
-                    alt_string = "{color=8c8c8c}|\n|{/color}"
-            
-                    
-                    #for v in tables[table_name][c]: 
-                        #alt_string = alt_string + "\n" + "{color=8c8c8c}|{/color}"
-                        #output_string = output_string + "\n" + v 
-
-                    for j in list(join_dict.keys()): 
-                        for j_v in join_dict[j]: 
-                            if join_dict[j].index(j_v) < 5:
+                    if c in remove_me: 
+                        l_out[c] = []
+                        for j in list(join_dict.keys()): 
+                            for j_v in join_dict[j]: 
+                                #if join_dict[j].index(j_v) < 5:
                                 i = final_table[j].index(j_v)
                                 v  = final_table[c][i]
                                 l_out[c].append(v)
+                        #l_out[c] = final_table[c]
+                    else: 
+                        l_out[c] = []
+                        row_counter = 0 
+                        max_len = len(c)
+
+                        # only 1 table 
+                        #if join_name == "": 
+                        # the line thing 
+                        max_len = len(c)
+                        for v in final_table[c]:
+                            if len(v) > max_len:
+                                max_len = len(v)
+                        output_string = c + "\n{color=8c8c8c}" + "-"*max_len + "{/color}"
+                        alt_string = "{color=8c8c8c}|\n|{/color}"
+                
+                        
+                        #for v in tables[table_name][c]: 
+                            #alt_string = alt_string + "\n" + "{color=8c8c8c}|{/color}"
+                            #output_string = output_string + "\n" + v 
+                        for j in list(join_dict.keys()): 
+                            #if c!=j:
+                            l_out[j] = []
+                            for j_v in join_dict[j]: 
+                                #if join_dict[j].index(j_v) < 5:
+                                i = final_table[j].index(j_v)
+                                v  = final_table[c][i]
+                                l_out[c].append(v)
+                                #if c!=j:
+                                l_out[j].append(j_v)
                                 alt_string = alt_string + "\n" + "{color=8c8c8c}|{/color}"
                                 output_string = output_string + "\n" + v 
-                    if first_c: 
+                        if first_c: 
+                            output_strings.append(alt_string)
+                            first_c = False 
+                        output_strings.append(output_string)
                         output_strings.append(alt_string)
-                        first_c = False 
-                    output_strings.append(output_string)
-                    output_strings.append(alt_string)
-                    
-                    # # join logic 
-                    # else: 
-                    #     selected_table = ""
-                    #     max_len = len(c)
-                    #     alt_string = "{color=8c8c8c}|\n|{/color}"
-                    #     if c in list(join_dict.keys()): 
-                    #         for v in join_dict[c]: 
-                    #             if len(v) > max_len: 
-                    #                 max_len = len(v)
-                    #         output_string = c + "\n{color=8c8c8c}" + "-"*max_len + "{/color}"
-                    #         for v in join_dict[c]: 
-                    #             alt_string = alt_string + "\n" + "{color=8c8c8c}|{/color}"
-                    #             output_string = output_string + "\n" + v 
-                    #         if first_c: 
-                    #             output_strings.append(alt_string)
-                    #             first_c = False 
-                    #         output_strings.append(output_string)
-                    #         output_strings.append(alt_string)
-                    #     elif c in list(tables[table_name].keys()): 
-                    #         selected_table = table_name 
-                    #     elif c in list(tables[join_name].keys()): 
-                    #         selected_table = join_name 
-                    #     if selected_table != "": 
-                    #         for v in tables[selected_table][c]: 
-                    #             if len(v) > max_len: 
-                    #                 max_len = len(v)
-                    #         output_string = c + "\n{color=8c8c8c}" + "-"*max_len + "{/color}"
-                    #         # this only works rn for 1 join
-                    #         for j in list(join_dict.keys()): 
-                    #             for j_v in join_dict[j]: 
-                    #                 #if join_dict[j].index(j_v) < 5:
-                    #                 if j_v in tables[selected_table][j]: 
-                    #                     # get the index of that value in table 
-                    #                     i = tables[selected_table][j].index(j_v)
-                    #                     v  = tables[selected_table][c][i]
-                    #                 else: 
-                    #                     v = " "
-                    #                 alt_string = alt_string + "\n" + "{color=8c8c8c}|{/color}"
-                    #                 output_string = output_string + "\n" + v 
-                    #         if first_c: 
-                    #             output_strings.append(alt_string)
-                    #             first_c = False 
-                    #         output_strings.append(output_string)
-                    #         output_strings.append(alt_string)
-            
+                        
+                
 
                 seekL_output = output_strings
                 renpy.play("audio/sfx/data_loaded_001.ogg")
