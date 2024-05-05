@@ -2,6 +2,14 @@
 
 default in_call = False 
 
+# default persistent.seekLoss = False 
+# default persistent.FBIBanner = True 
+
+# default persistent.seekLife = False 
+
+# default persistent.seekLove = False 
+
+
 #########################################################
 ###### IMAGES ###########################################
 # image bg odxny_bg:
@@ -125,6 +133,13 @@ image call_frame = "call_frame.png"
 
 image cg platonic = "cg_platonic.jpg"
 image cg romantic = "cg_romantic.jpg"
+
+image cg platonic_zoom: 
+    "cg platonic"
+    zoom 0.5 
+image cg romantic_zoom: 
+    "cg romantic"
+    zoom 0.5 
 
 image chatscreen_bg = "images/chat_screenbg.jpg" 
 

@@ -164,6 +164,30 @@ define highlight_tab_table_pos = (1510, 50)
 define highlight_tab_info_pos = (1710, 50)
 define highlight_frame_console_pos = (850, 50)
 
+## good end 
+screen secure_dial: 
+    # modal True 
+    add "#000000d0"
+    frame: 
+        background "#00000050"
+        xalign 0.5 
+        yalign 0.5
+        xminimum 400 
+        vbox: 
+            text "enter number":
+                size 20
+            input default "":
+                caret_blink False 
+                multiline False 
+                copypaste True 
+                font "HELLO.ttf.ttf"
+                color "#d6fa9d"
+                size 24
+    # textbutton _("RETURN"):
+    #     xalign 0.5 
+    #     yalign 0.95
+    #     action Hide("secure_dial")
+
 screen seekL_ui: 
     add "images/chat_screenbg.jpg"
     #add "#000000af" # dark tint 

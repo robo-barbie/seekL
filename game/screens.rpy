@@ -432,6 +432,12 @@ screen navigation():
     ## Ensure this appears on top of other screens.
     zorder 100
 
+    # if main_menu: 
+    #     textbutton _("SECURE DIAL"): 
+    #         xalign 0.5 
+    #         yalign 0.9
+    #         action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Show("secure_dial")
+
     vbox:
         style_prefix "navigation"
 
@@ -501,37 +507,40 @@ init python:
     gallery_page = "1" # we're using code similar to the 'help' screen to switch gallery pages
     gal = Gallery() # Setting up the gallery
     gal.button("bad") # defining the first CG button
-    gal.unlock_image("cg platonic") # which picture it unlocks
+    gal.condition("persistent.seekLoss")
+    gal.image("cg platonic_zoom") # which picture it unlocks
 
     gal.button("platonic")
-    gal.unlock_image("cg platonic")
+    gal.condition("persistent.seekLife")
+    gal.image("cg platonic_zoom")
 
     gal.button("romantic")
-    gal.unlock_image("cg romantic")
+    gal.condition("persistent.seekLove")
+    gal.image("cg romantic_zoom")
     #gal.unlock_image("cg cage smile") #This button has variations, so we add an additional unlock image
 
     gal.transition = dissolve # What transition is used when CGs are shown
 
 # Gallery image previews ###########
 # Rendering smaller versions of the CGs to use as the preview image
-image basil_cg_preview:
+image bad_cg_preview:
     "cg bad"
-    zoom 0.35
+    zoom 0.18
     #xoffset +15
     yoffset +65
 image gallery_locked:
     "gui/button/gallery_locked.png"
-    zoom 0.35
+    zoom 0.36
     #xoffset +15
     yoffset +65
-image greenhouse_cg_preview:
+image platonic_cg_preview:
     "cg platonic"
-    zoom 0.35
+    zoom 0.18
     #xoffset +15
     yoffset +65
-image cage_cg_preview:
+image romantic_cg_preview:
     "cg romantic"
-    zoom 0.35
+    zoom 0.18
     #xoffset +15
     yoffset +65
 
@@ -610,7 +619,7 @@ screen gallery_1:
             #xspacing 40
             #yspacing 100
 
-                add gal.make_button("bad","bad_cg_preview","gallery_locked","gui/button/gallery_hover.png", xpadding = 0, ypadding = 0, xmargin = 0,ymargin = 0, background = None,style ="gui_button")
+                add gal.make_button("bad","bad_cg_preview","gallery_locked", xpadding = 0, ypadding = 0, xmargin = 0,ymargin = 0, background = None,style ="gui_button")
          
             frame:
                 background None
@@ -627,7 +636,8 @@ screen gallery_1:
                     
                     frame:
                         background None
-                        text "the cops cleaned up my whole weed stash bro they took EVERYTHING"
+                        if persistent.seekLoss:
+                            text "the cops cleaned up my whole weed stash bro they took EVERYTHING"
 
 
 
@@ -646,7 +656,7 @@ screen gallery_2:
         hbox:
             frame:
                 background None
-                add gal.make_button("platonic","platonic_cg_preview","gallery_locked","gui/button/gallery_hover.png", xpadding = 0, ypadding = 0, xmargin = 0,ymargin = 0, background = None,style ="gui_button")
+                add gal.make_button("platonic","platonic_cg_preview","gallery_locked", xpadding = 0, ypadding = 0, xmargin = 0,ymargin = 0, background = None,style ="gui_button")
          
             frame:
                 background None
@@ -662,7 +672,8 @@ screen gallery_2:
                     
                     frame:
                         background None
-                        text "we shook hands"
+                        if persistent.seekLife:
+                            text "we shook hands"
 
 screen gallery_3:
     modal True
@@ -678,7 +689,7 @@ screen gallery_3:
         hbox:
             frame:
                 background None
-                add gal.make_button("romantic","romantic_cg_preview","gallery_locked","gui/button/gallery_hover.png", xpadding = 0, ypadding = 0, xmargin = 0,ymargin = 0, background = None,style ="gui_button")
+                add gal.make_button("romantic","romantic_cg_preview","gallery_locked", xpadding = 0, ypadding = 0, xmargin = 0,ymargin = 0, background = None,style ="gui_button")
          
             frame:
                 background None
@@ -694,7 +705,8 @@ screen gallery_3:
 
                     frame:
                         background None
-                        text "we HELD hands"
+                        if persistent.seekLove:
+                            text "we HELD hands"
 
 
 
@@ -703,6 +715,7 @@ screen gallery_3:
 ## Used to display the main menu when Ren'Py starts.
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
+
 
 screen main_menu():
 

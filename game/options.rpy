@@ -74,6 +74,8 @@ define config.default_voice_volume = 0.8
 ## game, until it is stopped or another file is played.
 
 # define config.main_menu_music = "main-menu-theme.ogg"
+define songlist_main = ["audio/music/theme.mp3","audio/music/Cracking_the_Code.mp3"]
+define config.main_menu_music = songlist_main
 
 
 ## Transitions #################################################################

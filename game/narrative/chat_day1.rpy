@@ -11,7 +11,12 @@ label day1_start:
     #jump day1_15
 
     #jump day2_7
+
+    # jump day5_seekLove_chat
+
     $ _preferences.afm_enable = True 
+
+    #$ persistent.seekLove = True
 
     $ chat_message("SYSTEM: THRIM joined")
 
