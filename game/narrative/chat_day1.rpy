@@ -28,7 +28,9 @@ label day1_start:
 
     $ chat_message("incri: who the fuck", ot="elimf, wnpep")
 
-    $ chat_message("elimf: ?????????? ", ot="wnpep")
+    # $ chat_message("incri: "+ascii_gun, ot="elimf, wnpep",fastmode=True)
+
+    $ chat_message("elimf: ?????????? ", ot="wnpep",fastmode=True)
 
     $ chat_message("elimf: who is this lol ", ot="wnpep, incri")
 
@@ -107,7 +109,11 @@ label day1_3:
 
     $ chat_message("incri: they're calling u a idiot")
 
-    $ chat_message("wnpep: no i'm not ", ot="incri")
+    pause 1 
+
+    # $ chat_message("elimf: "+ascii_grave, fastmode=True)
+
+    $ chat_message("wnpep: no i'm not ", fastmode=True, ot="incri")
 
     $ chat_message("incri: idiot vibes so far definnitely ")
 
