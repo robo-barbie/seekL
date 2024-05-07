@@ -1348,7 +1348,7 @@ label day2_42:
 
     $ chat_message("wnpep: just depends on the person ")
 
-    $ chat_message("SYSTEM: RESPONSE - This is bullshit. That's not my profile. I'm sending this threat to the police. ")
+    $ chat_message("SYSTEM: RESPONSE - BRUCE.JOHNSON - This is bullshit. That's not my profile. I'm sending this threat to the police. ")
 
     #$ chat_message("incri: oh he's fast ")
     $ player_choice(
@@ -1373,7 +1373,7 @@ label day2_42:
 
     $ chat_message("incri: i'm getting his money ")
 
-    $ chat_message("SYSTEM: RESPONSE - Please don't. Wiring now. Sincerely sorry. ")
+    $ chat_message("SYSTEM: RESPONSE - BRUCE.JOHNSON - Please don't. Wiring now. Sincerely sorry. ")
 
     $ chat_message("incri: I NEVER LOSE")
 

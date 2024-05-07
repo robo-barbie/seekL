@@ -5,6 +5,9 @@ label day4_call:
             pass 
     pause 1
     o "No real reason this time. Just felt like calling."
+
+    play music "audio/music/little_hand_on_the_clock.mp3" loop fadein 2.0 fadeout 2.0 
+    
     o "And why not keep up the streak?"
 
     menu: 
@@ -189,4 +192,5 @@ label day4_call:
         "Wait!":
             pass
 
+    $ _preferences.afm_enable = False 
     $ renpy.pause(hard=True)

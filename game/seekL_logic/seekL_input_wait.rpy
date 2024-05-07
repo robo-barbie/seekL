@@ -12,6 +12,9 @@ default tables_active = []
 default look_at_idx = {}
 default next_day_number= "1"
 
+default exec_needed = []
+default exec_condition = []
+
 label wait_start:
     if first_flash and not player_can_pass:
         pause 0.5 
@@ -31,6 +34,8 @@ label wait_start:
     $ renpy.pause(hard=True)
 
 label wait_end: 
+    $ exec_needed = None
+    $ exec_condition = None
     hide highlight_large onlayer screens 
     $ first_flash = True 
     $ player_is_waiting = False 
@@ -38,7 +43,7 @@ label wait_end:
     $ renpy.jump(waiting_label)
 
 init python:
-    def player_input_confirm(ta=None, cols=None, idx=None): 
+    def player_input_confirm(ta=None, cols=None, idx=None, exec_func=None, exec_input=None): 
         global player_input_confirm_label_jump
         global player_can_pass
         global player_is_waiting 
@@ -48,25 +53,45 @@ init python:
         tables_active = ta 
         look_at_idx = idx 
 
-        player_proceed = 0
+        player_proceed = 1
 
-        if required_runs["columns"]: 
-            for c in required_runs["columns"]: 
-                if c.lower() not in [x.lower() for x in cols]: 
-                    player_proceed +=1
-        
-        if required_runs["tables"]: 
-            for t in required_runs["tables"]: 
-                if t.lower() not in [x.lower() for x in ta]:
-                    player_proceed +=1
+        if not exec_func: 
+            if not exec_needed: 
+                player_proceed = 0
+                if required_runs["columns"]: 
+                    for c in required_runs["columns"]: 
+                        if c.lower() not in [x.lower() for x in cols]: 
+                            player_proceed +=1
+                
+                if required_runs["tables"]: 
+                    for t in required_runs["tables"]: 
+                        if t.lower() not in [x.lower() for x in ta]:
+                            player_proceed +=1
 
-        if required_runs["idx"]: 
-            for i in required_runs["idx"]:
-                if i[0].lower() not in idx.keys(): 
-                    player_proceed +=1
-                elif i[1].lower() not in [x.lower() for x in idx[i[0]]]: 
-                    player_proceed +=1
-        
+                if required_runs["idx"]: 
+                    for i in required_runs["idx"]:
+                        if i[0].lower() not in idx.keys(): 
+                            player_proceed +=1
+                        elif i[1].lower() not in [x.lower() for x in idx[i[0]]]: 
+                            player_proceed +=1
+        else: 
+            if exec_needed: 
+                player_proceed = 0
+                if exec_func:
+                    if exec_func != exec_needed[0]:
+                        player_proceed +=1
+                    if not exec_input: 
+                        player_proceed += 1
+                else: 
+                    player_proceed += 1
+
+                if exec_condition and exec_func == exec_needed[0]: 
+                    if exec_input==exec_needed[1]: 
+                        waiting_label = exec_condition[0] 
+                    else: 
+                        waiting_label = exec_condition[1] 
+            
+            
         if player_proceed > 0: 
             player_can_pass = False 
         else: 

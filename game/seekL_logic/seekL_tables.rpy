@@ -365,3 +365,75 @@ init python:
         tables[tname]["tax_year"].pop(0)
         tables[tname]["full_name"].pop(0)
         tables[tname]["irs_total"].pop(0)
+
+        ## txgov.foster_parents
+        tname = "txgov.foster_parents"
+        tables[tname] = {
+            "foster_id": [], 
+            "full_name": [], 
+            "foster_child": [], 
+            "foster_start": []    
+            }
+        t10 = renpy.file("tables/seekL Tables - "+tname+".tsv")
+        for l in t10:
+            l = l.decode("utf-8")
+            a = l.rstrip().split("\t")
+            tables[tname]["foster_id"].append(a[0])
+            tables[tname]["full_name"].append(a[1])
+            tables[tname]["foster_child"].append(a[2])
+            tables[tname]["foster_start"].append(a[3])
+        tables[tname]["foster_id"].pop(0)
+        tables[tname]["full_name"].pop(0)
+        tables[tname]["foster_child"].pop(0)
+        tables[tname]["foster_start"].pop(0)
+
+        ## irs.death
+        tname = "irs.death"
+        tables[tname] = {
+            "d_no": [], 
+            "full_name": [], 
+            "death_date": [], 
+            "living_contact": []    
+            }
+        t10 = renpy.file("tables/seekL Tables - "+tname+".tsv")
+        for l in t10:
+            l = l.decode("utf-8")
+            a = l.rstrip().split("\t")
+            tables[tname]["d_no"].append(a[0])
+            tables[tname]["full_name"].append(a[1])
+            tables[tname]["death_date"].append(a[2])
+            tables[tname]["living_contact"].append(a[3])
+        tables[tname]["d_no"].pop(0)
+        tables[tname]["full_name"].pop(0)
+        tables[tname]["death_date"].pop(0)
+        tables[tname]["living_contact"].pop(0)
+
+        ## emails.content
+        tname = "emails.content"
+        tables[tname] = {
+            "email_id": [], 
+            "email_scanned": [], 
+            "password": [], 
+            "email_type": [], 
+            "date_received": [], 
+            "subject_line": [], 
+            "content": []     
+            }
+        t10 = renpy.file("tables/seekL Tables - "+tname+".tsv")
+        for l in t10:
+            l = l.decode("utf-8")
+            a = l.rstrip().split("\t")
+            tables[tname]["email_id"].append(a[0])
+            tables[tname]["email_scanned"].append(a[1])
+            tables[tname]["password"].append(a[2])
+            tables[tname]["email_type"].append(a[3])
+            tables[tname]["date_received"].append(a[4])
+            tables[tname]["subject_line"].append(a[5])
+            tables[tname]["content"].append(a[6])
+        tables[tname]["email_id"].pop(0)
+        tables[tname]["email_scanned"].pop(0)
+        tables[tname]["password"].pop(0)
+        tables[tname]["email_type"].pop(0)
+        tables[tname]["date_received"].pop(0)
+        tables[tname]["subject_line"].pop(0)
+        tables[tname]["content"].pop(0)

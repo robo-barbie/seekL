@@ -164,6 +164,16 @@ define highlight_tab_table_pos = (1510, 50)
 define highlight_tab_info_pos = (1710, 50)
 define highlight_frame_console_pos = (850, 50)
 
+default defenses = False 
+default defenses_off = False 
+image defenses_top: 
+    "#000000"
+    alpha 0.0 
+    ease 0.1 alpha 1.0
+    ease 0.3 alpha 0.0 
+    Null()  
+
+
 ## good end 
 screen secure_dial: 
     # modal True 
@@ -189,7 +199,10 @@ screen secure_dial:
     #     action Hide("secure_dial")
 
 screen seekL_ui: 
-    add "images/chat_screenbg.jpg"
+    if defenses: 
+        add "images/chat_screenbg_defense.jpg"
+    else: 
+        add "images/chat_screenbg.jpg"
     #add "#000000af" # dark tint 
  
     frame: 
@@ -562,6 +575,11 @@ screen seekL_ui:
             else:
                 add "gui/button/superfast_idle.png" 
                 action SetVariable("chat_speed", 100)
+    
+    if defenses: 
+        add "defenses_top" 
+    elif defenses_off: 
+        add "defenses_top" 
 
         # hbox:
         #     yalign 1.0 
@@ -591,22 +609,24 @@ screen seekL_ui:
     #     spacing 10 
     #     # text current_window 
     #     # text active_window 
-    #     # vbox: 
-    #     #     for i in tables_active: 
-    #     #         text i 
-    #     vbox:
-    #         for i in look_at_idx: # filtered idx
-    #             text str(i)
-    #             hbox: 
-    #                 spacing 10 
-    #                 for j in look_at_idx[i]: 
-    #                     text str(j)
+    #     if tables_active: 
+    #         vbox: 
+    #             for i in tables_active: 
+    #                 text i 
+    #         vbox:
+    #             for i in look_at_idx: # filtered idx
+    #                 text str(i)
+    #                 hbox: 
+    #                     spacing 10 
+    #                     for j in look_at_idx[i]: 
+    #                         text str(j)
         # vbox:
         #     for i in j_v_idx: # all avail idx 
         #         text str(i) color "#fcf945"
-        # vbox:
-        #     for i in j_list: # filtered value 
-        #         text str(i) color "#fc2626"
+        # if j_list: 
+        #     vbox:
+        #         for i in j_list: # filtered value 
+        #             text str(i) color "#fc2626"
         # text where_value color "#42e774" # what the value submitted was 
         # text where_place color "#fd93f8" # did we find this column in 1 table or both 
         # vbox:
