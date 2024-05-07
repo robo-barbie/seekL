@@ -36,7 +36,7 @@ label day1_call:
         "I'm not one to blab about my less than legal doings.": 
             pass
 
-    show spr o1 side
+    show spr o1 done
     voice "audio/voice/day1/o1-006.ogg"
     o "I see."
     show spr o1 neutral 
