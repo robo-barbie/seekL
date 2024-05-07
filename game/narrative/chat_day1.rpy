@@ -16,9 +16,13 @@ label day1_start:
 
     $ _preferences.afm_enable = True 
 
+    #jump day4_31
+
     #$ persistent.seekLove = True
 
     $ chat_message("SYSTEM: THRIM joined")
+
+    play music "audio/music/cracking_the_code.mp3" loop fadein 2.0 fadeout 2.0 
 
     $ chat_message("elimf: and that's when i literally took a handful of mud and",fastmode=True)
 

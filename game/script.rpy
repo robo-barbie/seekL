@@ -80,7 +80,6 @@ label start:
     $ load_tables()
 
     #play music "audio/music/Server_Room.mp3" loop fadein 2.0 fadeout 2.0 
-    play music "audio/music/cracking_the_code.mp3" loop fadein 2.0 fadeout 2.0 
 
     show screen seekL_ui 
     hide day1_glitch 

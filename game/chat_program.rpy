@@ -392,7 +392,7 @@ init python:
                 set_is_typing(n + ", " + ot, wait_time, wait_time_prev, fastmode)
             elif n != "SYSTEM" and chat_speed != 100:
                 set_is_typing(n, wait_time, wait_time_prev, fastmode)
-            elif chat_speed != 100: 
+            elif chat_speed != 100 and n != "SYSTEM": 
                 renpy.pause(1.0)
 
             wait_time_prev = wait_time/2
@@ -440,8 +440,8 @@ init python:
         # update what the last window is 
         last_window = c 
 
-        if (is_player or n == "SYSTEM") and chat_speed != 100: 
-            renpy.pause(0.5)
+        # if (is_player or n == "SYSTEM") and chat_speed != 100: 
+        #     renpy.pause(0.5)
 
         if is_paused and player_set_pause: 
             player_set_pause = False 

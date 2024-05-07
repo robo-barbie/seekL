@@ -3,6 +3,8 @@ label day3_call:
     #voice "audio/voice/day2/o2-001.ogg"
     o "Well, here we are. Two hacks down, two to go."
 
+    play music "audio/music/little_hand_on_the_clock.mp3" loop fadein 2.0 fadeout 2.0 
+
     o "I still have some things to wrap up so elimf will probably finish before me."
     menu: 
         "Best for last, right?": 
@@ -258,7 +260,7 @@ label day3_call:
     o "See you then."
 
     ## must run these two lines to swap to next day 
-    # $ next_day_number = "4"
-    # jump day_swap
+    $ next_day_number = "4"
+    jump day_swap
 
     $ renpy.pause(hard=True)
