@@ -563,11 +563,11 @@ screen seekL_ui:
                 action SetVariable("chat_speed", 3)
 
         button:
-            if chat_speed == 5:
+            if chat_speed == 8:
                 add "gui/button/hyperspeed_active.png"
             else:
                 add "gui/button/hyperspeed_idle.png" 
-                action SetVariable("chat_speed", 5)
+                action SetVariable("chat_speed", 8)
 
         button:
             if chat_speed == 100:

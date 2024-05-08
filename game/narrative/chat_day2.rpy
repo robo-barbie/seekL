@@ -251,8 +251,8 @@ label day2_7:
     pause 0.5
     $ tables_seen.append("azgov.police_info")
     play sound "audio/sfx/message_notification_01_002 new table.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_table_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_table_pos
     $ renpy.notify("TABLE LIST UPDATED")
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
@@ -324,8 +324,8 @@ label day2_9:
     pause 0.2
     $ hack_notes.append("badge: \n55242")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_info_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
     $ renpy.notify("INFO TAB UPDATED")
     pause 0.5
 
@@ -371,8 +371,8 @@ label day2_12:
     pause 0.2
     $ hack_notes.append("name: \n'Bruce Johnson'")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_info_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
     $ renpy.notify("INFO TAB UPDATED")
     pause 0.5
 
@@ -386,8 +386,8 @@ label day2_12:
     pause 0.5
     $ tables_seen.append("azgov.marriage")
     play sound "audio/sfx/message_notification_01_002 new table.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_table_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_table_pos
     $ renpy.notify("TABLE LIST UPDATED")
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
@@ -691,8 +691,8 @@ label day2_23:
     pause 0.2
     $ hack_notes.append("wife: \n'Laura Crane'")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_info_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
     $ renpy.notify("INFO TAB UPDATED")
     pause 0.5
 
@@ -708,7 +708,11 @@ label day2_24:
 
     $ chat_message("incri: j  hnvg gb nbm", ot="wnpep")
 
+    pause 0.5
+
     $ chat_message("SYSTEM: INCRI offline") 
+
+    pause 1.0
 
     $ chat_message("SYSTEM: INCRI online") 
 
@@ -734,8 +738,8 @@ label day2_24:
     pause 0.2
     $ hack_notes.append("wife: \n'Laura Crane'")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_info_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
     $ renpy.notify("INFO TAB UPDATED")
     pause 0.5
 
@@ -745,6 +749,7 @@ label day2_24:
 
 label day2_25: 
     # odxny logs on 
+    pause 0.5
     $ chat_message("SYSTEM: ODXNY online") 
 
     $ chat_message("odxny: Hello, everyone.")
@@ -782,8 +787,8 @@ label day2_25:
     pause 0.5
     $ tables_seen.append("irs.contacts")
     play sound "audio/sfx/message_notification_01_002 new table.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_table_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_table_pos
     $ renpy.notify("TABLE LIST UPDATED")
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
@@ -860,8 +865,8 @@ label day2_27:
     pause 0.2
     $ hack_notes.append("email: \n'bruce.johnson\n@copmail.com'")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_info_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
     $ renpy.notify("INFO TAB UPDATED")
     pause 0.5 
 
@@ -959,8 +964,8 @@ label day2_31:
     pause 0.2 
     $ hack_notes.append("email wife: \n'laura.crane.\njohnson\n@eeemail.com'")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_info_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
     $ renpy.notify("INFO TAB UPDATED")
     pause 0.5
 
@@ -1005,8 +1010,8 @@ label day2_32:
     pause 0.2
     $ hack_notes.append("email wife: \n'laura.crane.\njohnson\n@eeemail.com'")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_info_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
     $ renpy.notify("INFO TAB UPDATED")
     pause 0.5
 
@@ -1166,8 +1171,8 @@ label day2_37:
     pause 0.5
     $ tables_seen.append("secretsmooch.users")
     play sound "audio/sfx/message_notification_01_002 new table.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_table_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_table_pos
     $ renpy.notify("TABLE LIST UPDATED")
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
@@ -1243,8 +1248,8 @@ label day2_39:
     pause 0.2
     $ hack_notes.append("alias: \n'OfficerOral'")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_info_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
     $ renpy.notify("INFO TAB UPDATED")
     pause 0.5
 
@@ -1333,6 +1338,8 @@ label day2_42:
 
     $ chat_message("odxny: Thanks. Yep ")
 
+    pause 1.5
+
     $ chat_message("SYSTEM: EXTORTION SENT -  BRUCE.JOHNSON@COPMAIL.COM")
 
     $ chat_message("incri: ahhhhhhhhhh")
@@ -1347,6 +1354,8 @@ label day2_42:
     $ chat_message("wnpep: some take days, some take minutes ")
 
     $ chat_message("wnpep: just depends on the person ")
+
+    pause 1.0
 
     $ chat_message("SYSTEM: RESPONSE - BRUCE.JOHNSON - This is bullshit. That's not my profile. I'm sending this threat to the police. ")
 
@@ -1363,6 +1372,8 @@ label day2_42:
 
     $ chat_message("incri: reply time ")
 
+    pause 0.5
+
     $ chat_message("SYSTEM: EXTORTION SENT - BRUCE.JOHNSON@COPMAIL.COM ")
 
     $ chat_message("elimf: what'd you send this time? ")
@@ -1372,6 +1383,8 @@ label day2_42:
     $ chat_message("odxny: I can see what they sent. Brutal. ")
 
     $ chat_message("incri: i'm getting his money ")
+
+    pause 0.5
 
     $ chat_message("SYSTEM: RESPONSE - BRUCE.JOHNSON - Please don't. Wiring now. Sincerely sorry. ")
 
@@ -1390,7 +1403,9 @@ label day2_moneyrain:
     # make it rain money??  
     show money_rain onlayer screens
 
-    $ chat_message("SYSTEM: FUNDS RECEIVED - $ 50 , 000")
+    pause 0.5
+
+    $ chat_message("SYSTEM: PAYMENT PLAN INITIATED FOR - $ 50 , 000")
 
     $ chat_message("incri: SO EZ EZ EZ ZE ZE ZE EZ ",ot="elimf")
 

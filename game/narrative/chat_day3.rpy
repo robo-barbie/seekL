@@ -209,8 +209,8 @@ label day3_5:
     pause 0.5
     $ tables_seen.append("azgov.insurance")
     play sound "audio/sfx/message_notification_01_002 new table.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_table_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_table_pos
     $ renpy.notify("TABLE LIST UPDATED")
 
     ## SET REQUIREMENTS TO PROGRESS 
@@ -440,8 +440,8 @@ label day3_12:
     pause 0.2
     $ hack_notes.append("insurance: \nGered Group")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_info_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
     $ renpy.notify("INFO TAB UPDATED")
     pause 0.5
 
@@ -520,8 +520,8 @@ label day3_15:
     pause 0.5
     $ tables_seen.append("azgov.hospitals")
     play sound "audio/sfx/message_notification_01_002 new table.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_table_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_table_pos
     $ renpy.notify("TABLE LIST UPDATED")
 
     ## SET REQUIREMENTS TO PROGRESS 
@@ -575,8 +575,8 @@ label day3_16:
     pause 0.2
     $ hack_notes.append("hospital: \nPRIDE")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_info_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
     $ renpy.notify("INFO TAB UPDATED")
     pause 0.5
 
@@ -718,8 +718,8 @@ label day3_19:
     pause 0.5
     $ tables_seen.append("pride.claims")
     play sound "audio/sfx/message_notification_01_002 new table.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_table_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_table_pos
     $ renpy.notify("TABLE LIST UPDATED")
 
     ## SET REQUIREMENTS TO PROGRESS 
@@ -762,8 +762,8 @@ label day3_20:
     $ hack_notes.append("name 1: \nBailey Yang")
     $ hack_notes.append("name 2: \nAdriel Humphrey")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_info_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
     $ renpy.notify("INFO TAB UPDATED")
     pause 0.5
 
@@ -879,8 +879,8 @@ label day3_23:
     pause 0.5
     $ tables_seen.append("pride.paystubs23")
     play sound "audio/sfx/message_notification_01_002 new table.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_table_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_table_pos
     $ renpy.notify("TABLE LIST UPDATED")
 
     $ chat_message("wnpep: table 2 - #irs.income23# ")
@@ -888,8 +888,8 @@ label day3_23:
     pause 0.5
     $ tables_seen.append("irs.income23")
     play sound "audio/sfx/message_notification_01_002 new table.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_table_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_table_pos
     $ renpy.notify("TABLE LIST UPDATED")
 
     ## SET REQUIREMENTS TO PROGRESS 
@@ -1101,8 +1101,8 @@ label day3_28:
     pause 0.2
     $ hack_notes.append("fraudster: \nBailey Yang")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_info_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
     $ renpy.notify("INFO TAB UPDATED")
     pause 0.5
 
@@ -1150,8 +1150,8 @@ label day3_29:
     pause 0.2
     $ hack_notes.append("fraudster: \nBailey Yang")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_info_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
     $ renpy.notify("INFO TAB UPDATED")
     pause 0.5
 
@@ -1244,8 +1244,8 @@ label day3_33:
     pause 0.2
     $ hack_notes.append("email: \nitsssbaeley@baver.net")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_info_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
     $ renpy.notify("INFO TAB UPDATED")
     pause 0.5
 
@@ -1270,6 +1270,8 @@ label day3_33:
     $ chat_message("incri: in th moment ")
 
     $ chat_message("elimf: uh huh ")
+
+    pause 1.0
 
     $ chat_message("SYSTEM: EXTORTION SENT -- ITSSSBAELEY@BAVER.NET")
 
@@ -1379,6 +1381,8 @@ label day3_36:
     $ chat_message("wnpep: take care")
 
     # wnpep offline
+    pause 1.0
+
     $ chat_message("SYSTEM: WNPEP offline") 
 
     $ chat_message("incri: u didnt offer me a celebratory shot")

@@ -137,6 +137,7 @@ label day_swap:
     $ in_call = False
     hide screen black_window 
     $ _preferences.afm_enable = True 
+    $ hack_notes.append("----------")
 
     ## JUMP TO DAY LABEL ## 
     $ renpy.jump("day"+next_day_number+"_start")

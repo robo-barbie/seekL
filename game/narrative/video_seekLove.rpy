@@ -1,8 +1,10 @@
 
 label day5_seekLove_call: 
+    $ first_line = True 
     menu: 
         "Hello?":
             pass
+    $ first_line = False 
     o "So you've held up your end of the bargain."
 
     menu:

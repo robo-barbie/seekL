@@ -19,7 +19,6 @@ label day1_start:
     #jump day4_31
 
     #$ persistent.seekLove = True
-
     $ chat_message("SYSTEM: THRIM joined")
 
     play music "audio/music/cracking_the_code.mp3" loop fadein 2.0 fadeout 2.0 
@@ -380,8 +379,8 @@ label day1_15:
     pause 0.5 
     $ tables_seen.append("table.example")
     play sound "audio/sfx/message_notification_01_002 new table.ogg"
-    show highlight_small onlayer screens: 
-        xpos 1590 ypos 130 
+    # show highlight_small onlayer screens: 
+    #     xpos 1590 ypos 130 
     $ renpy.notify("TABLE LIST UPDATED")
 
     $ chat_message("elimf: or, notice how a table just appeared under the tables list on the far right?")
@@ -720,6 +719,7 @@ label day1_24:
 
     # odxny online
 
+    pause 0.5
     $ chat_message("SYSTEM: ODXNY online")
 
     $ chat_message("elimf: sup big cheese")

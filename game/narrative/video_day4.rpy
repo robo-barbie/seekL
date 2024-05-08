@@ -1,8 +1,10 @@
 
 label day4_call: 
+    $ first_line = True 
     menu: 
         "Hm? What's up?":
             pass 
+    $ first_line = False 
     pause 1
     o "No real reason this time. Just felt like calling."
 

@@ -34,9 +34,9 @@ default seekL_recent_example = ""
 default character_colors = {
     "thrim": "#868ff9", 
     "odxny": "#c051ec", 
-    "wnpep": "#7be04d", 
-    "incri": "#d8ea36", 
-    "elimf": "#54ee96", 
+    "wnpep": "#a5f852", 
+    "incri": "#eac636", 
+    "elimf": "#54eeb5", 
     "SYSTEM": "#999999"
 }
 

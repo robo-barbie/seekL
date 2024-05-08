@@ -64,6 +64,8 @@ label day4_3:
 
     $ chat_message("incri: coward")
 
+    pause 0.5
+
     $ chat_message("SYSTEM: RESPONSE - ITSSSBAELEY - We will not be cowed by threats of extortion. Cease and desist, or expect a followup from law enforcement.")
 
     $ chat_message("elimf: poor timing incri for today the cowards feast")
@@ -78,6 +80,8 @@ label day4_3:
 
     $ chat_message("wnpep: so let's just hit send on this")
 
+    pause 0.5
+
     $ chat_message("SYSTEM: EXTORTION SENT -- ITSSSBAELEY@BAVER.NET")
 
     $ chat_message("odxny: Just took a look. Nice play.")
@@ -86,16 +90,18 @@ label day4_3:
 
     $ chat_message("odxny: Fair point, I'll put something up just in case.")
 
+    pause 1.0
+
     $ chat_message("SYSTEM: SUPPLEMENTARY DEFENSES ENABLED")
     $ defenses = True 
 
-    $ player_choice(
-        [
-            ("what just happened??", "x")
-        ]
-    )
+    # $ player_choice(
+    #     [
+    #         ("what just happened??", "x")
+    #     ]
+    # )
 
-    $ chat_message("odxny: They're pissed lol. They're trying to attack us back.")
+    # $ chat_message("odxny: They're pissed lol. They're trying to attack us back.")
 
     $ chat_message("elimf: \"supplmentary defenses\" what is this the military")
 
@@ -113,6 +119,8 @@ label day4_3:
 
     $ chat_message("incri: i like tha t one")
 
+    pause 1.0
+
     $ chat_message("SYSTEM: RESPONSE - ITSSSBAELEY - We will transfer the funds per the stated agreement. Consider this matter closed.")
 
     play chat "audio/sfx/Casino_Jackpot_001.ogg" loop fadeout 0.2
@@ -120,7 +128,9 @@ label day4_3:
     # make it rain money??  
     show money_rain onlayer screens
 
-    $ chat_message("SYSTEM: FUNDS RECEIVED - $ 100 , 000")
+    pause 0.5
+
+    $ chat_message("SYSTEM: PAYMENT PLAN INITIATED FOR - $ 1 , 000 , 000")
 
     $ chat_message("wnpep: there we go")
 
@@ -135,6 +145,8 @@ label day4_3:
 
     $ defenses = False
     $ defenses_off = True 
+
+    pause 0.5
 
     $ chat_message("SYSTEM: SUPPLEMENTARY DEFENSES DISABLED")
     
@@ -307,6 +319,8 @@ label day4_6:
 
     $ chat_message("elimf: trust in me pep")
 
+    pause 0.5
+
     $ chat_message("SYSTEM: WNPEP offline")
 
     $ chat_message("elimf: this is gonna go great")
@@ -437,8 +451,8 @@ label day4_12:
     pause 0.2
     $ hack_notes.append("name: \nDarren Horton")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_info_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
     $ renpy.notify("INFO TAB UPDATED")
     pause 0.5
     ## SET REQUIREMENTS TO PROGRESS 
@@ -477,8 +491,8 @@ label day4_13:
     pause 0.2
     $ hack_notes.append("contact info: \nmissing")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_info_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
     $ renpy.notify("INFO TAB UPDATED")
     pause 0.5
 
@@ -515,8 +529,8 @@ label day4_13:
     pause 0.5
     $ tables_seen.append("irs.death")
     play sound "audio/sfx/message_notification_01_002 new table.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_table_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_table_pos
     $ renpy.notify("TABLE LIST UPDATED")
 
     $ chat_message("elimf: YET YOU WILL FIND NO RECORD...")
@@ -563,6 +577,8 @@ label day4_16:
     $ chat_message("elimf: the past ")
 
     $ chat_message("incri: i'm not reading this sht rn ")
+
+    pause 0.5
 
     $ chat_message("SYSTEM: INCRI offline")
 
@@ -648,8 +664,8 @@ label day4_19:
     pause 0.5
     $ tables_seen.append("txgov.foster_parents")
     play sound "audio/sfx/message_notification_01_002 new table.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_table_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_table_pos
     $ renpy.notify("TABLE LIST UPDATED")
 
     ## SET REQUIREMENTS TO PROGRESS 
@@ -759,8 +775,8 @@ label day4_23:
     $ hack_notes.append("foster parent: \nKenneth Stafford")
     $ hack_notes.append("foster email: \nkenneth.stafford\n@copmail.com")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_info_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
     $ renpy.notify("INFO TAB UPDATED")
     pause 0.5
 
@@ -790,9 +806,13 @@ label day4_23:
 
     $ chat_message("elimf: SOME INFO ")
 
+    pause 0.5
+
     $ chat_message("SYSTEM: EXTORTION SENT - KENNETH.STAFFORD@COPMAIL.COM ")
 
     $ chat_message("elimf: OHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH ")
+
+    pause 0.5
 
     $ chat_message("SYSTEM: EXTORTION BOUNCE - BAD CONTACT ")
 
@@ -832,6 +852,12 @@ label day4_25:
 label day4_26:
 
     # MC: maybe they're dead...? 
+    $ player_choice(
+        [
+            ("maybe they're dead...?", "x")
+        ]
+    )
+
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
         # WHAT COLUMNS THEY NEED TO SEE
@@ -871,8 +897,8 @@ label day4_27:
     pause 0.2
     $ hack_notes.append("kenneth status: \ndead af")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_info_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
     $ renpy.notify("INFO TAB UPDATED")
     pause 0.5
 
@@ -931,8 +957,8 @@ label day4_30:
     pause 0.2
     $ hack_notes.append("death contact: \nElsie Patrick")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_info_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
     $ renpy.notify("INFO TAB UPDATED")
     pause 0.5
 
@@ -943,6 +969,8 @@ label day4_30:
     $ chat_message("elimf: FUCK I HITMY HEAD ")
 
     $ chat_message("odxny: LMAO")
+
+    pause 0.5
 
     $ chat_message("SYSTEM: INCRI online") 
 
@@ -996,8 +1024,8 @@ label day4_31:
     pause 0.2
     $ hack_notes.append("elsie email: \nelsie.patrick\n@copmail.com")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_info_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
     $ renpy.notify("INFO TAB UPDATED")
     pause 0.5
 
@@ -1014,6 +1042,8 @@ label day4_31:
     $ chat_message("elimf: EMAIL TIME ")
 
     $ chat_message("elimf: OHHHHHHHHHHHHHHHHH")
+
+    pause 0.5
 
     $ chat_message("SYSTEM: EXTORTION SENT - ELSIE.PATRICK@COPMAIL.COM ")
 
@@ -1060,8 +1090,8 @@ label day4_31:
     pause 0.2
     $ hack_notes.append("new function: \nout('email')")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_info_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
     $ renpy.notify("INFO TAB UPDATED")
     pause 0.5
 
@@ -1155,6 +1185,8 @@ label day4_33:
 
 label day4_34: 
 
+    pause 0.5
+
     $ chat_message("SYSTEM: RESPONSE - ELSIE.PATRICK - ??? I've never heard of Darren. Kenneth didn't foster anyone. Go away. ")
 
     $ chat_message("elimf: LIAR U ARE LYINGGGG LIAR LIAR ")
@@ -1189,8 +1221,8 @@ label day4_34:
     pause 0.5
     $ tables_seen.append("emails.content")
     play sound "audio/sfx/message_notification_01_002 new table.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_table_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_table_pos
     $ renpy.notify("TABLE LIST UPDATED")
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
@@ -1308,8 +1340,8 @@ label day4_41:
     pause 0.2
     $ hack_notes.append("darren email: \nfdhj398fh\n@notmail.com")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
-    show highlight_small onlayer screens: 
-        pos highlight_tab_info_pos
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
     $ renpy.notify("INFO TAB UPDATED")
     pause 0.5
 
@@ -1352,6 +1384,8 @@ label day4_41:
     $ chat_message("elimf: HE CANNOT HIDE FROM THE ALL-SEEING EYE OF ")
 
     $ chat_message("elimf: PETTY GREED ")
+
+    pause 0.5
 
     $ chat_message("SYSTEM: EXTORTION SENT - FDHJ398FH@NOTMAIL.COM ")
 
@@ -1396,6 +1430,8 @@ label day4_43:
     # end choices 
 label day4_44: 
 
+    pause 0.5
+
     $ chat_message("SYSTEM: WNPEP online")
 
     $ chat_message("wnpep: alright! i'm back! ")
@@ -1413,6 +1449,8 @@ label day4_44:
 
     $ chat_message("elimf: i'm gonna. make bank")
 
+    pause 1.0
+
     $ chat_message("SYSTEM: RESPONSE - Fine. Fuck you. I fucking hate you. I'm gonna fucking find you you sack of rank shit. Take your fucking money. I'm tired of dealing with you. ")
 
     $ chat_message("elimf: WOOOOOOO ")
@@ -1424,7 +1462,9 @@ label day4_44:
     # make it rain money??  
     show money_rain onlayer screens
 
-    $ chat_message("SYSTEM: FUNDS RECEIVED - $ 253 , 390 ")
+    pause 0.5
+
+    $ chat_message("SYSTEM: PAYMENT PLAN INITIATED FOR - $ 1 , 253 , 390 ")
 
     $ chat_message("incri: TF IS THAT ALL INTEREST??? ")
 
@@ -1488,13 +1528,15 @@ label day4_44:
 
     $ chat_message("elimf: UUUUUUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA") 
 
+    pause 0.5
+
     $ chat_message("SYSTEM: ELIMF offline")
 
     $ chat_message("wnpep: ???????")
 
     $ chat_message("odxny: Don't worry about it.")
 
-    $ chat_message("odxny: Are you up for a call right now?")
+    $ chat_message("odxny: Are you up for a call right now?",c="admin")
 
     # MC: o sure, go ahead
     $ player_choice(

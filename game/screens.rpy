@@ -237,6 +237,7 @@ init python:
             while len(_history_list) > renpy.config.history_length:
                 _history_list.pop(0)
 
+default first_line = False 
 screen choice(items):
     style_prefix "choice"
 
@@ -248,7 +249,7 @@ screen choice(items):
             ypos gui.dialogue_ypos + 750 #700
             #for h in _history_list:
          
-            if _history_list: 
+            if _history_list and not first_line: 
                 $ what = renpy.filter_text_tags(_history_list[len(_history_list)-1].what, allow=gui.history_allow_tags)
                 text what:
                     #adjust_spacing False

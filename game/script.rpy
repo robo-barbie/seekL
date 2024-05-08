@@ -55,6 +55,7 @@ screen ive_had_enough_of_the_fucking_scroll_up_rollback():
 # The game starts here.
 
 label start:
+    stop music fadeout 2.0
     pause 2
     #$ _preferences.afm_enable = True 
     $ _preferences.afm_enable = False 
