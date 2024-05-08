@@ -99,6 +99,12 @@ EX: SELECT *
     WHERE full_name = 'bruce johnson'
     {/color}{/size}{/font}""", 
 
+    """{font=HELLO.ttf.ttf}{size=25}5. EXEC
+Execute a function with an input. This does not run with any other seekL query.{color=ffffff69}
+
+EX: EXEC out('bruce.johnson@copmail.com')
+    {/color}{/size}{/font}""",
+
     """{font=HELLO.ttf.ttf}{size=25}MORE EXAMPLES {color=ffffff69}
 
 EX: SELECT phone, full_name, badge_no 
@@ -265,7 +271,7 @@ screen seekL_ui:
                                 # has fixed:
                                 #     yfit True # only for window 
                                 if idx != 0: 
-                                    if channels_names[current_window][-100:][idx] == channels_names[current_window][-100:][idx-1]:
+                                    if channels_names[current_window][-100:][idx] == channels_names[current_window][-100:][idx-1] and ((abs(int(channels_times[current_window][-100:][idx][-2:]) - int(channels_times[current_window][-100:][idx-1][-2:])) < 5 and int(channels_times[current_window][-100:][idx][:2].replace(":","")) == int(channels_times[current_window][-100:][idx-1][:2].replace(":",""))) or (abs(int(channels_times[current_window][-100:][idx][-2:]) - int(channels_times[current_window][-100:][idx-1][-2:])) > 55 and int(channels_times[current_window][-100:][idx][:2].replace(":","")) - int(channels_times[current_window][-100:][idx-1][:2].replace(":","") == 1))):
                                         null height 0
                                     else: 
                                         vbox:
@@ -352,7 +358,7 @@ screen seekL_ui:
                             text rulebook[i]: 
                                 xpos 20 
                                 xmaximum seekL_window_size + seekL_sidebar_size - 100 
-                    null height 50 
+                    null height 10 
 
 
 
