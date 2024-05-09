@@ -443,7 +443,7 @@ init python:
         # if (is_player or n == "SYSTEM") and chat_speed != 100: 
         #     renpy.pause(0.5)
 
-        if is_paused and player_set_pause: 
+        if is_paused and player_set_pause and n != "thrim": 
             player_set_pause = False 
             renpy.pause()
         elif is_paused: 
