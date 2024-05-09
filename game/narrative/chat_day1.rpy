@@ -13,6 +13,8 @@ label day1_start:
     #jump day2_7
 
     # jump day5_seekLove_chat
+    # $ next_day_number = "3"
+    # jump day3_41
 
     $ _preferences.afm_enable = True 
 
