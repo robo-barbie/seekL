@@ -266,6 +266,7 @@ screen seekL_ui:
                     if seekL_chat_active in [0,1]: 
                         for idx, t in enumerate(channels[current_window][-100:]): 
                             vbox: 
+                                spacing 5
                                 xpos 20
                                 ysize None 
                                 # has fixed:
@@ -318,6 +319,7 @@ screen seekL_ui:
                                         text t: 
                                             text_align 0.0
                                             size seekL_chat_text_size 
+                                            line_spacing 5 
                                             xmaximum seekL_window_size + seekL_sidebar_size - 100 
                                             if channels_names[current_window][-100:][idx] in character_colors: 
                                                 color "#ffffffba"#character_colors[channels_names[current_window][idx]]

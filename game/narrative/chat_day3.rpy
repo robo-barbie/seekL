@@ -203,7 +203,7 @@ label day3_5:
 
     $ chat_message("wnpep: and i think we have just the table i need ")
 
-    $ chat_message("wnpep: can you take a look at this thrim? ")
+    $ chat_message("wnpep: {color="+color_help+"}can you take a look at this thrim?{/color}")
 
     $ chat_message("wnpep: `select * \nfrom azgov.insurance` ")
     pause 0.5
@@ -360,10 +360,10 @@ label day3_11:
 
     $ chat_message("wnpep: go ahead and give it a try thrim ")
 
-    # MC: can i ask why we’re looking this up? 
+    # MC: can i ask why we're looking this up? 
     $ player_choice(
         [
-            ("can i ask why we’re looking this up?", "x")
+            ("can i ask why we're looking this up?", "x")
         ]
     )
 
@@ -481,7 +481,6 @@ label day3_14:
     $ chat_message("wnpep: k ")
 
     jump day3_15
-
 
 
 label day3_15: 
@@ -611,7 +610,7 @@ label day3_16:
 
     $ chat_message("wnpep: but gered only works with PRIDE?")
 
-    $ chat_message("odxny: Wn, if you go back to #azgov.insurance#, take a look at the ins_alias column for Gered Group's row. ")
+    $ chat_message("odxny: Pep, if you go back to #azgov.insurance#, take a look at the ins_alias column for Gered Group's row. ")
 
     $ chat_message("wnpep: looking") 
 
@@ -683,7 +682,7 @@ label day3_17:
 
     $ chat_message("elimf: there's a poem in thre somewhere ")
 
-    jump day3_19
+    jump day3_odm_1
 
 
 label day3_18: 
@@ -704,7 +703,292 @@ label day3_18:
 
     $ chat_message("odxny: LMAO")
 
+    jump day3_odm_1
+
+
+label day3_odm_1: 
+
+    $ chat_message("odxny: Looks like you're having a better time learning with pep.", c="admin")
+
+    $ player_choice(
+        [
+            ("i am! theyve been really nice", "day3_odm_2"), 
+            ("well.........", "day3_odm_5"), 
+            ("what if I need the threat of violence to learn", "day3_odm_6")
+        ]
+    )
+
+
+    # [1] MC: i am! hes been really nice
+label day3_odm_2: 
+
+    $ chat_message("odxny: I don't know if I'd compliment them that much.", c="admin")
+
+    $ player_choice(
+        [
+            ("i mean, compared to incri...", "day3_odm_3"), 
+            ("i take it all back. theyre a menace", "day3_odm_4")
+        ]
+    )
+
+
+    # [1-1] MC: i mean, compared to incri…
+label day3_odm_3: 
+
+    $ chat_message("odxny: I'm sure they'd be flattered to hear they've cleared the lowest possible bar.", c="admin")
+
+    #MC: really? lemme tell him rn
+    $ player_choice(
+        [
+            ("really? lemme tell them rn", "x")
+        ]
+    )
+
+    $ chat_message("odxny: Why do you always do horrible things to my blood pressure.", c="admin")
+
+    #MC: HAHAHA
+    $ player_choice(
+        [
+            ("HAHAHA", "x")
+        ]
+    )
+
+    $ chat_message("odxny: Guess we'll have to disengage now. Doctor's orders.", c="admin")
+
+    #MC: WAIT NO
+    $ player_choice(
+        [
+            ("WAIT NO", "x")
+        ]
+    )
+
+    $ chat_message("odxny: Sorry, thrim. There's simply nothing I can do.", c="admin")
+
+    jump day3_odm_cont  
+
+
+
+    #[1-2] MC: i take it all back. he's a menace
+label day3_odm_4: 
+
+    $ chat_message("odxny: You may be the world's most devoted contrarian.", c="admin")
+
+    #MC: i havent even begun to contradict
+    $ player_choice(
+        [
+            ("i havent even begun to contradict", "x")
+        ]
+    )
+
+    $ chat_message("odxny: You're doing it again.", c="admin")
+
+    #MC: i………….may be
+    $ player_choice(
+        [
+            ("i..........may be", "x")
+        ]
+    )
+
+    $ chat_message("odxny: You'll have to concede or prove me right.", c="admin")
+
+    jump day3_odm_cont  
+
+
+
+    #[2] MC: well……….
+label day3_odm_5: 
+
+    $ chat_message("odxny: Really? I thought they were doing a pretty good job.", c="admin")
+
+    #MC: i might just be a little hopeless
+    $ player_choice(
+        [
+            ("i might just be a little hopeless", "x")
+        ]
+    )
+
+    $ chat_message("odxny: Well", c="admin")
+
+    #MC: CMON
+    $ player_choice(
+        [
+            ("CMON", "x")
+        ]
+    )
+
+    $ chat_message("odxny: You have to admit, mastering ArnoldC but considering simplified SQL a bridge too far is kind of funny.", c="admin")
+
+    #MC: it's not!!!!
+    $ player_choice(
+        [
+            ("it's not!!!!", "x")
+        ]
+    )
+
+    $ chat_message("odxny: It kind of is.", c="admin")
+
+    jump day3_odm_cont 
+
+
+
+    #[3] MC: what if I need the threat of violence to learn
+label day3_odm_6: 
+
+    $ chat_message("odxny: Do you ever listen to the words you're typing or saying?", c="admin")
+
+    $ player_choice(
+        [
+            ("yes always", "day3_odm_7"), 
+            ("no never", "day3_odm_8"), 
+            ("huh whuh???", "day3_odm_9")
+        ]
+    )
+
+    #[3-1] MC: yes always
+
+    #[3-3] MC: no never
+
+    #[3-4] MC: huh whuh???
+
+label day3_odm_7: 
+
+    $ chat_message("odxny: I shouldn't have asked.", c="admin")
+
+    jump day3_odm_10 
+
+label day3_odm_8: 
+
+    $ chat_message("odxny: I shouldn't have asked.", c="admin")
+
+    jump day3_odm_10 
+
+label day3_odm_9: 
+
+    $ chat_message("odxny: I shouldn't have asked.", c="admin")
+
+    jump day3_odm_10 
+
+label day3_odm_10: 
+
+    #MC: aww
+    $ player_choice(
+        [
+            ("aww", "x")
+        ]
+    )
+
+    $ chat_message("odxny: Anyway. Surely there are better motivators. ", c="admin")
+
+    pause 1
+
+    $ chat_message("odxny: Don't tell me you've been learning esoteric languages this way.", c="admin")
+
+    #MC: absolutely not
+    $ player_choice(
+        [
+            ("absolutely not", "x")
+        ]
+    )
+
+    $ chat_message("odxny: Stage 1: Denial", c="admin")
+
+    #MC: for real!!! i'm not!!!
+    $ player_choice(
+        [
+            ("for real!!! i'm not!!!", "x")
+        ]
+    )
+
+    $ chat_message("odxny: Stage 2: Anger", c="admin")
+
+    jump day3_odm_cont 
+
+
+    # end choices
+label day3_odm_cont: 
+
+    #MC: AAAAAAAAAAA
+    $ player_choice(
+        [
+            ("AAAAAAAAAAA", "x")
+        ]
+    )
+
+    $ chat_message("odxny: LMAO", c="admin")
+
+    $ chat_message("odxny: Sorry, couldn't resist.", c="admin")
+
+    #MC: could you??
+    $ player_choice(
+        [
+            ("could you??", "x")
+        ]
+    )
+
+    $ chat_message("odxny: Would either answer help?", c="admin")
+
+    #MC: ……no……..
+    $ player_choice(
+        [
+            (".....no......", "x")
+        ]
+    )
+
+    $ chat_message("odxny: Sorry to disappoint. ", c="admin")
+
+    $ chat_message("odxny: And for winding you up.", c="admin")
+
+    pause 1 
+
+    $ chat_message("odxny: Somewhat. ", c="admin")
+
+    #MC: utterly unrepentant
+    $ player_choice(
+        [
+            ("utterly unrepentant", "x")
+        ]
+    )
+
+    $ chat_message("odxny: I said somewhat.", c="admin")
+
+    #MC: completely w/o shame
+    $ player_choice(
+        [
+            ("completely w/o shame", "x")
+        ]
+    )
+
+    $ chat_message("odxny: //Somewhat.//", c="admin")
+
+    #MC: totally heedless
+    $ player_choice(
+        [
+            ("totally heedless", "x")
+        ]
+    )
+
+    $ chat_message("odxny: Thrim.", c="admin")
+
+    #MC: got you
+    $ player_choice(
+        [
+            ("got you", "x")
+        ]
+    )
+
+    $ chat_message("odxny: ...", c="admin")
+
+    $ chat_message("odxny: I'm closing this DM.", c="admin")
+
+    #MC: LMAO
+    $ player_choice(
+        [
+            ("LMAO", "x")
+        ]
+    )
+
     jump day3_19
+
 
 
 
@@ -736,7 +1020,7 @@ label day3_19:
 
     $ chat_message("wnpep: if you check that table, you'll see some info about hospital procedures and which doctor ordered each ")
 
-    $ chat_message("wnpep: can you take a look at that table? ")
+    $ chat_message("wnpep: {color="+color_help+"}can you take a look at that table?{/color}")
 
     # MC: sure, one moment 
     $ player_choice(

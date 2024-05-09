@@ -92,7 +92,13 @@ label day1_3:
 
     $ chat_message("elimf: anything juicy")
 
-    pause 1 
+    $ chat_message("wnpep: one moment")
+
+    pause 2
+
+    $ chat_message("wnpep: hm")
+
+    pause 2
 
     $ chat_message("wnpep: this person is not a threat of any kind ")
 
@@ -375,7 +381,19 @@ label day1_15:
 
     $ chat_message("wnpep: go ahead and type this into console on the top right ")
 
-    $ chat_message("wnpep: `select * from table.example`")
+    $ chat_message("wnpep: `select * \nfrom table.example`")
+    ## SET REQUIREMENTS TO PROGRESS 
+    python: 
+        # WHAT COLUMNS THEY NEED TO SEE
+        required_runs["columns"] = None 
+        # WHAT TABLES THEY NEED TO ENTER 
+        required_runs["tables"] = ["table.example"]
+        # WHAT IDS MUST APPEAR 
+        required_runs["idx"] = None 
+        # STOP THEM BEFORE THEY GET TOO FAR 
+        player_can_pass = False 
+        waiting_label = "day1_19"
+
     pause 0.5 
     $ tables_seen.append("table.example")
     play sound "audio/sfx/message_notification_01_002 new table.ogg"
@@ -397,17 +415,7 @@ label day1_15:
 
     $ chat_message("wnpep: either way, typing or clicking, go ahead and take a look in there thrim")
 
-    ## SET REQUIREMENTS TO PROGRESS 
-    python: 
-        # WHAT COLUMNS THEY NEED TO SEE
-        required_runs["columns"] = None 
-        # WHAT TABLES THEY NEED TO ENTER 
-        required_runs["tables"] = ["table.example"]
-        # WHAT IDS MUST APPEAR 
-        required_runs["idx"] = None 
-        # STOP THEM BEFORE THEY GET TOO FAR 
-        player_can_pass = False 
-        waiting_label = "day1_19"
+    $ chat_message("wnpep: `select * \nfrom table.example`")
 
     $ player_choice(
         [
@@ -472,7 +480,7 @@ label day1_19:
         ]
     )
 
-    $ chat_message("wnpep: okay, so. what you see here is just a small example table we built ages ago.", ot="elimf") 
+    $ chat_message("wnpep: okay, so. that's a query. and the output you see is just a small example table we built ages ago.", ot="elimf") 
 
     $ chat_message("elimf: do you already know how tables of data work?") 
 

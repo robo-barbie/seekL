@@ -57,7 +57,7 @@ define gui.interface_text_color = '#ffffff'
 ## Fonts and Font Sizes ########################################################
 
 ## The font used for in-game text.
-define gui.text_font = "Martian_Mono/MartianMono-VariableFont_wdth,wght.ttf" #"DejaVuSans.ttf"
+define gui.text_font = "Martian_Mono/MartianMono-VariableFont_wdth,wght.ttf" #"DejaVuSans.ttf" #"HELLO.ttf.ttf"
 
 ## The font used for character names.
 define gui.name_text_font = "Martian_Mono/MartianMono-VariableFont_wdth,wght.ttf" #"DejaVuSans.ttf"

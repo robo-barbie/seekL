@@ -59,7 +59,7 @@ label day2_call:
 
     menu: 
         "Oh, absolutely. ":
-            show spr o1 smile
+            #show spr o1 smile
             voice "audio/voice/day2/o2-012.ogg"
             o "I see. "
             menu:
@@ -84,24 +84,24 @@ label day2_call:
     show spr o1 done
     voice "audio/voice/day2/o2-016.ogg"
     o "...Uh huh."
-    show spr o3 neutral
+    #show spr o3 neutral
     voice "audio/voice/day2/o2-017.ogg"
     o "Odd. "
     menu: 
         "Why odd?":
             pass
-    show spr o2 side frown 
+    #show spr o2 side frown 
     voice "audio/voice/day2/o2-018.ogg"
     o "I don't know, just..."
 
-    show spr o3 shocked
+    show spr o3 neutral
     voice "audio/voice/day2/o2-019.ogg"
     o "It's really just for the love of the game, huh?"
-    show spr o3 neutral
+    #show spr o3 neutral
 
     menu: 
         "Mhm. I like my little collection.":
-            show spr o1 grin 
+            #show spr o1 grin 
             voice "audio/voice/day2/o2-020.ogg"
             o "Your trophy case of ridiculous languages?"
             menu:
@@ -110,24 +110,24 @@ label day2_call:
             show spr o3 eyes closed
             voice "audio/voice/day2/o2-021.ogg"
             o "That was not meant to enable you."
-            show spr o3 neutral
+            #show spr o3 neutral
             menu:
                 "Too late. I'm already looking up the ugliest wood trim display cases I can find.":
                     pass
         "You laugh now, but someday my expertise could come in handy.":
-            show spr o1 closed eye grin
+            #show spr o1 closed eye grin
             voice "audio/voice/day2/o2-022.ogg"
             o "Really."
             menu:
                 "Really really. ":
                     pass
-            show spr o1 smile
+            #show spr o1 smile
             voice "audio/voice/day2/o2-023.ogg"
             o "Name one scenario."
             menu:
                 "Um...uh...hm.":
                     pass
-            show spr o3 silly 
+            #show spr o3 silly 
             voice "audio/voice/day2/o2-024.ogg"
             o "Yeah?"
             menu:
@@ -159,7 +159,7 @@ label day2_call:
     show spr o1 side nervous
     voice "audio/voice/day2/o2-029.ogg"
     o "That's not meant as an insult, I really am just confused."
-    show spr o1 neutral
+    #show spr o1 neutral
     menu: 
         "You don't have fun coding?":
             pass
@@ -167,7 +167,7 @@ label day2_call:
     show spr o1 side neutral 
     voice "audio/voice/day2/o2-030.ogg"
     o "At this point, it's just a means to an end. Same as most things."
-    show spr o1 neutral 
+    #show spr o1 neutral 
     menu: 
         "Then what do you do for fun?":
             pass
@@ -189,26 +189,27 @@ label day2_call:
             show spr o2 sad 
             voice "audio/voice/day2/o2-033.ogg"
             o "Maybe. Sure. "
-            show spr o3 eyes closed
+            #show spr o3 eyes closed
             voice "audio/voice/day2/o2-034.ogg"
             o "Little consequence now, however."
         "Oh, uh. Sounds like a very peaceful life. ":
-            show spr o1 side neutral
+            #show spr o1 side neutral
+            show spr o2 sad 
             voice "audio/voice/day2/o2-035.ogg"
             o "Say what you mean, ha. I get it. "
-            show spr o1 eyes closed
+            #show spr o1 eyes closed
             voice "audio/voice/day2/o2-036.ogg"
             o "But it doesn't matter anymore. "
 
-    show spr o1 neutral 
+    show spr o3 neutral
     voice "audio/voice/day2/o2-037.ogg"
     o "Needing to have fun isn't important to my life anymore. "
 
-    show spr o1 eyes closed 
+    show spr o3 eyes closed 
     voice "audio/voice/day2/o2-038.ogg"
     o "And, we'll be saying our goodbyes soon anyway."
 
-    show spr o1 neutral 
+    show spr o3 neutral
     voice "audio/voice/day2/o2-039.ogg"
     o "So don't worry about it."
     menu: 
@@ -226,10 +227,10 @@ label day2_call:
     voice "audio/voice/day2/o2-042.ogg"
     o "I take a cut from the others' hacks, and between their hacks and my own I've built a fund for supplies."
 
-    show spr o3 neutral parted
+    show spr o1 eyes closed 
     voice "audio/voice/day2/o2-043.ogg"
     o "As soon as I shutter the server I'll do one last supply run and make my exit from society."
-    show spr o1 neutral 
+    #show spr o1 neutral 
     
     
     menu:
@@ -241,17 +242,17 @@ label day2_call:
             voice "audio/voice/day2/o2-045.ogg"
             o "A jacket or two, some medical supplies, the works. "
             voice "audio/voice/day2/o2-046.ogg"
-            show spr o3 neutral
+            show spr o1 eyes closed
             o "Then I'm out, as soon as possible. "
         "Wait, what? Why?!":
             show spr o1 side smile
             voice "audio/voice/day2/o2-047.ogg"
             o "Think I'm crazy? "
-            show spr o1 neutral
+            #show spr o1 neutral
             menu:
                 "No, I'm just confused.":
                     pass
-            show spr o3 neutral
+            show spr o1 eyes closed
             voice "audio/voice/day2/o2-048.ogg"
             o "I mean, I don't think it's hard to understand. "
 
@@ -268,17 +269,17 @@ label day2_call:
             voice "audio/voice/day2/o2-051.ogg"
             show spr o1 neutral 
             o "Everyone I thought I cared about are simply not people in my life anymore. All for random, dull reasons. Nothing dramatic. "
-            show spr o2 sad
+            show spr o1 frown
             voice "audio/voice/day2/o2-052.ogg"
             o "I just woke up one day and realized I was alone."
-            show spr o3 eyes closed
+            show spr o1 eyes closed
             voice "audio/voice/day2/o2-053.ogg"
             o "So, without those connections there's nothing to hold me here."
         "No reasons? Nothing makes you happy here?":
-            show spr o3 neutral
+            #show spr o3 neutral
             voice "audio/voice/day2/o2-054.ogg"
             o "Not for a long time."
-            show spr o1 neutral 
+            #show spr o1 neutral 
             voice "audio/voice/day2/o2-055.ogg"
             o "I don't feel much of anything, really. It is what it is. "
 
@@ -287,16 +288,17 @@ label day2_call:
         "That's...":
             pass
     
-    show spr o1 side neutral
+    #show spr o1 side neutral
+    show spr o3 neutral
     voice "audio/voice/day2/o2-056.ogg"
     o "Don't say it."
-    show spr o1 neutral 
+    show spr o3 eyes closed
     voice "audio/voice/day2/o2-057.ogg"
     o "Sorry, I've just already heard this before. It won't change my mind."
-    show spr o1 eyes closed
+    show spr o1 neutral
     voice "audio/voice/day2/o2-058.ogg"
     o "We just met. And we'll be strangers again soon enough."
-    show spr o1 neutral 
+    #show spr o1 neutral 
     voice "audio/voice/day2/o2-059.ogg"
     o "So, not to be cold, but... you know. "
     menu: 
@@ -305,19 +307,19 @@ label day2_call:
     show spr o1 eyes closed
     voice "audio/voice/day2/o2-060.ogg"
     o "Yep."
-    show spr o3 neutral 
+    show spr o1 neutral 
     voice "audio/voice/day2/o2-061.ogg"
     o "And with that I think that's enough for today."
     menu: 
         "Alright.":
             pass
-    show spr o3 neutral parted
+    show spr o1 side neutral
     voice "audio/voice/day2/o2-062.ogg"
     o "We, ah."
-    show spr o1 smile
+    #show spr o1 smile
     voice "audio/voice/day2/o2-063.ogg"
     o "We can call again if the opportunity arises."
-    show spr o1 neutral
+    #show spr o1 neutral
 
 
     menu:

@@ -15,7 +15,7 @@ label day1_call:
     show spr o1 eyes closed 
     voice "audio/voice/day1/o1-003.ogg"
     o "This is more secure than the server, and that's already locked tight."
-    show spr o1 neutral 
+    #show spr o1 neutral 
     menu: 
         "Your lack of concern unnerves me.": 
             pass
@@ -39,7 +39,7 @@ label day1_call:
     show spr o1 done
     voice "audio/voice/day1/o1-006.ogg"
     o "I see."
-    show spr o1 neutral 
+    #show spr o1 neutral 
 
     menu: 
         "So…?": 
@@ -48,7 +48,7 @@ label day1_call:
     show spr o1 done
     voice "audio/voice/day1/o1-007.ogg"
     o "So nothing. This was just to see who you are."
-    show spr o1 neutral 
+    #show spr o1 neutral 
 
     menu: 
         "Maybe I should have dressed up nicer, then.":
@@ -64,7 +64,7 @@ label day1_call:
             show spr o1 done
             voice "audio/voice/day1/o1-009.ogg"
             o "It might do you good to set more attainable goals."
-            show spr o1 neutral 
+            #show spr o1 neutral 
 
         "What's your read? Dangerous? Useful? Alluring?":
 
@@ -79,7 +79,7 @@ label day1_call:
             show spr o1 done 
             voice "audio/voice/day1/o1-011.ogg"
             o "Note the root word \"possible\"."
-            show spr o1 neutral 
+            #show spr o1 neutral 
 
 
     menu:
@@ -120,7 +120,7 @@ label day1_call:
     show spr o3 neutral parted
     voice "audio/voice/day1/o1-017.ogg"
     o "Is this a joke?"
-    show spr o1 neutral
+    #show spr o1 neutral
 
     menu: 
         "I'm being completely serious.": 
@@ -212,18 +212,19 @@ label day1_call:
 
     # end choices
 
-    show spr o2 side frown 
+    #show spr o2 side frown 
+    show spr o3 neutral 
     voice "audio/voice/day1/o1-032.ogg"
     o "And with that, we're good. I'll see you around on the server."
-    show spr o3 neutral
+    #show spr o3 neutral
     menu: 
         "That was short. Does that mean you trust me now?": 
             pass 
     
-    show spr o3 eyes closed
+    #show spr o3 eyes closed
     voice "audio/voice/day1/o1-033.ogg"
     o "Enough to keep you around."
-    show spr o3 neutral 
+    #show spr o3 neutral 
     voice "audio/voice/day1/o1-034.ogg"
     o "See you later."
 

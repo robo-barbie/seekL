@@ -253,7 +253,7 @@ image spr o1 side smile = LiveComposite(
     (1.0, 1.0),
     (0, 0), "body1.png", #body image
     (0, 0), "o1 eyes side", #eye animation
-    (0, 0), WhileSpeaking("odxny", "o1 mouth happy", "body1_mouth_smiling.png"), #(character, mouth animation, mouth image when not speaking)
+    (0, 0), WhileSpeaking("odxny", "o1 mouth grin", "body1_mouth_smiling.png"), #(character, mouth animation, mouth image when not speaking)
     )
 
 image spr o1 done frown = LiveComposite(

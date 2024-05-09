@@ -157,7 +157,7 @@ label day2_4:
 
     $ chat_message("incri: my techniques r beyond u")
 
-    pause 1
+    pause 2
 
     $ chat_message("incri: acutlaly")
 
@@ -278,13 +278,13 @@ label day2_7:
 
     $ chat_message("incri: fuck ",fastmode=True)
 
-    $ chat_message("incri: pull it up thrim ",ot="wnpep")
+    $ chat_message("incri: {color="+color_help+"}pull it up thrim{/color}",ot="wnpep")
 
     $ chat_message("wnpep: remember ")
 
-    $ chat_message("wnpep: `select * from azgov.police_info`")
+    $ chat_message("wnpep: `select * \nfrom azgov.police_info`")
 
-    $ chat_message("wnpep: or click the table in your table list and hit execute")
+    $ chat_message("wnpep: or {color="+color_help+"}click the table in your table list{/color} and hit execute")
 
     jump wait_start
 
@@ -520,7 +520,7 @@ label day2_15:
 
     $ chat_message("incri: OKAY ")
 
-    $ chat_message("incri: GO LOOK AT THE TABLE ")
+    $ chat_message("incri: {color="+color_help+"}GO LOOK AT THE TABLE{/color}")
 
     $ chat_message("incri: #AZGOV.MARRIAGE#")
 
@@ -648,7 +648,7 @@ label day2_19:
     jump day2_20 
 
 label day2_20: 
-    $ chat_message("incri: let me know when ur fuckin g done finding dumbass cop in the marriage tbl")
+    $ chat_message("incri: let me know when ur fuckin g done {color="+color_help+"}finding dumbass cop in the marriage tbl{/color}")
 
     jump wait_start
 
@@ -770,7 +770,7 @@ label day2_25:
 
     $ chat_message("incri: I\"M TRYING TO EXTORT A COP BUT U ALL KEEP INTERRUPTING ME ")
 
-    $ chat_message("odxny: Apologies. ", ot="incri")
+    $ chat_message("odxny: Apologies. That does sound important.", ot="incri")
 
     $ chat_message("incri: THRIM ")
 
@@ -847,8 +847,6 @@ label day2_27:
 
     $ chat_message("incri: I\"M WAITING") 
 
-    $ chat_message("odxny: Lmao")  
-
     #MC: ok i got it 
     $ player_choice(
         [
@@ -885,6 +883,8 @@ label day2_27:
 
     $ chat_message("odxny: Reading up. What about the maiden name thing?")  
 
+    $ chat_message("odxny: Her last name could be Crane or Johnson imo.")  
+
     $ chat_message("incri: SEARCH FOR BOTH NAMES THEN????", ot="wnpep")  
 
     $ chat_message("wnpep: crane + johnson")  
@@ -898,7 +898,7 @@ label day2_27:
 
     $ chat_message("wnpep: {color="+color_help+"}you can use an OR{/color}")  
 
-    $ chat_message("wnpep: {color="+color_syntax+"}where full_name = 'laura johnson' or full_name = 'laura crane'{/color}") 
+    $ chat_message("wnpep: {color="+color_syntax+"}where full_name = 'laura johnson' \nor full_name = 'laura crane'{/color}") 
 
     #MC: ok ok ok 
     $ player_choice(
@@ -1117,7 +1117,11 @@ label day2_35:
 
     $ chat_message("incri: i'm still mad tbh ")
 
-    $ chat_message("wnpep: i'm sorta mad too. ")
+    $ chat_message("wnpep: i'm sorta disappointed too. ")
+
+    $ chat_message("elimf: no... not the disappointment...")
+
+    $ chat_message("wnpep: be better.")
 
     $ chat_message("odxny: We'll get more data eventually.")
 
@@ -1188,6 +1192,190 @@ label day2_37:
 
     $ chat_message("elimf: ol' faithful secretsmooch")
 
+    $ chat_message("wnpep: shameful. that site is specifically for cheating ",ot="incri")
+
+    $ chat_message("elimf: wait i have a CRITICAL question for the group")
+
+    $ chat_message("wnpep: ?", ot="elimf")
+
+    $ chat_message("elimf: if u were cheating on ur spouse and had a secretsmooch account")
+
+    $ chat_message("elimf: what would ur username be")
+
+    $ chat_message("wnpep: seriously?",ot="elimf")
+
+    $ chat_message("elimf: required 2 answer",ot="incri")
+
+    $ chat_message("elimf: mine would obviously be sexLord")
+
+    $ chat_message("odxny: No 420?")
+    
+    $ chat_message("elimf: tf kind of basic stoner do u think i AM")
+
+    $ chat_message("odxny: I mean.")
+
+    $ chat_message("elimf: incri ur turn")
+
+    $ chat_message("incri: b1tChfvCk3R69")
+
+    $ chat_message("elimf: LMAOOOOOOOOOOOOOOOOOO?????")
+
+    $ player_choice(
+        [
+            ("wow uh. very cool!", "day2_37_inc_1"), 
+            ("that's so incredibly stupid", "day2_37_inc_2")
+        ]
+    )
+
+label day2_37_inc_1: 
+
+    $ chat_message("incri: ty")
+
+    jump day2_37_inc
+
+label day2_37_inc_2: 
+
+    $ chat_message("incri: pls like urs will b ev en sick at all")
+
+    jump day2_37_inc
+
+label day2_37_inc: 
+
+    $ chat_message("wnpep: shouldn't use that type of language for women in a username")
+
+    $ chat_message("incri: uh huh ok expert wifeguy")
+
+    $ chat_message("wnpep: i'm not married")
+
+    $ chat_message("elimf: answer the question wnpep")
+    
+    $ chat_message("wnpep: i dont have an answer because i wouldn't cheat.")
+
+    $ chat_message("incri: is she in the room with u rn")
+
+    $ chat_message("wnpep: who?")
+
+    $ chat_message("incri: stupid")
+
+    $ chat_message("elimf: ok what abt u thrim")
+
+    $ chat_message("elimf: gonna need ur answer")
+
+    $ player_choice(
+        [
+            ("but wnpep didnt answer!", "day2_37_1"), 
+            ("ok ez. mine would be...", "day2_37_2")
+        ]
+    )
+
+# sexlord
+# where 420 
+# basic stoner u think i am 
+
+label day2_37_1: 
+
+    $ chat_message("elimf: lol u think u have the same freedom here as wnpep")
+
+    $ chat_message("incri: answer peon")
+
+    $ player_choice(
+        [
+            ("fuck's sake. mine would be...", "x")
+        ]
+    )
+
+    jump day2_37_2
+
+label day2_37_2: 
+
+    $ player_choice(
+        [
+            ("SecretLover", "day2_37_2_A"), 
+            ("fistingChamp92", "day2_37_2_B"), 
+            ("slackin_and_whackin", "day2_37_2_C")
+        ]
+    )
+
+label day2_37_2_A: 
+    
+    $ chat_message("elimf: ur so unbelievably boring")
+
+    $ chat_message("wnpep: it's sort of romantic. for a cheating username.")
+
+    $ player_choice(
+        [
+            ("look...", "x")
+        ]
+    )
+
+    jump day2_37_2_cont
+
+label day2_37_2_B: 
+
+    $ chat_message("elimf: CHAMP?")
+
+    $ chat_message("incri: probs a liar. probs never done it before")
+
+    $ player_choice(
+        [
+            ("u dont know me", "x")
+        ]
+    )
+
+    $ chat_message("incri: no fisting vibes honestly")
+
+    $ chat_message("wnpep: what exactly is a \"fisting vibe\"")
+
+    $ chat_message("incri: ya u definitely dont either")
+
+    jump day2_37_2_cont
+
+
+label day2_37_2_C: 
+
+    $ chat_message("elimf: oh HELL yea brother")
+
+    $ player_choice(
+        [
+            ("every day brother", "x")
+        ]
+    )
+
+    $ chat_message("elimf: every day")
+
+    $ chat_message("wnpep: juvenile.")
+
+    $ chat_message("incri: cringe i agree")
+
+    $ chat_message("elimf: LMAO")
+
+    jump day2_37_2_cont
+
+
+label day2_37_2_cont: 
+
+    $ chat_message("wnpep: don't we have a hack to do?")
+
+    $ chat_message("elimf: hold up. what's odxny's")
+
+    $ chat_message("incri: lol like theyd answr")
+
+    $ chat_message("elimf: u never know")
+
+    $ chat_message("odxny: I'm good, thanks.")
+
+    $ chat_message("elimf: heaviest of sighs")
+
+    $ chat_message("incri: we entitle u b1tChfvCk3R70")
+
+    $ chat_message("odxny: Back to the hack.")
+
+    $ chat_message("incri: FINE")
+
+    $ chat_message("incri: THRIM")
+
+    $ chat_message("incri: {color="+color_help+"}CHECK FOR BRUCE\"S EMIAL IN THE SECRETSMOOCH TABLE IMMEDIATELY{/color}")
+
     jump wait_start
 
     # waits for MC 
@@ -1221,8 +1409,6 @@ label day2_39:
             ("i got it! he's totally here!", "x")
         ]
     )
-
-    $ chat_message("wnpep: shameful. that site is specifically for cheating ",ot="incri")
 
     $ chat_message("incri: I KNEW IT ")
 

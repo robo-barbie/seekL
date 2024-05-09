@@ -713,7 +713,7 @@ label day4_20:
 
     $ chat_message("elimf: RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR")
 
-    jump day4_22 
+    jump day4_odm_1 
 
 
     # [2] MC: tf r you doing 
@@ -738,7 +738,80 @@ label day4_21:
         ]
     )
 
-    jump day4_22 
+    jump day4_odm_1 
+
+label day4_odm_1: 
+
+    $ chat_message("odxny: Well this is turning out to be a ride.", c="admin")
+
+    $ chat_message("odxny: elimf was only half this obnoxious for their other hacks.", c="admin")
+
+    #MC: looks like this is smth personal for them
+    $ player_choice(
+        [
+            ("looks like this is smth personal for them", "x")
+        ]
+    )
+
+    $ chat_message("odxny: Most likely. The trend of vengeance hacks seems to be continuing as well.", c="admin")
+
+    $ player_choice(
+        [
+            ("is your last hack also going to be a revenge thing?", "day4_odm_2"), 
+            ("did you guys all get into hacking for personal reasons?", "day4_odm_3")
+        ]
+    )
+
+
+    #[1] MC: is your last hack also going to be a revenge thing?
+label day4_odm_2: 
+
+    $ chat_message("odxny: No, nothing like that lmao.", c="admin")
+
+    $ chat_message("odxny: I'm sure I'll get booed for being the combo breaker.", c="admin")
+
+    jump day4_odm_4
+
+
+    #[2] MC: did you guys all get into hacking for personal reasons?
+label day4_odm_3:
+
+    $ chat_message("odxny: I don't know everyone else's reasons. I could guess if I had to think about it.", c="admin")
+
+    $ chat_message("odxny: Incri's seems the most transparent- petty vengeance, possibly boredom.", c="admin")
+
+    jump day4_odm_4
+
+
+    # end choices
+label day4_odm_4: 
+
+    #MC: what are your reasons for getting into hacking then?
+    $ player_choice(
+        [
+            ("what are your reasons for getting into hacking then?", "x")
+        ]
+    )
+
+    $ chat_message("odxny: Oh. That.", c="admin")
+
+    $ chat_message("odxny: I found some hacking forums early in my programming days, and just kind of fell into it.", c="admin")
+
+    $ chat_message("odxny: It was mostly just exercises and hackathons. Then it proved useful for the fund.", c="admin")
+
+    #MC: That's practical.
+    $ player_choice(
+        [
+            ("That's practical.", "x")
+        ]
+    )
+
+    $ chat_message("odxny: And unsurprising, I imagine.", c="admin")
+
+    $ chat_message("odxny: Let’s get back to it. Without us elimf’s going to go careening off a cliff.", c="admin")
+
+    jump day4_22
+
 
 
     # end choices
