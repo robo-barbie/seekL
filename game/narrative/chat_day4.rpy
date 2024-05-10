@@ -35,6 +35,7 @@ label day4_1:
 
     # [2] MC: thats a plus in a way- u know youre making em sweat
 label day4_2: 
+    $ points_seekLove += 1
 
     $ chat_message("wnpep: i do enjoy knowing that im racking up billable hours for them")
 
@@ -228,6 +229,7 @@ label day4_3:
 
     # [1] MC: why not kick incri's ass at teaching?
 label day4_4: 
+    $ points_seekLove += 1
 
     $ chat_message("elimf: ohohoho")
 
@@ -358,6 +360,7 @@ label day4_7:
 
     # [2] MC: why not the future 
 label day4_8: 
+    $ points_seekLove += 1
 
     $ chat_message("elimf: god ")
 
@@ -404,6 +407,7 @@ label day4_10:
 
     # [2] MC: absolutely captain! 
 label day4_11: 
+    $ points_seekLove += 1
 
     $ chat_message("elimf: oooooooo! ")
 
@@ -558,6 +562,7 @@ label day4_14:
 
 
 label day4_15: 
+    $ points_seekLove += 1
 
     $ chat_message("elimf: i know not...")
 
@@ -624,6 +629,7 @@ label day4_17:
 
     # [2] MC: listen to the boss elimf
 label day4_18: 
+    $ points_seekLove += 1
 
     $ chat_message("elimf: wow ")
 
@@ -706,6 +712,7 @@ label day4_19:
 
     # [1] MC: normal texan behavior 
 label day4_20: 
+    $ points_seekLove += 1
 
     $ chat_message("odxny: LMAO ")
 
@@ -719,15 +726,15 @@ label day4_20:
     # [2] MC: tf r you doing 
 label day4_21: 
 
-    $ chat_message("elimf: THE FUTILITY OF EVERYTHING ")
+    $ chat_message("elimf: the futility of. everything ")
 
-    $ chat_message("elimf: EVERYTHIGN WE HOLD DEAR")
+    $ chat_message("elimf: everything we hold dear")
 
-    $ chat_message("elimf: VANISHES ")
+    $ chat_message("elimf: vanishes ")
 
-    $ chat_message("elimf: DESPITE HOW WE ")
+    $ chat_message("elimf: despite how we")
 
-    $ chat_message("elimf: MADLY GR IP ")
+    $ chat_message("elimf: MADLY GRIP ")
 
     pause 1 
 
@@ -775,6 +782,7 @@ label day4_odm_2:
 
     #[2] MC: did you guys all get into hacking for personal reasons?
 label day4_odm_3:
+    $ points_seekLove += 1
 
     $ chat_message("odxny: I don't know everyone else's reasons. I could guess if I had to think about it.", c="admin")
 
@@ -907,6 +915,7 @@ label day4_23:
 
     #$ [1] MC: that was the only email there 
 label day4_24: 
+    $ points_seekLove += 1
 
     $ chat_message("odxny: I see.") 
 
@@ -996,6 +1005,7 @@ label day4_28:
 
 
 label day4_29: 
+    $ points_seekLove += 1
 
     $ chat_message("odxny: ?? That's not...")
 
@@ -1189,6 +1199,7 @@ label day4_31:
 
 
 label day4_31_A: 
+    $ points_seekLove += 1
 
     $ chat_message("odxny: I mean, you can...idk. It's up to elimf. Their hack.")
 
@@ -1348,6 +1359,7 @@ label day4_36:
 
 
 label day4_37: 
+    $ points_seekLove += 1
 
     $ chat_message("odxny: Yeah lol. ")
 
@@ -1376,6 +1388,7 @@ label day4_38:
 
     # [1] MC: oh no, go for it! 
 label day4_39: 
+    $ points_seekLove += 1
 
     $ chat_message("odxny: Thanks.")
 
@@ -1472,6 +1485,7 @@ label day4_41:
     
     # [1] MC: omg did you just extort someone over a childhood bet 
 label day4_42: 
+    $ points_seekLove += 1
 
     $ chat_message("elimf: THEY CAN RUN BUT THEY CANT HIDE ")
 

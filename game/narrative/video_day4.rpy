@@ -27,6 +27,7 @@ label day4_call:
                 "Sure.":
                     pass
         "Good point. Anything you want to talk about then?":
+            $ points_seekLove += 2
             o "I haven't thought of anything yet."
             menu: 
                 "Just say the first thing that comes to mind then.":
@@ -125,6 +126,7 @@ label day4_call:
 
     menu:
         "Not for me. I can't just forget you that easily.":
+            $ points_seekLove += 2
             show spr o2 scowl 
             o "Then–try!"
             o "You're putting so much on yourself, and for what?"
@@ -183,6 +185,7 @@ label day4_call:
             show spr o3 neutral 
             o "I'm not. "
         "Why?":
+            $ points_seekLove += 2
             show spr o2 side frown 
             o "(sigh) How the hell would I know? "
             o "Nothing seems to make sense anymore. "
@@ -212,6 +215,7 @@ label day4_call:
 
     menu:
         "I'm not sure, but...I think I feel a connection with you.":
+            $ points_seekLove += 2
             show spr o1 mad 
             o "Stop that. "
             show spr o1 neutral 

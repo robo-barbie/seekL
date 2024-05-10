@@ -50,6 +50,7 @@ label day2_1:
 
 
 label day2_2: 
+    $ points_seekLove += 1
 
     $ chat_message("incri: dont tell me what to do ")
 
@@ -74,6 +75,7 @@ label day2_2:
 
 
 label day2_3:
+    $ points_seekLove += 1
 
     $ chat_message("elimf: thaaaaaaaaaaaaaaaaaaaaaaaaaaaaank youuuuuuuuuuuuuuuu")
 
@@ -240,6 +242,7 @@ label day2_5:
 
 
 label day2_6: 
+    $ points_seekLove += 1
     $ chat_message("incri: ur sooooo funny hahahahaha")
     jump day2_7
 
@@ -338,6 +341,7 @@ label day2_9:
 
     #[1] MC: yes, i see it 
 label day2_10: 
+    $ points_seekLove += 1
 
     $ chat_message("incri: ez ")
     jump day2_12
@@ -469,6 +473,7 @@ label day2_13:
 
     #[2] MC: yay! 
 label day2_14:
+    $ points_seekLove += 1
 
     $ chat_message("incri: DESTROY ")
     jump day2_15
@@ -624,6 +629,7 @@ label day2_17:
 
     #[1] MC: i get it. i know what to do 
 label day2_18:
+    $ points_seekLove += 1
 
     $ chat_message("wnpep: great! ")
 
@@ -702,6 +708,8 @@ label day2_23:
 
 
 label day2_24: 
+    $ points_seekLove += 1
+
     $ chat_message("wnpep: middle initial? ", ot="incri")
 
     $ chat_message("incri: v hnvhnv nnv  nv jmj ")
@@ -1005,6 +1013,7 @@ label day2_31:
 
     #[2] MC: laura.crane.johnson@eeemail.com 
 label day2_32:     
+    $ points_seekLove += 1
 
     $ chat_message("wnpep: agreed. all the others don't seem as likely ") 
     pause 0.2
@@ -1074,6 +1083,7 @@ label day2_33:
 
     #[1] MC: infidelity? 
 label day2_34: 
+    $ points_seekLove += 1
 
     $ chat_message("incri: wait. genius. YES ")
 
@@ -1098,6 +1108,8 @@ label day2_34:
     #[2] MC: money problems?   
 
 label day2_35: 
+    $ points_seekLove += 1
+
     $ chat_message("odxny: Common, but... SOMEONE lost our bank network. ")
 
     $ chat_message("elimf: i said sorry already ")
@@ -1228,6 +1240,7 @@ label day2_37:
     )
 
 label day2_37_inc_1: 
+    $ points_seekLove += 1
 
     $ chat_message("incri: ty")
 
@@ -1311,6 +1324,7 @@ label day2_37_2_A:
     jump day2_37_2_cont
 
 label day2_37_2_B: 
+    $ points_seekLove += 1
 
     $ chat_message("elimf: CHAMP?")
 
@@ -1332,6 +1346,7 @@ label day2_37_2_B:
 
 
 label day2_37_2_C: 
+    $ points_seekLove += 1
 
     $ chat_message("elimf: oh HELL yea brother")
 
@@ -1472,6 +1487,7 @@ label day2_39:
 
     #[1] MC: no problem. i think 
 label day2_40: 
+    $ points_seekLove += 1
 
     $ chat_message("wnpep: u did great! be proud ")
 
@@ -1740,6 +1756,7 @@ label day2_43:
 
     # [2] MC: We're just ships passing in an undetermined time zone, huh
 label day2_44:
+    $ points_seekLove += 1
 
     $ chat_message("odxny: Thank you for the sincere and edited idiom.")
 
@@ -1829,6 +1846,7 @@ label day2_45:
 
     # [1] MC: about time!!
 label day2_46:
+    $ points_seekLove += 1
 
     $ chat_message("odxny: You can't hear it but I'm clapping for you.",c="admin")
 

@@ -67,6 +67,7 @@ label day1_call:
             #show spr o1 neutral 
 
         "What's your read? Dangerous? Useful? Alluring?":
+            $ points_seekLove += 2
 
             show spr o1 done frown 
             voice "audio/voice/day1/o1-010.ogg"
@@ -175,6 +176,7 @@ label day1_call:
                 "Yes!": 
                     pass 
         "I know. Advanced. Intimidated yet?": 
+            $ points_seekLove += 2
             show spr o1 happy
             voice "audio/voice/day1/o1-025.ogg"
             o "A little. Moreso because of how freely you admitted to this." 
@@ -200,6 +202,7 @@ label day1_call:
 
     menu: 
         "I'll try. ":
+            $ points_seekLove += 2
 
             show spr o1 neutral
             voice "audio/voice/day1/o1-030.ogg"

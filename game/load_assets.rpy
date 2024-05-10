@@ -1,6 +1,9 @@
 
 
 default in_call = False 
+default points_seekLoss = 0 
+default points_seekLife = 0 
+default points_seekLove = 0 
 
 # default persistent.seekLoss = False 
 # default persistent.FBIBanner = True 
