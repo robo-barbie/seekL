@@ -295,6 +295,13 @@ image spr o2 sad = LiveComposite(
     (0, 0), WhileSpeaking("odxny", "o2 mouth frown", "body2_mouth_frown.png"), #(character, mouth animation, mouth image when not speaking)
     )
 
+image spr o2 upset = LiveComposite(
+    (1.0, 1.0),
+    (0, 0), "body2.png", #body image
+    (0, 0), "o2 eyes upset", #eye animation
+    (0, 0), WhileSpeaking("odxny", "o2 mouth frown", "body2_mouth_frown.png"), #(character, mouth animation, mouth image when not speaking)
+    )
+
 image spr o2 scowl = LiveComposite(
     (1.0, 1.0),
     (0, 0), "body2.png", #body image
