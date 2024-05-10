@@ -270,4 +270,6 @@ label day4_call:
             pass
 
     $ _preferences.afm_enable = False 
-    $ renpy.pause(hard=True)
+    #$ renpy.pause(hard=True)
+
+    jump day5_seekLove_call

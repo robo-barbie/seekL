@@ -1,6 +1,9 @@
 
 label day5_seekLove_call: 
     $ first_line = True 
+    $ quick_menu = False 
+
+    scene black 
     menu: 
         "Hello?":
             pass
@@ -32,11 +35,24 @@ label day5_seekLove_call:
     menu:
         "Hey!":
             pass
+
+    show cg romantic 
+    camera:
+        ypos -522 xpos 1395 zoom 1.58
+        linear 5.0 xpos 324
+    with dissolve
     o "Now that that's over with, I am glad to hear from you."
     o "I should have planned out a conversation but I honestly didn't think beyond this step."
+
     menu:
         "That's unlike you.":
             pass
+
+    show cg romantic 
+    camera:
+        xpos -1494 ypos 1683 zoom 2.0
+        linear 5.0 ypos 2169
+    with dissolve
     o "I know."
     o "I was trying to channel you a little bit."
     menu:
@@ -88,6 +104,11 @@ label day5_seekLove_call:
         "Uh huh. Sure. ":
             pass
     pause 1
+    show cg romantic 
+    camera:
+        zoom 0.57 xpos 486 ypos 540
+        linear 4.0 zoom 0.5
+    with dissolve 
     o "Hah. It's not bad, actually. There's a nice breeze."
     o "It's...weird."
     o "Not unusual, but somehow it just feels different. Good different."
@@ -111,6 +132,11 @@ label day5_seekLove_call:
     menu:
         "For what?":
             pass
+    show cg romantic 
+    camera:
+        zoom 1.0 xpos -891 ypos 1091
+        linear 4.0 xpos -729
+    with dissolve 
     o "Being here."
     o "For calling me and... talking about nothing with me."
     o "For letting me ramble nonsense about the weather and whatever. "
@@ -131,7 +157,38 @@ label day5_seekLove_call:
     menu: 
         "I'd like that. See you then?":
             pass 
+    show cg romantic 
+    camera:
+        zoom 0.5 xpos 486 ypos 540
+    with dissolve 
     o "See you, stranger."
+
+    scene black 
+    camera: 
+        subpixel True pos (0,0) zoom 1.0
+    with dissolve
+
+    ##### for platonic route camera pans ###########################
+    show cg platonic 
+    camera:
+        zoom 1.60 xpos -2313 ypos -486
+        linear 5.0 xpos -1602
+    with dissolve
+    pause
+
+    show cg platonic 
+    camera:
+        zoom 1.60 xpos 144 ypos 423
+        linear 5.0 ypos 792
+    with dissolve
+    pause
+
+    show cg platonic 
+    camera:
+        zoom 0.57 xpos 486 ypos 540
+        linear 4.0 zoom 0.5
+    with dissolve 
+    
 
     $ persistent.seekLove = True 
 

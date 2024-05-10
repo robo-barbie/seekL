@@ -200,6 +200,13 @@ image spr o1 frown = LiveComposite(
     (0, 0), WhileSpeaking("odxny", "o1 mouth frown", "body1_mouth_frown.png"), #(character, mouth animation, mouth image when not speaking)
     )
 
+image spr o1 closed eye frown = LiveComposite(
+    (1.0, 1.0),
+    (0, 0), "body1.png", #body image
+    (0, 0), "o1 eyes blink", #eye animation
+    (0, 0), WhileSpeaking("odxny", "o1 mouth frown", "body1_mouth_frown.png"), #(character, mouth animation, mouth image when not speaking)
+    )
+
 image spr o1 side frown = LiveComposite(
     (1.0, 1.0),
     (0, 0), "body1.png", #body image
