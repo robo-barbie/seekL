@@ -3,7 +3,7 @@ label day2_call:
     voice "audio/voice/day2/o2-001.ogg"
     o "You know, now that I think about it I should be thanking you."
 
-    play music "audio/music/little_hand_on_the_clock.mp3" loop fadein 2.0 fadeout 2.0 
+    play music "audio/music/Reflection_in_the_Blank_Screen.mp3" loop fadein 2.0 fadeout 2.0 
 
     voice "audio/voice/day2/o2-002.ogg"
     o "By giving incri a reason to show off you gave them less room to be sloppy."

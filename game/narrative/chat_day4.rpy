@@ -2,7 +2,7 @@
 
 label day4_start: 
 
-    play music "audio/music/server_room_chiller_version.mp3" loop fadein 2.0 fadeout 2.0 
+    play music "audio/music/server_room.mp3" loop fadein 2.0 fadeout 2.0 
 
     $ chat_message("wnpep: hmm")
 

@@ -10,7 +10,7 @@ label day4_call:
     o "No real reason this time. Just felt like calling."
     show spr o1 neutral 
 
-    play music "audio/music/little_hand_on_the_clock.mp3" loop fadein 2.0 fadeout 2.0 
+    play music "audio/music/Reflection_in_the_Blank_Screen.mp3" loop fadein 2.0 fadeout 2.0 
     
     show spr o1 grin 
     o "And why not keep up the streak?"
