@@ -1,7 +1,3 @@
-
-
-label day5_seekLove_chat: 
-
     # chat
     # day1: 7 total, 5 possible
     # day2: 16 total, 14 possible 
@@ -24,7 +20,30 @@ label day5_seekLove_chat:
     # points_seekLove <= 25 = loss 
     # points_seekLove 25-50 = life 
     # points_seekLove >= 50 = love 
-    
+
+label day5_start: 
+
+    python: 
+        if points_seekLove <= 25: 
+            renpy.jump("day5_seekLoss_chat")
+        elif points_seekLove <= 50: 
+            renpy.jump("day5_seekLife_chat")
+        else: 
+            renpy.jump("day5_seekLove_chat")
+
+
+label day5_seekLoss_chat: 
+
+    $ renpy.pause(hard=True)
+
+
+label day5_seekLife_chat: 
+
+    $ renpy.pause(hard=True)
+
+
+label day5_seekLove_chat: 
+
     ## maybe instead of showing the screen, we have the player execute a command 
     ## and that command will let you start up a call if the number works 
     show screen secure_dial 
