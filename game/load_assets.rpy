@@ -133,6 +133,7 @@ image call_frame = "call_frame.png"
 
 image cg platonic = "cg_platonic.jpg"
 image cg romantic = "cg_romantic.jpg"
+image cg bad = "cg_bad.png"
 
 image cg platonic_zoom: 
     "cg platonic"
