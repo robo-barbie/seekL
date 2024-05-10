@@ -509,7 +509,7 @@ init python:
     gal = Gallery() # Setting up the gallery
     gal.button("bad") # defining the first CG button
     gal.condition("persistent.seekLoss")
-    gal.image("cg platonic_zoom") # which picture it unlocks
+    gal.image("cg bad") # which picture it unlocks
 
     gal.button("platonic")
     gal.condition("persistent.seekLife")
@@ -526,7 +526,7 @@ init python:
 # Rendering smaller versions of the CGs to use as the preview image
 image bad_cg_preview:
     "cg bad"
-    zoom 0.18
+    zoom 0.36
     #xoffset +15
     yoffset +65
 image gallery_locked:

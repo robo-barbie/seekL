@@ -4,7 +4,7 @@
 label day3_start: 
 
     #play music "audio/music/server_room_chiller_version.mp3" loop fadein 2.0 fadeout 2.0 
-    play music "audio/music/cracking_the_code.mp3" loop fadein 2.0 fadeout 2.0 
+    play music "audio/music/little_hand_on_the_clock.mp3" loop fadein 2.0 fadeout 2.0 
 
     $ chat_message("elimf: alright uhhh hh h")
 
@@ -55,6 +55,7 @@ label day3_1:
 
     # [2] MC: oh. saucy
 label day3_2: 
+    $ points_seekLove += 1
 
     # wnpep typing a while
 
@@ -80,6 +81,7 @@ label day3_2:
 
     # [3] MC: finally i have a purpose
 label day3_3: 
+    $ points_seekLove += 1
 
     $ chat_message("odxny: HA")
 
@@ -189,7 +191,7 @@ label day3_5:
     # MC: sweet!
     $ player_choice(
         [
-            ("sweet", "x")
+            ("sweet!", "x")
         ]
     )
 
@@ -247,6 +249,7 @@ label day3_6:
 
     # [2] MC: are we chasing an insurance company? 
 label day3_7:
+    $ points_seekLove += 1
 
     $ chat_message("wnpep: not exactly, but kind of")
 
@@ -298,6 +301,7 @@ label day3_8:
 
     # [1] MC: okay, i know what to do. 
 label day3_9:
+    $ points_seekLove += 1
 
     $ chat_message("incri: we'll see abt that ")
 
@@ -466,6 +470,7 @@ label day3_13:
 
     # [2] MC: maybe. 
 label day3_14:
+    $ points_seekLove += 1
 
     $ chat_message("elimf: maybe? ")
 
@@ -686,6 +691,7 @@ label day3_17:
 
 
 label day3_18: 
+    $ points_seekLove += 1
 
     $ chat_message("elimf: BOOOOOOOOOOOOOOOOO",ot="incri")
 
@@ -770,6 +776,7 @@ label day3_odm_3:
 
     #[1-2] MC: i take it all back. he's a menace
 label day3_odm_4: 
+    $ points_seekLove += 1
 
     $ chat_message("odxny: You may be the world's most devoted contrarian.", c="admin")
 
@@ -833,6 +840,7 @@ label day3_odm_5:
 
     #[3] MC: what if I need the threat of violence to learn
 label day3_odm_6: 
+    $ points_seekLove += 1
 
     $ chat_message("odxny: Do you ever listen to the words you're typing or saying?", c="admin")
 
@@ -1144,6 +1152,7 @@ label day3_21:
 
     # [3] MC: didn't you say one of the doctors was pocketing extra money? can we track that? 
 label day3_22: 
+    $ points_seekLove += 1
 
     $ chat_message("wnpep: excellent thinking thrim. and we can indeed")
 
@@ -1301,6 +1310,7 @@ label day3_25:
 
     # [2-A] MC: i think so 
 label day3_25A: 
+    $ points_seekLove += 1
 
     $ chat_message("wnpep: nice stuff od")
 
@@ -1320,7 +1330,7 @@ label day3_25B:
 
     $ chat_message("elimf: i take it back. u suck od ")
 
-    $ chat_message("odxny: Damn.")
+    $ chat_message("odxny: ...")
 
     $ chat_message("wnpep: eli")
 
@@ -1374,6 +1384,7 @@ label day3_27:
 
     # [1] MC: Bailey Yang 
 label day3_28: 
+    $ points_seekLove += 1
 
     # MC: PRIDE has them down as making 190k, irs as 120k 
     $ player_choice(
@@ -1478,6 +1489,7 @@ label day3_30:
 
     # [1] MC: am i just here to do petty work for you all 
 label day3_31: 
+    $ points_seekLove += 1
 
     $ chat_message("incri: yes ")
 
@@ -1643,6 +1655,7 @@ label day3_34:
 
     # [2] MC: thought it would feel better?
 label day3_35: 
+    $ points_seekLove += 1
 
     $ chat_message("wnpep: maybe a little")
 
@@ -1709,6 +1722,7 @@ label day3_36:
 
     # [1] MC: id be up for a toast!
 label day3_37: 
+    $ points_seekLove += 1
 
     $ chat_message("odxny: Let's take a minute to get our beverages of choice then.",c="admin")
 
@@ -1738,6 +1752,7 @@ label day3_39:
 
 
 label day3_40: 
+    $ points_seekLove += 1
 
     $ chat_message("odxny: What?",c="admin") 
 
@@ -1750,6 +1765,7 @@ label day3_40:
 
 
 label day3_40A: 
+    $ points_seekLove += 1
 
     pause 2 
 

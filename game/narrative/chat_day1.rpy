@@ -52,6 +52,7 @@ label day1_start:
     )
 
 label day1_1: 
+
     $ chat_message("incri: fed ")
 
     $ chat_message("incri: fucking fed ")
@@ -73,6 +74,8 @@ label day1_1:
 
     # [2] MC: hello 
 label day1_2: 
+    $ points_seekLove += 1
+
     $ chat_message("wnpep: speak more things please", ot="elimf")
 
     $ chat_message("elimf: hello ", ot="incri")
@@ -171,6 +174,7 @@ label day1_4:
 
     # [2] MC: you're bluffing. i'm super secure 
 label day1_5: 
+    $ points_seekLove += 1
 
     $ chat_message("wnpep: what haha because you're on a vpn or something")
 
@@ -206,6 +210,7 @@ label day1_6:
 
     # [1] MC: ok, sure, take my whole ten american dollars 
 label day1_7: 
+    $ points_seekLove += 1
 
     $ chat_message("elimf: are they lying wn")
 
@@ -430,6 +435,7 @@ label day1_15:
 
 # [2] MC: why is that so long and ugly... 
 label day1_17:
+    $ points_seekLove += 1
 
     $ chat_message("elimf: JUST LIKE MY EX", ot="incri") 
 
@@ -571,6 +577,8 @@ label day1_19_2_2:
 
 ## correct choice
 label day1_19_2_3: 
+    $ points_seekLove += 1
+
     $ chat_message("wnpep: yes! that's right!")
 
     $ chat_message("wnpep: if you want to see it even clearer, you can run this: `select hacker_name, number_of_hacks \nfrom table.example`")
@@ -684,6 +692,7 @@ label day1_19_2_cont_3_1:
 
 
 label day1_19_2_cont_3_2: 
+    $ points_seekLove += 1
 
     $ chat_message("elimf: my god they've done it")
 
@@ -827,6 +836,7 @@ label day1_27:
 
     # [2] MC: like i said, anytime. hit me up
 label day1_28: 
+    $ points_seekLove += 1
 
     $ chat_message("odxny: Well then.")
 

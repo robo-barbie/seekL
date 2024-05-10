@@ -4,7 +4,7 @@ label day3_call:
     voice "audio/voice/day3/o3-001.ogg"
     o "Well, here we are. Two hacks down, two to go."
 
-    play music "audio/music/little_hand_on_the_clock.mp3" loop fadein 2.0 fadeout 2.0 
+    play music "audio/music/Digital_Dream.mp3" loop fadein 2.0 fadeout 2.0 
 
     show spr o1 neutral 
     voice "audio/voice/day3/o3-002.ogg"
@@ -33,6 +33,7 @@ label day3_call:
             voice "audio/voice/day3/o3-006.ogg"
             o "...Maybe I shouldn't set that loose on the world."
         "I'd say so. Shame I won't get to test everything out with you guys.":
+            $ points_seekLove += 2
             show spr o1 smile 
             voice "audio/voice/day3/o3-007.ogg"
             o "You'll live. Not sure if your opsec will, though."
@@ -77,6 +78,7 @@ label day3_call:
 
     menu: 
         "What do you mean?":   
+            $ points_seekLove += 2
             #show spr o1 eyes closed  
             show spr o2 side frown
             voice "audio/voice/day3/o3-015.ogg"
@@ -178,6 +180,7 @@ label day3_call:
                 "I get it, I get it! Umm. Hm.": 
                     pass 
         "Well, well, well. Look who is caring now.":
+            $ points_seekLove += 2
             show spr o1 done
             voice "audio/voice/day3/o3-033.ogg"
             o "Hovering over the 'end call' button as we speak."
@@ -315,6 +318,7 @@ label day3_call:
             voice "audio/voice/day3/o3-056.ogg"
             o "I'll take that."
         "I like your laugh, by the way. ":
+            $ points_seekLove += 2
             show spr o3 silly 
             voice "audio/voice/day3/o3-057.ogg"
             o "Oh, my laugh? "

@@ -1,6 +1,9 @@
 
 
 default in_call = False 
+default points_seekLoss = 0 
+default points_seekLife = 0 
+default points_seekLove = 0 
 
 # default persistent.seekLoss = False 
 # default persistent.FBIBanner = True 
@@ -133,6 +136,7 @@ image call_frame = "call_frame.png"
 
 image cg platonic = "cg_platonic.jpg"
 image cg romantic = "cg_romantic.jpg"
+image cg bad = "cg_bad.png"
 
 image cg platonic_zoom: 
     "cg platonic"

@@ -3,7 +3,7 @@ label day2_call:
     voice "audio/voice/day2/o2-001.ogg"
     o "You know, now that I think about it I should be thanking you."
 
-    play music "audio/music/little_hand_on_the_clock.mp3" loop fadein 2.0 fadeout 2.0 
+    play music "audio/music/Reflection_in_the_Blank_Screen.mp3" loop fadein 2.0 fadeout 2.0 
 
     voice "audio/voice/day2/o2-002.ogg"
     o "By giving incri a reason to show off you gave them less room to be sloppy."
@@ -101,6 +101,7 @@ label day2_call:
 
     menu: 
         "Mhm. I like my little collection.":
+            $ points_seekLove += 2
             #show spr o1 grin 
             voice "audio/voice/day2/o2-020.ogg"
             o "Your trophy case of ridiculous languages?"
@@ -186,6 +187,7 @@ label day2_call:
 
     menu:
         "That sounds...a little lonely.":
+            $ points_seekLove += 2
             show spr o2 sad 
             voice "audio/voice/day2/o2-033.ogg"
             o "Maybe. Sure. "
@@ -245,6 +247,7 @@ label day2_call:
             show spr o1 eyes closed
             o "Then I'm out, as soon as possible. "
         "Wait, what? Why?!":
+            $ points_seekLove += 2
             show spr o1 side smile
             voice "audio/voice/day2/o2-047.ogg"
             o "Think I'm crazy? "
@@ -276,6 +279,7 @@ label day2_call:
             voice "audio/voice/day2/o2-053.ogg"
             o "So, without those connections there's nothing to hold me here."
         "No reasons? Nothing makes you happy here?":
+            $ points_seekLove += 2
             #show spr o3 neutral
             voice "audio/voice/day2/o2-054.ogg"
             o "Not for a long time."
@@ -324,6 +328,7 @@ label day2_call:
 
     menu:
         "I'd like that.":
+            $ points_seekLove += 2
             show spr o1 smile
             voice "audio/voice/day2/o2-064.ogg"
             o "I'll try to come up with a more engaging topic next time."
