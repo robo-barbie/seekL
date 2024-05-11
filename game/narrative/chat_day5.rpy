@@ -386,6 +386,18 @@ label day5_15:
     ## PART ONE 
 
     $ chat_message("odxny: Part one-- if someone was cheating on their spouse, I think a great alias would be \"butt_slutt_wutt\"")
+    ## SET REQUIREMENTS TO PROGRESS 
+    python: 
+        # WHAT COLUMNS THEY NEED TO SEE
+        exec_needed = None 
+        required_runs["columns"] = ["email"]
+        # WHAT TABLES THEY NEED TO ENTER 
+        required_runs["tables"] = ["secretsmooch.users"]
+        # WHAT IDS MUST APPEAR 
+        required_runs["idx"] = [("ss_cid", "98605-SS")]
+        # STOP THEM BEFORE THEY GET TOO FAR 
+        player_can_pass = False 
+        waiting_label = "day5_19"
 
     $ chat_message("elimf: WHAT ")
 
@@ -563,6 +575,18 @@ label day5_25:
     ## PART TWO 
 
     $ chat_message("odxny: Part two -- Someone at PRIDE has put in a strange coverage request for claim_type = \"TERMINATE\". Mind grabbing his email?") 
+    ## SET REQUIREMENTS TO PROGRESS 
+    python: 
+        # WHAT COLUMNS THEY NEED TO SEE
+        exec_needed = None 
+        required_runs["columns"] = ["email"]
+        # WHAT TABLES THEY NEED TO ENTER 
+        required_runs["tables"] = ["irs.contacts"]
+        # WHAT IDS MUST APPEAR 
+        required_runs["idx"] = [("irs_id", "I83277-164")]
+        # STOP THEM BEFORE THEY GET TOO FAR 
+        player_can_pass = False 
+        waiting_label = "day5_29"
 
     $ chat_message("incri: ?? ")
 
@@ -614,6 +638,11 @@ label day5_28:
 label day5_29: 
 
     #MC: \"OWIE\"?? 
+    $ player_choice(
+        [
+            ("\"OWIE\"??", "x")
+        ]
+    )
 
     $ chat_message("elimf: me when i ")
 
@@ -678,6 +707,18 @@ label day5_32:
     ## PART THREE 
 
     $ chat_message("odxny: Part three -- \"seekL\" may be about to die, but someone has to make sure nothing falls apart after and cover all our tracks. ")
+    ## SET REQUIREMENTS TO PROGRESS 
+    python: 
+        # WHAT COLUMNS THEY NEED TO SEE
+        exec_needed = None 
+        required_runs["columns"] = ["email"]
+        # WHAT TABLES THEY NEED TO ENTER 
+        required_runs["tables"] = ["irs.contacts"]
+        # WHAT IDS MUST APPEAR 
+        required_runs["idx"] = [("irs_id", "I36375-168")]
+        # STOP THEM BEFORE THEY GET TOO FAR 
+        player_can_pass = False 
+        waiting_label = "day5_36"
 
     $ chat_message("odxny: Can you find me the email for that living_contact? ")
 
@@ -1520,9 +1561,17 @@ label day5_seekLove_6:
         ]
     )
 
-    $ chat_message("odxny: (555) 448 4746",c="admin")
+    $ chat_message("odxny: A new function.",c="admin")
 
-    $ chat_message("odxny: Can you call that after the shutdown?",c="admin")
+    $ chat_message("odxny: `exec dial()`",c="admin")
+
+    $ player_choice(
+        [
+            ("and what exactly do i put in those parentheses this time?", "x")
+        ]
+    )
+
+    $ chat_message("odxny: Heard a phone number might work.",c="admin")
 
     #MC: hmm. suspicious
     $ player_choice(
@@ -1545,7 +1594,7 @@ label day5_seekLove_6:
     #MC: i will call it, promise
     $ player_choice(
         [
-            ("i will call it, promise", "x")
+            ("i will use it, promise", "x")
         ]
     )
 
@@ -1570,6 +1619,22 @@ label day5_seekLove_6:
     )
 
     $ chat_message("odxny: LMAO",c="admin")
+
+    $ player_choice(
+        [
+            ("but, wait, i need your number!", "x")
+        ]
+    )
+
+    $ chat_message("odxny: Yes! And, I've left it for you.",c="admin")
+
+    $ chat_message("odxny: I'm sure you can find it.",c="admin")
+
+    $ player_choice(
+        [
+            ("wow.", "x")
+        ]
+    )
 
     # general
 
@@ -1786,16 +1851,37 @@ label day5_seekLove_12:
 
     $ chat_message("odxny: 1")
 
+    $ func_access_dial = True 
+
     # server shut down
 
     # short credits
 
     pause 1 
 
-    jump day5_seekLove_call
+    # shut down server stuff 
 
+    stop music 
+    play sound "audio/sfx/data_loaded_001.ogg"
+    #$ defenses = True 
+    hide screen seekL_ui with Dissolve(0.1)
+    pause 0.2
+    $ server_kill = True
+    $ at_end = True 
+    $ player_is_waiting = True 
+    $ _preferences.afm_enable = False 
+
+    $ reset_chats() 
+
+    pause 2
+
+    show screen seekL_ui with Dissolve(2.0)
+    
+    #show screen phonecall_window_real
+
+    #jump day5_seekLove_call
 
     ## maybe instead of showing the screen, we have the player execute a command 
     ## and that command will let you start up a call if the number works 
-    show screen secure_dial 
+    #show screen secure_dial 
     $ renpy.pause(hard=True)

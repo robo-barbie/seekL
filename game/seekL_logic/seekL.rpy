@@ -172,6 +172,7 @@ define highlight_frame_console_pos = (850, 50)
 
 default defenses = False 
 default defenses_off = False 
+default server_kill = False 
 image defenses_top: 
     "#000000"
     alpha 0.0 
@@ -205,7 +206,9 @@ screen secure_dial:
     #     action Hide("secure_dial")
 
 screen seekL_ui: 
-    if defenses: 
+    if server_kill: 
+        add "images/chat_screenbg_kill.png"
+    elif defenses: 
         add "images/chat_screenbg_defense.jpg"
     else: 
         add "images/chat_screenbg.jpg"

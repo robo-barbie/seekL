@@ -1,19 +1,20 @@
-claim_no	claim_type	claim_doctor	claim_patient_id	claim_date	ins_name
-C7011	DIAGNOSIS	Bailey Yang	020-3838	2022-3-21	Gered Group
-C5227	PROCEDURE	Adriel Humphrey	020-2659	2023-2-26	Define
-C1751	SUPPLIES	Bailey Yang	020-5907	2023-2-23	Define
-C9879	DEVICES	Adriel Humphrey	020-5596	2022-8-18	Gered Group
-C4227	PHARMACEUTICALS	Bailey Yang	020-1727	2023-10-18	Define
-C7144	TRANSPORT	Adriel Humphrey	020-8151	2022-2-2	Gered Group
-C3945	DIAGNOSIS	Adriel Humphrey	020-8927	2023-10-15	Gered Group
-C5898	PROCEDURE	Bailey Yang	020-8722	2022-7-27	Gered Group
-C4197	SUPPLIES	Adriel Humphrey	020-8123	2023-5-2	Define
-C2198	DEVICES	Bailey Yang	020-2074	2023-8-12	Define
-C4980	PHARMACEUTICALS	Adriel Humphrey	020-9196	2023-5-3	Gered Group
-C6080	TRANSPORT	Bailey Yang	020-8549	2022-3-25	Define
-C2257	DIAGNOSIS	Adriel Humphrey	020-4379	2022-2-24	Gered Group
-C8381	PROCEDURE	Bailey Yang	020-2118	2023-12-24	Gered Group
-C3365	SUPPLIES	Adriel Humphrey	020-4073	2022-1-26	Define
-C6278	DEVICES	Bailey Yang	020-1842	2023-11-17	Define
-C2633	PHARMACEUTICALS	Adriel Humphrey	020-7608	2022-3-15	Define
-C7467	TRANSPORT	Adriel Humphrey	020-9579	2023-1-13	Define
+claim_no	claim_type	claim_doctor	claim_patient_id	claim_date	ins_name		
+C4951	DIAGNOSIS	Bailey Yang	020-8972	2022-12-18	Gered Group		
+C5976	PROCEDURE	Adriel Humphrey	020-3712	2023-12-16	Define		
+C1438	SUPPLIES	Bailey Yang	020-7879	2023-12-27	Define		
+C1441	DEVICES	Adriel Humphrey	020-2902	2022-2-19	Gered Group		
+C2932	PHARMACEUTICALS	Bailey Yang	020-8443	2023-3-16	Define		
+C3208	TRANSPORT	Adriel Humphrey	020-4020	2022-11-15	Gered Group		
+C1569	DIAGNOSIS	Adriel Humphrey	020-1106	2023-8-24	Gered Group		
+C1591	PROCEDURE	Bailey Yang	020-9320	2023-4-12	Gered Group		
+C4016	SUPPLIES	Adriel Humphrey	020-3653	2022-12-5	Define		
+C3966	DEVICES	Bailey Yang	020-3858	2023-9-23	Define		
+C7154	PHARMACEUTICALS	Adriel Humphrey	020-6278	2022-4-8	Gered Group		
+C6538	TRANSPORT	Bailey Yang	020-4504	2022-12-6	Define		
+C8064	DIAGNOSIS	Adriel Humphrey	020-2247	2022-6-8	Gered Group		
+C9560	PROCEDURE	Bailey Yang	020-5617	2023-2-20	Gered Group		
+C1085	SUPPLIES	Adriel Humphrey	020-2368	2023-9-2	Define		
+C6219	DEVICES	Bailey Yang	020-3911	2022-6-22	Define		
+C3117	PHARMACEUTICALS	Adriel Humphrey	020-9943	2023-8-1	Define		
+C2794	TRANSPORT	Adriel Humphrey	020-4700	2022-1-19	Define		
+C4128	TERMINATE	Arnold Schwarzenegger	020-3188	2029-5-15	Skynet		*

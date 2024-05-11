@@ -12,7 +12,9 @@ default where_parts = []
 default l_out = {}
 default func_access_email = False 
 default func_access_kill = False 
-default function_list = ["out", "kill"]
+default func_access_dial = False 
+default function_list = ["out", "dial"]
+default at_end = False
 
 init python: 
 
@@ -78,11 +80,13 @@ init python:
                 if loc_exec_start != "" and loc_exec_end != "": 
                     for idx in range(loc_exec + len("exec") + 1, loc_exec_start):
                         func_name = func_name + t[idx]
+                    func_name = func_name.strip() 
                 elif error_msg == "":
                     error_msg = "ERROR: NO PARENTHESES FOUND FOR FUNCTION"
 
                 # inputs
                 func = ""
+                func_dial = ""
                 if loc_exec_start != "" and loc_exec_end != "" and error_msg == "": 
                     for idx in range(loc_exec_start + 1, loc_exec_end):
                         func = func + t[idx]
@@ -95,7 +99,7 @@ init python:
                 if error_msg == "": 
                     if func_name == "out" and not func_access_email: 
                         error_msg = "ERROR: FUNCTION ACCESS DENIED"
-                    elif func_name == "kill" and not func_access_kill: 
+                    elif func_name == "dial" and not func_access_dial: 
                         error_msg = "ERROR: FUNCTION ACCESS DENIED"
                     elif func_name not in function_list: 
                         error_msg = "ERROR: FUNCTION NOT FOUND"
@@ -103,7 +107,18 @@ init python:
                 if error_msg == "": 
                     if func_name == "out": 
                         chat_message("SYSTEM: EXTORTION SENT - "+func.upper())
-                    if exec_needed: 
+                    elif func_name == "dial": 
+                        func = func.replace(" ", "").replace("-", "").replace("(", "").replace(")", "")
+                        for s in func.split():
+                            if s.isdigit(): 
+                                func_dial = func_dial + s
+                        if func_dial == "5554484746": 
+                            #renpy.hide_screen("seekl_ui")
+                            renpy.show_screen("phonecall_window_real")
+                        else: 
+                            func_name = func_name + "\n\nINPUT NUMBER CANNOT BE DIALED."
+
+                    if exec_needed and not at_end: 
                         player_input_confirm(exec_func = func_name, exec_input = func)
                     seekL_output = ["RAN FUNCTION: \n"+func_name]
                     previous_commands.append(t_og)
@@ -540,7 +555,8 @@ init python:
 
                     seekL_output = output_strings
                     renpy.play("audio/sfx/data_loaded_001.ogg")
-                    player_input_confirm(ta=list([join_name, table_name]), cols = cols_final, idx = l_out)
+                    if not at_end:
+                        player_input_confirm(ta=list([join_name, table_name]), cols = cols_final, idx = l_out)
 
             # except:
             #     error_msg = 'ERROR: UNKNOWN ERROR'

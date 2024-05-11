@@ -273,7 +273,8 @@ label day4_call:
         "Wait!":
             pass
 
-    $ _preferences.afm_enable = False 
-    #$ renpy.pause(hard=True)
+    ## must run these two lines to swap to next day 
+    $ next_day_number = "5"
+    jump day_swap
 
-    jump day5_seekLove_call
+    $ renpy.pause(hard=True)

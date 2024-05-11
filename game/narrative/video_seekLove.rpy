@@ -1,16 +1,16 @@
 
 label day5_seekLove_call: 
+    hide screen seekL_ui 
+    scene black 
+    hide screen phonecall_window_real with pixellate 
     stop music fadeout 0.5
     $ first_line = True 
     $ quick_menu = False 
-    hide screen seekL_ui 
 
     $ in_call = True 
     #$ chat_location = "DAY " +next_day_number+ " - CALL"
 
     $ _preferences.afm_enable = False 
-
-    scene black 
 
     pause 2 
     menu: 
