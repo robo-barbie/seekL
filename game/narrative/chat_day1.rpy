@@ -25,6 +25,11 @@ label day1_start:
 
     play music "audio/music/cracking_the_code.mp3" loop fadein 2.0 fadeout 2.0 
 
+    ## end testing 
+    #jump day5_seekLife_6
+    #jump day5_seekLoss_chat
+    #jump day5_seekLove_12
+
     $ chat_message("elimf: and that's when i literally took a handful of mud and",fastmode=True)
 
     pause 2 

@@ -750,6 +750,51 @@ screen seekL_ui:
 default is_paused = False  
 default player_set_pause = False 
 
+image fbi_lock: 
+    "cg_bad.png"
+    alpha 0.0
+    pause 3 
+    alpha 1.0 
+
+image cg_platonic_arrive: 
+    "cg platonic_zoom"
+    alpha 0.0
+    pause 3 
+    ease 2.0 alpha 1.0 
+
+screen game_over: 
+    #modal True 
+    add "#000000"
+    add "fbi_lock"
+
+screen game_over_text: 
+    text "end: seek{color=b3b3af80}Loss{/color}": 
+        xalign 0.5 
+        yalign 1.0 
+        font "Teko-VariableFont_wght.ttf"
+        size 100
+        color "#FFFFFF80"
+
+screen game_over_neutral: 
+    #modal True 
+    add "#000000"
+    #add "cg_platonic_arrive"
+
+screen game_over_neutral_text: 
+    text "end: seek{color=ecde8f80}Life{/color}": 
+        xalign 0.95 
+        yalign 1.0 
+        font "Teko-VariableFont_wght.ttf"
+        size 100
+        color "#FFFFFF80"
+screen game_over_good_text: 
+    text "end: seek{color=f57cdf80}Love{/color}": 
+        xalign 0.95 
+        yalign 1.0 
+        font "Teko-VariableFont_wght.ttf"
+        size 100
+        color "#FFFFFF80"
+
 screen timer_window: 
     on "show" action  SetVariable("seekL_output", "")
     timer 0.1 action [Function(process_seekL, seekL_text_send), Hide("timer_window")]

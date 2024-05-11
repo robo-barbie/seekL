@@ -1,13 +1,24 @@
 
 label day5_seekLove_call: 
+    stop music fadeout 0.5
     $ first_line = True 
     $ quick_menu = False 
+    hide screen seekL_ui 
+
+    $ in_call = True 
+    #$ chat_location = "DAY " +next_day_number+ " - CALL"
+
+    $ _preferences.afm_enable = False 
 
     scene black 
+
+    pause 2 
     menu: 
         "Hello?":
             pass
     $ first_line = False 
+    play music "audio/music/Digital_Dream.mp3" loop fadein 2.0 fadeout 2.0 
+    
     o "So you've held up your end of the bargain."
 
     menu:
@@ -163,33 +174,22 @@ label day5_seekLove_call:
     with dissolve 
     o "See you, stranger."
 
+    $ persistent.seekLove = True
+
+    pause 1 
+    show screen game_over_good_text with Dissolve(2.0) 
+    
+    pause 
+
+    hide screen game_over_good_text with dissolve
+
     scene black 
     camera: 
         subpixel True pos (0,0) zoom 1.0
     with dissolve
 
-    ##### for platonic route camera pans ###########################
-    show cg platonic 
-    camera:
-        zoom 1.60 xpos -2313 ypos -486
-        linear 5.0 xpos -1602
-    with dissolve
-    pause
+    stop music fadeout 3.0 
 
-    show cg platonic 
-    camera:
-        zoom 1.60 xpos 144 ypos 423
-        linear 5.0 ypos 792
-    with dissolve
-    pause
+    pause 4 
 
-    show cg platonic 
-    camera:
-        zoom 0.57 xpos 486 ypos 540
-        linear 4.0 zoom 0.5
-    with dissolve 
-    
-
-    $ persistent.seekLove = True 
-
-    $ renpy.pause(hard=True)
+    return 
