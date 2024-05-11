@@ -386,9 +386,10 @@ init python:
         if last_window != active_window and chat_speed != 100: 
             renpy.pause(2)
 
+        wait_time = len(t0)/5/chat_speed
+
         if not is_player:
             # pause before displaying the message + change who is typing 
-            wait_time = len(t0)/5/chat_speed
             if ot != "" and chat_speed != 100: 
                 set_is_typing(n + ", " + ot, wait_time, wait_time_prev, fastmode)
             elif n != "SYSTEM" and chat_speed != 100:
@@ -396,7 +397,8 @@ init python:
             elif chat_speed != 100 and n != "SYSTEM": 
                 renpy.pause(1.0)
 
-            wait_time_prev = wait_time/2
+        wait_time_prev = wait_time/2
+        
         if not nooutput: 
             # if we've never seen this channel before, add it 
             if c not in channels.keys(): 
@@ -443,8 +445,8 @@ init python:
             # update what the last window is 
             last_window = c 
 
-        # if (is_player or n == "SYSTEM") and chat_speed != 100: 
-        #     renpy.pause(0.5)
+            if (is_player) and chat_speed != 100 and not player_is_waiting and not at_end: 
+                renpy.pause(0.5)
 
         #if is_paused and player_set_pause and n != "thrim": 
         if not _preferences.afm_enable and n != "thrim" and not at_end and not player_is_waiting: 

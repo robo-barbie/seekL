@@ -822,7 +822,7 @@ label day4_odm_4:
 
     $ chat_message("odxny: And unsurprising, I imagine.", c="admin")
 
-    $ chat_message("odxny: Let’s get back to it. Without us elimf’s going to go careening off a cliff.", c="admin")
+    $ chat_message("odxny: Let's get back to it. Without us elimf's going to go careening off a cliff.", c="admin")
 
     jump day4_22
 
@@ -1094,77 +1094,149 @@ label day4_30:
 
     $ chat_message("incri: cringe")
 
+    jump day4_odm2_1
+
+
     ## odm part 2 
+label day4_odm2_1: 
 
-    # odxny: I’ve lined up my shopping list for tomorrow, but it feels like I’m missing something.
+    $ chat_message("odxny: I've lined up my shopping list for tomorrow, but it feels like I'm missing something.",c="admin")
 
-    # MC: like what?
+    #MC: like what?
+    $ player_choice(
+        [
+            ("like what?", "x")
+        ]
+    )
 
-    # odxny: Unsure. I’ve checked my supplies three times over.
+    $ chat_message("odxny: Unsure. I've checked my supplies three times over.",c="admin")
 
-    # odxny: It’s just a vague nagging feeling. 
+    $ chat_message("odxny: It's just a vague nagging feeling. ",c="admin")
 
-    # [1] MC: having second thoughts?
+    $ player_choice(
+        [
+            ("having second thoughts?", "day4_odm2_2"), 
+            ("maybe u need something fun?", "day4_odm2_3")
+        ]
+    )
 
-    # odxny: No. Nothing like that.
 
-    # MC: okay
+    #[1] MC: having second thoughts?
+label day4_odm2_2: 
+    $ points_seekLove += 1
 
-    # odxny: It’s going to happen.
+    $ chat_message("odxny: No. Nothing like that.",c="admin")
 
-    # [2] MC: maybe u need something fun?
+    #MC: okay
+    $ player_choice(
+        [
+            ("okay", "x")
+        ]
+    )
 
-    # odxny: What?
+    $ chat_message("odxny: It's going to happen.",c="admin")
 
-    # MC: u know, to keep u entertained
+    jump day4_odm2_4
 
-    # odxny: I’m going to be pretty busy already. It takes a lot of work to live off the grid.
 
-    # // end choices
+    #[2] MC: maybe u need something fun?
+label day4_odm2_3: 
 
-    # odxny: This isn’t helping. I need to look over everything again.
+    $ chat_message("odxny: What?",c="admin")
 
-    # MC: then why message me?
+    #MC: u know, to keep u entertained
+    $ player_choice(
+        [
+            ("u know, to keep u entertained", "x")
+        ]
+    )
 
-    # odxny: Because
+    $ chat_message("odxny: I'm going to be pretty busy already. It takes a lot of work to live off the grid.",c="admin")
 
-    # //pause
+    jump day4_odm2_4
 
-    # odxny: I don’t know.
 
-    # odxny: Force of habit?
+    # end choices
+label day4_odm2_4:
 
-    # // pause
+    $ chat_message("odxny: This isn't helping. I need to look over everything again.",c="admin")
 
-    # odxny: I don’t know.
+    #MC: then why message me?
+    $ player_choice(
+        [
+            ("then why message me?", "x")
+        ]
+    )
 
-    # MC: are you … sure you want to do this?
+    $ chat_message("odxny: Because",c="admin")
 
-    # odxny: Yes. Maybe. Yes.
+    pause 2
 
-    # odxny: It’s just last minute jitters. Travel anxiety.
+    $ chat_message("odxny: I don't know.",c="admin")
 
-    # odxny: Dealing with the finality.
+    $ chat_message("odxny: Force of habit?",c="admin")
 
-    # MC: u dont sound convinced
+    pause 2
 
-    # odxny: I am. I likely just need to sleep on it.
+    $ chat_message("odxny: I don't know.",c="admin")
 
-    # MC: i suppose so
+    #MC: are you ... sure you want to do this?
+    $ player_choice(
+        [
+            ("are you ... sure you want to do this?", "x")
+        ]
+    )
 
-    # odxny: Now you’re not convinced.
+    $ chat_message("odxny: Yes. Maybe. Yes.",c="admin")
 
-    # MC: i cant claim to be
+    $ chat_message("odxny: It's just last minute jitters. Travel anxiety.",c="admin")
 
-    # odxny: I guess I can’t argue with that.
+    #$ chat_message("odxny: Dealing with the finality.",c="admin")
 
-    # odxny: I’ll think on it. We have a little more time- there’s still my hack to finish.
+    #MC: u dont sound convinced
+    $ player_choice(
+        [
+            ("u dont sound convinced", "x")
+        ]
+    )
 
-    # MC: i’ll be here
+    $ chat_message("odxny: I am. I likely just need to sleep on it.",c="admin")
 
-    # odxny: Assuming elimf doesn’t go insane from waiting and take you out.
+    #MC: i suppose so
+    $ player_choice(
+        [
+            ("i suppose so", "x")
+        ]
+    )
 
-    # MC: LOL
+    $ chat_message("odxny: Now you're not convinced.",c="admin")
+
+    #MC: i cant claim to be
+    $ player_choice(
+        [
+            ("i cant claim to be", "x")
+        ]
+    )
+
+    $ chat_message("odxny: I guess I can't argue with that.",c="admin")
+
+    $ chat_message("odxny: I'll think on it. We have a little more time- there's still my hack to finish.",c="admin")
+
+    #MC: i'll be here
+    $ player_choice(
+        [
+            ("i'll be here", "x")
+        ]
+    )
+
+    $ chat_message("odxny: Assuming elimf doesn't go insane from waiting and take you out.",c="admin")
+
+    #MC: LOL
+    $ player_choice(
+        [
+            ("LOL", "x")
+        ]
+    )
 
 
     $ chat_message("elimf: pls thrim. {color="+color_help+"}pls find me elsie patrick's email{/color}")

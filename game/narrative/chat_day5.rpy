@@ -585,7 +585,144 @@ label day5_24:
 
     $ chat_message("wnpep: it's not! ")
 
-    jump day5_25 
+    jump day5_odm_1# day5_25 
+
+
+label day5_odm_1: 
+
+    $ chat_message("odxny: Hi. I'm glad you're getting into the game.",c="admin")
+
+    $ chat_message("odxny: I know it's not much, but I wanted to do something.",c="admin")
+
+    $ chat_message("odxny: Didn't want to leave things on that note yesterday.",c="admin")
+
+    $ player_choice(
+        [
+            ("thats...really sweet", "day5_odm_2"), 
+            ("makes sense. appreciate it", "day5_odm_3")
+        ]
+    )
+
+
+    #[1] MC: thats…really sweet
+label day5_odm_2:
+    $ points_seekLove += 1
+
+    $ chat_message("odxny: It's just a silly little game. I didn't want things to be weird and sad.",c="admin")
+
+    #MC: it'll still be sad but it is making me smile
+    $ player_choice(
+        [
+            ("it'll still be sad but it is making me smile", "x")
+        ]
+    )
+
+    $ chat_message("odxny: That's all I can ask for.",c="admin")
+
+    jump day5_odm_4
+
+
+    #[2] MC: appreciate it
+label day5_odm_3: 
+    $ points_seekLove -= 1
+
+    $ chat_message("odxny: Yeah. Of course.",c="admin")
+
+    jump day5_odm_4
+
+
+    # end choices
+label day5_odm_4: 
+
+    $ chat_message("odxny: If things can end on a good note, then I'm happy.",c="admin")
+
+    #MC: bit of a pivot from a few days ago
+    $ player_choice(
+        [
+            ("bit of a pivot from a few days ago", "x")
+        ]
+    )
+
+    $ chat_message("odxny: I know. The others are right, I've gone soft.",c="admin")
+
+    #higher favor
+    if points_seekLove > 25: 
+
+        $ chat_message("odxny: Not sure if it's a bad thing.",c="admin")
+
+        #MC: yeah?
+        $ player_choice(
+            [
+                ("yeah?", "x")
+            ]
+        )
+
+        $ chat_message("odxny: I'm not promising anything. Only…stating my thoughts.",c="admin")
+
+        #MC: thats okay!
+        $ player_choice(
+            [
+                ("thats okay!", "x")
+            ]
+        )
+
+    #lower favor
+    else: 
+
+        $ chat_message("odxny: Silly thing to do.",c="admin")
+
+        #MC: is it?
+        $ player_choice(
+            [
+                ("is it?", "x")
+            ]
+        )
+
+        $ chat_message("odxny: Yes. I let myself forget the expiration date on all this.",c="admin")
+
+        #MC: right…
+        $ player_choice(
+            [
+                ("right...", "x")
+            ]
+        )
+
+
+    # end branching
+
+    $ chat_message("odxny: But I'm glad you were a part of this.",c="admin")
+
+
+    # low favor
+    if points_seekLove <= 25: 
+
+        $ chat_message("odxny: Thank you, for making this fun.",c="admin")
+
+        #MC: of course
+        $ player_choice(
+            [
+                ("of course", "x")
+            ]
+        )
+
+    # high favor
+    else: 
+
+        $ chat_message("odxny: Thank you stranger, for making this fun.",c="admin")
+
+        #MC: heh. of course
+        $ player_choice(
+            [
+                ("heh. of course", "x")
+            ]
+        )
+
+    # end branching
+
+    $ chat_message("odxny: Now let's get back to it.",c="admin")
+
+    jump day5_25
+
 
 
     # end choices 
@@ -892,7 +1029,7 @@ label day5_36:
     $ chat_message("wnpep: always a pleasure to see you work")
 
     # if low favor
-    if points_seekLove < 25: 
+    if points_seekLove <= 25: 
 
         $ chat_message("odxny: Not the most elegant, but it'll get the response I need.")
 
@@ -1036,13 +1173,13 @@ label day5_44:
 
     pause 1 
 
-    stop music fadeout 1.0 
-
-    play music "audio/music/little_hand_on_the_clock.mp3" fadein 3.0 
+    stop music fadeout 3.0 
 
     $ chat_message("odxny: To get back on track, I'll start the countdown in a few minutes.")
 
     $ chat_message("incri: do we have t wait for that")
+
+    play music "audio/music/little_hand_on_the_clock.mp3" fadein 3.0 
 
     $ chat_message("incri: bc im bored")
 
