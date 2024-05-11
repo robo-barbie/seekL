@@ -177,7 +177,7 @@ init python:
         seekL_text_send = seekL_recent_example
 
     # new message
-    def chat_message(s, c="all", ot="", is_player = False, fastmode=False): # string, channel, others typing, is player
+    def chat_message(s, c="all", ot="", is_player = False, fastmode=False,nooutput=False): # string, channel, others typing, is player
         global chat_speed 
         global channels
         global channels_names
@@ -396,24 +396,25 @@ init python:
                 renpy.pause(1.0)
 
             wait_time_prev = wait_time/2
+        if not nooutput: 
+            # if we've never seen this channel before, add it 
+            if c not in channels.keys(): 
+                channels[c] = []
+                channels_last_sender[c] = "" 
 
-        # if we've never seen this channel before, add it 
-        if c not in channels.keys(): 
-            channels[c] = []
-            channels_last_sender[c] = "" 
+            # if not active in that channel, light up that button 
+            if current_window != c: 
+                channels_new_message[c] = True 
 
-        # if not active in that channel, light up that button 
-        if current_window != c: 
-            channels_new_message[c] = True 
-
-        # send the message 
-        # if channels_last_sender[c] == n and last_window == active_window: 
-        #     channels[c].append(t)
-        # else: 
-        #     channels[c].append("\n{b}" + n +  " " + character_names[n] +  "{/b}\n" + t)
-        channels[c].append(t)
-        channels_names[c].append(n)
-        channels_times[c].append(str(datetime.now().strftime('%H:%M')))
+            # send the message 
+            # if channels_last_sender[c] == n and last_window == active_window: 
+            #     channels[c].append(t)
+            # else: 
+            #     channels[c].append("\n{b}" + n +  " " + character_names[n] +  "{/b}\n" + t)
+        
+            channels[c].append(t)
+            channels_names[c].append(n)
+            channels_times[c].append(str(datetime.now().strftime('%H:%M')))
         # channels = channels[-100:].copy()
         # channels_names = channels_names[-100:].copy()
         # channels_times = channels_times[-100:].copy()
@@ -435,10 +436,11 @@ init python:
         #yadj.value = yadjValue
 
         # update who the new last sender is 
-        channels_last_sender[c] = n
+        if not nooutput: 
+            channels_last_sender[c] = n
 
-        # update what the last window is 
-        last_window = c 
+            # update what the last window is 
+            last_window = c 
 
         # if (is_player or n == "SYSTEM") and chat_speed != 100: 
         #     renpy.pause(0.5)

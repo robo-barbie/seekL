@@ -73,7 +73,7 @@ label day4_3:
 
     $ chat_message("wnpep: youre not getting a cut elimf")
 
-    $ chat_message("elimf: aww")
+    $ chat_message("elimf: aww",ot="odxny")
 
     $ chat_message("odxny: Looks like you'll have to work for your dinner, pep.")
 
@@ -114,7 +114,7 @@ label day4_3:
 
     $ chat_message("elimf: could u be swayed by ANTI-HACK ARMOR or TURBOSHIELD")
 
-    $ chat_message("odxny: No.")
+    $ chat_message("odxny: No.",ot="elimf")
 
     $ chat_message("elimf: MAGIC FUCKOFF WALL")
 
@@ -164,6 +164,8 @@ label day4_3:
 
     $ chat_message("incri: cmonnn")
 
+    pause 1 
+
     $ chat_message("elimf:  well")
     $ defenses_off = False 
 
@@ -181,13 +183,13 @@ label day4_3:
 
     $ chat_message("incri: getting too too hgih to move doesnt count")
 
-    $ chat_message("elimf: ok look")
+    $ chat_message("elimf: ok look",ot="wnpep")
 
     $ chat_message("wnpep: thisll be good")
 
     $ chat_message("elimf: i have vowed to stay sober until my hack is done")
 
-    $ chat_message("odxny: Very admirable.")
+    $ chat_message("odxny: Very admirable.",ot="wnpep")
 
     $ chat_message("wnpep: and when did you last partake again")
 
@@ -231,9 +233,9 @@ label day4_3:
 label day4_4: 
     $ points_seekLove += 1
 
-    $ chat_message("elimf: ohohoho")
+    $ chat_message("elimf: ohohoho",ot="incri")
 
-    $ chat_message("incri: u fckn wiishhhhh")
+    $ chat_message("incri: u fckn wiishhhhh",ot="elimf",fastmode=True)
 
     $ chat_message("elimf: this gets more tempting by the second")
 
@@ -284,7 +286,7 @@ label day4_6:
         ]
     )
 
-    $ chat_message("wnpep: guess we'll have you paying dues until the last")
+    $ chat_message("wnpep: guess we'll have you paying dues until the last",ot="odxny")
 
     $ chat_message("odxny: Elimf teaching? This should be good.")
 
@@ -306,7 +308,7 @@ label day4_6:
 
     $ chat_message("wnpep: id love to put up a list but i really do have to go now")
 
-    $ chat_message("incri: COWARD")
+    $ chat_message("incri: COWARD",ot="odxny")
 
     $ chat_message("odxny: Later, pep.")
 
@@ -409,7 +411,7 @@ label day4_10:
 label day4_11: 
     $ points_seekLove += 1
 
-    $ chat_message("elimf: oooooooo! ")
+    $ chat_message("elimf: oooooooo! ",ot="odxny")
 
     $ chat_message("odxny: Who's captain? ")
 
@@ -419,7 +421,7 @@ label day4_11:
 
     $ chat_message("elimf: i think ur qualified to be capt od ")
 
-    $ chat_message("elimf: but i'm the captain ")
+    $ chat_message("elimf: but i'm the captain now.")
 
     $ chat_message("odxny: Unsure about that. ")
 
@@ -433,9 +435,9 @@ label day4_12:
 
     $ chat_message("elimf: there was once a young boy with a freckled face")
 
-    $ chat_message("elimf: who disappeared from earth without a trace")
+    $ chat_message("elimf: who disappeared from earth without a trace",ot="incri")
 
-    $ chat_message("incri: stop that ")
+    $ chat_message("incri: stop that ",ot="elimf",fastmode=True)
 
     $ chat_message("elimf: despite a long hunt")
 
@@ -443,11 +445,15 @@ label day4_12:
 
     $ chat_message("elimf: the mystery continues to be annoying ")
 
+    pause 1 
+
     $ chat_message("odxny: That's not a rhyme. ")
 
     $ chat_message("elimf: what ")
 
     $ chat_message("elimf: i wasn't rhyming ")
+
+    pause 1 
 
     $ chat_message("odxny: What ")
 
@@ -502,11 +508,11 @@ label day4_13:
 
     $ chat_message("odxny: It is?? ")
 
-    $ chat_message("odxny: That shouldn't be possible. ")
+    $ chat_message("odxny: That shouldn't be possible. ",ot="elimf")
 
-    $ chat_message("elimf: ALAS ")
+    $ chat_message("elimf: alas ")
 
-    $ chat_message("elimf: WE WANDER STILL THROUGH THE FOG... ")
+    $ chat_message("elimf: we wander still through the fog... ")
 
     $ chat_message("incri: oh m y god shut th fck up ")
 
@@ -514,7 +520,7 @@ label day4_13:
 
     $ chat_message("elimf: ofc i checked the death tables fuckass ")
 
-    $ chat_message("incri: doubt ")
+    $ chat_message("incri: doubt ",ot="odxny")
 
     $ chat_message("odxny: If they were in the death tables, they'd still be in the contact tables.")
 
@@ -579,7 +585,7 @@ label day4_16:
 
     $ chat_message("elimf: they are simply ")
 
-    $ chat_message("elimf: the past ")
+    $ chat_message("elimf: the past ",ot="incri")
 
     $ chat_message("incri: i'm not reading this sht rn ")
 
@@ -698,9 +704,9 @@ label day4_19:
 
     $ chat_message("elimf: GRRRAAAAAUUUUUGGGGHHHHHHHHHHHHHHHH")
 
-    $ chat_message("odxny: o ")
+    $ chat_message("odxny: o ",ot="elimf")
 
-    $ chat_message("elimf: RRRRRAAAAAUUUUUGGGHGHGHGHHHGHHHGHGHGHHHHHHHHHH")
+    $ chat_message("elimf: RRRRRAAAAAUUUUUGGGHGHGHGHHHGHHHGHGHGHHHHHHHHHH",fastmode=True)
 
     $ player_choice(
         [
@@ -714,7 +720,7 @@ label day4_19:
 label day4_20: 
     $ points_seekLove += 1
 
-    $ chat_message("odxny: LMAO ")
+    $ chat_message("odxny: LMAO ",ot="elimf")
 
     $ chat_message("elimf: I\"M GONNAAAAAAAAA GGGGRRRARUAUAUAUUAUUGHGGHHHHHHGHH")
 
@@ -734,7 +740,7 @@ label day4_21:
 
     $ chat_message("elimf: despite how we")
 
-    $ chat_message("elimf: MADLY GRIP ")
+    $ chat_message("elimf: madly grip")
 
     pause 1 
 
@@ -829,7 +835,7 @@ label day4_22:
 
     $ chat_message("elimf: ok i'm back in human form")
 
-    $ chat_message("odxny: Thank god. ")
+    $ chat_message("odxny: Welcome back. ",ot="elimf")
 
     $ chat_message("elimf: please {color="+color_help+"}take a look in the foster table for our foster child{/color} ")
 
@@ -899,7 +905,7 @@ label day4_23:
 
     $ chat_message("elimf: WHAT ")
 
-    $ chat_message("elimf: MSUJGHUIHUOH???? ")
+    $ chat_message("elimf: MSUJGHUIHUOH???? ",ot="odxny")
 
     $ chat_message("odxny: ....Not used to the IRS data being this wrong. ")
 
@@ -954,7 +960,7 @@ label day4_26:
 
     $ chat_message("odxny: Kenneth? ")
 
-    $ chat_message("odxny: Worth a check, I suppose. ")
+    $ chat_message("odxny: Worth a check, I suppose. ",ot="elimf")
 
     $ chat_message("elimf: devastating if real..... ")
 
@@ -1007,9 +1013,9 @@ label day4_28:
 label day4_29: 
     $ points_seekLove += 1
 
-    $ chat_message("odxny: ?? That's not...")
+    $ chat_message("odxny: ?? That's not...",ot="elimf")
 
-    $ chat_message("elimf: oh WHEW")
+    $ chat_message("elimf: oh WHEW",fastmode=True)
 
     $ chat_message("elimf: okay, i can breathe again")
 
@@ -1063,7 +1069,7 @@ label day4_30:
 
     $ chat_message("odxny: elimf for sure ")
 
-    $ chat_message("incri: good ")
+    $ chat_message("incri: good ",ot="elimf")
 
     $ chat_message("elimf: cease")
 
@@ -1116,11 +1122,7 @@ label day4_31:
 
     $ chat_message("elimf: hey at lesast the last one was dead ")
 
-    $ chat_message("incri: dead cops???? ")
-
-    $ chat_message("odxny: We did NOT kill a cop. ")
-
-    $ chat_message("incri: tf ")
+    $ chat_message("incri: dead cops???? ",ot="elimf")
 
     $ chat_message("elimf: EMAIL TIME ")
 
@@ -1205,7 +1207,7 @@ label day4_31_A:
 
     $ chat_message("elimf: ty. ur probs right but. LMAO")
 
-    $ chat_message("odxny: Lmao")
+    $ chat_message("odxny: Lmao",ot="elimf")
 
     $ chat_message("elimf: {color="+color_help+"}ship it thrimmy{/color}")
 
@@ -1214,7 +1216,7 @@ label day4_31_A:
 
 label day4_31_B: 
 
-    $ chat_message("odxny: k")
+    $ chat_message("odxny: k",ot="elimf")
 
     $ chat_message("elimf: go on thrim {color="+color_help+"}SHIP IT OUT{/color}")
 
@@ -1225,7 +1227,7 @@ label day4_31_B:
 
 label day4_32: 
 
-    $ chat_message("odxny: Crazy lmao ")
+    $ chat_message("odxny: Crazy lmao ",ot="incri")
 
     $ chat_message("incri: ur a part of ths now")
 
@@ -1245,11 +1247,11 @@ label day4_32:
 
 label day4_33: 
 
-    $ chat_message("odxny: Wait what was that email?")
+    $ chat_message("odxny: Wait what was that email?",ot="incri,elimf")
 
-    $ chat_message("incri: LMAO??? THRIM???")
+    $ chat_message("incri: LMAO??? THRIM???",ot="elimf",fastmode=True)
 
-    $ chat_message("elimf: omg thrim what have u done")
+    $ chat_message("elimf: omg thrim what have u done",fastmode=True)
 
     # MC: I THOUGHT YOU SAID IT WAS JUST A GENERIC EMAIL 
     $ player_choice(
@@ -1258,9 +1260,9 @@ label day4_33:
         ]
     )
 
-    $ chat_message("elimf: a very SCARY generic email")
+    $ chat_message("elimf: a very SCARY generic email",ot="incri")
 
-    $ chat_message("incri: HAHAHAHAHAHA")
+    $ chat_message("incri: HAHAHAHAHAHA",ot="odxny",fastmode=True)
 
     $ chat_message("odxny: Thrim...")
 
@@ -1299,7 +1301,7 @@ label day4_34:
 
     $ chat_message("odxny: We use that to skim and grab as many emails as we can but ")
 
-    $ chat_message("odxny: It's a little limited. ")
+    $ chat_message("odxny: It's a little limited. ",ot="elimf")
 
     $ chat_message("elimf: welcome to the glorious world of #emails.content#")
     pause 0.5
@@ -1449,11 +1451,11 @@ label day4_41:
 
     $ chat_message("elimf: brimming with ")
 
-    $ chat_message("elimf: hope ")
+    $ chat_message("elimf: hope ",ot="incri")
 
-    $ chat_message("incri: gonna log off agn i swear 2 gd ")
+    $ chat_message("incri: gonna log off agn i swear 2 gd ",ot="elimf")
 
-    $ chat_message("elimf: a young youth who ")
+    $ chat_message("elimf: a young youth who ",fastmode=True)
 
     $ chat_message("elimf: who happened to lose ")
 
@@ -1461,9 +1463,9 @@ label day4_41:
 
     $ chat_message("elimf: and this bet had ")
 
-    $ chat_message("elimf: INTEREST ATTACHED")
+    $ chat_message("elimf: INTEREST ATTACHED",ot="incri")
 
-    $ chat_message("incri: wait LMAO")
+    $ chat_message("incri: wait LMAO",ot="elimf")
 
     $ chat_message("elimf: AND THOUGH HE'S BEEN TRYING TO HIDE ")
 
@@ -1487,7 +1489,7 @@ label day4_41:
 label day4_42: 
     $ points_seekLove += 1
 
-    $ chat_message("elimf: THEY CAN RUN BUT THEY CANT HIDE ")
+    $ chat_message("elimf: THEY CAN RUN BUT THEY CANT HIDE ",ot="odxny")
 
     $ chat_message("odxny: I see friendship meant a lot to you.") 
 
@@ -1503,7 +1505,7 @@ label day4_43:
 
     $ chat_message("elimf: a waste of time i AGREE ")
 
-    $ chat_message("elimf: this was inevitable ")
+    $ chat_message("elimf: this was inevitable ",ot="incri")
 
     $ chat_message("incri: holy shit letsGOOOOOOOOOOOOOOO")
 
@@ -1540,7 +1542,7 @@ label day4_44:
 
     $ chat_message("SYSTEM: RESPONSE - Fine. Fuck you. I fucking hate you. I'm gonna fucking find you you sack of rank shit. Take your fucking money. I'm tired of dealing with you. ")
 
-    $ chat_message("elimf: WOOOOOOO ")
+    $ chat_message("elimf: WOOOOOOO ",ot="wnpep")
 
     $ chat_message("wnpep: what the fuck ")
 
@@ -1566,7 +1568,7 @@ label day4_44:
 
     pause 0.5 
 
-    $ chat_message("wnpep: holy crap ")
+    $ chat_message("wnpep: holy crap ",ot="odxny")
 
     $ chat_message("odxny: Cut? ")
 
@@ -1598,9 +1600,9 @@ label day4_44:
 
     $ chat_message("elimf: of righteous vengeance")
 
-    $ chat_message("elimf: of IMMINENT VICTORY")
+    $ chat_message("elimf: of IMMINENT VICTORY",ot="wnpep")
 
-    $ chat_message("wnpep: alright alright")
+    $ chat_message("wnpep: alright alright",ot="odxny")
 
     $ chat_message("odxny: I'd say you've earned your bowl.")
 
