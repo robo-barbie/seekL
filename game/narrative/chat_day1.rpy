@@ -287,7 +287,7 @@ label day1_9:
 
     $ player_choice(
         [
-            ("like ethical hacking ", "x"), 
+            ("like ethical hacking?", "x"), 
         ]
     )
 
@@ -375,7 +375,7 @@ label day1_13:
 
     $ chat_message("elimf: phew ")
 
-    $ chat_message("wnpep: let's go through an example anyway")
+    $ chat_message("wnpep: here, let me show you an example table we have")
 
     jump day1_15
 
@@ -384,7 +384,7 @@ label day1_14:
 
     $ chat_message("incri: lollllllllllll")
 
-    $ chat_message("wnpep: let's go through an actual example now")
+    $ chat_message("wnpep: here, let me show you an example table we have")
 
     jump day1_15
 

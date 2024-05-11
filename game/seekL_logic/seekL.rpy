@@ -616,10 +616,14 @@ screen seekL_ui:
         #             action NullAction()
         
     # qa hell 
-    # hbox: 
-    #     spacing 10 
-    #     # text current_window 
-    #     # text active_window 
+    hbox: 
+        spacing 10 
+        text str(points_seekLove)
+        # text str(is_paused) 
+        # text str(player_set_pause) 
+        text str(_preferences.afm_enable)
+        # text current_window 
+        # text active_window 
     #     if tables_active: 
     #         vbox: 
     #             for i in tables_active: 

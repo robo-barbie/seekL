@@ -445,11 +445,18 @@ init python:
         # if (is_player or n == "SYSTEM") and chat_speed != 100: 
         #     renpy.pause(0.5)
 
-        if is_paused and player_set_pause and n != "thrim": 
-            player_set_pause = False 
+        #if is_paused and player_set_pause and n != "thrim": 
+        if not _preferences.afm_enable and n != "thrim": 
+            #player_set_pause = False 
             renpy.pause()
-        elif is_paused: 
-            is_paused = False 
+            _preferences.afm_enable = True 
+            #is_paused = False 
+        # elif is_paused and player_set_pause and n == "thrim":
+        #     player_set_pause = False  
+        #     is_paused = False 
+        elif not _preferences.afm_enable: 
+            _preferences.afm_enable = True 
+            #is_paused = False 
 
     # show who is typing + logic for timing 
     def set_is_typing(n, wt, wtp, fastmode=False): # names 

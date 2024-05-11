@@ -163,7 +163,7 @@ screen video_call_window:
     add "#00000077"
     add "video_call_popup" at game_menu_popup_video 
     button: 
-        area (908, 678, 82, 82)
+        area (867, 683, 80, 72)
         action Jump("go_to_call2")
 
 screen phonecall_window_real:
