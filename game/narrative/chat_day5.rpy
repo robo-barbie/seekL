@@ -46,6 +46,7 @@ label day5_start:
 
     #[1] MC: for???
 label day5_1: 
+    $ points_seekLove -= 1
 
     $ chat_message("elimf: the finalest of hacks")
 
@@ -65,6 +66,7 @@ label day5_1:
 
     #[2] MC: YEAH
 label day5_2: 
+    $ points_seekLove += 1
 
     $ chat_message("elimf: YEAHHHHHHHH")
 
@@ -134,6 +136,7 @@ label day5_3:
 
     #[1] MC: i would like that!
 label day5_4: 
+    $ points_seekLove += 1
 
     $ chat_message("odxny: Great. Cool.")
 
@@ -142,6 +145,7 @@ label day5_4:
 
     #[2] MC: sure why not
 label day5_5: 
+    $ points_seekLove -= 1
 
     $ chat_message("odxny: k")
 
@@ -217,6 +221,7 @@ label day5_6:
 
     #[1] MC: oh...
 label day5_7: 
+    $ points_seekLove += 1
 
     $ chat_message("odxny: Had to be done sometime.")
 
@@ -229,6 +234,7 @@ label day5_7:
 
     #[2] MC: finally. say ur prayers hacker scum 
 label day5_8: 
+    $ points_seekLove -= 1
 
     $ chat_message("wnpep: rude")
 
@@ -305,6 +311,7 @@ label day5_9:
 
     #[1] MC: is this going to be hard............... 
 label day5_10: 
+    $ points_seekLove -= 1
 
     $ chat_message("odxny: No harder than what you've done already? ")
 
@@ -315,6 +322,7 @@ label day5_10:
 
     #[2] MC: omg. YES 
 label day5_11: 
+    $ points_seekLove += 1
 
     $ chat_message("odxny: LMAO ")
 
@@ -356,6 +364,7 @@ label day5_12:
 
     #[1] MC: as i'll ever be...
 label day5_13: 
+    $ points_seekLove -= 1
 
     $ chat_message("odxny: Alright.")
 
@@ -364,6 +373,7 @@ label day5_13:
 
     #[2] MC: yes!! let's go!! 
 label day5_14: 
+    $ points_seekLove += 1
 
     $ chat_message("odxny: Perfect. ")
 
@@ -395,6 +405,7 @@ label day5_15:
 
     #[1] MC: i'm sorry. WHAT 
 label day5_16: 
+    $ points_seekLove -= 1
 
     $ chat_message("odxny: ROLL WITH IT BEFORE MY CONFIDENCE WEARS OFF PLEASE...")
 
@@ -403,6 +414,7 @@ label day5_16:
 
     #[2] MC: oh, a most DIGNIFIED alias to use
 label day5_17: 
+    $ points_seekLove += 1
 
     $ chat_message("odxny: Please LOL ")
 
@@ -464,6 +476,7 @@ label day5_19:
 
     #[1] MC: no, but... 
 label day5_20: 
+    $ points_seekLove -= 1
 
     $ chat_message("wnpep: 4242 = haha.")
 
@@ -472,6 +485,7 @@ label day5_20:
 
     #[2] MC: omg. yes. 4242 is... 
 label day5_21: 
+    $ points_seekLove += 1
 
     #MC: \"haha\". LOL 
     $ player_choice(
@@ -510,6 +524,7 @@ label day5_22:
 
     #[1] MC: that's so cute lol. love that 
 label day5_23:
+    $ points_seekLove += 1
 
     $ chat_message("odxny: Uh. Yeah, thanks ")
 
@@ -528,6 +543,7 @@ label day5_23:
 
     #[2] MC: T9 in current year. crazy 
 label day5_24: 
+    $ points_seekLove -= 1
 
     $ chat_message("wnpep: i'd argue they should bring it back! it was so much faster to text ")
 
@@ -564,6 +580,7 @@ label day5_25:
 
     #[1] MC: brother. me too 
 label day5_26: 
+    $ points_seekLove -= 1
 
     $ chat_message("wnpep: oh that's a great start ")
 
@@ -576,6 +593,7 @@ label day5_26:
 
     #[2] MC: oh hooooooooo i got this! 
 label day5_27: 
+    $ points_seekLove += 1
 
     $ chat_message("odxny: Never doubted. ")
 
@@ -623,6 +641,7 @@ label day5_29:
 
     #[1] MC: no "T" :( 
 label day5_30: 
+    $ points_seekLove -= 1
 
     $ chat_message("odxny: ....\"TOWIE\"? ")
 
@@ -635,6 +654,7 @@ label day5_30:
 
     #[2] MC: aw. a lil memorial in the sendoff 
 label day5_31: 
+    $ points_seekLove += 1
 
     $ chat_message("odxny: A bit. ")
 
@@ -672,6 +692,7 @@ label day5_32:
 
     #[1] MC: ... this is VAGUE 
 label day5_33: 
+    $ points_seekLove -= 1
 
     $ chat_message("wnpep: cmon thrim! don't give up! ")
 
@@ -691,6 +712,7 @@ label day5_33:
 
     #[2] MC: okay... i think i know the table to go to. 
 label day5_34: 
+    $ points_seekLove += 1
 
     $ chat_message("odxny: Excellent. ")
 
