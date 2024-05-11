@@ -2,7 +2,7 @@
 
 label day4_start: 
 
-    play music "audio/music/server_room.mp3" loop fadein 2.0 fadeout 2.0 
+    play music "audio/music/cracking_the_code.mp3" loop fadein 2.0 fadeout 2.0 
 
     $ chat_message("wnpep: hmm")
 
@@ -1093,6 +1093,79 @@ label day4_30:
     $ chat_message("odxny: Thrim is very helpful, you know.")
 
     $ chat_message("incri: cringe")
+
+    ## odm part 2 
+
+    # odxny: I’ve lined up my shopping list for tomorrow, but it feels like I’m missing something.
+
+    # MC: like what?
+
+    # odxny: Unsure. I’ve checked my supplies three times over.
+
+    # odxny: It’s just a vague nagging feeling. 
+
+    # [1] MC: having second thoughts?
+
+    # odxny: No. Nothing like that.
+
+    # MC: okay
+
+    # odxny: It’s going to happen.
+
+    # [2] MC: maybe u need something fun?
+
+    # odxny: What?
+
+    # MC: u know, to keep u entertained
+
+    # odxny: I’m going to be pretty busy already. It takes a lot of work to live off the grid.
+
+    # // end choices
+
+    # odxny: This isn’t helping. I need to look over everything again.
+
+    # MC: then why message me?
+
+    # odxny: Because
+
+    # //pause
+
+    # odxny: I don’t know.
+
+    # odxny: Force of habit?
+
+    # // pause
+
+    # odxny: I don’t know.
+
+    # MC: are you … sure you want to do this?
+
+    # odxny: Yes. Maybe. Yes.
+
+    # odxny: It’s just last minute jitters. Travel anxiety.
+
+    # odxny: Dealing with the finality.
+
+    # MC: u dont sound convinced
+
+    # odxny: I am. I likely just need to sleep on it.
+
+    # MC: i suppose so
+
+    # odxny: Now you’re not convinced.
+
+    # MC: i cant claim to be
+
+    # odxny: I guess I can’t argue with that.
+
+    # odxny: I’ll think on it. We have a little more time- there’s still my hack to finish.
+
+    # MC: i’ll be here
+
+    # odxny: Assuming elimf doesn’t go insane from waiting and take you out.
+
+    # MC: LOL
+
 
     $ chat_message("elimf: pls thrim. {color="+color_help+"}pls find me elsie patrick's email{/color}")
 

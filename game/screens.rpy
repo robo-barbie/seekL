@@ -601,7 +601,7 @@ screen gallery_1:
         ysize 600
         xsize 1100
         ypos 0.1
-        xpos 0.1
+        xpos 0.25
     
         background None
 
@@ -622,23 +622,23 @@ screen gallery_1:
 
                 add gal.make_button("bad","bad_cg_preview","gallery_locked", xpadding = 0, ypadding = 0, xmargin = 0,ymargin = 0, background = None,style ="gui_button")
          
-            frame:
-                background None
-                ysize 520
-                xsize 500
-                xpos 75
-                padding (25,40,25,25)
+            # frame:
+            #     background None
+            #     ysize 520
+            #     xsize 500
+            #     xpos 75
+            #     padding (25,40,25,25)
 
-                viewport:
-                    scrollbars "vertical"
-                    mousewheel True
-                    draggable True
-                    #ymaximum 500
+            #     viewport:
+            #         scrollbars "vertical"
+            #         mousewheel True
+            #         draggable True
+            #         #ymaximum 500
                     
-                    frame:
-                        background None
-                        if persistent.seekLoss:
-                            text "the cops cleaned up my whole weed stash bro they took EVERYTHING"
+            #         frame:
+            #             background None
+            #             if persistent.seekLoss:
+            #                 text "the cops cleaned up my whole weed stash bro they took EVERYTHING"
 
 
 
@@ -650,7 +650,7 @@ screen gallery_2:
         ysize 600
         xsize 1100
         ypos 0.1
-        xpos 0.1
+        xpos 0.25
     
         background None
 
@@ -659,22 +659,22 @@ screen gallery_2:
                 background None
                 add gal.make_button("platonic","platonic_cg_preview","gallery_locked", xpadding = 0, ypadding = 0, xmargin = 0,ymargin = 0, background = None,style ="gui_button")
          
-            frame:
-                background None
-                ysize 520
-                xsize 500
-                xpos 75
-                padding (25,40,25,25)
+            # frame:
+            #     background None
+            #     ysize 520
+            #     xsize 500
+            #     xpos 75
+            #     padding (25,40,25,25)
 
-                viewport:
-                    scrollbars "vertical"
-                    mousewheel True
-                    draggable True
+            #     viewport:
+            #         scrollbars "vertical"
+            #         mousewheel True
+            #         draggable True
                     
-                    frame:
-                        background None
-                        if persistent.seekLife:
-                            text "we shook hands"
+            #         frame:
+            #             background None
+            #             if persistent.seekLife:
+            #                 text "we shook hands"
 
 screen gallery_3:
     modal True
@@ -683,31 +683,32 @@ screen gallery_3:
         ysize 600
         xsize 1100
         ypos 0.1
-        xpos 0.1
+        xpos 0.25
     
         background None
 
         hbox:
             frame:
+                #xalign 0.5
                 background None
                 add gal.make_button("romantic","romantic_cg_preview","gallery_locked", xpadding = 0, ypadding = 0, xmargin = 0,ymargin = 0, background = None,style ="gui_button")
          
-            frame:
-                background None
-                ysize 520
-                xsize 500
-                xpos 75
-                padding (25,40,25,25)
+            # frame:
+            #     background None
+            #     ysize 520
+            #     xsize 500
+            #     xpos 75
+            #     padding (25,40,25,25)
 
-                viewport:
-                    scrollbars "vertical"
-                    mousewheel True
-                    draggable True
+            #     viewport:
+            #         scrollbars "vertical"
+            #         mousewheel True
+            #         draggable True
 
-                    frame:
-                        background None
-                        if persistent.seekLove:
-                            text "we HELD hands"
+            #         frame:
+            #             background None
+            #             if persistent.seekLove:
+            #                 text "we HELD hands"
 
 
 

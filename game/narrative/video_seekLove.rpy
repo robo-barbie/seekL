@@ -5,7 +5,6 @@ label day5_seekLove_call:
     hide screen phonecall_window_real with pixellate 
     stop music fadeout 0.5
     $ first_line = True 
-    $ quick_menu = False 
 
     $ in_call = True 
     #$ chat_location = "DAY " +next_day_number+ " - CALL"
@@ -90,7 +89,7 @@ label day5_seekLove_call:
     voice "audio/voice/day5/o5-014.ogg"
     o "I guess I will."
     voice "audio/voice/day5/o5-015.ogg"
-    o "Unrelated, how's the weather where you are?"
+    o "Unrelated, how's the weather where you are right now?"
 
     menu:
         "Pretty nice, wish you could feel it.":
@@ -221,7 +220,9 @@ label day5_seekLove_call:
     voice "audio/voice/day5/o5-047-seeyousoon.ogg"
     o "See you soon."
 
+    $ quick_menu = False 
     $ persistent.seekLove = True
+    $ _preferences.afm_enable = False 
 
     pause 1 
     show screen game_over_good_text with Dissolve(2.0) 

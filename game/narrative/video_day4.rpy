@@ -26,12 +26,13 @@ label day4_call:
             show spr o1 eyes closed 
             voice "audio/voice/day4/o4-004.ogg"
             o "Nothing's changed. "
-            show spr o1 neutral 
+            #show spr o1 neutral 
             menu:
                 "Sure.":
                     pass
         "Good point. Anything you want to talk about then?":
             $ points_seekLove += 2
+            show spr o1 neutral 
             voice "audio/voice/day4/o4-005.ogg"
             o "I haven't thought of anything yet."
             menu: 
@@ -54,21 +55,22 @@ label day4_call:
             voice "audio/voice/day4/o4-009.ogg"
             o "That's a fun way of putting it."
             pause 1
-            show spr o1 neutral 
+            #show spr o1 neutral 
             voice "audio/voice/day4/o4-010.ogg"
             o "Were you partaking when you joined the server–"
             menu: 
                 "No.": 
                     pass 
-            show spr o1 side nervous 
+            show spr o1 grin 
             voice "audio/voice/day4/o4-011.ogg"
             o "Sorry. Had to ask."
-            show spr o1 neutral 
+            show spr o1 smile 
+            #show spr o1 neutral 
         "Nah, it's not for me.":
             show spr o1 eyes closed
             voice "audio/voice/day4/o4-012.ogg"
             o "All good. It's not for everyone."
-            show spr o1 neutral 
+            #show spr o1 neutral 
         "I'm more of an edibles person.":
             voice "audio/voice/day4/o4-013.ogg"
             o "Oh, it's that much of a difference?"
@@ -78,7 +80,7 @@ label day4_call:
             show spr o1 eyes closed 
             voice "audio/voice/day4/o4-014.ogg"
             o "That's pretty practical."
-            show spr o1 neutral 
+            #show spr o1 neutral 
 
     menu:
         "What about you?":
@@ -86,25 +88,25 @@ label day4_call:
     show spr o1 side frown 
     voice "audio/voice/day4/o4-015.ogg"
     o "No, I don't. Tried it once and it didn't really add anything."
-    show spr o1 frown 
+    show spr o1 eyes closed 
     voice "audio/voice/day4/o4-016.ogg"
     o "Which was actually incredibly disappointing. "
-    show spr o2 sad
+    show spr o1 eyes closed 
     voice "audio/voice/day4/o4-017.ogg"
     o "Everyone around me seemed to easily float away into their own little worlds. "
-    show spr o2 side frown
+    show spr o1 side frown 
     voice "audio/voice/day4/o4-018.ogg"
     o "And there I was. Staring at drywall. "
     menu:
         "Anything interesting on the drywall?":
             pass
-    show spr o3 shocked 
+    show spr o3 neutral 
     voice "audio/voice/day4/o4-019.ogg"
     o "No. What? "
     menu:
         "I don't know. Like a stain or something. ":
             pass
-    show spr o3 neutral 
+    show spr o3 shocked 
     voice "audio/voice/day4/o4-020.ogg"
     o "Why in the world would that be interesting? "
     menu:
@@ -135,7 +137,7 @@ label day4_call:
     show spr o1 side frown 
     voice "audio/voice/day4/o4-026.ogg"
     o "We have fun, but it's not... you know..."
-    show spr o1 neutral 
+    #show spr o1 neutral 
     voice "audio/voice/day4/o4-027.ogg"
     o "This should be like never seeing a fond acquaintance again. Feeling sad for a minute before it fades off."
     menu: 
@@ -162,75 +164,85 @@ label day4_call:
             o "Then–try!"
             voice "audio/voice/day4/o4-033.ogg"
             o "You're putting so much on yourself, and for what?"
-            show spr o2 side scowl 
+            show spr o2 upset
             voice "audio/voice/day4/o4-034.ogg"
             o "You don't stand to gain anything."
             menu:
                 "Peace of mind. Knowing you're still out there.":
                     pass
-            show spr o1 mad 
+            #show spr o3 neutral
             voice "audio/voice/day4/o4-035.ogg"
             o "I'll be living outside society, not–"
+            show spr o2 sad 
             pause 2
-            show spr o1 closed eye frown 
+            #show spr o2 sad 
             voice "audio/voice/day4/o4-036.ogg"
             o "I couldn't go that far. "
-            show spr o1 frown 
+            #show spr o1 frown 
         "I thought you said you weren't a person anymore. ":
+            show spr o2 upset
             pause 1
-            show spr o1 neutral 
+            #show spr o1 neutral 
+            show spr o2 scowl 
             voice "audio/voice/day4/o4-037.ogg"
             o "You're right. Apologies. Slip of the tongue. "
-            show spr o1 eyes closed 
+            show spr o2 side scowl
             voice "audio/voice/day4/o4-038.ogg"
             o "\"Not a person\". That's me. "
-            show spr o1 neutral 
+            #show spr o1 neutral 
             voice "audio/voice/day4/o4-039.ogg"
             o "Wasting space better occupied by an actual person. "
-            show spr o1 side frown 
+            #show spr o1 side frown 
+            #show spr o2 scowl 
             voice "audio/voice/day4/o4-040.ogg"
             o "Someone who hasn't thought how much better it would all be if it just ended."
-            show spr o3 shocked
+            #show spr o3 shocked
             voice "audio/voice/day4/o4-041.ogg"
-            o "If it just–"
-            pause 2
+            o "If I just–"
+            #show spr o2 sad 
+            pause 1
             show spr o2 sad 
+            pause 1
             voice "audio/voice/day4/o4-042.ogg"
             o "But I couldn't... wouldn't do that. "
 
     menu:
         "You...sound like you've thought of it.":
             pass
+    show spr o2 side frown
     voice "audio/voice/day4/o4-043.ogg"
     o "...I have. But it's not something I consider anymore."
     menu:
         "What changed?":
             pass
     pause 2
-    show spr o2 side frown 
+    #show spr o3 neutral
+    show spr o2 sad 
     voice "audio/voice/day4/o4-044.ogg"
     o "Nothing. "
     voice "audio/voice/day4/o4-045.ogg"
     o "Nothing changed at all. "
-    show spr o2 sad 
+    #show spr o3 eyes closed 
     voice "audio/voice/day4/o4-046.ogg"
     o "This is just what my mind settled on. "
 
     menu:
         "Were you scared?":
-            show spr o2 side frown 
+            #show spr o2 side frown 
+            show spr o3 eyes closed 
             voice "audio/voice/day4/o4-047.ogg"
             o "I wasn't. This was more practical. "
-            show spr o2 side scowl 
+            show spr o3 shocked
             voice "audio/voice/day4/o4-048.ogg"
             o "I'm not scared of not existing. I'm not. "
-            show spr o2 upset 
+            #show spr o2 upset 
             voice "audio/voice/day4/o4-049.ogg"
             o "Why should I be? "
             menu:
                 "Okay. ":
                     pass
-            show spr o3 neutral 
+            #show spr o3 neutral 
+            show spr o1 side frown
             voice "audio/voice/day4/o4-050.ogg"
             o "I'm not. "
         "Why?":
@@ -249,20 +261,23 @@ label day4_call:
 
     pause 2
     show spr o3 neutral 
+    #show spr o1 side frown
     voice "audio/voice/day4/o4-055.ogg"
     o "Don't read into what I'm about to say, okay?"
     menu:
         "Sure. ":
             pass
-    show spr o1 neutral 
+    pause 1
+    show spr o1 side frown
+    pause 1 
     voice "audio/voice/day4/o4-056.ogg"
     o "How does anyone even start over? "
     voice "audio/voice/day4/o4-057.ogg"
     o "It's all gone. It's just me now. Alone."
-    show spr o1 side frown 
+    #show spr o1 side frown 
     voice "audio/voice/day4/o4-058.ogg"
     o "And I don't understand how this happened."
-    show spr o1 frown 
+    #show spr o1 frown 
     voice "audio/voice/day4/o4-059.ogg"
     o "It's like I'm suffocating while watching everyone else easily breathe fresh air."
     show spr o1 mad 
@@ -271,7 +286,7 @@ label day4_call:
     show spr o1 side frown 
     voice "audio/voice/day4/o4-061.ogg"
     o "How do you make real connections? I don't understand anymore."
-    show spr o1 neutral 
+    #show spr o1 neutral 
 
     menu:
         "I'm not sure, but...I think I feel a connection with you.":
@@ -279,7 +294,7 @@ label day4_call:
             show spr o1 mad 
             voice "audio/voice/day4/o4-062.ogg"
             o "Stop that. "
-            show spr o1 neutral 
+            #show spr o1 neutral 
             voice "audio/voice/day4/o4-063.ogg"
             o "You feel pity, is what you feel."
             menu:
@@ -311,19 +326,22 @@ label day4_call:
     show spr o1 side frown 
     voice "audio/voice/day4/o4-068.ogg"
     o "I don't even remember really what happened with them. "
-    show spr o1 neutral 
+    #show spr o1 neutral 
     voice "audio/voice/day4/o4-069.ogg"
     o "We haven't spoken in years. "
     menu:
         "Maybe reach out?":
             pass
     voice "audio/voice/day4/o4-070.ogg"
+    show spr o1 mad 
     o "And say what, exactly? "
-    show spr o1 eyes closed 
+    #show spr o1 eyes closed 
     voice "audio/voice/day4/o4-071.ogg"
     o "It's been years. It wouldn't make sense. "
-    pause 1
-    show spr o1 neutral 
+    pause 2
+    show spr o1 side frown
+    pause 2 
+    #show spr o1 neutral 
     voice "audio/voice/day4/o4-073.ogg"
     o "Is it really that easy for you? "
     menu:

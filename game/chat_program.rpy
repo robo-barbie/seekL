@@ -196,6 +196,7 @@ init python:
         global seekL_recent_example
         global is_paused
         global player_set_pause 
+        global at_end
 
         global color_help 
         global color_tables 
@@ -415,24 +416,24 @@ init python:
             channels[c].append(t)
             channels_names[c].append(n)
             channels_times[c].append(str(datetime.now().strftime('%H:%M')))
-        # channels = channels[-100:].copy()
-        # channels_names = channels_names[-100:].copy()
-        # channels_times = channels_times[-100:].copy()
-        if chat_speed != 100:
-            if n != "SYSTEM":
-                #renpy.play("audio/sfx/message_notification_01_005 chat.ogg")
-                if active_window == current_window: 
-                    renpy.play("audio/sfx/message_notification_03_002 message alt.ogg")
+            # channels = channels[-100:].copy()
+            # channels_names = channels_names[-100:].copy()
+            # channels_times = channels_times[-100:].copy()
+            if chat_speed != 100:
+                if n != "SYSTEM":
+                    #renpy.play("audio/sfx/message_notification_01_005 chat.ogg")
+                    if active_window == current_window: 
+                        renpy.play("audio/sfx/message_notification_03_002 message alt.ogg")
+                    else: 
+                        renpy.play("audio/sfx/message_notification_01_005 chat.ogg")
                 else: 
-                    renpy.play("audio/sfx/message_notification_01_005 chat.ogg")
-            else: 
-                renpy.play("audio/sfx/message_notification_03_001 system.ogg")
-        elif is_player: 
-            #renpy.play("audio/sfx/message_notification_01_005 chat.ogg")
-            renpy.play("audio/sfx/message_notification_03_002 message alt.ogg")
+                    renpy.play("audio/sfx/message_notification_03_001 system.ogg")
+            elif is_player: 
+                #renpy.play("audio/sfx/message_notification_01_005 chat.ogg")
+                renpy.play("audio/sfx/message_notification_03_002 message alt.ogg")
 
-        if yadj.value == yadj.range:
-            yadj.value = float('inf')
+            if yadj.value == yadj.range:
+                yadj.value = float('inf')
         #yadj.value = yadjValue
 
         # update who the new last sender is 
@@ -446,7 +447,7 @@ init python:
         #     renpy.pause(0.5)
 
         #if is_paused and player_set_pause and n != "thrim": 
-        if not _preferences.afm_enable and n != "thrim": 
+        if not _preferences.afm_enable and n != "thrim" and not at_end and not player_is_waiting: 
             #player_set_pause = False 
             renpy.pause()
             _preferences.afm_enable = True 
@@ -454,7 +455,7 @@ init python:
         # elif is_paused and player_set_pause and n == "thrim":
         #     player_set_pause = False  
         #     is_paused = False 
-        elif not _preferences.afm_enable: 
+        elif not _preferences.afm_enable and not at_end and not player_is_waiting: 
             _preferences.afm_enable = True 
             #is_paused = False 
 

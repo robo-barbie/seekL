@@ -25,6 +25,8 @@ label day5_start:
 
     $ chat_message("elimf: sup thrim")
 
+    play music "audio/music/server_room.mp3" loop fadein 2.0 fadeout 2.0 
+
     # MC: sup!
     $ player_choice(
         [
@@ -389,7 +391,15 @@ label day5_15:
 
     ## PART ONE 
 
-    $ chat_message("odxny: Part one-- if someone was cheating on their spouse, I think a great alias would be \"butt_slutt_wutt\"")
+    $ chat_message("odxny: Part one-- {color="+color_help+"}if someone was cheating on their spouse, I think a great alias would be \"butt_slutt_wutt\"{/color}")
+    pause 0.2
+    $ hack_notes.append("great alias: \n\"butt_slutt_wutt\"")
+    play sound "audio/sfx/message_notification_01_003 new info.ogg"
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
+    $ renpy.notify("INFO TAB UPDATED")
+    pause 0.5
+
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
         # WHAT COLUMNS THEY NEED TO SEE
@@ -446,9 +456,9 @@ label day5_18:
 
     $ chat_message("odxny: Deep, deep within. ")
 
-    $ chat_message("elimf: oh but of course, of course",ot="odxny")
+    #$ chat_message("elimf: oh but of course, of course",ot="odxny")
 
-    $ chat_message("odxny: Thrim. Mind fetching an email that is just perfect for that alias? ")
+    $ chat_message("odxny: Thrim. {color="+color_help+"}Mind fetching an email that is just perfect for that alias?{/color}")
 
     # MC: right away! 
     $ player_choice(
@@ -469,6 +479,14 @@ label day5_19:
             ("got it! \"4242\"", "x")
         ]
     )
+
+    pause 0.2
+    $ hack_notes.append("part one: \n4242")
+    play sound "audio/sfx/message_notification_01_003 new info.ogg"
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
+    $ renpy.notify("INFO TAB UPDATED")
+    pause 0.5
 
     $ chat_message("incri: pattern reeks of cringe meaning UGH ")
 
@@ -578,7 +596,14 @@ label day5_25:
 
     ## PART TWO 
 
-    $ chat_message("odxny: Part two -- Someone at PRIDE has put in a strange coverage request for claim_type = \"TERMINATE\". Mind grabbing his email?") 
+    $ chat_message("odxny: Part two -- {color="+color_help+"}Someone at PRIDE has put in a strange coverage request for claim_type = \"TERMINATE\". Mind grabbing his email?{/color}") 
+    pause 0.2
+    $ hack_notes.append("claim type: \n\"TERMINATE\"")
+    play sound "audio/sfx/message_notification_01_003 new info.ogg"
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
+    $ renpy.notify("INFO TAB UPDATED")
+    pause 0.5
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
         # WHAT COLUMNS THEY NEED TO SEE
@@ -631,9 +656,9 @@ label day5_27:
     # end choices 
 label day5_28: 
 
-    $ chat_message("odxny: Use whatever seekL logic you'd like. ")
+    #$ chat_message("odxny: Use whatever seekL logic you'd like. ")
 
-    $ chat_message("odxny: And let me know when you've found the email. ")
+    $ chat_message("odxny: And {color="+color_help+"}let me know when you've found the email.{/color}")
 
     jump wait_start 
 
@@ -647,6 +672,14 @@ label day5_29:
             ("\"OWIE\"??", "x")
         ]
     )
+
+    pause 0.2
+    $ hack_notes.append("part two: \nOWIE")
+    play sound "audio/sfx/message_notification_01_003 new info.ogg"
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
+    $ renpy.notify("INFO TAB UPDATED")
+    pause 0.5
 
     $ chat_message("elimf: me when i ")
 
@@ -710,7 +743,7 @@ label day5_32:
 
     ## PART THREE 
 
-    $ chat_message("odxny: Part three -- \"seekL\" may be about to die, but someone has to make sure nothing falls apart after and cover all our tracks. ")
+    $ chat_message("odxny: Part three -- {color="+color_help+"}\"seekL\" may be about to die, but someone has to make sure nothing falls apart after and cover all our tracks.{/color}")
     ## SET REQUIREMENTS TO PROGRESS 
     python: 
         # WHAT COLUMNS THEY NEED TO SEE
@@ -724,7 +757,14 @@ label day5_32:
         player_can_pass = False 
         waiting_label = "day5_36"
 
-    $ chat_message("odxny: Can you find me the email for that living_contact? ")
+    $ chat_message("odxny: {color="+color_help+"}Can you find me the email for that living_contact?{/color}")
+    pause 0.2
+    $ hack_notes.append("death: \n\"seekL\"")
+    play sound "audio/sfx/message_notification_01_003 new info.ogg"
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
+    $ renpy.notify("INFO TAB UPDATED")
+    pause 0.5
 
     $ player_choice(
         [
@@ -791,6 +831,14 @@ label day5_36:
             ("\"TYVM\"?", "x")
         ]
     )
+
+    pause 0.2
+    $ hack_notes.append("part three: \nTYVM")
+    play sound "audio/sfx/message_notification_01_003 new info.ogg"
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
+    $ renpy.notify("INFO TAB UPDATED")
+    pause 0.5
 
     $ chat_message("incri: no more cheesey bullsht no ")
 
@@ -986,6 +1034,12 @@ label day5_43:
     # end choices
 label day5_44: 
 
+    pause 1 
+
+    stop music fadeout 1.0 
+
+    play music "audio/music/little_hand_on_the_clock.mp3" fadein 3.0 
+
     $ chat_message("odxny: To get back on track, I'll start the countdown in a few minutes.")
 
     $ chat_message("incri: do we have t wait for that")
@@ -1010,6 +1064,11 @@ label day5_44:
             ("pls", "x")
         ]
     )
+    hide bg odxny_bg
+    hide spr 
+    hide fade_lower
+    hide fg odxny_fg onlayer screens
+    hide call_frame
 
     $ chat_message("incri: i cld be doing oether things")
 
@@ -1573,9 +1632,16 @@ label day5_seekLove_6:
         ]
     )
 
-    $ chat_message("odxny: A new function.",c="admin")
+    $ chat_message("odxny: A new function. I'll turn it on for you right before the shutdown",c="admin")
 
     $ chat_message("odxny: `exec dial()`",c="admin")
+    pause 0.2
+    $ hack_notes.append("new function: \ndial()")
+    play sound "audio/sfx/message_notification_01_003 new info.ogg"
+    # show highlight_small onlayer screens: 
+    #     pos highlight_tab_info_pos
+    $ renpy.notify("INFO TAB UPDATED")
+    pause 0.5
 
     $ player_choice(
         [
