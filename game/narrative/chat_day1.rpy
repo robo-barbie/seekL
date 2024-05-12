@@ -25,6 +25,11 @@ label day1_start:
 
     play music "audio/music/cracking_the_code.mp3" loop fadein 2.0 fadeout 2.0 
 
+    ## end testing 
+    #jump day5_seekLife_6
+    #jump day5_seekLoss_chat
+    #jump day5_seekLove_12
+
     $ chat_message("elimf: and that's when i literally took a handful of mud and",fastmode=True)
 
     pause 2 
@@ -282,7 +287,7 @@ label day1_9:
 
     $ player_choice(
         [
-            ("like ethical hacking ", "x"), 
+            ("like ethical hacking?", "x"), 
         ]
     )
 
@@ -370,7 +375,7 @@ label day1_13:
 
     $ chat_message("elimf: phew ")
 
-    $ chat_message("wnpep: let's go through an example anyway")
+    $ chat_message("wnpep: here, let me show you an example table we have")
 
     jump day1_15
 
@@ -379,7 +384,7 @@ label day1_14:
 
     $ chat_message("incri: lollllllllllll")
 
-    $ chat_message("wnpep: let's go through an actual example now")
+    $ chat_message("wnpep: here, let me show you an example table we have")
 
     jump day1_15
 

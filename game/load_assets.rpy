@@ -163,8 +163,21 @@ screen video_call_window:
     add "#00000077"
     add "video_call_popup" at game_menu_popup_video 
     button: 
-        area (908, 678, 82, 82)
+        area (867, 683, 80, 72)
         action Jump("go_to_call2")
+
+screen phonecall_window_real:
+    on "show" action Play("music", "audio/music/call_outgoing_002_-_seekL.ogg")
+    on "hide" action Stop("music")
+    zorder 3
+    modal True 
+    add "#00000077"
+    add "phonecall_window.png" at game_menu_popup_video 
+
+    timer 4.0 action [Jump("day5_seekLove_call")]
+    # button: 
+    #     area (908, 678, 82, 82)
+    #     action Jump("go_to_call2")
 
 screen black_window: 
     add "#000000"

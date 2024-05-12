@@ -172,6 +172,7 @@ define highlight_frame_console_pos = (850, 50)
 
 default defenses = False 
 default defenses_off = False 
+default server_kill = False 
 image defenses_top: 
     "#000000"
     alpha 0.0 
@@ -205,7 +206,9 @@ screen secure_dial:
     #     action Hide("secure_dial")
 
 screen seekL_ui: 
-    if defenses: 
+    if server_kill: 
+        add "images/chat_screenbg_kill.png"
+    elif defenses: 
         add "images/chat_screenbg_defense.jpg"
     else: 
         add "images/chat_screenbg.jpg"
@@ -613,10 +616,14 @@ screen seekL_ui:
         #             action NullAction()
         
     # qa hell 
-    # hbox: 
-    #     spacing 10 
-    #     # text current_window 
-    #     # text active_window 
+    hbox: 
+        spacing 10 
+        text str(points_seekLove)
+        # text str(is_paused) 
+        # text str(player_set_pause) 
+        text str(_preferences.afm_enable)
+        # text current_window 
+        # text active_window 
     #     if tables_active: 
     #         vbox: 
     #             for i in tables_active: 
@@ -749,6 +756,51 @@ screen seekL_ui:
 
 default is_paused = False  
 default player_set_pause = False 
+
+image fbi_lock: 
+    "cg_bad.png"
+    alpha 0.0
+    pause 3 
+    alpha 1.0 
+
+image cg_platonic_arrive: 
+    "cg platonic_zoom"
+    alpha 0.0
+    pause 3 
+    ease 2.0 alpha 1.0 
+
+screen game_over: 
+    #modal True 
+    add "#000000"
+    add "fbi_lock"
+
+screen game_over_text: 
+    text "end: seek{color=b3b3af80}Loss{/color}": 
+        xalign 0.5 
+        yalign 1.0 
+        font "Teko-VariableFont_wght.ttf"
+        size 100
+        color "#FFFFFF80"
+
+screen game_over_neutral: 
+    #modal True 
+    add "#000000"
+    #add "cg_platonic_arrive"
+
+screen game_over_neutral_text: 
+    text "end: seek{color=ecde8f80}Life{/color}": 
+        xalign 0.95 
+        yalign 1.0 
+        font "Teko-VariableFont_wght.ttf"
+        size 100
+        color "#FFFFFF80"
+screen game_over_good_text: 
+    text "end: seek{color=f57cdf80}Love{/color}": 
+        xalign 0.95 
+        yalign 1.0 
+        font "Teko-VariableFont_wght.ttf"
+        size 100
+        color "#FFFFFF80"
 
 screen timer_window: 
     on "show" action  SetVariable("seekL_output", "")

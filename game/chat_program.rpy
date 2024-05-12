@@ -177,7 +177,7 @@ init python:
         seekL_text_send = seekL_recent_example
 
     # new message
-    def chat_message(s, c="all", ot="", is_player = False, fastmode=False): # string, channel, others typing, is player
+    def chat_message(s, c="all", ot="", is_player = False, fastmode=False,nooutput=False): # string, channel, others typing, is player
         global chat_speed 
         global channels
         global channels_names
@@ -196,6 +196,7 @@ init python:
         global seekL_recent_example
         global is_paused
         global player_set_pause 
+        global at_end
 
         global color_help 
         global color_tables 
@@ -385,9 +386,10 @@ init python:
         if last_window != active_window and chat_speed != 100: 
             renpy.pause(2)
 
+        wait_time = len(t0)/5/chat_speed
+
         if not is_player:
             # pause before displaying the message + change who is typing 
-            wait_time = len(t0)/5/chat_speed
             if ot != "" and chat_speed != 100: 
                 set_is_typing(n + ", " + ot, wait_time, wait_time_prev, fastmode)
             elif n != "SYSTEM" and chat_speed != 100:
@@ -395,59 +397,69 @@ init python:
             elif chat_speed != 100 and n != "SYSTEM": 
                 renpy.pause(1.0)
 
-            wait_time_prev = wait_time/2
+        wait_time_prev = wait_time/2
+        
+        if not nooutput: 
+            # if we've never seen this channel before, add it 
+            if c not in channels.keys(): 
+                channels[c] = []
+                channels_last_sender[c] = "" 
 
-        # if we've never seen this channel before, add it 
-        if c not in channels.keys(): 
-            channels[c] = []
-            channels_last_sender[c] = "" 
+            # if not active in that channel, light up that button 
+            if current_window != c: 
+                channels_new_message[c] = True 
 
-        # if not active in that channel, light up that button 
-        if current_window != c: 
-            channels_new_message[c] = True 
-
-        # send the message 
-        # if channels_last_sender[c] == n and last_window == active_window: 
-        #     channels[c].append(t)
-        # else: 
-        #     channels[c].append("\n{b}" + n +  " " + character_names[n] +  "{/b}\n" + t)
-        channels[c].append(t)
-        channels_names[c].append(n)
-        channels_times[c].append(str(datetime.now().strftime('%H:%M')))
-        # channels = channels[-100:].copy()
-        # channels_names = channels_names[-100:].copy()
-        # channels_times = channels_times[-100:].copy()
-        if chat_speed != 100:
-            if n != "SYSTEM":
-                #renpy.play("audio/sfx/message_notification_01_005 chat.ogg")
-                if active_window == current_window: 
-                    renpy.play("audio/sfx/message_notification_03_002 message alt.ogg")
+            # send the message 
+            # if channels_last_sender[c] == n and last_window == active_window: 
+            #     channels[c].append(t)
+            # else: 
+            #     channels[c].append("\n{b}" + n +  " " + character_names[n] +  "{/b}\n" + t)
+        
+            channels[c].append(t)
+            channels_names[c].append(n)
+            channels_times[c].append(str(datetime.now().strftime('%H:%M')))
+            # channels = channels[-100:].copy()
+            # channels_names = channels_names[-100:].copy()
+            # channels_times = channels_times[-100:].copy()
+            if chat_speed != 100:
+                if n != "SYSTEM":
+                    #renpy.play("audio/sfx/message_notification_01_005 chat.ogg")
+                    if active_window == current_window: 
+                        renpy.play("audio/sfx/message_notification_03_002 message alt.ogg")
+                    else: 
+                        renpy.play("audio/sfx/message_notification_01_005 chat.ogg")
                 else: 
-                    renpy.play("audio/sfx/message_notification_01_005 chat.ogg")
-            else: 
-                renpy.play("audio/sfx/message_notification_03_001 system.ogg")
-        elif is_player: 
-            #renpy.play("audio/sfx/message_notification_01_005 chat.ogg")
-            renpy.play("audio/sfx/message_notification_03_002 message alt.ogg")
+                    renpy.play("audio/sfx/message_notification_03_001 system.ogg")
+            elif is_player: 
+                #renpy.play("audio/sfx/message_notification_01_005 chat.ogg")
+                renpy.play("audio/sfx/message_notification_03_002 message alt.ogg")
 
-        if yadj.value == yadj.range:
-            yadj.value = float('inf')
+            if yadj.value == yadj.range:
+                yadj.value = float('inf')
         #yadj.value = yadjValue
 
         # update who the new last sender is 
-        channels_last_sender[c] = n
+        if not nooutput: 
+            channels_last_sender[c] = n
 
-        # update what the last window is 
-        last_window = c 
+            # update what the last window is 
+            last_window = c 
 
-        # if (is_player or n == "SYSTEM") and chat_speed != 100: 
-        #     renpy.pause(0.5)
+            if (is_player) and chat_speed != 100 and not player_is_waiting and not at_end: 
+                renpy.pause(0.5)
 
-        if is_paused and player_set_pause and n != "thrim": 
-            player_set_pause = False 
+        #if is_paused and player_set_pause and n != "thrim": 
+        if not _preferences.afm_enable and n != "thrim" and not at_end and not player_is_waiting: 
+            #player_set_pause = False 
             renpy.pause()
-        elif is_paused: 
-            is_paused = False 
+            _preferences.afm_enable = True 
+            #is_paused = False 
+        # elif is_paused and player_set_pause and n == "thrim":
+        #     player_set_pause = False  
+        #     is_paused = False 
+        elif not _preferences.afm_enable and not at_end and not player_is_waiting: 
+            _preferences.afm_enable = True 
+            #is_paused = False 
 
     # show who is typing + logic for timing 
     def set_is_typing(n, wt, wtp, fastmode=False): # names 
