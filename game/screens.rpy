@@ -396,7 +396,7 @@ screen quick_menu():
                         action [Function(renpy.mode, "say"),SetVariable("is_paused", False),SetVariable("_preferences.afm_enable", True)]
         frame:
             # set this frame to the position of the mouse
-            pos renpy.get_mouse_pos() 
+            pos (55, 971)#, 291, 30)#renpy.get_mouse_pos() 
             background None 
 
             # display text with value set in tt.Action() above.

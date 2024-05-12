@@ -139,6 +139,7 @@ init python:
                 loc_bad_and = 100000
                 loc_bad_amd = 100000
                 loc_bad_or = 100000
+
                 if "select " in t:
                     loc_select = t.index("select")
                     sort_order.append(("select", loc_select))
@@ -151,8 +152,16 @@ init python:
                 if " where " in t: 
                     loc_where = t.index("where")
                     sort_order.append(("where", loc_where))
-                if " amd " in t: 
+
+                ## check for the fucken sql programmers 
+                if " group by " in t or " order by " in t or " distinct " in t or " inner join " in t or " left join " in t or " right join " in t or "!=" in t: 
+                    error_msg = "ERROR: wowwwww look at this real sql user \nwowwwwwwwwwww ur sooooooo skillledddDDDDD \nSHOW ME ALL UR MOVES EXPERT SQL USERRRR WOWWWWWW \n\nu cant do the following in here sorry:\nGROUP BY, ORDER BY, DISTINCT, INNER JOIN,\nLEFT JOIN, RIGHT JOIN, !=, +MORE"
+
+                if "==" in t and error_msg == "": 
+                    error_msg = "ERROR: '==' INVALID. DO YOU MEAN '='?"
+                if " amd " in t and error_msg == "": 
                     error_msg = "ERROR: 'AMD' INVALID. DO YOU MEAN 'AND'?"
+                
                 if " and " in t and error_msg == "": 
                     loc_bad_and = t.index(" and ")
                     if loc_from != "": 

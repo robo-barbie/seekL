@@ -25,7 +25,7 @@ label day3_call:
         "We'll have to see when the best for last decides to give me some tips.":
             show spr o1 eyes closed
             voice "audio/voice/day3/o3-005.ogg"
-            o "You're assuming I teach you anything."
+            o "You're assuming I'll teach you anything."
             menu: 
                 "And you're going to let me leave with only what incri taught me?":
                     pass
@@ -230,7 +230,7 @@ label day3_call:
         "I like browsing niche community forums and trying to sneak my way in. ":
             show spr o1 smile 
             voice "audio/voice/day3/o3-041.ogg"
-            o "What, like on Reddit? "
+            o "What, like Reddit? "
 
             show spr o1 closed eye happy 
             voice "audio/voice/day3/o3-042.ogg"
