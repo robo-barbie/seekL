@@ -438,7 +438,7 @@ init python:
                 #renpy.play("audio/sfx/message_notification_01_005 chat.ogg")
                 renpy.play("audio/sfx/message_notification_03_002 message alt.ogg")
 
-            if yadj.value == yadj.range:
+            if yadj.value == yadj.range or is_player:
                 yadj.value = float('inf')
         #yadj.value = yadjValue
 
