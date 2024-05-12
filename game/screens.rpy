@@ -339,7 +339,7 @@ screen quick_menu():
             imagebutton:
                 auto "gui/button/backbutton_%s.png"
                 hovered qtt.Action("rollback")
-                #action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), 
+                #action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), 
                 action Rollback()  
 
             imagebutton:
@@ -349,7 +349,7 @@ screen quick_menu():
 
             # imagebutton:
             #     auto "gui/button/skip_%s.png"
-            #     action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Skip() alternate Skip(fast=True, confirm=True)
+            #     action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), Skip() alternate Skip(fast=True, confirm=True)
 
             imagebutton:
                 auto "gui/button/save_%s.png"
@@ -359,7 +359,7 @@ screen quick_menu():
 
             # imagebutton:
             #     auto "gui/button/qsave_%s.png"
-            #     action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), QuickSave()
+            #     action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), QuickSave()
 
             imagebutton:
                 auto "gui/button/qload_%s.png"
@@ -437,7 +437,7 @@ screen navigation():
     #     textbutton _("SECURE DIAL"): 
     #         xalign 0.5 
     #         yalign 0.9
-    #         action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Show("secure_dial")
+    #         action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), Show("secure_dial")
 
     vbox:
         style_prefix "navigation"
@@ -453,15 +453,15 @@ screen navigation():
 
         else:
 
-            textbutton _("HISTORY") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), ShowMenu("history")
+            textbutton _("HISTORY") action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), ShowMenu("history")
 
-            textbutton _("SAVE") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), ShowMenu("save")
+            textbutton _("SAVE") action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), ShowMenu("save")
 
-        textbutton _("LOAD") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), ShowMenu("load")
+        textbutton _("LOAD") action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), ShowMenu("load")
 
-        textbutton _("PREFERENCES") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), ShowMenu("preferences")
+        textbutton _("PREFERENCES") action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), ShowMenu("preferences")
 
-        textbutton _("GALLERY") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Show("gallery")
+        textbutton _("GALLERY") action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), Show("gallery")
 
         if _in_replay:
 
@@ -469,20 +469,20 @@ screen navigation():
 
         elif not main_menu:
 
-            textbutton _("MAIN MENU") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), MainMenu()
+            textbutton _("MAIN MENU") action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), MainMenu()
 
         #textbutton _("About") action ShowMenu("about")
 
         # if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
         #     ## Help isn't necessary or relevant to mobile devices.
-        #     textbutton _("HELP") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), ShowMenu("help")
+        #     textbutton _("HELP") action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), ShowMenu("help")
 
         if renpy.variant("pc"):
 
             ## The quit button is banned on iOS and unnecessary on Android and
             ## Web.
-            textbutton _("QUIT") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Quit(confirm=not main_menu)
+            textbutton _("QUIT") action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), Quit(confirm=not main_menu)
 
 
 style navigation_button is gui_button
@@ -565,24 +565,24 @@ screen gallery():
                 #Pages to change gallery screens
                 if gallery_page=="1":
                     textbutton "{b}{color=66cc00}seek{/color}{/b}{color=b3b3af}Loss{/color}": 
-                        action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), SetScreenVariable("gallery_page","1")
+                        action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), SetScreenVariable("gallery_page","1")
                 else: 
                     textbutton "{b}seek{/b}{color=b3b3af}Loss{/color}": 
-                        action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), SetScreenVariable("gallery_page","1")
+                        action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), SetScreenVariable("gallery_page","1")
                 
                 if gallery_page=="2": 
                     textbutton "{b}{color=66cc00}seek{/color}{/b}{color=ecde8f}Life{/color}":
-                        action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), SetScreenVariable("gallery_page","2")
+                        action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), SetScreenVariable("gallery_page","2")
                 else:
                     textbutton "{b}seek{/b}{color=ecde8f}Life{/color}":
-                        action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), SetScreenVariable("gallery_page","2")
+                        action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), SetScreenVariable("gallery_page","2")
                 
                 if gallery_page=="3":
                     textbutton "{b}{color=66cc00}seek{/color}{/b}{color=f57cdf}Love{/color}":
-                        action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), SetScreenVariable("gallery_page","3")
+                        action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), SetScreenVariable("gallery_page","3")
                 else:
                     textbutton "{b}seek{/b}{color=f57cdf}Love{/color}":
-                        action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), SetScreenVariable("gallery_page","3")
+                        action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), SetScreenVariable("gallery_page","3")
                 # "#f57cdf"
         #determines which page of CGs to show
         if gallery_page == "1":
@@ -891,17 +891,17 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
         if not main_menu:
 
-            textbutton _("HISTORY") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Show("history")
+            textbutton _("HISTORY") action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), Show("history")
 
-            textbutton _("SAVE") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Show("save")
+            textbutton _("SAVE") action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), Show("save")
 
-        textbutton _("LOAD") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Show("load")
+        textbutton _("LOAD") action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), Show("load")
 
         textbutton _("PREFERENCES"): 
             text_hover_color gui.hover_color
-            action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Show("preferences")
+            action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), Show("preferences")
 
-        textbutton _("GALLERY") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Show("gallery")
+        textbutton _("GALLERY") action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), Show("gallery")
 
         #null width 50 
 
@@ -916,7 +916,7 @@ screen game_menu(title, scroll=None, yinitial=0.0):
             textbutton _("MAIN MENU"):
                 # text_color gui.idle_color
                 # text_hover_color gui.hover_color
-                action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), MainMenu()
+                action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), MainMenu()
 
         #textbutton _("About") action ShowMenu("about")
 
@@ -934,7 +934,7 @@ screen game_menu(title, scroll=None, yinitial=0.0):
             textbutton _("QUIT"):
                 # text_color gui.idle_color
                 # text_hover_color gui.hover_color
-                action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), Quit(confirm=not main_menu)
+                action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), Quit(confirm=not main_menu)
 
         #null width 50
 
@@ -1743,8 +1743,8 @@ screen confirm(message, yes_action, no_action):
                 xalign 0.5
                 spacing 150
 
-                textbutton _("Yes") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), yes_action
-                textbutton _("No") action Play("sound", "audio/sfx/ui_menu_select_001 button.ogg"), no_action
+                textbutton _("Yes") action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), yes_action
+                textbutton _("No") action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), no_action
 
     ## Right-click and escape answer "no".
     key "game_menu" action no_action

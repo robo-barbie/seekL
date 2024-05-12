@@ -433,7 +433,8 @@ init python:
                     else: 
                         renpy.play("audio/sfx/message_notification_01_005 chat.ogg")
                 else: 
-                    renpy.play("audio/sfx/message_notification_03_001 system.ogg")
+                    #renpy.play("audio/sfx/message_notification_03_001 system.ogg")
+                    renpy.play("audio/sfx/Console_Execute_001.ogg")
             elif is_player: 
                 #renpy.play("audio/sfx/message_notification_01_005 chat.ogg")
                 renpy.play("audio/sfx/message_notification_03_002 message alt.ogg")

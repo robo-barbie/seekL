@@ -122,7 +122,7 @@ init python:
                         player_input_confirm(exec_func = func_name, exec_input = func)
                     seekL_output = ["RAN FUNCTION: \n"+func_name]
                     previous_commands.append(t_og)
-                    renpy.play("audio/sfx/data_loaded_001.ogg")
+                    renpy.play("audio/sfx/Console_Execute_001.ogg")
 
                 else: 
                     if player_is_waiting: 
@@ -563,7 +563,7 @@ init python:
                     
 
                     seekL_output = output_strings
-                    renpy.play("audio/sfx/data_loaded_001.ogg")
+                    renpy.play("audio/sfx/Console_Execute_001.ogg")
                     if not at_end:
                         player_input_confirm(ta=list([join_name, table_name]), cols = cols_final, idx = l_out)
 
