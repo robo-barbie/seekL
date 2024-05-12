@@ -24,6 +24,21 @@ image e_letsgo = "images/emote_letsgo.png"
 image e_orz = "images/emote_orz.png"
 
 
+init python:
+    my_room = ExtendedMusicRoom(channel='music', fadeout=2.0, fadein=1.0,
+        loop=False, single_track=True, shuffle=False, stop_action=None,
+        alphabetical=True)
+
+    my_room.add(
+        name=_("TOXIC_RAP_FINAL_FINAL_1_FINAL2"),
+        path="audio/music/TOXIC_RAP.mp3",
+        artist="odxny",
+        #art="gui/music_room/nutcracker_ost.png",
+        description=_("sent at 2am"),
+        unlock_condition="True",
+    )
+
+
 #########################################################
 ###### IMAGES ###########################################
 # image bg odxny_bg:

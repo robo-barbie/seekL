@@ -443,7 +443,7 @@ screen navigation():
         style_prefix "navigation"
 
         xalign 0.5
-        yalign 0.56
+        yalign 0.58
 
         spacing gui.navigation_spacing
 
@@ -462,6 +462,12 @@ screen navigation():
         textbutton _("PREFERENCES") action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), ShowMenu("preferences")
 
         textbutton _("GALLERY") action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), Show("gallery")
+
+        if persistent.seekLove and persistent.seekLife and persistent.seekLoss: 
+
+            textbutton _("BONUS") action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), Show("music_room", mr=my_room)
+        else: 
+            textbutton _("BONUS") action NullAction() text_color "#686868"
 
         if _in_replay:
 
@@ -564,34 +570,34 @@ screen gallery():
 
                 #Pages to change gallery screens
                 if gallery_page=="1":
-                    textbutton "{b}{color=66cc00}seek{/color}{/b}{color=b3b3af}Loss{/color}": 
+                    textbutton "{color=66cc00}seek{/color}{color=b3b3af}Loss{/color}": 
                         action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), SetScreenVariable("gallery_page","1")
                 else: 
-                    textbutton "{b}seek{/b}{color=b3b3af}Loss{/color}": 
+                    textbutton "seek{color=b3b3af}Loss{/color}": 
                         action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), SetScreenVariable("gallery_page","1")
                 
                 if gallery_page=="2": 
-                    textbutton "{b}{color=66cc00}seek{/color}{/b}{color=ecde8f}Life{/color}":
+                    textbutton "{color=66cc00}seek{/color}{color=ecde8f}Life{/color}":
                         action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), SetScreenVariable("gallery_page","2")
                 else:
-                    textbutton "{b}seek{/b}{color=ecde8f}Life{/color}":
+                    textbutton "seek{color=ecde8f}Life{/color}":
                         action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), SetScreenVariable("gallery_page","2")
                 
                 if gallery_page=="3":
-                    textbutton "{b}{color=66cc00}seek{/color}{/b}{color=f57cdf}Love{/color}":
+                    textbutton "{color=66cc00}seek{/color}{color=f57cdf}Love{/color}":
                         action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), SetScreenVariable("gallery_page","3")
                 else:
-                    textbutton "{b}seek{/b}{color=f57cdf}Love{/color}":
+                    textbutton "seek{color=f57cdf}Love{/color}":
                         action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), SetScreenVariable("gallery_page","3")
+        
                 # "#f57cdf"
         #determines which page of CGs to show
         if gallery_page == "1":
             use gallery_1
         elif gallery_page == "2":
             use gallery_2
-        else:
+        elif gallery_page == "3":
             use gallery_3
-        
 #CG grids
 screen gallery_1:
     modal True
@@ -901,7 +907,15 @@ screen game_menu(title, scroll=None, yinitial=0.0):
             text_hover_color gui.hover_color
             action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), Show("preferences")
 
-        textbutton _("GALLERY") action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), Show("gallery")
+        if main_menu: 
+
+            textbutton _("GALLERY") action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), Show("gallery")
+
+            if persistent.seekLove and persistent.seekLife and persistent.seekLoss: 
+
+                textbutton _("BONUS") action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), Show("music_room", mr=my_room)
+            else: 
+                textbutton _("BONUS") action NullAction() text_color "#686868"
 
         #null width 50 
 
