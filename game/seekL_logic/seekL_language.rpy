@@ -107,6 +107,8 @@ init python:
                 if error_msg == "": 
                     if func_name == "out": 
                         chat_message("SYSTEM: EXTORTION SENT - "+func.upper())
+                        if func.upper() == "KENNETH.STAFFORD@COPMAIL.COM": 
+                            chat_message("SYSTEM: EXTORTION BOUNCE - BAD CONTACT ")
                     elif func_name == "dial": 
                         func = func.replace(" ", "").replace("-", "").replace("(", "").replace(")", "")
                         for s in func.split():
