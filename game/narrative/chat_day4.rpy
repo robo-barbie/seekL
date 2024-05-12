@@ -144,6 +144,7 @@ label day4_3:
 
     # make it rain money??  
     show money_rain onlayer screens
+    $ force_scroll_down()
 
     pause 0.5
 
@@ -1838,6 +1839,7 @@ label day4_44:
 
     # make it rain money??  
     show money_rain onlayer screens
+    $ force_scroll_down()
 
     pause 0.5
 

@@ -1724,6 +1724,8 @@ label day2_moneyrain:
     # make it rain money??  
     show money_rain onlayer screens
 
+    $ force_scroll_down()
+
     pause 0.5
 
     $ chat_message("SYSTEM: PAYMENT PLAN INITIATED FOR - $ 50 , 000")
