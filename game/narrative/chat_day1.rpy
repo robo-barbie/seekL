@@ -31,6 +31,7 @@ label day1_start:
     #jump day5_seekLife_6
     #jump day5_seekLoss_chat
     #jump day5_seekLove_12
+    #jump day2_moneyrain
 
     $ chat_message("elimf: and that's when i literally took a handful of mud and",fastmode=True)
 

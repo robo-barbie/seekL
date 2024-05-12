@@ -224,7 +224,7 @@ screen seekL_ui:
                 if channels_new_message["all"]: 
                     add "new_message_all"
                     action Play("sound", "audio/sfx/tab_swap.ogg"), Function(force_scroll_down), SetVariable("current_window", "all"), SetDict(channels_new_message, "all", False), SetVariable("seekL_chat_active", 0)
-                elif seekL_chat_active == 0: 
+                elif current_window == "all": 
                     add "gui/button/allchat_active.png"
                 else: 
                     add "gui/button/allchat_idle.png"
@@ -235,7 +235,7 @@ screen seekL_ui:
                 if channels_new_message["admin"]: 
                     add "new_message_admin"
                     action Play("sound", "audio/sfx/tab_swap.ogg"), Function(force_scroll_down), SetVariable("current_window", "admin"), SetDict(channels_new_message, "admin", False), SetVariable("seekL_chat_active", 1)
-                elif seekL_chat_active == 1: 
+                elif current_window == "admin": 
                     add "gui/button/adminchat_active.png"
                 else: 
                     add "gui/button/adminchat_idle.png"

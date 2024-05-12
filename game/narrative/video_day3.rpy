@@ -155,7 +155,7 @@ label day3_call:
     pause 3
     show spr o2 sad
     voice "audio/voice/day3/o3-027.ogg"
-    o "No, no. Nope. No. "
+    o "No. No, no. No. No. "
     show spr o3 eyes closed 
     voice "audio/voice/day3/o3-028.ogg"
     o "I think that's enough for today."

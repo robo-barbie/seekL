@@ -602,7 +602,7 @@ image o3 mouth parted:
 
 
 
-image money_rain = Fixed(SnowBlossom("images/temp/dollar.png", 200, xspeed=(-500, 500), yspeed=(100, 300), start=10))
+image money_rain = Fixed(SnowBlossom("images/temp/dollar.png", 50, xspeed=(-500, 500), yspeed=(1000, 2000), start=20))
         
 
 
