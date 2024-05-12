@@ -694,28 +694,28 @@ label day5_odm_4:
 
 
     # low favor
-    if points_seekLove <= 25: 
+    # if points_seekLove <= 25: 
 
-        $ chat_message("odxny: Thank you, for making this fun.",c="admin")
+    $ chat_message("odxny: Thank you, for making this fun.",c="admin")
 
-        #MC: of course
-        $ player_choice(
-            [
-                ("of course", "x")
-            ]
-        )
+    #MC: of course
+    $ player_choice(
+        [
+            ("of course", "x")
+        ]
+    )
 
     # high favor
-    else: 
+    # else: 
 
-        $ chat_message("odxny: Thank you stranger, for making this fun.",c="admin")
+    #     $ chat_message("odxny: Thank you stranger, for making this fun.",c="admin")
 
-        #MC: heh. of course
-        $ player_choice(
-            [
-                ("heh. of course", "x")
-            ]
-        )
+    #     #MC: heh. of course
+    #     $ player_choice(
+    #         [
+    #             ("heh. of course", "x")
+    #         ]
+    #     )
 
     # end branching
 

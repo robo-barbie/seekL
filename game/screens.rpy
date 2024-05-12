@@ -1256,20 +1256,32 @@ screen preferences():
             hbox:
                 box_wrap True
 
-                if renpy.variant("pc") or renpy.variant("web"):
+                vbox: 
+                    if renpy.variant("pc") or renpy.variant("web"):
 
+                        vbox:
+                            style_prefix "radio"
+                            label _("Display")
+                            textbutton _("Window") action Preference("display", "window")
+                            textbutton _("Fullscreen") action Preference("display", "fullscreen")
                     vbox:
-                        style_prefix "radio"
-                        label _("Display")
-                        textbutton _("Window") action Preference("display", "window")
-                        textbutton _("Fullscreen") action Preference("display", "fullscreen")
+                        style_prefix "slider"
+                        box_wrap True
+                        label _("Text Speed")
+                        bar value Preference("text speed")
+                
+                    vbox:
+                        style_prefix "slider"
+                        box_wrap True
+                        label _("Auto-Forward Time")
+                        bar value Preference("auto-forward time")
 
-                vbox:
-                    style_prefix "check"
-                    label _("Skip")
-                    textbutton _("Unseen Text") action Preference("skip", "toggle")
-                    textbutton _("After Choices") action Preference("after choices", "toggle")
-                    textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
+                # vbox:
+                #     style_prefix "check"
+                #     label _("Skip")
+                #     textbutton _("Unseen Text") action Preference("skip", "toggle")
+                #     textbutton _("After Choices") action Preference("after choices", "toggle")
+                #     textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
 
                 vbox:
                     style_prefix "slider"
@@ -1319,27 +1331,27 @@ screen preferences():
 
             #null height (4 * gui.pref_spacing)
 
-            hbox:
-                style_prefix "slider"
-                box_wrap True
+            # hbox:
+            #     style_prefix "slider"
+            #     box_wrap True
 
-                #vbox:
+            #     #vbox:
 
-                    #label _("Text Speed")
+            #         #label _("Text Speed")
 
-                    #bar value Preference("text speed")
+            #         #bar value Preference("text speed")
 
-                    #label _("Auto-Forward Time")
+            #         #label _("Auto-Forward Time")
 
-                    #bar value Preference("auto-forward time")
+            #         #bar value Preference("auto-forward time")
 
-                vbox:
-                    label _("Text Speed")
-                    bar value Preference("text speed")
+            #     vbox:
+            #         label _("Text Speed")
+            #         bar value Preference("text speed")
                 
-                vbox:
-                    label _("Auto-Forward Time")
-                    bar value Preference("auto-forward time")
+            #     vbox:
+            #         label _("Auto-Forward Time")
+            #         bar value Preference("auto-forward time")
 
 
 style pref_label is gui_label
