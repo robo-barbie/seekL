@@ -176,6 +176,10 @@ init python:
         global seekL_recent_example 
         seekL_text_send = seekL_recent_example
 
+    def force_scroll_down(): 
+        global yadj 
+        yadj.value = float('inf')
+
     # new message
     def chat_message(s, c="all", ot="", is_player = False, fastmode=False,nooutput=False): # string, channel, others typing, is player
         global chat_speed 

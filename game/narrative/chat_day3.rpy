@@ -1114,7 +1114,7 @@ label day3_20:
     # MC: I see two names in here 
     $ player_choice(
         [
-            ("I see two names in here", "x")
+            ("I see two names in here. Bailey Yang, Adriel Humphrey", "x")
         ]
     )
 
@@ -1433,6 +1433,8 @@ label day3_26:
     $ chat_message("wnpep: so, {color="+color_help+"}go ahead and see if you can tell who has mis-matching records between #pride.paystubs23# and #irs.income23# only between those two names in the claims table{/color}")
 
     $ chat_message("wnpep: {color="+color_help+"}you'll want to utilize a JOIN and a WHERE clause to get the info we need.{/color}")
+
+    $ chat_message("wnpep: {color="+color_help+"}please pull up both of those people at the same time!{/color}")
 
     # MC: u got it 
     $ player_choice(
