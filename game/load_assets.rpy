@@ -12,6 +12,17 @@ default points_seekLove = 0
 
 # default persistent.seekLove = False 
 
+## emotes 
+image e_serious = "images/emote_serious.jpg"
+image e_pain = "images/emote_pain.png"
+image e_sparkle = "images/emote_sparkle.png"
+image e_wink = "images/emote_wink.png"
+image e_baby = "images/emote_baby.png"
+image e_crying = "images/emote_crying.png"
+image e_heart = "images/emote_heart.png" 
+image e_letsgo = "images/emote_letsgo.png" 
+image e_orz = "images/emote_orz.png"
+
 
 #########################################################
 ###### IMAGES ###########################################

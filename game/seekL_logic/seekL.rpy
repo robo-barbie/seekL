@@ -95,7 +95,7 @@ EX: SELECT *
 
 EX: SELECT * 
     FROM irs.contacts
-    JOIN godaddy.secretsmooch_users 
+    JOIN secretsmooch.users 
     WHERE full_name = 'bruce johnson'
     {/color}{/size}{/font}""", 
 
@@ -114,7 +114,7 @@ EX: SELECT phone, full_name, badge_no
 
 EX: SELECT ss_alias, phone  
     FROM irs.contacts
-    JOIN godaddy.secretsmooch_users 
+    JOIN secretsmooch.users 
     WHERE full_name = 'bruce johnson'
     {/color}{/size}{/font}"""
     ]

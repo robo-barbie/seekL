@@ -1773,7 +1773,7 @@ label day5_seekLove_6:
 
     $ chat_message("odxny: `exec dial()`",c="admin")
     pause 0.2
-    $ hack_notes.append("new function: \ndial()")
+    $ hack_notes.append("new function: \ndial(phonenumber)")
     play sound "audio/sfx/message_notification_01_003 new info.ogg"
     # show highlight_small onlayer screens: 
     #     pos highlight_tab_info_pos

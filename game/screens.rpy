@@ -383,17 +383,17 @@ screen quick_menu():
                 imagebutton:
                     if player_is_waiting: 
                         idle "gui/button/auto_inactive.png" 
-                    elif _preferences.afm_enable: 
+                    elif not is_paused: 
                         idle "gui/button/auto_hover.png"
                     else: 
                         auto "gui/button/auto_%s.png"
                     hovered qtt.Action("auto")
                     if player_is_waiting: 
                         action NullAction() 
-                    elif _preferences.afm_enable:
-                        action SetVariable("_preferences.afm_enable", False)#SetVariable("is_paused", True), SetVariable("player_set_pause", True), SetVariable("_preferences.afm_enable", False)
+                    elif not is_paused:
+                        action [SetVariable("is_paused", True),SetVariable("_preferences.afm_enable", False)]#SetVariable("is_paused", True), SetVariable("player_set_pause", True), SetVariable("_preferences.afm_enable", False)
                     else: 
-                        action [Function(renpy.mode, "say"),SetVariable("_preferences.afm_enable", True)]
+                        action [Function(renpy.mode, "say"),SetVariable("is_paused", False),SetVariable("_preferences.afm_enable", True)]
         frame:
             # set this frame to the position of the mouse
             pos renpy.get_mouse_pos() 
