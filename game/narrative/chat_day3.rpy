@@ -696,9 +696,9 @@ label day3_16:
 
     $ chat_message("elimf: {image=e_serious}")
 
-    $ chat_message("elimf: a daughter ")
+    $ chat_message("elimf: a daughter ",ot="odxny")
 
-    $ chat_message("odxny: Makes sense that you're a parent. ",ot="odxny")
+    $ chat_message("odxny: Makes sense that you're a parent. ")
 
     $ chat_message("elimf: yea i can't even b mad at that one. it would be weird if u werent tbh ")
 
