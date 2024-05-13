@@ -205,7 +205,7 @@ label day2_call:
 
     show spr o3 neutral
     voice "audio/voice/day2/o2-037.ogg"
-    o "Needing to have fun isn't important to my life anymore. "
+    o "Needing to have fun isn't important in my life anymore. "
 
     show spr o3 eyes closed 
     voice "audio/voice/day2/o2-038.ogg"

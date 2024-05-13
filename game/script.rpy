@@ -48,6 +48,7 @@ define o = Character("odxny", callback=speaker("odxny"))
 default chat_location = "DAY 1 - CHAT"
 default _game_menu_screen = None
 screen ive_had_enough_of_the_fucking_scroll_up_rollback():
+    #zorder 1000
     key 'mousedown_4':
         action NullAction()
 

@@ -12,6 +12,32 @@ default points_seekLove = 0
 
 # default persistent.seekLove = False 
 
+## emotes 
+image e_serious = "images/emote_serious.jpg"
+image e_pain = "images/emote_pain.png"
+image e_sparkle = "images/emote_sparkle.png"
+image e_wink = "images/emote_wink.png"
+image e_baby = "images/emote_baby.png"
+image e_crying = "images/emote_crying.png"
+image e_heart = "images/emote_heart.png" 
+image e_letsgo = "images/emote_letsgo.png" 
+image e_orz = "images/emote_orz.png"
+
+
+init python:
+    my_room = ExtendedMusicRoom(channel='music', fadeout=2.0, fadein=1.0,
+        loop=False, single_track=True, shuffle=False, stop_action=None,
+        alphabetical=True)
+
+    my_room.add(
+        name=_("TOXIC_RAP_FINAL_FINAL_1_FINAL2"),
+        path="audio/music/TOXIC_RAP.mp3",
+        artist="odxny",
+        #art="gui/music_room/nutcracker_ost.png",
+        description=_("sent at 2am"),
+        unlock_condition="True",
+    )
+
 
 #########################################################
 ###### IMAGES ###########################################
@@ -591,7 +617,7 @@ image o3 mouth parted:
 
 
 
-image money_rain = Fixed(SnowBlossom("images/temp/dollar.png", 200, xspeed=(-500, 500), yspeed=(100, 300), start=10))
+image money_rain = Fixed(SnowBlossom("images/temp/dollar.png", 50, xspeed=(-500, 500), yspeed=(1000, 2000), start=20))
         
 
 

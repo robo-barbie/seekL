@@ -176,6 +176,10 @@ init python:
         global seekL_recent_example 
         seekL_text_send = seekL_recent_example
 
+    def force_scroll_down(): 
+        global yadj 
+        yadj.value = float('inf')
+
     # new message
     def chat_message(s, c="all", ot="", is_player = False, fastmode=False,nooutput=False): # string, channel, others typing, is player
         global chat_speed 
@@ -429,12 +433,13 @@ init python:
                     else: 
                         renpy.play("audio/sfx/message_notification_01_005 chat.ogg")
                 else: 
-                    renpy.play("audio/sfx/message_notification_03_001 system.ogg")
+                    #renpy.play("audio/sfx/message_notification_03_001 system.ogg")
+                    renpy.play("audio/sfx/Console_Execute_001.ogg")
             elif is_player: 
                 #renpy.play("audio/sfx/message_notification_01_005 chat.ogg")
                 renpy.play("audio/sfx/message_notification_03_002 message alt.ogg")
 
-            if yadj.value == yadj.range:
+            if yadj.value == yadj.range or is_player:
                 yadj.value = float('inf')
         #yadj.value = yadjValue
 
@@ -449,17 +454,17 @@ init python:
                 renpy.pause(0.5)
 
         #if is_paused and player_set_pause and n != "thrim": 
-        if not _preferences.afm_enable and n != "thrim" and not at_end and not player_is_waiting: 
+        if is_paused and n != "thrim" and n != "SYSTEM" and not at_end and not player_is_waiting: 
             #player_set_pause = False 
             renpy.pause()
             _preferences.afm_enable = True 
-            #is_paused = False 
+            is_paused = False 
         # elif is_paused and player_set_pause and n == "thrim":
         #     player_set_pause = False  
         #     is_paused = False 
-        elif not _preferences.afm_enable and not at_end and not player_is_waiting: 
+        elif is_paused and not at_end and not player_is_waiting: 
             _preferences.afm_enable = True 
-            #is_paused = False 
+            is_paused = False 
 
     # show who is typing + logic for timing 
     def set_is_typing(n, wt, wtp, fastmode=False): # names 

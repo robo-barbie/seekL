@@ -107,6 +107,8 @@ init python:
                 if error_msg == "": 
                     if func_name == "out": 
                         chat_message("SYSTEM: EXTORTION SENT - "+func.upper())
+                        if func.upper() == "KENNETH.STAFFORD@COPMAIL.COM": 
+                            chat_message("SYSTEM: EXTORTION BOUNCE - BAD CONTACT ")
                     elif func_name == "dial": 
                         func = func.replace(" ", "").replace("-", "").replace("(", "").replace(")", "")
                         for s in func.split():
@@ -122,7 +124,7 @@ init python:
                         player_input_confirm(exec_func = func_name, exec_input = func)
                     seekL_output = ["RAN FUNCTION: \n"+func_name]
                     previous_commands.append(t_og)
-                    renpy.play("audio/sfx/data_loaded_001.ogg")
+                    renpy.play("audio/sfx/Console_Execute_001.ogg")
 
                 else: 
                     if player_is_waiting: 
@@ -139,6 +141,7 @@ init python:
                 loc_bad_and = 100000
                 loc_bad_amd = 100000
                 loc_bad_or = 100000
+
                 if "select " in t:
                     loc_select = t.index("select")
                     sort_order.append(("select", loc_select))
@@ -151,8 +154,16 @@ init python:
                 if " where " in t: 
                     loc_where = t.index("where")
                     sort_order.append(("where", loc_where))
-                if " amd " in t: 
+
+                ## check for the fucken sql programmers 
+                if " group by " in t or " order by " in t or " distinct " in t or " inner join " in t or " left join " in t or " right join " in t or "!=" in t: 
+                    error_msg = "ERROR: wowwwww look at this real sql user \nwowwwwwwwwwww ur sooooooo skillledddDDDDD \nSHOW ME ALL UR MOVES EXPERT SQL USERRRR WOWWWWWW \n\nu cant do the following in here sorry:\nGROUP BY, ORDER BY, DISTINCT, INNER JOIN,\nLEFT JOIN, RIGHT JOIN, !=, +MORE"
+
+                if "==" in t and error_msg == "": 
+                    error_msg = "ERROR: '==' INVALID. DO YOU MEAN '='?"
+                if " amd " in t and error_msg == "": 
                     error_msg = "ERROR: 'AMD' INVALID. DO YOU MEAN 'AND'?"
+                
                 if " and " in t and error_msg == "": 
                     loc_bad_and = t.index(" and ")
                     if loc_from != "": 
@@ -554,7 +565,7 @@ init python:
                     
 
                     seekL_output = output_strings
-                    renpy.play("audio/sfx/data_loaded_001.ogg")
+                    renpy.play("audio/sfx/Console_Execute_001.ogg")
                     if not at_end:
                         player_input_confirm(ta=list([join_name, table_name]), cols = cols_final, idx = l_out)
 

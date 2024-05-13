@@ -99,7 +99,7 @@ label day5_seekLove_call:
                 "What a shame.":
                     pass
             voice "audio/voice/day5/o5-017.ogg"
-            o "Guess we'll just leave it to imagination."
+            o "Guess we'll just have to leave it to imagination."
         "Terrible!":
             voice "audio/voice/day5/o5-018.ogg"
             o "Sounds like you need to get out of there for a bit, then."

@@ -249,7 +249,7 @@ label day4_call:
             $ points_seekLove += 2
             show spr o2 side frown 
             voice "audio/voice/day4/o4-051.ogg"
-            o "(sigh) How the hell would I know? "
+            o "How the hell would I know? "
             voice "audio/voice/day4/o4-052.ogg"
             o "Nothing seems to make sense anymore. "
             show spr o2 upset 

@@ -95,7 +95,7 @@ EX: SELECT *
 
 EX: SELECT * 
     FROM irs.contacts
-    JOIN godaddy.secretsmooch_users 
+    JOIN secretsmooch.users 
     WHERE full_name = 'bruce johnson'
     {/color}{/size}{/font}""", 
 
@@ -114,7 +114,7 @@ EX: SELECT phone, full_name, badge_no
 
 EX: SELECT ss_alias, phone  
     FROM irs.contacts
-    JOIN godaddy.secretsmooch_users 
+    JOIN secretsmooch.users 
     WHERE full_name = 'bruce johnson'
     {/color}{/size}{/font}"""
     ]
@@ -223,23 +223,23 @@ screen seekL_ui:
                 xalign 0.5
                 if channels_new_message["all"]: 
                     add "new_message_all"
-                    action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("current_window", "all"), SetDict(channels_new_message, "all", False), SetVariable("seekL_chat_active", 0)
-                elif seekL_chat_active == 0: 
+                    action Play("sound", "audio/sfx/tab_swap.ogg"), Function(force_scroll_down), SetVariable("current_window", "all"), SetDict(channels_new_message, "all", False), SetVariable("seekL_chat_active", 0)
+                elif current_window == "all": 
                     add "gui/button/allchat_active.png"
                 else: 
                     add "gui/button/allchat_idle.png"
-                    action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("current_window", "all"), SetDict(channels_new_message, "all", False), SetVariable("seekL_chat_active", 0)
+                    action Play("sound", "audio/sfx/tab_swap.ogg"), Function(force_scroll_down), SetVariable("current_window", "all"), SetDict(channels_new_message, "all", False), SetVariable("seekL_chat_active", 0)
     
             button: 
                 xalign 0.5
                 if channels_new_message["admin"]: 
                     add "new_message_admin"
-                    action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("current_window", "admin"), SetDict(channels_new_message, "admin", False), SetVariable("seekL_chat_active", 1)
-                elif seekL_chat_active == 1: 
+                    action Play("sound", "audio/sfx/tab_swap.ogg"), Function(force_scroll_down), SetVariable("current_window", "admin"), SetDict(channels_new_message, "admin", False), SetVariable("seekL_chat_active", 1)
+                elif current_window == "admin": 
                     add "gui/button/adminchat_active.png"
                 else: 
                     add "gui/button/adminchat_idle.png"
-                    action Play("sound", "audio/sfx/tab_swap.ogg"), SetVariable("current_window", "admin"), SetDict(channels_new_message, "admin", False), SetVariable("seekL_chat_active", 1)
+                    action Play("sound", "audio/sfx/tab_swap.ogg"), Function(force_scroll_down), SetVariable("current_window", "admin"), SetDict(channels_new_message, "admin", False), SetVariable("seekL_chat_active", 1)
        
             null width 200
             button: 

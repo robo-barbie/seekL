@@ -25,10 +25,13 @@ label day1_start:
 
     play music "audio/music/cracking_the_code.mp3" loop fadein 2.0 fadeout 2.0 
 
+    #jump day4_31
+
     ## end testing 
     #jump day5_seekLife_6
     #jump day5_seekLoss_chat
     #jump day5_seekLove_12
+    #jump day2_moneyrain
 
     $ chat_message("elimf: and that's when i literally took a handful of mud and",fastmode=True)
 
@@ -40,7 +43,9 @@ label day1_start:
 
     # $ chat_message("incri: "+ascii_gun, ot="elimf, wnpep",fastmode=True)
 
-    $ chat_message("elimf: ?????????? ", ot="wnpep",fastmode=True)
+    $ chat_message("elimf: {image=e_serious}", ot="wnpep",fastmode=True)
+
+    $ chat_message("elimf: ?????????? ", ot="wnpep")
 
     $ chat_message("elimf: who is this lol ", ot="wnpep, incri")
 
@@ -58,6 +63,8 @@ label day1_start:
 
 label day1_1: 
 
+    $ chat_message("incri: {image=e_pain}")
+
     $ chat_message("incri: fed ")
 
     $ chat_message("incri: fucking fed ")
@@ -71,6 +78,8 @@ label day1_1:
     $ chat_message("wnpep: that's exactly why they'd do it that way ")
 
     pause 1 
+
+    $ chat_message("elimf: {image=e_serious}")
 
     $ chat_message("elimf: oh shit ")
 
@@ -88,6 +97,8 @@ label day1_2:
     $ chat_message("incri: UR SOOOOO SUS DUDE ",fastmode=True)
 
     $ chat_message("elimf: could be not a dude ",ot="incri")
+
+    $ chat_message("incri: {image=e_pain}")
 
     $ chat_message("incri: lick my hole ")
 
@@ -116,7 +127,7 @@ label day1_3:
 
     $ chat_message("wnpep: ...to anyone ")
 
-    $ chat_message("elimf: lolllll ")
+    $ chat_message("elimf: {image=e_crying}")
 
     $ player_choice(
         [
@@ -128,6 +139,8 @@ label day1_3:
 
     $ chat_message("incri: they're calling u a idiot")
 
+    #$ chat_message("incri: {image=e_pain}")
+
     pause 1 
 
     # $ chat_message("elimf: "+ascii_grave, fastmode=True)
@@ -135,6 +148,8 @@ label day1_3:
     $ chat_message("wnpep: no i'm not ", fastmode=True, ot="incri")
 
     $ chat_message("incri: idiot vibes so far definnitely ")
+
+    $ chat_message("incri: {image=e_pain}")
 
     $ player_choice(
         [
@@ -162,6 +177,8 @@ label day1_4:
 
     $ chat_message("elimf: i found them too ")
 
+    $ chat_message("elimf: {image=e_orz}")
+
     $ player_choice(
         [
             ("wtf", "x")
@@ -171,6 +188,8 @@ label day1_4:
     $ chat_message("incri: this isnt wort hh the effort ")
 
     $ chat_message("incri: where is od")
+
+    $ chat_message("incri: {image=e_letsgo}")
 
     $ chat_message("incri: od come kick them. boring ass ")
 
@@ -183,6 +202,8 @@ label day1_5:
 
     $ chat_message("wnpep: what haha because you're on a vpn or something")
 
+    $ chat_message("elimf: {image=e_crying}")
+
     $ chat_message("elimf: looolllllllllll easiest shit to get around. i love vpn ads ")
 
     $ chat_message("elimf: really good for our business ")
@@ -193,6 +214,8 @@ label day1_5:
             ("... i'm more secure than that.", "x"), 
         ]
     )
+
+    $ chat_message("wnpep: {image=e_wink}")
 
     $ chat_message("wnpep: uh huh! :] ")
 
@@ -219,11 +242,15 @@ label day1_7:
 
     $ chat_message("elimf: are they lying wn")
 
+    $ chat_message("wnpep: {image=e_baby}")
+
     $ chat_message("wnpep: you know. i don't think they are ")
 
     $ chat_message("elimf: well now i feel mean.")
 
     $ chat_message("incri: who fcking cares $10 is $10 run the fcommand ")
+
+    $ chat_message("incri: {image=e_letsgo}")
 
     jump day1_9
 
@@ -248,6 +275,8 @@ label day1_9:
 
     $ chat_message("wnpep: inc please shut up a bit, in the kindest way possible ")
 
+    $ chat_message("incri: {image=e_pain}")
+
     $ chat_message("incri: this chat fckin g blows ")
 
     $ chat_message("elimf: log off then lol")
@@ -259,6 +288,8 @@ label day1_9:
     $ chat_message("wnpep: well at any rate youre here now. tools are on the right")
 
     $ chat_message("elimf: wdym incris right there")
+
+    $ chat_message("incri: {image=e_pain}")
 
     $ chat_message("incri: ..I...")
 
@@ -291,11 +322,15 @@ label day1_9:
         ]
     )
 
+    $ chat_message("elimf: {image=e_orz}")
+
     $ chat_message("elimf: bastions of goodness, us")
 
     $ chat_message("incri: what did u jst call me")
 
     $ chat_message("wnpep: uh some of us are more ethical than others")
+
+    $ chat_message("elimf: {image=e_serious}")
 
     $ chat_message("wnpep: do you know SQL? ")
 
@@ -311,6 +346,8 @@ label day1_10:
 
     $ has_sql_knowledge = True 
 
+    $ chat_message("wnpep: {image=e_wink}")
+
     $ chat_message("wnpep: then you've got a great head start champ ")
 
     $ chat_message("elimf: but, don't think it can do all that SQL can. it's pretty limited ")
@@ -322,9 +359,13 @@ label day1_10:
     # [2] MC: no 
 label day1_11: 
 
+    $ chat_message("wnpep: {image=e_wink}")
+
     $ chat_message("wnpep: no issue. it's not a hard language to pick up") 
 
     $ chat_message("elimf: if you find it difficult...")
+
+    #$ chat_message("incri: {image=e_pain}")
 
     $ chat_message("incri: concerning")
 
@@ -384,6 +425,8 @@ label day1_14:
 
     $ chat_message("incri: lollllllllllll")
 
+    #$ chat_message("incri: {image=e_pain}")
+
     $ chat_message("wnpep: here, let me show you an example table we have")
 
     jump day1_15
@@ -429,6 +472,8 @@ label day1_15:
 
     $ chat_message("wnpep: `select * \nfrom table.example`")
 
+    $ chat_message("wnpep: {image=e_wink}")
+
     $ player_choice(
         [
             ("ok, one moment", "wait_start"), 
@@ -455,6 +500,8 @@ label day1_17:
     $ chat_message("elimf: AHAHAHAHAHA") 
 
     $ chat_message("incri: FUCKING",fastmode=True,ot="wnpep") 
+
+    $ chat_message("incri: {image=e_letsgo}")
 
     $ chat_message("wnpep: sorry.") 
 
@@ -506,11 +553,17 @@ label day1_19:
     )
 
 label day1_19_1: 
+
+    $ chat_message("wnpep: {image=e_wink}")
+
     $ chat_message("wnpep: great. then we can skip all that, thrim.") 
+
     jump day1_24
 
 
 label day1_19_2: 
+
+    $ chat_message("wnpep: {image=e_wink}")
 
     $ chat_message("wnpep: no problem! let's explain a bit.") 
 
@@ -519,6 +572,8 @@ label day1_19_2:
     $ chat_message("incri: stupid summary",ot="elimf") 
 
     $ chat_message("elimf: each row is a thing and each column is information") 
+
+    $ chat_message("wnpep: {image=e_baby}")
 
     $ chat_message("wnpep: ok no no ur being confusing") 
 
@@ -550,7 +605,7 @@ label day1_19_2:
 
     $ chat_message("wnpep: successful being the key word here")
 
-    $ chat_message("elimf: lmao")
+    $ chat_message("elimf: {image=e_crying}")
 
     $ chat_message("wnpep: so, based off of that information, {color="+color_help+"}can you tell me who in here has the most hacks completed?{/color}")  
 
@@ -583,6 +638,8 @@ label day1_19_2_2:
 ## correct choice
 label day1_19_2_3: 
     $ points_seekLove += 1
+
+    $ chat_message("wnpep: {image=e_sparkle}")
 
     $ chat_message("wnpep: yes! that's right!")
 
@@ -658,6 +715,8 @@ label day1_19_2_cont_3:
     )
 
 label day1_19_2_cont_3_1:
+    $ chat_message("incri: {image=e_pain}")
+
     $ chat_message("incri: IT'S ODXNY DIPSHIT")
 
     $ chat_message("elimf: is this how much hand massaging ur gonna need lol ")
@@ -683,6 +742,8 @@ label day1_19_2_cont_3_1:
 
     $ chat_message("wnpep: stop please ")
 
+    $ chat_message("elimf: {image=e_orz}")
+
     $ chat_message("elimf: ok ")
 
     $ chat_message("wnpep: we can help you out as you go thrim. just ask")
@@ -701,11 +762,15 @@ label day1_19_2_cont_3_2:
 
     $ chat_message("elimf: my god they've done it")
 
+    $ chat_message("wnpep: {image=e_sparkle}")
+
     $ chat_message("wnpep: yayyyy!!")
 
     $ chat_message("incri: this is so fkin boring")
 
     $ chat_message("wnpep: shut up inc")
+
+    $ chat_message("incri: {image=e_pain}")
 
     $ chat_message("incri: no")
 
@@ -735,6 +800,8 @@ label day1_24:
 
     $ chat_message("elimf: lol imagine being named incri")
 
+    $ chat_message("incri: {image=e_pain}")
+
     $ chat_message("incri: imagine not having the highest number of hacks in here")
 
     $ chat_message("elimf: yea you can imagine that. since you have like 4 total right")
@@ -746,6 +813,8 @@ label day1_24:
     pause 0.5
     $ chat_message("SYSTEM: ODXNY online")
 
+    $ chat_message("elimf: {image=e_orz}")
+
     $ chat_message("elimf: sup big cheese")
 
     $ chat_message("wnpep: got someone new while you were gone")
@@ -755,6 +824,8 @@ label day1_24:
     $ chat_message("wnpep: yeah i'm sure ur already doing that too but i didnt see anything to worry about")
 
     $ chat_message("incri: ban them",fastmode=True)
+
+    $ chat_message("elimf: {image=e_serious}")
 
     pause 1 
 
@@ -774,6 +845,8 @@ label day1_24:
 
     $ chat_message("elimf: unfortunately we do now know you ")
 
+    $ chat_message("incri: {image=e_pain}")
+
     $ chat_message("odxny: I'll be doing my own vetting, unrelated to being a boring annoying dumbass.")
 
     $ chat_message("odxny: Thrim, let's arrange a brief call just to verify.")
@@ -791,7 +864,9 @@ label day1_24:
 
     pause 2
 
-    $ chat_message("wnpep: HUH")
+    $ chat_message("wnpep: {image=e_baby}")
+
+    $ chat_message("elimf: HUH")
 
     $ chat_message("odxny: LMAO",fastmode=True)
 
@@ -802,6 +877,8 @@ label day1_24:
     $ chat_message("odxny: That's hilarious actually")
 
     $ chat_message("incri: theyll drag us down with them",fastmode=True)
+
+    $ chat_message("incri: {image=e_letsgo}")
 
     $ chat_message("odxny: Nah")
 

@@ -20,6 +20,8 @@ label day3_start:
 
     $ chat_message("wnpep: i'm getting back to work")
 
+    $ chat_message("wnpep: {image=e_serious}")
+
     # MC: what are you working on wnpep?
     $ player_choice(
         [
@@ -59,6 +61,8 @@ label day3_2:
 
     # wnpep typing a while
 
+    $ chat_message("incri: {image=e_crying}")
+
     $ chat_message("incri: ROFL")
 
     $ chat_message("incri: ROFLMAOOOOO",ot="wnpep")
@@ -73,6 +77,8 @@ label day3_2:
             ("i just can't be sure", "x")
         ]
     )
+
+    $ chat_message("incri: {image=e_pain}")
 
     $ chat_message("incri: u sick old man sicko")
     
@@ -107,6 +113,8 @@ label day3_3:
     # end choices
 label day3_4: 
 
+    $ chat_message("wnpep: {image=e_baby}")
+
     $ chat_message("wnpep: this is getting away from us. the point is that if you want to chip in i can give you some pointers in return")
 
     $ chat_message("odxny: A fair exchange.",ot="incri")
@@ -123,6 +131,8 @@ label day3_4:
 
     $ chat_message("odxny: They do have their moments.",ot="incri")
 
+    $ chat_message("incri: {image=e_pain}")
+
     $ chat_message("incri: im just hearing coping")
 
     $ chat_message("wnpep: you'd know this if you ever accepted my advice")
@@ -133,6 +143,8 @@ label day3_4:
 
     $ chat_message("elimf: incri i thought u taught them bc of ur golden heart or smth lol")
 
+    $ chat_message("incri: {image=e_letsgo}")
+
     $ chat_message("incri: its DIFFERENT",ot="wnpep")
 
     $ chat_message("wnpep: we both may be benefiting but thats where the similarities end")
@@ -140,6 +152,8 @@ label day3_4:
     $ chat_message("wnpep: im going into this with a different mindset and a lot more patience")
 
     $ chat_message("elimf: theyve got mindfulness on their side")
+
+    $ chat_message("incri: {image=e_serious}")
 
     $ chat_message("incri: boring")
 
@@ -151,6 +165,8 @@ label day3_4:
 
     $ chat_message("incri: ur skills r")
 
+    $ chat_message("wnpep: {image=e_baby}")
+
     $ chat_message("wnpep: alright well i have a hack to run")
 
     $ chat_message("wnpep: thrim, if u want to help out my offers still on the table")
@@ -161,6 +177,8 @@ label day3_4:
             ("oh yeah lets do it", "x")
         ]
     )
+
+    $ chat_message("wnpep: {image=e_wink}")
 
     $ chat_message("wnpep: awesome")
 
@@ -176,11 +194,15 @@ label day3_4:
 
     $ chat_message("incri: sry for making everyone obsessed w me")
 
+    $ chat_message("incri: {image=e_orz}")
+
     #$ chat_message("odxny: All is forgiven.")
 
     $ chat_message("wnpep: alright everythings ready")
 
     $ chat_message("wnpep: lets get to it")
+
+    $ chat_message("wnpep: {image=e_sparkle}")
 
     jump day3_5
 
@@ -307,6 +329,8 @@ label day3_9:
 
     $ chat_message("elimf: they did fine yesterday wdym ")
 
+    $ chat_message("incri: {image=e_pain}")
+
     $ chat_message("incri: \"did fine\" r u stupid ")
 
     $ chat_message("incri: what part of that was fine ")
@@ -346,6 +370,8 @@ label day3_10A:
 
     $ chat_message("odxny: Good luck ",c="admin")
 
+    $ chat_message("odxny: {image=e_wink}",c="admin")
+
     jump day3_11
 
 
@@ -379,9 +405,13 @@ label day3_11:
 
     $ chat_message("elimf: any reason to hunt it down? ")
 
+    $ chat_message("wnpep: {image=e_orz}")
+
     $ chat_message("wnpep: is it not in our best interest to do good for our fellow man? ")
 
     $ chat_message("incri: l;et them worry abt themselves")
+
+    $ chat_message("elimf: {image=e_pain}")
 
     $ chat_message("elimf: who let ayn rand in here")
 
@@ -399,11 +429,17 @@ label day3_11:
 
     $ chat_message("wnpep: i'm morally right.")
 
+    $ chat_message("wnpep: {image=e_serious}")
+
     $ chat_message("elimf: interesting ",ot="incri")
 
     $ chat_message("incri: so was i ")
 
+    $ chat_message("wnpep: {image=e_baby}")
+
     $ chat_message("wnpep: you and i are not the same ")
+
+    $ chat_message("incri: {image=e_pain}")
 
     $ chat_message("incri: yea thnk god ")
 
@@ -424,6 +460,8 @@ label day3_12:
     $ chat_message("wnpep: in order to pull off a scam of this magnitude, it's likely gotta be one hospital and insurance company in cahoots ")
 
     $ chat_message("incri: \"cahoots\" ")
+
+    $ chat_message("incri: {image=e_pain}")
 
     $ chat_message("incri: ur so fuckn old ")
 
@@ -483,6 +521,8 @@ label day3_14:
         ]
     )
 
+    $ chat_message("wnpep: {image=e_baby}")
+
     $ chat_message("wnpep: k ")
 
     jump day3_15
@@ -491,6 +531,8 @@ label day3_14:
 label day3_15: 
 
     $ chat_message("odxny: So, you're sure that has to be the scam one? ")
+
+    $ chat_message("wnpep: {image=e_serious}")
 
     $ chat_message("wnpep: wouldn't say 100% sure, but close enough ")
 
@@ -503,6 +545,8 @@ label day3_15:
     $ chat_message("incri: life is a fcking scam.")
 
     $ chat_message("elimf: ^ the joker")
+
+    $ chat_message("elimf: {image=e_pain}",ot="incri")
 
     $ chat_message("incri: SHUT UP")
 
@@ -546,6 +590,8 @@ label day3_15:
 
     $ chat_message("elimf: why is it always so straightforward ")
 
+    $ chat_message("elimf: {image=e_crying}")
+
     $ chat_message("wnpep: look at the big man i aint in charge")
 
     $ chat_message("odxny: The back end program does a good job sometimes assembling data like that. ")
@@ -586,6 +632,8 @@ label day3_16:
 
     pause 2 
 
+    $ chat_message("wnpep: {image=e_baby}")
+
     $ chat_message("wnpep: ....really?") 
 
     $ chat_message("odxny: ?") 
@@ -611,6 +659,8 @@ label day3_16:
 
     $ chat_message("odxny: Yes, it is.")
 
+    $ chat_message("wnpep: {image=e_baby}")
+
     $ chat_message("wnpep: wtf")
 
     $ chat_message("wnpep: but gered only works with PRIDE?")
@@ -620,6 +670,8 @@ label day3_16:
     $ chat_message("wnpep: looking") 
 
     pause 3 
+
+    $ chat_message("wnpep: {image=e_baby}")
 
     $ chat_message("wnpep: \"Define\". god ")
 
@@ -642,9 +694,11 @@ label day3_16:
 
     $ chat_message("wnpep: my daughter has been saying i need new glasses ")
 
-    $ chat_message("elimf: a daughter ")
+    $ chat_message("elimf: {image=e_serious}")
 
-    $ chat_message("odxny: Makes sense that you're a parent. ",ot="odxny")
+    $ chat_message("elimf: a daughter ",ot="odxny")
+
+    $ chat_message("odxny: Makes sense that you're a parent. ")
 
     $ chat_message("elimf: yea i can't even b mad at that one. it would be weird if u werent tbh ")
 
@@ -653,6 +707,8 @@ label day3_16:
     $ chat_message("wnpep: sorry, i keep letting things slip somehow")
 
     $ chat_message("wnpep: must be my love and affection for you all allowing me to open up more freely")
+
+    $ chat_message("wnpep: {image=e_orz}")
 
     $ chat_message("elimf: fuck off ",ot="incri")
 
@@ -667,6 +723,8 @@ label day3_16:
     )
 
 label day3_17: 
+
+    $ chat_message("incri: {image=e_letsgo}")
 
     $ chat_message("incri: tainted us ")
 
@@ -696,6 +754,8 @@ label day3_18:
     $ chat_message("elimf: BOOOOOOOOOOOOOOOOO",ot="incri")
 
     $ chat_message("incri: BOOOOOOOOOOOOOOOOOOOOOOOOOO",fastmode=True)
+
+    $ chat_message("incri: {image=e_pain}")
 
     $ chat_message("incri: FUCKASS IDEA",ot="elimf")
 
@@ -741,6 +801,8 @@ label day3_odm_2:
     # [1-1] MC: i mean, compared to incri…
 label day3_odm_3: 
 
+    $ chat_message("odxny: {image=e_pain}", c="admin")
+
     $ chat_message("odxny: I'm sure they'd be flattered to hear they've cleared the lowest possible bar.", c="admin")
 
     #MC: really? lemme tell him rn
@@ -778,6 +840,8 @@ label day3_odm_3:
 label day3_odm_4: 
     $ points_seekLove += 1
 
+    $ chat_message("odxny: {image=e_baby}", c="admin")
+
     $ chat_message("odxny: You may be the world's most devoted contrarian.", c="admin")
 
     #MC: i havent even begun to contradict
@@ -814,6 +878,8 @@ label day3_odm_5:
         ]
     )
 
+    $ chat_message("odxny: {image=e_baby}", c="admin")
+
     $ chat_message("odxny: Well", c="admin")
 
     #MC: CMON
@@ -841,6 +907,8 @@ label day3_odm_5:
     #[3] MC: what if I need the threat of violence to learn
 label day3_odm_6: 
     $ points_seekLove += 1
+
+    $ chat_message("odxny: {image=e_pain}", c="admin")
 
     $ chat_message("odxny: Do you ever listen to the words you're typing or saying?", c="admin")
 
@@ -1046,7 +1114,7 @@ label day3_20:
     # MC: I see two names in here 
     $ player_choice(
         [
-            ("I see two names in here", "x")
+            ("I see two names in here. Bailey Yang, Adriel Humphrey", "x")
         ]
     )
 
@@ -1071,6 +1139,8 @@ label day3_20:
             ("not in here, unfortunately ", "x")
         ]
     )
+
+    $ chat_message("wnpep: {image=e_baby}")
 
     $ chat_message("wnpep: huh? what? really? ")
 
@@ -1108,6 +1178,8 @@ label day3_20_SQL:
         ]
     )
 
+    $ chat_message("elimf: {image=e_crying}")
+
     $ chat_message("elimf: LOLLLLL ")
 
     $ chat_message("elimf: yea od where's the fucken group by ")
@@ -1117,6 +1189,8 @@ label day3_20_SQL:
     $ chat_message("odxny: Can't do a lot of those type of queries.")
 
     $ chat_message("elimf: still crazy ")
+
+    $ chat_message("odxny: {image=e_pain}")
 
     $ chat_message("odxny: Look. ")
 
@@ -1137,9 +1211,11 @@ label day3_21:
 
     $ chat_message("incri: it's th most effcien t strat ")
 
-    $ chat_message("elimf: incri stop ruining the new persson ",ot="wnpep")
+    #$ chat_message("elimf: incri stop ruining the new persson ",ot="wnpep")
 
     $ chat_message("wnpep: lol. i'd rather avoid blackmailing an innocent if i can avoid it ")
+
+    $ chat_message("incri: {image=e_letsgo}")
 
     $ chat_message("incri: boring ",ot="odxny")
 
@@ -1159,6 +1235,8 @@ label day3_22:
     $ chat_message("wnpep: now that we have the wonderful world of irs data ")
 
     $ chat_message("elimf: CHA CHING ")
+
+    $ chat_message("elimf: {image=e_sparkle}")
 
     jump day3_23
 
@@ -1257,6 +1335,8 @@ label day3_25:
 
     $ chat_message("elimf: i'm not an idiot ")
 
+    $ chat_message("incri: {image=e_pain}")
+
     $ chat_message("incri: idiot ",ot="odxny")
 
     $ chat_message("odxny: I can help out here. ")
@@ -1314,11 +1394,15 @@ label day3_25A:
 
     $ chat_message("wnpep: nice stuff od")
 
+    $ chat_message("wnpep: {image=e_wink}")
+
     $ chat_message("odxny: Thank you, thank you. More praise please.") 
 
     $ chat_message("incri: ur mask is only mildly cringe")
 
     $ chat_message("elimf: i think ur mask is very cool od")
+
+    $ chat_message("odxny: {image=e_pain}") 
 
     $ chat_message("odxny: Ok. No more praise please.")
     
@@ -1330,7 +1414,9 @@ label day3_25B:
 
     $ chat_message("elimf: i take it back. u suck od ")
 
-    $ chat_message("odxny: ...",ot="wnpep")
+    $ chat_message("odxny: {image=e_pain}")
+
+    #$ chat_message("odxny: ...",ot="wnpep")
 
     $ chat_message("wnpep: eli")
 
@@ -1347,6 +1433,8 @@ label day3_26:
     $ chat_message("wnpep: so, {color="+color_help+"}go ahead and see if you can tell who has mis-matching records between #pride.paystubs23# and #irs.income23# only between those two names in the claims table{/color}")
 
     $ chat_message("wnpep: {color="+color_help+"}you'll want to utilize a JOIN and a WHERE clause to get the info we need.{/color}")
+
+    $ chat_message("wnpep: {color="+color_help+"}please pull up both of those people at the same time!{/color}")
 
     # MC: u got it 
     $ player_choice(
@@ -1367,6 +1455,8 @@ label day3_27:
             ("i am so skilled. i got it ", "x")
         ]
     )
+
+    $ chat_message("wnpep: {image=e_wink}")
 
     $ chat_message("wnpep: that's the spirit! heck yeah you are! ",ot="odxny")
 
@@ -1429,6 +1519,8 @@ label day3_29:
         ]
     )
 
+    $ chat_message("incri: {image=e_pain}")
+
     $ chat_message("incri: yeah ur fuckin wrong IDIOT ")
 
     # MC: omg... 
@@ -1465,6 +1557,8 @@ label day3_30:
 
     $ chat_message("wnpep: given my intel, this seems pretty straightforward ")
 
+    $ chat_message("wnpep: {image=e_orz}")
+
     $ chat_message("wnpep: {color="+color_help+"}mind grabbing me Bailey Yang's email from {/color}#irs.contacts#, thrim? ")
 
     ## SET REQUIREMENTS TO PROGRESS 
@@ -1495,6 +1589,8 @@ label day3_31:
 
     $ chat_message("elimf: LOL ",ot="wnpep")
 
+    $ chat_message("elimf: {image=e_crying}")
+
     $ chat_message("wnpep: we're all learning together! ")
 
     # MC: are we? 
@@ -1506,6 +1602,8 @@ label day3_31:
 
 
     $ chat_message("wnpep: maybe! ")
+
+    $ chat_message("wnpep: {image=e_orz}")
 
     $ chat_message("wnpep: please grab it ")
 
@@ -1553,6 +1651,8 @@ label day3_33:
 
     $ chat_message("incri: BLACKMAIL BLACKMAIL BLACKMAIL ",fastmode=True)
 
+    $ chat_message("wnpep: {image=e_serious}")
+
     $ chat_message("wnpep: one moment, i must perfect this ")
 
     $ chat_message("odxny: Sure. ",ot="elimf")
@@ -1564,6 +1664,8 @@ label day3_33:
     $ chat_message("incri: 2 feel it ")
 
     $ chat_message("incri: in th moment ")
+
+    $ chat_message("incri: {image=e_orz}")
 
     $ chat_message("elimf: uh huh ")
 
@@ -1584,6 +1686,8 @@ label day3_33:
 
     $ chat_message("wnpep: bc this involves a giant scam getting exposed lol ")
 
+    $ chat_message("wnpep: {image=e_pain}")
+
     $ chat_message("elimf: LMAO ",ot="odxny")
 
     $ chat_message("odxny: They're gonna strategize on their side. ")
@@ -1598,6 +1702,8 @@ label day3_33:
     $ chat_message("elimf: and rhyme. in time",ot="incri")
 
     $ chat_message("incri: i got mine done faster")
+
+    $ chat_message("elimf: {image=e_letsgo}")
 
     $ chat_message("elimf: i said clap",ot="odxny")
 
@@ -1638,6 +1744,8 @@ label day3_33:
     $ chat_message("odxny: I'm sure it feels a little odd to finally be finished.")
 
     $ chat_message("wnpep: i suppose that's part of it")
+
+    $ chat_message("wnpep: {image=e_baby}")
 
     $ player_choice(
         [
@@ -1685,6 +1793,8 @@ label day3_36:
 
     $ chat_message("wnpep: take care")
 
+    $ chat_message("wnpep: {image=e_wink}")
+
     # wnpep offline
     pause 2.0
 
@@ -1693,6 +1803,8 @@ label day3_36:
     $ chat_message("incri: u didnt offer me a celebratory shot")
 
     $ chat_message("odxny: Sorry for the oversight.")
+
+    $ chat_message("incri: {image=e_letsgo}")
 
     $ chat_message("incri: liar")
 
@@ -1705,6 +1817,8 @@ label day3_36:
     $ chat_message("incri: fukc you all im getting my own shot")
 
     $ chat_message("elimf: ill do a shot with u")
+
+    $ chat_message("incri: {image=e_pain}")
 
     $ chat_message("incri: im not enabling u getting fkcing crossfaded")
 
@@ -1776,6 +1890,8 @@ label day3_40A:
     $ points_seekLove += 1
 
     pause 2 
+
+    $ chat_message("odxny: {image=e_pain}",c="admin")
 
     $ chat_message("odxny: One sec*",c="admin") 
 
