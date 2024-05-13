@@ -465,7 +465,7 @@ screen navigation():
 
         if persistent.seekLove and persistent.seekLife and persistent.seekLoss: 
 
-            textbutton _("BONUS") action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), Show("music_room", mr=my_room)
+            textbutton _("BONUS") text_color character_colors["odxny"] text_hover_color gui.hover_color  action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), Show("music_room", mr=my_room)
         else: 
             textbutton _("BONUS") action NullAction() text_color "#686868"
 
@@ -607,7 +607,7 @@ screen gallery_1:
         ysize 600
         xsize 1100
         ypos 0.1
-        xpos 0.25
+        xpos 0.26
     
         background None
 
@@ -656,7 +656,7 @@ screen gallery_2:
         ysize 600
         xsize 1100
         ypos 0.1
-        xpos 0.25
+        xpos 0.26
     
         background None
 
@@ -689,7 +689,7 @@ screen gallery_3:
         ysize 600
         xsize 1100
         ypos 0.1
-        xpos 0.25
+        xpos 0.26
     
         background None
 
@@ -913,7 +913,7 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
             if persistent.seekLove and persistent.seekLife and persistent.seekLoss: 
 
-                textbutton _("BONUS") action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), Show("music_room", mr=my_room)
+                textbutton _("BONUS") text_color character_colors["odxny"] text_hover_color gui.hover_color action Play("sound", "audio/sfx/message_notification_02_002 tab.ogg"), Show("music_room", mr=my_room)
             else: 
                 textbutton _("BONUS") action NullAction() text_color "#686868"
 
