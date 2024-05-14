@@ -17,7 +17,7 @@ default function_list = ["out", "dial", "horn"]
 default at_end = False
 
 default horn_name = "INCRI"
-default horn_sound = "audio/sfx/ui_start_game_001 start.ogg"
+default horn_sound = "audio/sfx/Airhorn_002_-_seekl.ogg"
 default incri_online = True 
 default odxny_online = True 
 default wnpep_online = True 
