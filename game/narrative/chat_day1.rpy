@@ -23,7 +23,7 @@ label day1_start:
     #$ persistent.seekLove = True
     $ chat_message("SYSTEM: THRIM joined")
 
-    play music "audio/music/cracking_the_codelooped.ogg" loop fadein 2.0 fadeout 2.0 
+    play music "audio/music/lost_in_code_with_youlooped.ogg" loop fadein 2.0 fadeout 2.0 
 
     #jump day4_31
 

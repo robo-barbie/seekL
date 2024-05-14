@@ -1308,7 +1308,7 @@ label day5_44:
 
     $ chat_message("incri: do we have t wait for that")
 
-    play music "audio/music/little_hand_on_the_clocklooped.ogg" fadein 3.0 
+    play music "audio/music/lost_in_code_with_youlooped.ogg" fadein 3.0 
 
     $ chat_message("incri: bc im bored")
 
