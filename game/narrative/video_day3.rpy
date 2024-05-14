@@ -4,7 +4,7 @@ label day3_call:
     voice "audio/voice/day3/o3-001.ogg"
     o "Well, here we are. Two hacks down, two to go."
 
-    play music "audio/music/Digital_Dream.mp3" loop fadein 2.0 fadeout 2.0 
+    play music "audio/music/Digital_Dreamlooped.ogg" loop fadein 2.0 fadeout 2.0 
 
     show spr o1 neutral 
     voice "audio/voice/day3/o3-002.ogg"

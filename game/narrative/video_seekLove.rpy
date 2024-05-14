@@ -13,7 +13,7 @@ label day5_seekLove_call:
 
     pause 2 
 
-    play music "audio/music/Digital_Dream.mp3" loop fadein 2.0 fadeout 2.0 
+    play music "audio/music/Digital_Dreamlooped.ogg" loop fadein 2.0 fadeout 2.0 
 
     pause 3
 

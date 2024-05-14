@@ -1,6 +1,6 @@
 label day2_start: 
 
-    play music "audio/music/server_room_chiller_version.mp3" loop fadein 2.0 fadeout 2.0 
+    play music "audio/music/server_room_chiller_versionlooped.ogg" loop fadein 2.0 fadeout 2.0 
 
     $ player_choice(
         [
@@ -1738,6 +1738,8 @@ label day2_moneyrain:
 
     hide money_rain onlayer screens with Dissolve(0.5)
     stop chat fadeout 0.5
+
+    $ force_scroll_down()
 
     pause 0.5 
 

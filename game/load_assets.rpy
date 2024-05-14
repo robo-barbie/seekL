@@ -23,6 +23,9 @@ image e_heart = "images/emote_heart.png"
 image e_letsgo = "images/emote_letsgo.png" 
 image e_orz = "images/emote_orz.png"
 
+screen click_to_continue: 
+    text "(click to continue)" color "#ffffff34" xalign 0.5 text_align 0.5 yalign 0.5 
+
 ## credits 
 # screen credits_1: 
 #     text "robobarbie\n{color=9b9b9b}lead, programming, text{/color}" xalign 0.5 text_align 0.5 yalign 0.5 
@@ -35,7 +38,7 @@ screen credits_2:
         text "robobarbie\n{color=9b9b9b}lead, programming, text{/color}" xalign 0.5 text_align 0.5
         text "Allie Vera\n{color=9b9b9b}text, editing{/color}" xalign 0.5 text_align 0.5
         text "saffeine_\n{color=9b9b9b}art, programming{/color}" xalign 0.5 text_align 0.5
-        text "HI-T3C\n{color=9b9b9b}music, sfx{/color}" xalign 0.5 text_align 0.5
+        text "Diantre' \"HI-T3C\" Butler\n{color=9b9b9b}music, sfx{/color}" xalign 0.5 text_align 0.5
         text "Mike Young\n{color=9b9b9b}voice acting{/color}" xalign 0.5 text_align 0.5
 
 # screen credits_3: 
@@ -58,11 +61,11 @@ Jeju
 Autumn
 Angela He
 Windchimes
-Bakatino
+Santino Arturo
 Junter
 Cres
 Cath
-kc""" xalign 0.5 text_align 0.5
+npckc""" xalign 0.5 text_align 0.5
 
 screen credits_5: 
     text "Destini Islands\n{color=9b9b9b}special thank u <3{/color}" xalign 0.5 yalign 0.5 text_align 0.5
@@ -670,7 +673,7 @@ image o3 mouth parted:
 
 
 
-image money_rain = Fixed(SnowBlossom("images/temp/dollar.png", 50, xspeed=(-500, 500), yspeed=(1000, 2000), start=20))
+image money_rain = Fixed(SnowBlossom("images/temp/dollar.png", 100, xspeed=(-500, 500), yspeed=(200, 500), start=20))
         
 
 

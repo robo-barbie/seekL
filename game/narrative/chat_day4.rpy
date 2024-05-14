@@ -2,7 +2,7 @@
 
 label day4_start: 
 
-    play music "audio/music/cracking_the_code.mp3" loop fadein 2.0 fadeout 2.0 
+    play music "audio/music/cracking_the_codelooped.ogg" loop fadein 2.0 fadeout 2.0 
 
     $ chat_message("wnpep: hmm")
 
@@ -158,6 +158,7 @@ label day4_3:
 
     hide money_rain onlayer screens with Dissolve(0.5)
     stop chat fadeout 0.5
+    $ force_scroll_down()
 
     pause 0.5 
 
@@ -1857,6 +1858,7 @@ label day4_44:
 
     hide money_rain onlayer screens with Dissolve(0.5)
     stop chat fadeout 0.5
+    $ force_scroll_down()
 
     pause 0.5 
 

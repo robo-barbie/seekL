@@ -111,8 +111,11 @@ label day_swap:
     stop music fadeout 1.0
     show black_bg
     $ _preferences.afm_enable = False 
+    pause 2 
+    show screen click_to_continue with Dissolve(0.5)
     pause  
-    pause 0.5
+    hide screen click_to_continue with Dissolve(0.5)
+    pause 2
     hide black_bg
     # jump day2_start
 

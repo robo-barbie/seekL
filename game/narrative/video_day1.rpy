@@ -3,7 +3,7 @@ label day1_call:
     voice "audio/voice/day1/o1-001.ogg"
     o "There we are."
 
-    play music "audio/music/little_hand_on_the_clock.mp3" loop fadein 2.0 fadeout 2.0 
+    play music "audio/music/little_hand_on_the_clocklooped.ogg" loop fadein 2.0 fadeout 2.0 
 
     menu: 
         "You know, for someone concerned by security this is kind of a weird move.": 

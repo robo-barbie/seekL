@@ -4,7 +4,7 @@
 label day3_start: 
 
     #play music "audio/music/server_room_chiller_version.mp3" loop fadein 2.0 fadeout 2.0 
-    play music "audio/music/little_hand_on_the_clock.mp3" loop fadein 2.0 fadeout 2.0 
+    play music "audio/music/little_hand_on_the_clocklooped.ogg" loop fadein 2.0 fadeout 2.0 
 
     $ chat_message("elimf: alright uhhh hh h")
 

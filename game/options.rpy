@@ -74,7 +74,7 @@ define config.default_voice_volume = 0.8
 ## game, until it is stopped or another file is played.
 
 # define config.main_menu_music = "main-menu-theme.ogg"
-define songlist_main = ["audio/music/theme.mp3","audio/music/little_hand_on_the_clock.mp3"]
+define songlist_main = ["audio/music/theme.mp3","audio/music/little_hand_on_the_clocklooped.ogg"]
 define config.main_menu_music = songlist_main
 
 

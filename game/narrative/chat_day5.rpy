@@ -25,7 +25,7 @@ label day5_start:
 
     $ chat_message("elimf: sup thrim")
 
-    play music "audio/music/server_room.mp3" loop fadein 2.0 fadeout 2.0 
+    play music "audio/music/server_roomlooped.ogg" loop fadein 2.0 fadeout 2.0 
 
     # MC: sup!
     $ player_choice(
@@ -1308,7 +1308,7 @@ label day5_44:
 
     $ chat_message("incri: do we have t wait for that")
 
-    play music "audio/music/little_hand_on_the_clock.mp3" fadein 3.0 
+    play music "audio/music/little_hand_on_the_clocklooped.ogg" fadein 3.0 
 
     $ chat_message("incri: bc im bored")
 
