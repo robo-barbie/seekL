@@ -261,7 +261,7 @@ label day2_call:
 
     show spr o1 side neutral 
     voice "audio/voice/day2/o2-049.ogg"
-    o "I don't have any reasons to stay. I'm just-- tired. Of everything. "
+    o "I don't have any reason to stay. I'm just-- tired. Of everything. "
 
 
     menu:

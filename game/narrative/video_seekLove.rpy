@@ -85,7 +85,7 @@ label day5_seekLove_call:
         linear 5.0 xpos 324
     with dissolve
     voice "audio/voice/day5/o5-008.ogg"
-    o "Now that that's over with, I am glad to hear from you."
+    o "Now that that's over with, I'm glad to hear from you."
     voice "audio/voice/day5/o5-009.ogg"
     o "I should have planned out a conversation but I honestly didn't think beyond this step."
 
