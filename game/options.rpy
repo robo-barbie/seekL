@@ -21,6 +21,7 @@ define config.keymap['input_next_line'] = ["K_RETURN", "K_KP_ENTER"]
 
 init python:
     renpy.music.register_channel("chat", mixer = "sfx")
+    renpy.music.register_channel("honk", mixer = "sfx")
 
 ## Determines if the title given above is shown on the main menu screen. Set
 ## this to False to hide the title.

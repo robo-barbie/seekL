@@ -150,6 +150,18 @@ label day4_3:
 
     $ chat_message("SYSTEM: PAYMENT PLAN INITIATED FOR - $ 1 , 000 , 000")
 
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: ELIMF SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
+
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: INCRI SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
+
     $ chat_message("wnpep: there we go")
 
     $ chat_message("odxny: Nice job, pep.")
@@ -366,6 +378,7 @@ label day4_6:
     pause 0.5
 
     $ chat_message("SYSTEM: WNPEP offline")
+    $ wnpep_online = False
 
     $ chat_message("elimf: this is gonna go great")
 
@@ -658,6 +671,7 @@ label day4_16:
     pause 0.5
 
     $ chat_message("SYSTEM: INCRI offline")
+    $ incri_online = False
 
     $ chat_message("elimf: wow")
 
@@ -746,6 +760,12 @@ label day4_19:
     $ chat_message("elimf: and methinks we may be able to ")
 
     $ chat_message("elimf: get at hi m there ")
+
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: ELIMF SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
 
     $ chat_message("elimf: #txgov.foster_parents#")
     pause 0.5
@@ -1166,6 +1186,7 @@ label day4_30:
     pause 0.5
 
     $ chat_message("SYSTEM: INCRI online") 
+    $ incri_online = True
 
     $ chat_message("incri: i sense sum1 getting ownd ")
 
@@ -1799,6 +1820,24 @@ label day4_43:
 
     $ chat_message("elimf: thank u inc <3 ")
 
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: INCRI SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
+
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: ELIMF SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
+
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: ELIMF SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
+
     jump day4_44 
 
 
@@ -1808,6 +1847,7 @@ label day4_44:
     pause 0.5
 
     $ chat_message("SYSTEM: WNPEP online")
+    $ wnpep_online = True
 
     $ chat_message("wnpep: alright! i'm back! ")
 
@@ -1924,6 +1964,7 @@ label day4_44:
     pause 0.5
 
     $ chat_message("SYSTEM: ELIMF offline")
+    $ elimf_online = False
 
     $ chat_message("wnpep: ???????")
 
@@ -1939,6 +1980,7 @@ label day4_44:
     )
 
     ## call time 
+    $ elimf_online = True
     jump go_to_call
 
     $ renpy.pause(hard=True)

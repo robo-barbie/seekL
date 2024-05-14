@@ -100,7 +100,7 @@ EX: SELECT *
     {/color}{/size}{/font}""", 
 
     """{font=HELLO.ttf.ttf}{size=25}5. EXEC
-Execute a function with an input. This does not run with any other seekL query.{color=ffffff69}
+Execute a function with or without an input. This does not run with any other seekL query.{color=ffffff69}
 
 EX: EXEC out('bruce.johnson@copmail.com')
     {/color}{/size}{/font}""",

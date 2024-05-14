@@ -569,6 +569,18 @@ label day2_15:
 
     $ chat_message("incri: OKAY ")
 
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: ELIMF SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
+
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: INCRI SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
+
     $ chat_message("incri: {color="+color_help+"}GO LOOK AT THE TABLE{/color}")
 
     $ chat_message("incri: #AZGOV.MARRIAGE#")
@@ -766,6 +778,12 @@ label day2_24:
 
     $ chat_message("wnpep: middle initial? ", ot="incri")
 
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: ELIMF SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
+
     $ chat_message("incri: v hnvhnv nnv  nv jmj ")
 
     $ chat_message("incri: j  hnvg gb nbm", ot="wnpep")
@@ -773,10 +791,12 @@ label day2_24:
     pause 0.5
 
     $ chat_message("SYSTEM: INCRI offline") 
+    $ incri_online = False
 
     pause 1.0
 
     $ chat_message("SYSTEM: INCRI online") 
+    $ incri_online = True 
 
     $ chat_message("incri: nv n v nbvb v nm  uj,",ot="elimf")
 
@@ -1729,6 +1749,18 @@ label day2_moneyrain:
     pause 0.5
 
     $ chat_message("SYSTEM: PAYMENT PLAN INITIATED FOR - $ 50 , 000")
+
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: ELIMF SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
+
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: INCRI SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
 
     $ chat_message("incri: SO EZ EZ EZ ZE ZE ZE EZ ",ot="elimf")
 

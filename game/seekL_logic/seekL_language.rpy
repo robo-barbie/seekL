@@ -13,8 +13,67 @@ default l_out = {}
 default func_access_email = False 
 default func_access_kill = False 
 default func_access_dial = False 
-default function_list = ["out", "dial"]
+default function_list = ["out", "dial", "horn"]
 default at_end = False
+
+default horn_name = "INCRI"
+default horn_sound = "audio/sfx/ui_start_game_001 start.ogg"
+default incri_online = True 
+default odxny_online = True 
+default wnpep_online = True 
+default elimf_online = True 
+default horn_allowed = True 
+
+init python: 
+    def can_we_horn_more_sire(): 
+        global horn_name
+        global incri_online 
+        global elimf_online 
+        global odxny_online 
+        global wnpep_online 
+        global horn_allowed
+        #r = renpy.random.random() 
+        do_repeat = renpy.random.choice([True, False])
+        if do_repeat and horn_allowed: 
+            if int(next_day_number) < 5: 
+                if incri_online or elimf_online: 
+                    if horn_name == "ELIMF": 
+                        if incri_online: 
+                            horn_name = "INCRI"
+                    else: 
+                        if elimf_online:
+                            horn_name = "ELIMF"
+            else: 
+                if incri_online or elimf_online or odxny_online: 
+                    if horn_name == "ELIMF": 
+                        if incri_online: 
+                            horn_name = "INCRI"
+                        elif elimf_online: 
+                            horn_name = "ELIMF"
+                        else: 
+                            horn_name = "ODXNY"
+                    elif horn_name == "INCRI": 
+                        if odxny_online: 
+                            horn_name = "ODXNY"
+                        elif elimf_online: 
+                            horn_name = "ELIMF"
+                        else: 
+                            horn_name = "INCRI"
+                    else: 
+                        if elimf_online: 
+                            horn_name = "ELIMF"
+                        elif incri_online: 
+                            horn_name = "INCRI"
+                        else: 
+                            horn_name = "ODXNY"
+            renpy.show_screen("horn_me_again") 
+        
+        
+screen horn_me_again: 
+    timer 0.5 action Show("horn_time"), Hide("horn_me_again")
+
+screen horn_time: 
+    timer 1.0 action Function(chat_message, "SYSTEM: " + horn_name + " SAYS HORN IT UP"), Play("honk", horn_sound,loop=False), Function(can_we_horn_more_sire), Hide("horn_time")
 
 init python: 
 
@@ -119,12 +178,19 @@ init python:
                             renpy.show_screen("phonecall_window_real")
                         else: 
                             func_name = func_name + "\n\nINPUT NUMBER CANNOT BE DIALED."
+                    elif func_name == "horn": 
+                        chat_message("SYSTEM: THRIM SAYS HORN IT UP")
+                        renpy.play(horn_sound, channel="honk")
+                        if horn_allowed: 
+                            renpy.show_screen("horn_time")
 
-                    if exec_needed and not at_end: 
+
+                    if exec_needed and not at_end and func_name != "horn": 
                         player_input_confirm(exec_func = func_name, exec_input = func)
                     seekL_output = ["RAN FUNCTION: \n"+func_name]
                     previous_commands.append(t_og)
-                    renpy.play("audio/sfx/Console_Execute_001.ogg")
+                    if func_name != "horn":
+                        renpy.play("audio/sfx/Console_Execute_001.ogg")
 
                 else: 
                     if player_is_waiting: 

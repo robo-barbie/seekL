@@ -299,14 +299,99 @@ label day1_9:
 
     $ chat_message("incri: uggghhgh")
 
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: INCRI SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
+    
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: ELIMF SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
+
+    $ player_choice(
+        [
+            ("the fuck is that???", "x")
+        ]
+    )
+
+    $ chat_message("elimf: um. please do NOT address the horn thrim",ot="incri")
+
+    $ chat_message("incri: ur fucki ng ruining it thrim",fastmode=True)
+
+    $ player_choice(
+        [
+            ("???", "x")
+        ]
+    )
+
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: INCRI SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
+
+    $ chat_message("wnpep: cmon. basic manners thrim.")
+
+    $ player_choice(
+        [
+            ("ME???", "day1_horn_1"), 
+            ("hwo do u do that i want in", "day1_horn_2")
+        ]
+    )
+
+label day1_horn_1: 
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: ELIMF SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: INCRI SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
+
+    jump day1_horn_3
+
+label day1_horn_2: 
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: INCRI SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: INCRI SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
+
+    $ player_choice(
+        [
+            ("fucking rude", "x")
+        ]
+    )
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: INCRI SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
+    
+    jump day1_horn_3
+
     # SEEKL SEGMENT 
+label day1_horn_3: 
 
     # MC: so how does this all work? 
     $ player_choice(
         [
-            ("so how does this all work? ", "x"), 
+            ("whatever. so how does this all work? ", "x"), 
         ]
     )
+
+    $ hack_notes.append("new function: \nhorn()")
 
     $ chat_message("wnpep: we access data from a variety of companies/government agencies")
 
@@ -941,6 +1026,10 @@ label day1_29:
     $ chat_message("wnpep: or foolish")
 
     $ chat_message("odxny: We'll see.")
+
+
+    #$ chat_message("odxny: Calling.")
+
 
 
     ## call time 

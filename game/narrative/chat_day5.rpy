@@ -206,6 +206,12 @@ label day5_6:
 
     $ chat_message("incri: {image=e_letsgo}")
 
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: ELIMF SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
+
     $ chat_message("incri: stfu  u wish u cld hack like me asshole")
 
     $ chat_message("wnpep: we all quiver in awe of your feats")
@@ -1306,6 +1312,18 @@ label day5_44:
 
     $ chat_message("incri: {image=e_pain}")
 
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: ELIMF SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
+
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: INCRI SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
+
     $ chat_message("incri: do we have t wait for that")
 
     play music "audio/music/lost_in_code_with_youlooped.ogg" fadein 3.0 
@@ -1313,6 +1331,12 @@ label day5_44:
     $ chat_message("incri: bc im bored")
 
     $ chat_message("elimf: what a development")
+
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: INCRI SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
 
     $ chat_message("incri: stfu",ot="odxny")
 
@@ -1686,6 +1710,18 @@ label day5_seekLife_3:
     $ chat_message("elimf: see u never :^)",fastmode=True)
 
     $ chat_message("odxny: 2",fastmode=True)
+
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: INCRI SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
+
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: ELIMF SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
 
     $ player_choice(
         [
@@ -2305,6 +2341,7 @@ label day5_seekLove_12:
     $ chat_message("odxny: 1",fastmode=True)
 
     $ func_access_dial = True 
+    $ horn_allowed = False
 
     # server shut down
 

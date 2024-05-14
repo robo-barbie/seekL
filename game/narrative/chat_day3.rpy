@@ -16,9 +16,21 @@ label day3_start:
 
     $ chat_message("elimf: itll come to me")
 
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: ELIMF SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
+
     $ chat_message("wnpep: you do that")
 
     $ chat_message("wnpep: i'm getting back to work")
+
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: INCRI SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
 
     $ chat_message("wnpep: {image=e_serious}")
 
@@ -674,6 +686,12 @@ label day3_16:
     $ chat_message("wnpep: {image=e_baby}")
 
     $ chat_message("wnpep: \"Define\". god ")
+
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: ELIMF SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
 
     $ chat_message("elimf: i dont get it. pls explain in small words ")
 
@@ -1692,6 +1710,18 @@ label day3_33:
 
     $ chat_message("odxny: They're gonna strategize on their side. ")
 
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: ELIMF SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
+
+    python: 
+        renpy.pause(0.5)
+        chat_message("SYSTEM: ELIMF SAYS HORN IT UP")
+        renpy.play(horn_sound, channel="honk")
+        renpy.pause(0.5)
+
     $ chat_message("wnpep: last one... all done. huh ")
 
 
@@ -1799,6 +1829,7 @@ label day3_36:
     pause 2.0
 
     $ chat_message("SYSTEM: WNPEP offline") 
+    $ wnpep_online = False
 
     $ chat_message("incri: u didnt offer me a celebratory shot")
 
@@ -1916,6 +1947,7 @@ label day3_40B:
 
 
 label day3_41: 
+    $ wnpep_online = True 
 
     ## call time 
     jump go_to_call
