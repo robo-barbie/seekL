@@ -61,6 +61,7 @@ label start:
     pause 2
     #$ _preferences.afm_enable = True 
     $ _preferences.afm_enable = False 
+    $ _skipping = False
 
 
     show day1_glitch

@@ -1447,7 +1447,9 @@ style slider_vbox:
 ##
 ## https://www.renpy.org/doc/html/history.html
 
-
+init python: 
+    yadj_history = ui.adjustment() 
+    yadjValue_history = float("inf") 
 
 screen history():
     ## Ensure this appears on top of other screens.
@@ -1460,11 +1462,14 @@ screen history():
     ## Avoid predicting this screen, as it can be very large.
     predict False
 
+    python: 
+        yadj_history.value = yadjValue_history
+
     
 
     use game_menu(_("HISTORY")):#), scroll=("vpgrid_history" if gui.history_height else "viewport"), yinitial=1.0):
 
-        viewport: 
+        viewport yadjustment yadj_history: 
             style_prefix "history"
             mousewheel True 
             scrollbars "vertical"
