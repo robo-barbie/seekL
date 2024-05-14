@@ -9,14 +9,40 @@ label day5_seekLove_call:
     $ in_call = True 
     #$ chat_location = "DAY " +next_day_number+ " - CALL"
 
-    $ _preferences.afm_enable = False 
+    $ _preferences.afm_enable = True 
 
     pause 2 
+
+    play music "audio/music/Digital_Dream.mp3" loop fadein 2.0 fadeout 2.0 
+
+    pause 3
+
+    # show screen credits_1 with Dissolve(2.0) 
+    # pause 2 
+    # hide screen credits_1 with Dissolve(0.5)
+    
+    show screen credits_2 with Dissolve(2.0) 
+    pause 4
+    hide screen credits_2 with Dissolve(2.0)
+
+
+    # show screen credits_3 with Dissolve(2.0) 
+    # pause 2 
+    # hide screen credits_3 with Dissolve(0.5)
+
+    show screen credits_4 with Dissolve(2.0) 
+    pause 4
+    hide screen credits_4 with Dissolve(2.0)
+
+    show screen credits_5 with Dissolve(2.0) 
+    pause 2 
+    hide screen credits_5 with Dissolve(2.0)
+
+    pause 4
     menu: 
         "Hello?":
             pass
     $ first_line = False 
-    play music "audio/music/Digital_Dream.mp3" loop fadein 2.0 fadeout 2.0 
     
     voice "audio/voice/day5/o5-001.ogg"
     o "So you've held up your end of the bargain."

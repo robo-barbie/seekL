@@ -13,7 +13,7 @@ default wait_time_prev = 0
 #"#000000"
 default color_syntax = "c051ec"
 default color_help = "7be04d"
-default color_tables = "c051ec"
+default color_tables = "868ff9"
 
     # this is also for formatting 
 default current_window = "all"
@@ -233,10 +233,10 @@ init python:
             elif letter == "#": 
                 if not table_name_open:  
                     table_name_open = True 
-                    l_insert = "{color="+color_tables+"}{font=HELLO.ttf.ttf}"
+                    l_insert = "{color="+color_tables+"}"
                 else: 
                     table_name_open = False 
-                    l_insert = "{/font}{/color}"
+                    l_insert = "{/color}"
             elif code_block_open: 
                 seekL_recent_example = seekL_recent_example + letter 
                 l_insert = letter 

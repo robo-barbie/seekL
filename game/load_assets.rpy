@@ -23,6 +23,51 @@ image e_heart = "images/emote_heart.png"
 image e_letsgo = "images/emote_letsgo.png" 
 image e_orz = "images/emote_orz.png"
 
+## credits 
+# screen credits_1: 
+#     text "robobarbie\n{color=9b9b9b}lead, programming, text{/color}" xalign 0.5 text_align 0.5 yalign 0.5 
+
+screen credits_2: 
+    vbox: 
+        xalign 0.5
+        yalign 0.5 
+        spacing 40
+        text "robobarbie\n{color=9b9b9b}lead, programming, text{/color}" xalign 0.5 text_align 0.5
+        text "Allie Vera\n{color=9b9b9b}text, editing{/color}" xalign 0.5 text_align 0.5
+        text "saffeine_\n{color=9b9b9b}art, programming{/color}" xalign 0.5 text_align 0.5
+        text "HI-T3C\n{color=9b9b9b}music, sfx{/color}" xalign 0.5 text_align 0.5
+        text "Mike Young\n{color=9b9b9b}voice acting{/color}" xalign 0.5 text_align 0.5
+
+# screen credits_3: 
+#     vbox: 
+#         xalign 0.5
+#         yalign 0.5 
+#         spacing 40 
+#         text "HI-T3C\n{color=9b9b9b}music, sfx{/color}" xalign 0.5 text_align 0.5
+#         text "Mike Young\n{color=9b9b9b}voice acting{/color}" xalign 0.5 text_align 0.5
+
+screen credits_4: 
+    vbox: 
+        xalign 0.5
+        yalign 0.5 
+        spacing 40 
+        text "{color=9b9b9b}QA TEAM{/color}" xalign 0.5 text_align 0.5
+        text """Selendri
+sleepythefoxx
+Jeju
+Autumn
+Angela He
+Windchimes
+Bakatino
+Junter
+Cres
+Cath
+kc""" xalign 0.5 text_align 0.5
+
+screen credits_5: 
+    text "Destini Islands\n{color=9b9b9b}special thank u <3{/color}" xalign 0.5 yalign 0.5 text_align 0.5
+
+#"#9b9b9b"
 
 init python:
     my_room = ExtendedMusicRoom(channel='music', fadeout=2.0, fadein=1.0,
@@ -208,6 +253,14 @@ screen phonecall_window_real:
 screen black_window: 
     add "#000000"
     
+image sparkling: 
+    "gui/sparkle1.png"
+    pause 0.2 
+    "gui/sparkle2.png"
+    pause 0.2
+    "gui/sparkle3.png" 
+    pause 0.2 
+    Null()
     
 
 ########################################################

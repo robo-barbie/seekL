@@ -21,6 +21,8 @@ label wait_start:
         play sound "audio/sfx/message_notification_01_001 tutorial.ogg"
         show highlight_large onlayer screens: 
             pos highlight_frame_console_pos
+        show sparkling onlayer screens: 
+            pos highlight_frame_console_pos
         $ first_flash = False 
     
     # wait for input 
@@ -37,6 +39,7 @@ label wait_end:
     $ exec_needed = None
     $ exec_condition = None
     hide highlight_large onlayer screens 
+    hide sparkling onlayer screens 
     $ first_flash = True 
     $ player_is_waiting = False 
     $ _preferences.afm_enable = True 
