@@ -384,17 +384,18 @@ init python:
             #"#d6fa9d" 
         t = t_out 
         #t.replace("\"", "{color=ff9a41}\"{/color}")
-        active_window = c 
+        if "HORN IT UP" not in t0:
+            active_window = c 
 
         # pause briefly if we are swapping windows 
-        if last_window != active_window and chat_speed != 100: 
+        if last_window != active_window and chat_speed != 100 and n != "thrim" and n != "SYSTEM": 
             renpy.pause(2)
 
         wait_time = len(t0)/5/chat_speed
 
         if not is_player:
             # pause before displaying the message + change who is typing 
-            if ot != "" and chat_speed != 100: 
+            if ot != "" and chat_speed != 100 and n != "SYSTEM": 
                 set_is_typing(n + ", " + ot, wait_time, wait_time_prev, fastmode)
             elif n != "SYSTEM" and chat_speed != 100:
                 set_is_typing(n, wait_time, wait_time_prev, fastmode)
