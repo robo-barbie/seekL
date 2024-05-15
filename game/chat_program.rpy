@@ -384,7 +384,7 @@ init python:
             #"#d6fa9d" 
         t = t_out 
         #t.replace("\"", "{color=ff9a41}\"{/color}")
-        if "HORN IT UP" not in t0:
+        if "HORN IT UP" not in t0 and "EXTORTION SENT" not in t0:
             active_window = c 
 
         # pause briefly if we are swapping windows 
