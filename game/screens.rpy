@@ -1072,15 +1072,15 @@ style about_label_text:
 ## https://www.renpy.org/doc/html/screen_special.html#save https://
 ## www.renpy.org/doc/html/screen_special.html#load
 
-# init python:
-#     # custom save/load screens
+init python:
+    # custom save/load screens
 #     def add_save_image(d):
 #         d["save_image"] = "gui/new_main_menu/saves/" + route +  "_" + str(dayofweek_actual) + ".png"
 #     config.save_json_callbacks = [add_save_image]
 
-#     def add_save_text(d):
-#         d["save_text"] = chat_location
-#     config.save_json_callbacks = [add_save_text]
+    def add_save_text(d):
+        d["save_text"] = chat_location
+    config.save_json_callbacks = [add_save_text]
 
 screen save():
     ## Ensure this appears on top of other screens.
@@ -1154,10 +1154,10 @@ screen file_slots(title):
                             has vbox
 
                             # #add FileScreenshot(slot) xalign 0.5
-                            # text FileJson(slot, "save_text", empty=Null(), missing=Null()):
-                            #     yalign 1.0
-                            #     hover_color gui.hover_color
-                            #     color gui.insensitive_color
+                            text FileJson(slot, "save_text", empty=_("empty slot"), missing=_("empty slot")):
+                                yalign 1.0
+                                hover_color gui.hover_color
+                                color gui.insensitive_color
 
                             text FileTime(slot, format=_("{#file_time}%A, %B %d %Y, %H:%M"), empty=_("empty slot")):
                                 # style "slot_time_text"

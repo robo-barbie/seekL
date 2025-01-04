@@ -15,7 +15,7 @@ define config.mouse = { 'default' : [ ('gui/cursor.png', 0, 0)]}
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("seekL")
+define config.name = _("seekL-jeju")
 
 define config.keymap['input_next_line'] = ["K_RETURN", "K_KP_ENTER"]
 
@@ -45,7 +45,7 @@ define gui.about = _p("""
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
 
-define build.name = "seekL"
+define build.name = "seekL-jeju"
 
 
 ## Sounds and music ############################################################
